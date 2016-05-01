@@ -53,13 +53,250 @@
 					<h3 style="color:slategrey">
 						ArcGIS 10 for Economics Research
 					</h3>
+					<h3>
+						Lecture 1
+					</h3>
 					<h2>
-						Lecture 1: Introduction
+						Introduction
 					</h2>
+					<br>
 					<p>Masayuki Kudamatsu</p>
 					<p>3 May, 2016</p>
+					<br>
+					<p>
+						<small>Press SPACE to proceed. </small>
+						<br>
+						<small>To go back to the previous slide, press SHIFT+SPACE. </small>
+					</p>
 				</section>
 
+				<section id="road_map" style="text-align: left;">
+					<h3>
+						Today's road map
+					</h3>
+					<ol>
+						<li>
+							Why GIS for economics?
+						</li>
+						<li>
+							Satellite images and scanned old maps
+						</li>
+						<li>
+							Polygon, polyline, point, and raster
+						</li>
+						<li>
+							Coordinate systems
+						</li>						
+					</ol>
+				</section>
+			
+			<!-- SECTION 1 -->
+			<section>
+				<section id="section1">
+					<h1>
+						1. Why GIS for economics?
+					</h1>
+				</section>
+				
+				<section id="why_gis1" style="text-align: left;">
+					<h3>
+						Make more research questions feasible
+					</h3>
+					<p>
+						Use satellite images and old maps (this lecture)
+					</p>					
+					<p>
+						Merge different datasets spatially (lecture 2)
+					</p>
+					<ul>
+						<li>
+							e.g., weather data with survey data
+						</li>
+					</ul>
+				</section>
+				
+				<section id="why_gis2" style="text-align: left;">
+					<h3>
+						Make identification strategy more credible
+					</h3>
+					<p>
+						Control for more covariates / fixed effects (L2, L3, L5)
+					</p>					
+					<p>
+						Instruments (L4, L6)
+					</p>					
+					<p>
+						RD-design (L7)
+					</p>					
+					<p>
+						Estimate the spillover effect on the control group (L3)
+					</p>
+				</section>
+			</section>
+				
+			<!-- SECTION 1 -->
+			<section>
+				<section id="section2">
+					<h1>
+						2. Satellite images & old maps
+					</h1>
+				</section>
+
+				<section id="satellite1a" data-transition="slide-in fade-out" style="text-align: left">
+					<h4>
+						Satellite image example #1
+					</h4>
+					<h3>Deforestation in Indonesia</h3>
+					<h6>(<a href="http://dx.doi.org/10.1093/qje/qjs034" target="_blank">Burgess et al. 2012</a>)</h6>
+					<p>
+						# of districts in a province $\uparrow$
+					</p>
+					<p>
+					$\Rightarrow$ Each district govt official engages in Cournot competition in selling (illegal) logging permits
+					</p>
+					<p>
+					$\Rightarrow$ Deforestation in the province $\uparrow$
+					</p>
+				</section>
+
+				<section id="satellite1b" data-transition="fade" style="text-align: left">
+					<p>
+						Cannot rely on official stats of logging
+					</p>
+					<p>
+					$\Rightarrow$ Use satellite image
+					</p>
+					<ul style="margin-left: 85px;">
+						<li>
+							Spatial resolution: 250m x 250m pixel
+						</li>
+						<li>
+							Data: electromagnetic radiation strength in 36 bands of spectrum
+						</li>
+						<li>
+							Develop algorithm to convert radiation patterns to forest coverage
+						</li>
+					</ul>
+
+				</section>
+
+				<section id="satellite1c" data-transition="fade" >
+					<h4>
+						Pixel-level data on deforestation
+					</h4>
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2001a.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+							<td>
+								<img src="gis_lecture1/forest2008a.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+					</table>
+					<p>
+						<small>(Figure I of Burgess et al. 2012) </small>
+					</p>
+				</section>					
+
+				<section id="satellite1d" data-transition="slide-out fade-in" >
+					<h4>
+						District-level data on deforestation
+					</h4>
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2001b.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2008b.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+							</td>
+						</tr>
+					</table>
+					<p>
+						<small>(Figure II of Burgess et al. 2012) </small>
+					</p>
+				</section>	
+
+				<section id="satellite2a" data-transition="slide-in fade-out" style="text-align: left">
+					<h4>
+						Satellite image example #2
+					</h4>
+					<h3>Nighttime light 1992</h3>
+					<p><small>(Source: <a href="http://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html" target="_blank">Version 4 DMSP-OLS Nighttime Lights Time Series</a>)</small></p>
+								<img src="gis_lecture1/lights1992.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+
+				<section id="satellite2b" data-transition="fade" style="text-align: left">
+					<h4>
+						Satellite image example #2
+					</h4>
+					<h3>Nighttime light 2013</h3>
+					<p><small>(Source: <a href="http://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html" target="_blank">Version 4 DMSP-OLS Nighttime Lights Time Series</a>)</small></p>
+								<img src="gis_lecture1/lights2013.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+
+				<section id="satellite2c" data-transition="slide-out fade-in" style="text-align: left">
+					<h4>
+						Nighttime light in top 5 econ journals
+					</h4>
+					<p>
+					<a href="http://dx.doi.org/10.1257/aer.102.2.994" target="_blank">Henderson et al (2012)</a>: correlate with real GDP growth
+					</p> 
+					<p>
+					Michalopoulos & Papaioannou (<a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a>, <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>), <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al (2016)</a>: measure ethnicity-level development in Africa
+					</p> 
+					<p>
+					<a href="http://dx.doi.org/10.1093/qje/qju004" target="_blank">Hodler & Raschky (2014)</a>: Presidents make their home region brighter
+					</p> 
+					<aside class="notes">
+						<ul>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section id="satellite3a" data-transition="slide-in fade-out" style="text-align: left">
+					<h4>
+						Satellite image example #3
+					</h4>
+					<h3>Wind speed/direction in oceans</h3>
+					<h6>(<a href="http://dx.doi.org/10.1162/rest.91.2.245" target="_blank">Feyrer & Sacerdote 2009</a>)</h6>
+					<p>
+						Estimate the impact of European colonial rules on per capita GDP today for islands
+					</p>
+					<p>
+					Wind patterns as instruments for the length of colonization
+					</p>
+					<p>
+					Use CERSAT to create instruments
+					</p>
+				</section>				
+				<section id="satellite3b" data-transition="slide-out fade-in" >
+					<h4>
+						CERSAT wind data for August 2001
+					</h4>
+					<img src="gis_lecture1/cersat2001aug.png" style="border: none; background: none; box-shadow:none;">					
+					<p>
+						<small>(source: <a href="http://cersat.ifremer.fr/" target="_blank">CERSAT website</a>)</small>
+					</p>
+					<aside class="notes">
+						<ul>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+				
+				
 			</div>
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
