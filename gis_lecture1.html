@@ -5,9 +5,9 @@
 		<meta charset="utf-8">
 
 		<!-- For Google search results -->
-		<title>ENTER THE TITLE</title>
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<title>ArcGIS for Economics: Lecture 1</title>
+		<meta name="description" content="Basics of ArcGIS for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -294,7 +294,139 @@
 						</ul>
 					</aside>
 				</section>
+				
+				<section id="oldmap1a" data-transition="slide-in fade-out" style="text-align: left">
+					<h4>
+						Old map example #1
+					</h4>
+					<h3>Road building in Kenya</h3>
+					<h6>(<a href="http://dx.doi.org/10.1257/aer.20131031" target="_blank">Burgess et al. 2015</a>)</h6>
+					<p>
+						Digitize Michelin maps for Kenya since 1961
+					</p>
+					<p>
+						Then track road network expansion over time to see if the president's ethnic group sees more roads built than other groups
+					</p>
+				</section>
+
+				<section id="oldmap1b" data-transition="slide-out fade-in" >
+					<h4>
+						Digitizing old maps
+					</h4>
+					<img src="gis_lecture1/BurgessRoads1.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<p>
+						<small>(source: <a href="siteresources.worldbank.org/DEC/Resources/84797-1257266550602/JedwabR.pdf" target="_blank">Remi Jedwab's presentation slide</a>)</small>
+					</p>
+					<aside class="notes">
+						<ul>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ul>
+					</aside>
+				</section>
+				
+				<section id="oldmap2a" data-transition="slide-in fade-out" style="text-align: left">
+					<h4>
+						Old map example #2
+					</h4>
+					<h3>Ethnic homelands in Africa</h3>
+					<p>
+						Drawn by <a href="https://books.google.com/books?id=RdTGQic7KMUC" target="_blank">Murdock (1959)</a>
+					</p>
+					<p>
+						Digitized by <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a>, to match ethnicity-level data on slave trade with country-level data (lecture 4)
+					</p>
+					<p>
+						Also used by <a href="http://dx.doi.org/10.1257/aer.101.7.3221" target="_blank">Nunn & Wantchekon (2011)</a>, Michalopoulos & Papaioannou (<a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a>, <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>, <a href="http://www.nber.org/papers/w17620" target="_blank">2015</a>), <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al (2016)</a>
+					</p>
+				</section>
+
+				<section id="oldmap2b" data-transition="slide-out fade-in" >
+					<h4>
+						Ethnic homeland & country boudaries
+					</h4>
+					<img src="gis_lecture1/ethnicboundary.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<p>
+						<small>Figure II of <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a></small>
+					</p>
+					<aside class="notes">
+						<ul>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ul>
+					</aside>
+				</section>
+				
+				<section id="practical_tips" style="text-align: left;">
+					<h3>
+						Practical advice
+					</h3>
+					<p>
+						<strong>Satellite images</strong>: some are freely available but very costly (time & money) to process
+					</p>					
+					<ul>
+						<li>
+							See <a href="http://gisgeography.com/free-satellite-imagery-data-list/" target="_blank">"15 Free Satellite Imagery Data Sources"</a> by GIS Geography
+						</li>
+					</ul>
+					<p>
+						<strong>Old maps</strong>: digitizing is also time-consuming but feasible with patience
+					</p>
+					<ul>
+						<li>
+							See pages 8-10 of <a href="http://www.library.yale.edu/MapColl/files/docs/03-Geocoding%20&%20Georeferencing%20in%20ArcGIS.pdf" target="_blank">Yale Map Collection (2009)</a>
+						</li>
+					</ul>
+					<p>
+						$\Rightarrow$ This course at least helps you <strong>use</strong> these datasets
+					</p>
+				</section>
+				
 			</section>
+			
+				<section id="gis_software" style="text-align: left;">
+					<h3>
+						GIS Software
+					</h3>
+					<p>
+						<strong>ArcGIS</strong>
+					</p>					
+					<ul>
+						<li>
+							Python-friendly
+						</li>
+						<li>
+							Buggy; expensive; tricky to create map images; Windows only
+						</li>						
+					</ul>
+					<p>
+						<strong>QGIS</strong>
+					</p>					
+					<ul>
+						<li>
+							Free; easy to create map images; compatible with any OS
+						</li>
+						<li>
+							Python-unfriendly
+						</li>
+						<li>
+							Tutorial: <a href="http://www.qgistutorials.com" target="_blank">www.qgistutorials.com</a>
+						</li>						
+					</ul>
+					<p>
+						<strong>R</strong>
+					</p>					
+					<ul>
+						<li>
+							Textbook: <a href="https://books.google.se/books?id=kje2ngEACAAJ" target="_blank">Brunsdon & Comber (2015)</a>
+						</li>						
+					</ul>
+				</section>
+				
 				
 				
 			</div>
