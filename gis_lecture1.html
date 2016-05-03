@@ -482,10 +482,10 @@
 					<h3>
 						Vector vs Raster
 					</h3>
-					<p>Spatial data comes in two different types</p>
+					<p>Spatial data comes in two different formats</p>
 					<img src="gis_lecture1/vector-raster.jpg" style="border: none; background: none; box-shadow:none; width: 300px;">
 					<p>How to edit data differs a lot between them</p>
-					<p>We now learn how to browse spatial datasets in ArcGIS while learning these different types of spatial data
+					<p>We now learn how to browse spatial datasets in ArcGIS while learning these different formats of spatial data
 				</section>
 
 				<section id="vector" style="text-align: left;">
@@ -712,6 +712,10 @@
 								If location names are available
 							</li>
 							<li>
+								Examples:
+							</li>
+							<ul>	
+							<li>
 								<a href="http://www.geonames.com" target="_blank">Geonames</a>
 							</li>
 							<li>
@@ -720,6 +724,7 @@
 							<li>
 								<a href="http://dma.jrc.it/services/fuzzyg/" target="_blank">JRC Fuzzy Gazetteer</a>
 							</li>
+							</ul>
 						</ul>
 				</section>
 			
@@ -1108,7 +1113,7 @@
 					</ol>					
 				</section>
 
-				<section id="ex4b" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex4b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #4 (cont.)
 					</h4>
@@ -1201,8 +1206,13 @@
 						What is a coordinate system?
 					</h3>
 					<p>Earth is a sphere (approximately)</p>					
-					<p>Various ways to represent the earth surface two-dimensionally</p>
+					<p>Various ways to <em>two-dimensionally</em> represent the earth surface </p>
 					<p>Each way corresponds to a <strong>coordinate system</strong>
+					<ul style="margin-left: 60px;">
+						<li>
+							aka. spatial reference / map projection
+						</li>
+					</ul>										
 				</section>
 				
 				<section id="cs2" style="text-align: left;">
@@ -1216,7 +1226,9 @@
 						</li>
 					</ul>										
 					<p>To calculate distance and surface area properly</p>
-					<br>
+				</section>
+
+				<section id="cs3" style="text-align: left;">
 					<h3>
 						Two types of coordinate systems
 					</h3>
@@ -1229,32 +1241,36 @@
 						</li>
 					</ol>
 				</section>
-
-				<section id="geographc_cs" style="text-align: left;">
+				
+				<section id="geographc_cs1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Geographic Coordinate Systems
 					</h3>
 					<p>
 						Each location is coded by degrees
 					</p>
-					<ul style="margin-left: 60px;">
-						<li>
-							Gothenburg: (57&deg42'32'' N, 11&deg58'28'' E)
-						</li>
-					</ul>										
+					<p style="margin-left: 60px;">
+							e.g., Gothenburg: 57&deg42'32'' N / 11&deg58'28'' E
+					</p>										
 					<p>
 						Not suitable for calculating surface area
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							1&deg in latitude: 110.6km at equator, 111.7km at the poles							
+							<span style="font-size: 1.5em">1&deg</span> in lat: <span style="font-size: 1.5em">110.6</span>km at equator / <span style="font-size: 1.5em">111.7</span>km at poles							
 						</li>
 						<li>
-							1&deg in longitude: 111.3km at equator, 55.8km at 60&deg N/S 
+							<span style="font-size: 1.5em">1&deg</span> in lon: <span style="font-size: 1.5em">111.3</span>km at equator / <span style="font-size: 1.5em">55.8</span>km at 60&deg N/S 
 						</li>
 					</ul>										
+				</section>
+				
+				<section id="geographc_cs2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						Geographic Coordinate Systems (cont.)
+					</h3>
 					<p>
-						Useful for calculating distance between two locations
+						But useful for calculating distance between two locations
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
@@ -1335,7 +1351,7 @@
 					</ul>
 				</section>
 															
-				<section id="equal_area1" style="text-align: left;">
+				<section id="equal_area1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Equal area projections
 					</h3>
@@ -1347,7 +1363,7 @@
 					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">										
 				</section>
 				
-				<section id="equal_area2" style="text-align: left;">
+				<section id="equal_area2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Equal area projections
 					</h3>
@@ -1359,7 +1375,7 @@
 					<img src="gis_lecture1/lambert.jpg" style="border: none; background: none; box-shadow:none;">										
 				</section>
 
-				<section id="equal_area3" style="text-align: left;">
+				<section id="equal_area3" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Equal area projections
 					</h3>
@@ -1538,7 +1554,7 @@
 					</p>
 				</section>
 
-				<section id="ex8a" style="text-align: left;">
+				<section id="ex8a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #8
 					</h4>
@@ -1576,7 +1592,7 @@
 					</ol>
 				</section>
 
-				<section id="ex8b" style="text-align: left;">
+				<section id="ex8b" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #8 (cont.)
 					</h4>
@@ -1720,7 +1736,7 @@
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false, // Disable the navigation arrows on bottom right
 				progress: true,
 				history: true,
 				center: true,
