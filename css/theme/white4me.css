@@ -96,10 +96,10 @@ body {
   list-style-type: decimal; }
 
 .reveal ul {
-  list-style-type: disc; }
+  list-style-type: circle; }
 
 .reveal ul ul {
-  list-style-type: square; }
+  list-style-type: circle; }
 
 .reveal ul ul ul {
   list-style-type: circle; }
