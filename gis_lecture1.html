@@ -134,7 +134,7 @@
 				</section>
 			</section>
 				
-			<!-- SECTION 1 -->
+			<!-- SECTION 2 -->
 			<section>
 				<section id="section2">
 					<h1>
@@ -427,8 +427,1268 @@
 					</ul>
 				</section>
 				
+				<section id="preparation1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<ol>
+						<li>
+							<a href="https://www.dropbox.com/s/zhlsbcph9qwv4wv/Lecture1.zip" target="_blank">Download the zipped dataset for lecture 1</a>
+						</li>
+						<li>
+							Extract it in Windows Explore, and you'll see:
+						</li>
+						<ul>
+							<li>10m-rivers-lake-centerlines.zip</li>
+							<li>F162008.v4.tar</li>
+							<li>g2009_1990_2.zip</li>
+							<li>g2009_2008_0.zip</li>
+							<li>geo_cepii.xls</li>
+							<li>gl_gpwfe_pdens_05_ascii_half.zip</li>
+						</ul>						
+					</ol>
+							<p>Windows Explorer may hide ".zip" or ".tar" from file names</p>
+				</section>
 				
+				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<ol start="3">
+						<li>
+							Extract all the .zip files
+						</li>
+						<ul>
+							<li>F162008.v4.tar is also a compressed file, but we will uncompress this file later.</li>
+						</ul>						
+						<li>
+							Launch ArcMap 10 (it takes time)
+						</li>
+						<li>
+							Take a 10 minute break
+						</li>
+					</ol>
+				</section>
+
+			<!-- SECTION 3 -->
+			<section>
+				<section id="section3">
+					<h1>
+						3. Polygon, polyline, point, and raster
+					</h1>
+				</section>
+
+				<section id="datatype" style="text-align: left;">
+					<h3>
+						Vector vs Raster
+					</h3>
+					<p>Spatial data comes in two different types</p>
+					<img src="gis_lecture1/vector-raster.jpg" style="border: none; background: none; box-shadow:none; width: 300px;">
+					<p>How to edit data differs a lot between them</p>
+					<p>We now learn how to browse spatial datasets in ArcGIS while learning these different types of spatial data
+				</section>
+
+				<section id="vector" style="text-align: left;">
+					<h3>
+						Vector data
+					</h3>
+					<p>
+						Each spatial unit in vector data is called a <strong>feature</strong>
+					</p>					
+					<p>
+						Three types of a feature:					
+					</p>					
+						<ol style="margin-left: 60px;">
+							<li>Polygon</li>
+							<li>Polyline</li>
+							<li>Point</li>
+						</ol>
+					<p>
+						A set of features of the same type: a <strong>feature class</strong>
+					</p>
+					<p>
+						File format: <strong>Shapefile</strong> (.shp)
+					</p>
+				</section>
+
+				<section id="polygon" style="text-align: left;">
+					<h4>
+					Vector data #1	
+					</h4>
+					<h3>
+						Polygon features
+					</h3>
+					<p>
+						Represent geographic zones
+					</p>					
+						<ul>
+							<li>Countries (L4 & L5)</li>
+							<li>Sub-national districts (L6)</li>
+							<li>Ethnic homelands (L4 & L5)</li>
+							<li>Lakes, Islands, etc.</li>
+						</ul>
+				</section>
+
+				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1
+					</h4>
+					<h3>
+						Browse polygon features
+					</h3>
+					<p>
+						Data to be read: Global Administrative Unit Layers (GAUL)
+					</p>					
+						<ul>
+							<li>
+								National boundaries for 2008 (g2009_2008_0/g2008_0.shp)
+							</li>
+							<li>
+								Sub-national boundaries for 1990 (g2009_1990_2/g1990_2.shp)
+							</li>
+						</ul>
+					<p>
+						Drag these files in Catalog Window to Data Frame
+					</p>
+						<ul>
+							<li>
+								If you don't see Catalog Window, click "Windows" in the menu bar. 
+							</li>
+							<li>
+								If you don't see the data directory, right-click "Folder Connections" and click "Connect To Folder..."
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex1b" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Ignore the alert message "Unknown Spatial Reference" for the moment, by clicking OK. 
+					</p>					
+					<p>
+						We'll come back to this issue later in this lecture.
+					</p>
+				</section>
+
+				<section id="polyline" style="text-align: left;">
+					<h4>
+					Vector data #2	
+					</h4>
+					<h3>
+						Polyline features
+					</h3>
+					<p>
+						Represent networks / routes
+					</p>					
+						<ul>
+							<li>Roads (L7)</li>
+							<li>Rivers (L6)</li>
+							<li>Coastlines (L4)</li>
+						</ul>
+				</section>
+
+				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2
+					</h4>
+					<h3>
+						Browse polyline features
+					</h3>
+					<p>
+						Data to be read: Natural Earth's Rivers and Lake Centerlines data (10m_rivers_lake_centerlines.shp)
+					</p>					
+					<p>
+						Browse this data (cf. Exercise 1)
+					</p>
+					<p>
+						Uncheck the subnational boundary data in Table of Contents
+					</p>
+						<ul>
+							<li>
+								If you don't see Table of Contents, click "Windows" in the menu bar. 
+							</li>
+						</ul>
+					<p>
+						$\Rightarrow$ Now rivers are shown on national boundaries.
+					</p>
+				</section>
+
+				<section id="ex2b" data-transition="fade" style="text-align: left;">
+					<p>
+						Change the color of rivers to blue.
+					</p>					
+						<ul>
+							<li>
+								Click the symbol (in this case, colored line) just below the data name in Table of Contents.
+							</li>
+							<li>
+								Choose the preferred color.
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex2c" data-transition="slide-out fade-in" style="text-align: left;">
+					<p>
+						If you read the river data first and then the national boundary data, the river data would be hidden below the national boundary data.
+					</p>					
+						<ul>
+							<li>
+								In the Table of Contents window (the one on the left), drag the river data and drop it above the national boundary data.
+							</li>
+							<li>
+								Then rivers will show up 
+							</li>
+						</ul>
+					<p>
+						If you cannot drag the data in the Table of Contents window, check if the List By Drawing Order icon is selected on top left.
+					</p>
+					<img src="gis_lecture1/toc.png" style="border: none; background: none; box-shadow:none; width: 400px;">					
+				</section>
+
+				<section id="point" style="text-align: left;">
+					<h4>
+					Vector data #3	
+					</h4>
+					<h3>
+						Point features
+					</h3>
+					<p>
+						Represent point location
+					</p>					
+						<ul>
+							<li>Plots (L3)</li>
+							<li>Schools (L3)</li>
+							<li>Cities (Exercise #3 below)</li>
+							<li>Centroid of polygon (L4 & L6)</li>
+						</ul>
+					<p>
+						Can easily be created from <strong>XY data</strong>
+					</p>					
+				</section>
+
+				<section id="xydata1" style="text-align: left;">
+					<h3>
+						What is XY Data?
+					</h3>
+					<p>
+						Each row: point feature
+					</p>					
+					<p>
+						Column 1: longitude (x value)
+					</p>					
+					<p>
+						Column 2: latitude (y value)
+					</p>					
+					<p>
+						Other columns: attributes of point feature
+					</p>					
+						<ul>
+							<li>Locaiton name</li>
+							<li>Statistics</li>
+							<li>Key</li>
+							<li>Foreign key</li>
+						</ul>
+				</section>
+
+				<section id="xydata2" style="text-align: left;">
+					<h3>
+						How to obtain longitude & latitude?
+					</h3>					
+					<p>
+						<strong>GPS receiver</strong>
+					</p>
+						<ul>
+							<li>
+								If you conduct your own survey
+							</li>
+						</ul>
+					<p>
+						<strong>Online gazetteer</strong>
+					</p>
+						<ul>
+							<li>
+								If location names are available
+							</li>
+							<li>
+								<a href="http://www.geonames.com" target="_blank">Geonames</a>
+							</li>
+							<li>
+								<a href="http://www.fallingrain.com/world" target="_blank">Global Gazetteer Version 2.3</a>
+							</li>
+							<li>
+								<a href="http://dma.jrc.it/services/fuzzyg/" target="_blank">JRC Fuzzy Gazetteer</a>
+							</li>
+						</ul>
+				</section>
+			
+			<section id="xydata3" data-transition="slide-in fade-out" style="text-align: left;">
+				<h3>
+					To import XY data to ArcGIS
+				</h3>
+				<p>
+					Data format: Tab-delimited text / Excel worksheet
+				</p>					
+					<ul>
+						<li>
+							Comma delimited text: sometimes work, sometimes don't  
+						</li>
+						<li>
+							From Stata, use the "outsheet" command
+						</li>
+						<ul>
+							<li>
+								ArcGIS may round off longitude & latitude values
+							</li>
+							<li>
+								Use the "format" command to avoid this.
+							</li>
+						</ul>
+					</ul>
+					<img src="gis_lecture1/outsheet.png" style="border: none; background: none; box-shadow:none; width: 800px;">
+					<small>Code example for 10 dicimal digits for longitude/latitude</small>				
+			</section>
+
+			<section id="xydata4" data-transition="slide-out fade-in" style="text-align: left;">
+				<h3>
+					To import XY data to ArcGIS (cont.)
+				</h3>
+				<p>
+					To convert XY data into a point feature class, use:
+				</p>					
+					<ul>
+						<li>
+							Make XY Event Layer
+						</li>
+						<li>
+							Copy Features
+						</li>
+					</ul>
+				<p>
+					These are examples of <strong>geo-processing tools</strong>
+				</p>
+			</section>
+
+				<section id="ex3a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3
+					</h4>
+					<h3>
+						Convert XY data into point features
+					</h3>
+					<p>
+						Data to be read: CEPII Distances Database (geo_cepii.xls)         
+					</p>					
+					<p>
+						Browse the data in Excel
+					</p>
+						<ul>
+							<li>
+								Which columns for longitude and latitude? 
+							</li>
+						</ul>
+					<p>
+						To implement geo-processing tools, we use <strong>Model Builder</strong>
+					</p>
+						<ul>
+							<li>
+								Model Builder helps us program in Python (L2).
+							</li>
+						</ul>
+				</section>
+
+				<section id="modelbuilder1" data-transition="fade" style="text-align: left;">
+					<h3>
+						How to use Model Builder (1/4)
+					</h3>
+					<ol>
+						<li>
+							Click <img src="gis_lecture1/modelbuilder.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;"> in the Standard Toolbar.
+						</li>
+						<li>
+							In Search Window, type the name of the geoprocessing tool and search.
+						</li>
+						<ul>
+							<li>
+								If you don't see Search Window, click "Windows" in the menu bar. 
+							</li>
+						</ul>
+						<li>
+							Drag the tool from Search Window to Model Builder
+						</li>
+						<li>
+							Double-click the tool to set inputs, outputs, options etc.
+						</li>
+					</ol>
+				</section>			
+
+				<section id="makexy1" data-transition="fade" style="text-align: left;">
+					<h3>
+						Make XY Event Layer
+					</h3>
+					<p><strong>XY Table</strong>: geo_cepii.xls/geo_cepii$</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							For an Excel file, double click it to choose a worksheet inside 							
+						</li>
+					</ul>
+					<p><strong>X Field</strong>: lon</p>
+					<p><strong>Y Field</strong>: lat</p>
+					<p><strong>Spatial Reference</strong>: WGS 1984</p>
+					<ol style="margin-left: 60px;">
+						<li>
+							Click <img src="gis_lecture1/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">						
+						</li>
+						<li>
+							Navigate to Geographic Coordinate Systems > World > WGS 1984
+						</li>
+					</ul>
+				</section>
+
+				<section id="modelbuilder2" data-transition="fade" style="text-align: left;">
+					<h3>
+						How to use Model Builder (2/4)
+					</h3>
+					<p>
+						If you don't know what to fill in on the geo-processing tool window:
+					</p>
+					<ol>
+						<li>
+							Click "Show Help >>" on the bottom right
+						</li>
+						<li>
+							Click the input field you don't understand
+						</li> 
+						<li>							
+							The help document appears on the right column.
+						</li>
+					</ol>
+				</section>			
+
+				<section id="makexy2" data-transition="fade" style="text-align: left;">
+					<h3>
+						Make XY Event Layer (cont.)
+					</h3>
+					<p>This tool creates a temporary <strong>layer</strong> out of XY data</p>
+					<p>But the layer often doesn't properly work with other tools
+					<p>We also want to save the point feature class in the disk</p>
+					<p>$\Rightarrow$ Always use the Copy Features tool next to convert the layer into a shapefile data
+				</section>
 				
+				<section id="copyfeatures1" data-transition="fade" style="text-align: left;">
+					<h3>
+						Copy Features
+					</h3>
+					<p><strong>Input Features</strong>: the output from the Make XY Event Layer</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Use the drop-down menu, to specify the input that's already in the Model
+						</li>
+					</ul>
+					<p><strong>Output Feature Class</strong>: ***.shp</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Always save newly created spatial data files in a folder different from the one for original input files
+						</li>
+					</ul>
+					<p>
+						Ignore other options. Rarely used.
+					</p>
+				</section>
+
+				<section id="copyfeatures2" data-transition="fade" style="text-align: left;">
+					<h3>
+						Copy Features (cont.)
+					</h3>
+					<p>
+						This tool is also useful if you want to keep the original data intact (Exercise #6 below)
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Some geo-processing tools overwrite the input data... 
+						</li>
+					</ul>
+				</section>						
+
+				<section id="modelbuilder3" data-transition="fade" style="text-align: left;">
+					<h3>
+						How to use Model Builder (3/4)
+					</h3>
+					<p>
+						To save the model:
+					</p>
+					<ol>
+						<li>
+							Click the save icon
+						</li>
+						<li>
+							Navigate to the directory in which you will save the model
+						</li>
+						<li>
+							Click the toolbox icon (red box at top-right)
+						</li>
+						<li>
+							Create a new toolbox (name it, say, lec1.tbx)
+						</li>
+						<li>
+							Click this toolbox
+						</li>
+						<li>
+							Type the file name for the model
+						</li>
+					</ol>
+					<p>
+						A model can only be saved inside the toolbox.
+					</p>
+					<p>
+						Save frequently; ArcGIS often crashes.
+					</p>
+				</section>			
+
+				<section id="modelbuilder4" data-transition="fade" style="text-align: left;">
+					<h3>
+						How to use Model Builder (4/4)
+					</h3>
+					<p>
+						To edit an existing model:
+					</p>
+					<ol>
+						<li>
+							Locate the model in Catalogue Window
+						</li>
+						<ul>
+							<li>								
+								If you cannot see a new folder/file you just created, right-click the parent directory and "Refresh".
+							</li>
+						</ul>
+						<li>
+							Right-click the model	
+						</li>
+						<li>
+							Click "Edit" (NOT "Open")
+						</li>
+					</ol>
+				</section>	
+				
+				<section id="ex3last" data-transition="fade" style="text-align: left;">
+					<h4>
+					Exercise #3 (cont.)
+					</h4>
+					<p>
+						Now run the Model by cliking the triangle icon at top right
+					</p>
+					<p>
+						Browse the output point feature shapefile
+					</p>
+					<p>
+						Capital cities (and other major cities) around the world should appear as point features. 
+					</p>
+				</section>	
+
+				<section id="attribute_table" style="text-align: left;">
+					<p>
+					One more thing about vector data...
+					</p>
+					<h3>
+						Attribute Table
+					</h3>
+					<p>
+						Contains <strong>fields</strong> (i.e. variables) which can take a different value for each feature
+					</p>
+					<p>
+						To browse in ArcMap:
+					</p>
+					<ol style="margin-left: 60px;">
+						<li>
+							right-click the data in Table of Contents
+						</li>
+						<li>
+							click "Open Attribute Table..."
+						</li>
+					</ol>
+				</section>
+
+				<section id="raster1" style="text-align: left;">
+					<h3>
+						Raster data
+					</h3>
+					<p>
+						Divides the earth surface into many "square" cells (or pixels)
+					</p>					
+					<p>
+						Each cell contains one value
+					</p>					
+					<p>
+						Often created from satellite images
+					</p>
+					<p>
+						Examples:
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Elevation (L6, L8)
+						</li>
+						<li>
+							Suitability for agriculture (L5, L8)
+						</li>
+						<li>
+							Population density (L5)
+						</li>
+						<li>
+							Forest coverage (this lecture)
+						</li>
+						<li>
+							Nighttime light (this lecture, L8)
+						</li>
+					</ul>
+					<p>
+						Can be used to create a new variable for vector data (L5)
+					</p>
+				</section>
+
+				<section id="raster2" style="text-align: left;">
+					<h3>
+						File format for raster
+					</h3>
+					<p>
+						Most file formats can be browsed in ArcMap
+					</p>					
+					<ul style="margin-left: 60px;">
+						<li>
+							TIFF (.tif)
+						</li>
+						<li>
+							ESRI Grid (no extension)
+						</li>
+						<ul style="margin-left: 60px;">
+							<li>
+								File name cannot be longer than 13 characters
+							</li>
+							<li>
+								File structure is very complicated when browsed in Windows Explore
+							</li>
+						</ul>
+					</ul>
+					<p>
+						$\Rightarrow$ I recommend using TIFF format
+					</p>
+					<p>
+						For the ASCII format (.asc), you need to convert (Excercise #5 below)
+					</p>					
+				</section>
+
+				<section id="ex4a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4
+					</h4>
+					<h3>
+						Browse TIFF raster
+					</h3>
+					<p>
+						Data to be read: DMSP-OLS nighttime light for year 2008         
+					</p>
+					<ol>
+						<li>
+						Extract F162008.v4.tar							
+						</li>
+						<ul>
+							<li>
+								Creates three .gz files and three .tfw files.
+							</li>
+						</ul>
+						<li>
+						Extract .gz files to <strong>the same folder as .tfw files are located</strong>							
+						</li>
+						<ul>
+							<li>
+								The .tfw file allows ArcMap to read a TIFF image of the same file name as geo-referenced <span style="font-size: 0.75em">(see <a href="http://gis.ess.washington.edu/data/raster/drg/tfw.html" target="_blank">Greenberg 2003</a> for detail)</span>
+							</li>
+						</ul>
+					</ol>					
+				</section>
+
+				<section id="ex4b" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4 (cont.)
+					</h4>
+					<ol start="3">
+						<li>
+						In ArcMap, read F162008.v4b_web.stable_lights.avg_vis.tif
+						</li>
+						<li>
+						You'll be asked whether to "build pyramids"
+						</li>
+						<ul>
+							<li>
+								If yes, displaying raster data becomes faster
+							</li>
+						</ul>
+					</ol>					
+				<img src="gis_lecture1/pyramids.png" style="border:none; background:none; box-shadow:none; width:600px;">
+				</section>
+
+				<section id="ex5a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5
+					</h4>
+					<h3>
+						Browse ASCII raster
+					</h3>
+					<p>
+						Data to be read: population density in 2005 (gl_gpwfe_pdens_05_ascii_half/glds05ag30.asc)         
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Source: Gridded World of the Population
+						</li>
+					</ul>					
+					<p>
+						Use the <strong>ASCII to Raster</strong> tool
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+						<strong>Output raster</strong>: add ".tif" to save in the TIFF format						
+						</li>
+						<li>
+						<strong>Data type</strong>: FLOAT						
+						</li>
+						<ul>
+							<li>
+								Population density can be decimal
+							</li>
+						</ul>
+					</ul>					
+				</section>
+
+				<section id="ex5b" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+					Exercise #5 (cont.)
+					</h4>
+					<p>
+						When you read the converted population raster data, you may get an error message saying, "Spatial reference is undefined." 
+					</p>
+					<p>
+						We'll come back to this issue shortly.
+					</p>
+				</section>
+
+				<section id="raster3" style="text-align: left;">
+					<h3>
+					Raster in Stata
+					</h3>
+					<p>
+						Stata can read raster in the ASCII format, with <strong>ras2dta</strong> ado (<a href="http://www.stata-journal.com/sjpdf.html?articlenum=dm0014" target="_blank">Muller 2005</a>)
+					</p>
+					<p>
+						Each cell becomes one row in Stata
+					</p>
+					<p>
+						To export raster as the ASCII format, use <strong>Raster to ASCII</strong>
+					</p>
+				</section>
+				
+			</section>
+			<section>
+				<section id="section4">
+					<h1>
+						4. Coordinate systems
+					</h1>
+				</section>
+
+				<section id="cs1" style="text-align: left;">
+					<h3>
+						What is a coordinate system?
+					</h3>
+					<p>Earth is a sphere (approximately)</p>					
+					<p>Various ways to represent the earth surface two-dimensionally</p>
+					<p>Each way corresponds to a <strong>coordinate system</strong>
+				</section>
+				
+				<section id="cs2" style="text-align: left;">
+					<h3>
+						Why important?
+					</h3>
+					<p>To merge different spatial datasets accurately</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Apple Map did this wrong when it was launched in 2012
+						</li>
+					</ul>										
+					<p>To calculate distance and surface area properly</p>
+					<br>
+					<h3>
+						Two types of coordinate systems
+					</h3>
+					<ol>
+						<li>
+							Geographic
+						</li>
+						<li>
+							Projected
+						</li>
+					</ol>
+				</section>
+
+				<section id="geographc_cs" style="text-align: left;">
+					<h3>
+						Geographic Coordinate Systems
+					</h3>
+					<p>
+						Each location is coded by degrees
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Gothenburg: (57&deg42'32'' N, 11&deg58'28'' E)
+						</li>
+					</ul>										
+					<p>
+						Not suitable for calculating surface area
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							1&deg in latitude: 110.6km at equator, 111.7km at the poles							
+						</li>
+						<li>
+							1&deg in longitude: 111.3km at equator, 55.8km at 60&deg N/S 
+						</li>
+					</ul>										
+					<p>
+						Useful for calculating distance between two locations
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Use great-circle distance formula (L4)						
+						</li>
+						<li>
+							Can be obtained by Stata ado <strong>globdist</strong>
+						</li>
+					</ul>
+					<p>
+						<strong>WGS 1984</strong>: most popular
+					</p>										
+				</section>
+				
+				<section id="projected_cs1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Projected Coordinate Systems
+					</h3>
+					<p>
+						Earth surface is projected by the "light" from the center of the earth on <em>cylinder</em>:
+					</p>
+					<img src="gis_lecture1/cylindrical.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+				
+				<section id="projected_cs2" data-transition="fade" style="text-align: left;">
+					<h3>
+						Projected Coordinate Systems
+					</h3>
+					<p>
+						Earth surface is projected by the "light" from the center of the earth on <em>cone</em>:
+					</p>
+					<img src="gis_lecture1/conic.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+				
+				<section id="projected_cs3" data-transition="fade" style="text-align: left;">
+					<h3>
+						Projected Coordinate Systems
+					</h3>
+					<p>
+						Earth surface is projected by the "light" from the center of the earth on <em>plane</em>:
+					</p>
+					<img src="gis_lecture1/planar.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+
+				<section id="projected_cs4" data-transition="slide-out fade-in" style="text-align: left;">
+					<h3>
+						Projected Coordinate Systems (cont.)
+					</h3>
+					<p>
+						Each location: coded in <em>meters</em> from a certain origin on the projected surface
+					</p>
+				</section>
+
+				<section id="which_cs1" style="text-align: left;">
+					<h3>
+						Which coordinate system to use?
+					</h3>
+					<p>WGS 1984</p>					
+					<ul style="margin-left: 60px;">
+						<li>
+							Distance between two locations (L4)
+						</li>
+					</ul>										
+					<p>UTM</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Distance / surface area in small regions (L3)
+						</li>
+						<li>
+							Length of polyline features (L6)
+						</li>
+					</ul>
+					<p>Any equal area projections</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Surface area in large regions (L4)
+						</li>
+					</ul>
+				</section>
+															
+				<section id="equal_area1" style="text-align: left;">
+					<h3>
+						Equal area projections
+					</h3>
+					<p>
+						Differ just in how the world is shown
+					</p>
+					<br>
+					<h4>Sinusoidal Projection</h4>
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">										
+				</section>
+				
+				<section id="equal_area2" style="text-align: left;">
+					<h3>
+						Equal area projections
+					</h3>
+					<p>
+						Differ just in how the world is shown
+					</p>
+					<br>
+					<h4>Lambert Cylindrical Equal Area projection</h4>
+					<img src="gis_lecture1/lambert.jpg" style="border: none; background: none; box-shadow:none;">										
+				</section>
+
+				<section id="equal_area3" style="text-align: left;">
+					<h3>
+						Equal area projections
+					</h3>
+					<p>
+						Differ just in how the world is shown
+					</p>
+					<br>
+					<h4>Alberts Conic Equal Area projection</h4>
+					<img src="gis_lecture1/AlbertsConic.jpg" style="border: none; background: none; box-shadow:none;">										
+				</section>
+
+				<section id="cs_reference" style="text-align: left;">
+					<h3>
+						If you want to know more:
+					</h3>
+					<p>
+						<em>Map Projections: A Working Manual</em>, by John P. Snyder (U.S. Geological Survey, 1987) <a href="http://pubs.er.usgs.gov/publication/pp1395" target="_blank">(Downloadable for free)</a> 
+					</p>
+				</section>
+
+				<section id="check_cs" style="text-align: left;">
+					<h3>
+						Check the coordinate system in ArcMap
+					</h3>
+					<ol>
+						<li>
+							Right-click the data in Table of Contents
+						</li>
+						<li>
+							Click "Properties..."
+						</li>
+						<li>
+							Click the "Source" tab
+						</li>
+						<li>
+							Check "Coordinate System" (scroll down, if not shown)
+						</li>
+					</ol>
+				</section>
+
+				<section id="project_tools" style="text-align: left;">
+					<h3>
+						Geo-processing tools to assign a coordinate system
+					</h3>
+					<p>
+						<strong>Project</strong>: for vector data
+					</p>
+					<p>
+						<strong>Project Raster</strong>: for raster data (L7)
+					</p>
+					<p>
+						<strong>Define Projection</strong>: if undefined (for both vector & raster)
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Remember <a href="#/ex1b" target="_blank">the alert message "Spatial reference is undefined" in Exercise #1</a>? 
+						</li>
+						<li>
+							It means the coordinate system is not assigned
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex6a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #6
+					</h4>
+					<h3>
+						Assign the projection to GAUL district boundary data
+					</h3>
+					<p>
+						Spatial data usually comes with a meta data that specify the coordinate system used when the data is created
+					</p>
+					<p>
+						<a href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" target="_blank">GAUL's meta data</a> says it's WGS 1984
+					</p>				
+				</section>
+
+				<section id="ex6b" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+					Exercise #6 (cont.)
+					</h4>
+					<p>
+						Use Define Projection to assign WGS 1984 (cf. <a href="#/makexy1" target="_blank">Exercise #3</a>)
+					</p>
+					<p>
+						This geo-processing tool <em>overwrites</em> the input file. 
+					</p>
+					<p>
+						Essential to preserve the original input files for Python programming
+					</p>
+					<p>
+						$\Rightarrow$ Use Copy Features to create a copy which will be the input for Define Projection 
+					</p>
+				</section>
+
+				<section id="ex6c" style="text-align: left;">
+					<h4>
+					Exercise #6 (optional)
+					</h4>
+					<p>
+						Remember <a href="#/ex5b" target="_blank">the alert message "Spatial reference is undefined" in Exercise #5</a>?
+					</p>
+					<p>
+						The readme file (that comes with the downloaded ASCII raster data) says the coordinate system is WGS 1984
+					</p>
+					<p>
+						Use Define Projection to assign WGS 1984 just as we did
+					</p>
+				</section>
+
+				<section id="ex7a" style="text-align: left;">
+					<h4>
+					Exercise #7
+					</h4>
+					<h3>
+					Project to Sinusoidal
+					</h3>
+					<p>
+						Suppose we are interested in calculating the surface area of districts around the world
+					</p>
+					<p>
+						Sinusoidal projection allows you to calculate surface area properly
+					</p>
+					<p>
+						Use Project to change the coordinate system from WGS 1984
+					</p>
+					<p>
+						Sinusoidal projection is found at:
+					</p>
+					<p>
+						Projected Coordinate Systems > World > Sinusoidal(world)
+					</p>
+				</section>
+
+				<section id="ex7b" style="text-align: left;">
+					<h4>
+					Exercise #7 (cont.)
+					</h4>
+					<p>
+						Browse the output. Does it look like this?
+					</p>
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">										
+				</section>
+
+				<section id="ex7c" style="text-align: left;">
+					<h3>
+					Browse data in a different projection
+					</h3>
+					<p>
+						You cannot overlay data with different coordinate systems
+					</p>
+					<p>
+						ArcMap displays data in the coordinate system of the first data
+					</p>
+					<p>
+						To browse a data with a different coordinate system, open a new <strong>map document</strong>
+					</p>
+				</section>
+
+				<section id="mxd1" style="text-align: left;">
+					<h3>
+					What is map document?
+				</h3>
+					<p>
+						Saves the way you overlay / color-code / symbolize different spatial datasets
+					</p>
+					<p>
+						File extension: .mxd
+					</p>
+					<p>
+						DOES NOT contain spatial data. It just has links to them
+					</p>
+					<p>
+						Set the relative path to refer to each data
+					</p>
+				</section>
+
+				<section id="ex8a" style="text-align: left;">
+					<h4>
+					Exercise #8
+					</h4>
+					<h3>
+					Save a Map document
+					</h3>
+					<ol>
+						<li>
+						Set relative paths as the default							
+						</li>
+						<ul>
+							<li>
+								In the menu bar, click Customize > ArcMap Options
+							</li>
+							<li>
+								Check "Make relative paths the defaults for new map documents" 
+							</li>
+						</ul>
+						<li>
+							Click the save icon in the Standard Toolbar
+						</li>
+						<ul>
+							<li>
+								This DOES NOT save the data 
+							</li>
+						</ul>
+						<li>
+							Choose the location in which you save the map document
+						</li>
+						<ul>
+							<li>
+								best to save in the parent folder for spatial data files
+							</li>
+						</ul>
+					</ol>
+				</section>
+
+				<section id="ex8b" style="text-align: left;">
+					<h4>
+					Exercise #8 (cont.)
+					</h4>
+					<h3>
+					Browse a data in different projection
+					</h3>
+					<ol>
+						<li>
+							Open a new Map Document
+						</li>
+						<li>
+							Drag the GAUL data in Sinusoidal projection from Catalogue Window
+						</li>
+					</ol>
+				</section>
+
+				<section id="catalogue1" style="text-align: left;">
+					<h4>
+					One more thing before we conclude
+					</h4>
+					<p>
+						Browse the spatial data in Windows Explore
+					</p>
+					<p>
+						You'll see many, many files for one dataset
+					</p>
+					<ul>
+						<li>
+							Shapefile = .shp + .sbx + .sbn + .shx + .dbf + .prj
+						</li>
+						<li>
+							TIFF Raster = .tif + .tfw + .ovr + .aux + .prj
+						</li>
+					</ul>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: right">.dbf</td>
+							<td>Attribute table</td>
+						</tr>
+						<tr>
+							<td style="text-align: right">.prj</td>
+							<td>Projection file</td>
+						</tr>
+					</table>
+					<p>
+						$\Rightarrow$ Use Catalogue Window in ArcMap, not Windows Explore, to move / copy / delete spatial data
+					</p>
+				</section>
+
+			</section>
+
+				<section id="lessons" style="text-align: left;">
+					<h3>
+						What we've learned on ArcGIS
+					</h3>
+					<ol>	
+						<li>
+							Convert data format	
+						</li>
+						<ol>
+							<li>
+								XY data
+							</li>
+							<li>
+								ASCII raster
+							</li>
+						</ol>
+						<li>
+						Assign / Change the coordinate system
+						</li>
+					</ol>
+					<p>
+						Do you remember which geo-processing tools you used for each of these tasks?
+					</p>
+				</section>
+
+				<section id="references" style="text-align: left;">
+					<h3>
+						Useful references for GIS
+					</h3>
+						<p>
+							<a href="http://guides.library.yale.edu/GIS/gisworkshoparchive" target="_blank">Yale University Library: GIS Workshop Archive</a>
+						</p>
+						<p>
+							<a href="http://scholar.harvard.edu/dell/classes/gis-applied-economists-lecture-notes-only" target="_blank">Melissa Dell (2009) "GIS for Applied Economists"</a>
+						</p>
+						<p>
+							<a href="http://gisgeography.com" target="_blank">GIS Geography</a>
+						</p>
+				</section>
+
+				<section id="datasources" style="text-align: left;">
+					<h3>
+						Where to find spatial data
+					</h3>
+						<p>
+							<a href="http://www.fao.org/geonetwork" target="_blank">FAO Geonetwork</a>
+						</p>
+						<p>
+							<a href="http://geocommons.com" target="_blank">Geocommons</a>
+						</p>
+						<p>
+							<a href="http://earthexplorer.usgs.gov" target="_blank">Earth Explorer</a>
+						</p>
+						<p>
+							<a href="http://devecondata.blogspot.com/search/label/GIS" target="_blank">Devecondata</a>
+						</p>
+						<p>
+							Keep an eye on the publication of papers using spatial data
+						</p>
+				</section>
+
 			</div>
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
