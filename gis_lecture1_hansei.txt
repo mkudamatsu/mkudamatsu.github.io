@@ -1,0 +1,13 @@
+Explain how to install ArcGIS 10
+	Some students tried to install it on their laptop, lagging behind the lecture
+
+Tell exactly where to download the data
+	Some students download the data in the server. All the data processing become slow.
+	
+80 minutes to reach Exercise 3
+
+During the last 20 minutes I had to rush through coordinate systems
+
+In Exercise 3, the coordinate system is automatically assigned for some reason...
+
+
