@@ -186,7 +186,7 @@
 					</p>
 				</section>
 				
-				<section id="data1" style="text-align: left;">
+				<section id="data1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						Infant mortality: individual-level with zip-code of mothers' residency
@@ -194,23 +194,36 @@
 					<p>
 						Air pollution: monitor-level (geo-referenced)
 					</p>
+				</section>
+				<section id="data1b" data-transition="fade-out fade-in" style="text-align: left;">
 					<p>
 						Zip-code level pollution is obtained by:
 					</p>
-					<ul>
-						<li>
-							Pick monitors w/i 20 mile radius of zip-code centroids
-						</li>
-						<li>
-							Weighted-average pollution at these monitors by inverse of distance from zip-code centroid
-						</li>
-						<li>
-							By Lecture 4, we will be able to replicate this
-						</li>
-					</ul>					
+					<p>
+						1. Pick monitors w/i 20-mile radius of zip-code centroids
+					</p>
+						<ul>
+							<li>
+							Centroids: we will learn later
+							</li>
+							<li>								
+							20-mile radius: Lecture 3
+							</li>
+							<li>
+							Spatial Join: match the radius with monitors 
+							</li>
+						</ul>
+					<p>
+						2. Weighted-average pollution at these monitors by inverse of distance from zip-code centroid
+					</p>
+						<ul>
+							<li>
+								Distance between points: Lecture 4
+							</li>
+						</ul>
 				</section>
 
-				<section id="map1">
+				<section id="map1" data-transition="slide-out fade-in">
 					<h4>
 						Monitor locations & zip-code polygons
 					</h4>
@@ -263,7 +276,7 @@
 					</table>
 				</section>
 
-				<section id="result1a">
+				<section id="result1a"  data-transition="slide-in fade-out">
 					<h4>
 						Main results
 					</h4>
@@ -273,7 +286,7 @@
 					</p>
 				</section>
 
-				<section id="result1b">
+				<section id="result1b"  data-transition="slide-out fade-in">
 					<img src="gis_lecture2/table3b.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
 					<p>
 						<small>(Table III of Currie & Neidell 2005)</small>
@@ -425,7 +438,7 @@
 					</p>
 				</section>
 				
-				<section id="data3a" style="text-align: left;">
+				<section id="data3a"  data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						<a href="http://islands.unep.ch/isldir.htm" target="_blank">UNEP Island Directory</a>
@@ -449,7 +462,7 @@
 					</p>
 				</section>
 
-				<section id="data3b">
+				<section id="data3b"  data-transition="slide-out fade-in">
 					<h4>
 						Wind data for August 2001
 					</h4>
@@ -488,7 +501,7 @@
 					</p>
 				</section>	
 							
-				<section id="result3_1" >
+				<section id="result3_1" data-transition="slide-in fade-out">
 					<h4>
 						First-stage Results
 					</h4>
@@ -498,7 +511,7 @@
 					</p>
 				</section>	
 
-				<section id="result3_2" >
+				<section id="result3_2" data-transition="slide-out fade-in">
 					<h4>
 						Second-stage Results
 					</h4>
@@ -549,7 +562,7 @@
 					</p>
 				</section>	
 
-				<section id="data4a" style="text-align: left;">
+				<section id="data4a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						Infant mortality: Demographic and Health Surveys (DHS)
@@ -575,7 +588,7 @@
 					</p>
 				</section>
 
-				<section id="data4b">
+				<section id="data4b" data-transition="slide-out fade-in" >
 					<h4>
 						DHS clusters & ERA-40 cells
 					</h4>
@@ -629,7 +642,7 @@
 					</table>
 				</section>
 					
-				<section id="results4a">
+				<section id="results4a" data-transition="slide-in fade-out">
 					<h4>
 						Results on malarious weather
 					</h4>
@@ -639,7 +652,7 @@
 					</p>
 				</section>
 
-				<section id="results4b">
+				<section id="results4b" data-transition="slide-out fade-in">
 					<h4>
 						Results on growing-season rainfall
 					</h4>
@@ -651,7 +664,7 @@
 							
 			</section>
 
-				<section id="preparation1" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="preparation1" style="text-align: left;">
 					<h3>
 						Prepare for the rest of this lecture
 					</h3>
@@ -680,9 +693,10 @@
 						we will learn how to:
 					</h3>
 					<p>1. Use the Spatial Join tool (Exercise 2)</p>
-					<p>2. Create a <strong>graticule</strong> shapefile (Exercise 1)</p>
+					<p>2. Export attribute tables to Stata (Exercise 3)</p>
+					<p>3. Create a <strong>graticule</strong> shapefile (Exercise 1)</p>
 					<img src="gis_lecture2/graticule.png" style="border: none; background: none; box-shadow:none; width: 300px;">
-					<p><small>(Image taken from ArcGIS Help ``What are grids and graticules?'')</small></p>
+					<p><small>(Image taken from ArcGIS Help "What are grids and graticules?")</small></p>
 				</section>
 
 				<section id="graticule" style="text-align: left;">
@@ -692,17 +706,20 @@
 					<p>
 						In some datasets (weather data in particular), the unit of observations is a grid point (latitude and longitude at equal intervals).
 					</p>					
-						<ol style="margin-left: 60px;">
-							<li>WorldClim (Dell, Jones, & Olken 2009)</li>
-							<li>GCPC (Miguel et al. 2004)</li>
-							<li>TOMS air pollution index (Jayachandran 2009)</li>
-						</ol>
+					<p>
+						Examples other than what we have already seen:
+					</p>					
+						<ul style="margin-left: 60px;">
+							<li>WorldClim (<a href="http://dx.doi.org/10.1257/aer.99.2.198" target="_blank">Dell, Jones, & Olken 2009</a>)</li>
+							<li>GCPC (<a href="http://www.jstor.org/stable/10.1086/421174" target="_blank">Miguel et al. 2004</a>)</li>
+							<li>TOMS air pollution index (<a href="http://dx.doi.org/10.3368/jhr.44.4.916" target="_blank">Jayachandran 2009</a>)</li>
+						</ul>
 					<p>
 						A graticule shapefile allows you to spatially merge such data with other data
 					</p>					
 				</section>
 
-				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1a" style="text-align: left;">
 					<h4>
 					Exercise #1
 					</h4>
@@ -720,7 +737,7 @@
 								Define Projection (Data Management)
 							</li>
 							<li>
-								Feature to Point
+								Feature To Point
 							</li>
 							<li>
 								Add XY Coordinates (Data Management)
@@ -732,18 +749,17 @@
 					<p>
 						As in Lecture 1, we use these tools in Model Builder.	
 					</p>
-						<ul>
+						<ol>
 							<li>
 								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
-								Create a Model and save it as exercise1 inside lecture2.tbx
 							</li>
 							<li>
 								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "lecture2.tbx/exercise1" in "Lecture 2"
 							</li>
-						</ul>
+						</ol>
 				</section>
 
-				<section id="ex1b" data-transition="slide-out fade-in" style="text-align: left;">
+				<section id="ex1b" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -773,7 +789,7 @@
 					Exercise #1: Step 1
 					</h4>
 					<h3>
-						Create Fishnet (1/3)
+						Create Fishnet
 					</h3>					
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\fishnet.shp
@@ -798,7 +814,7 @@
 				</section>
 				<section id="fishnet2" data-transition="fade" style="text-align: left;">
 					<h3>
-						Create Fishnet (2/3)
+						Create Fishnet (cont.)
 					</h3>					
 					<p>
 						<strong>Y-Axis Coordinate</strong>
@@ -810,7 +826,7 @@
 						<strong>Y Coordinate</strong>: -10.625 (or any value other than -40.625)
 					</p>
 					<p>
-						$\Rightarrow$ Y-Axis will be perpendicular to X-Axis
+						$\Rightarrow$ Y-Axis will be perpendicular to the horizontal X-Axis
 					</p>
 					<p>
 						<strong>Number of Rows</strong>: 65
@@ -831,7 +847,7 @@
 				</section>
 				<section id="fishnet3" data-transition="slide-out fade-in" style="text-align: left;">
 					<h3>
-						Create Fishnet (3/3)
+						Create Fishnet (cont.)
 					</h3>					
 					<p>
 						Uncheck "<strong>Create Label Points</strong>"
@@ -854,7 +870,7 @@
 					</ul>					
 				</section>
 
-				<section id="ex1ba" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1ba" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -872,7 +888,7 @@
 					</p>
 				</section>
 				
-				<section id="define_projection" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="define_projection" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 2
 					</h4>
@@ -900,7 +916,7 @@
 					</ul>										
 				</section>
 
-				<section id="ex1c" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1c" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -923,7 +939,7 @@
 					</p>								
 				</section>
 
-				<section id="ex1d" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1d" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -938,7 +954,7 @@
 					</p>
 				</section>
 				
-				<section id="f2p" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="f2p" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 3
 					</h4>
@@ -972,7 +988,7 @@
 					</ul>										
 				</section>
 
-				<section id="ex1db" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1db" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -982,7 +998,7 @@
 				</section>
 				
 
-				<section id="addxy" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="addxy" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 4
 					</h4>
@@ -1010,7 +1026,7 @@
 					</ul>										
 				</section>
 
-				<section id="ex1e" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1e" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -1025,7 +1041,7 @@
 					</p>
 				</section>
 
-				<section id="ex1f" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1f" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -1065,7 +1081,7 @@
 					</p>
 				</section>
 
-				<section id="spatial_join2" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="spatial_join2" data-transition="slide-out fade-in" style="text-align: left;">
 					<h3>
 						Spatial Join (cont.)
 					</h3>
@@ -1098,11 +1114,11 @@
 					</p>
 					<ul>
 						<li>
-							Cell polygons and their centroids are intersected by definition
+							Each cell polygon should match with the centroid that intersects it
 						</li>
 					</ul>					
 				</section>
-				<section id="ex1g" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1g" style="text-align: left;">
 					<h4>
 					Exercise #1 (it's over, finally)
 					</h4>
@@ -1117,7 +1133,7 @@
 					</p>
 				</section>
 
-				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2a" style="text-align: left;">
 					<h4>
 					Exercise #2
 					</h4>
@@ -1133,7 +1149,7 @@
 							</li>
 							<ul style="color:slategrey">
 								<li>
-								Due to confidentiality requirements for data use, the file drops cluster and survey IDs
+								Due to confidentiality requirements for data use, the file drops the original cluster and survey IDs
 								</li>
 							</ul>
 							<li>
@@ -1144,7 +1160,7 @@
 						2. Spatially merge DHS cluster points with ERA-40 cell polygons by Spatial Join
 					</p>
 					<p>
-						We build on the Model for Excercise 1
+						We build these on the Model for Excercise 1
 					</p>
 				</section>
 
@@ -1180,9 +1196,9 @@
 					</p>
 				</section>
 
-				<section id="ex2c" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2c" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
-					Exercise #2: Step 2
+					Exercise #2: Step 1 (cont.)
 					</h4>
 					<h3>
 						Copy Features
@@ -1200,7 +1216,7 @@
 					</p>
 				</section>
 
-				<section id="ex2d" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2d"  style="text-align: left;">
 					<h4>
 					Exercise #2 (cont.)
 					</h4>
@@ -1217,7 +1233,7 @@
 
 				<section id="ex2e" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2: Step 3
+					Exercise #2: Step 2
 					</h4>
 					<h3>
 						Spatial Join
@@ -1243,7 +1259,7 @@
 					</p>
 				</section>
 
-				<section id="ex2f" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2f" data-transition="slide-out fade-in" style="text-align: left;">
 					<h3>
 						Spatial Join (cont.)
 					</h3>
@@ -1271,14 +1287,14 @@
 					</p>
 					<ul>
 						<li>
-							Each DHS cluster should be matched with the ERA-40 cell that intersect it
+							Each DHS cluster should match with the ERA-40 cell that intersects it
 						</li>
 					</ul>					
 				</section>
 
-				<section id="ex2g" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2g" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2 (it's over)
 					</h4>
 					<p>
 						Now <em>save and</em> run the Model. 
@@ -1296,7 +1312,7 @@
 					</p>
 				</section>
 
-				<section id="why_polygon" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="why_polygon" style="text-align: left;">
 					<h3>
 					Why cell polygon for ERA-40?
 					</h3>
@@ -1344,7 +1360,10 @@
 					</ul>					
 				</section>
 
-				<section id="export1" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="export1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Export to Stata (cont.)
+					</h4>
 					<h3>
 					Table To Excel
 					</h3>
@@ -1352,14 +1371,17 @@
 						Converts the attribute table into an Excel file
 					</p>
 					<p>
-						Then use the "import excel" command in Stata
+						Then use <code>import excel</code> in Stata
 					</p>
 					<p>
 						But Excel cannot handle more than 65535 rows...
 					</p>
 				</section>																				
 
-				<section id="export2" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="export2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Export to Stata (cont.)
+					</h4>
 					<h3>
 					Export Feature Attribute to ASCII
 					</h3>
@@ -1367,19 +1389,22 @@
 						Converts the attribute table into an ASCII text file
 					</p>
 					<p>
-						Then use the "insheet" command in Stata (or 
+						Then use <code>insheet</code> in Stata
 					</p>
 					<ul>
 						<li>
-							Or the "import delimited" command in Stata 14
+							Or <code>import delimited</code> in Stata 14
 						</li>
 					</ul>					
 					<p>
-						This tool can also add centroid coordinates to the ASCII file
+						This tool will automatically add centroid coordinates to the output ASCII file
 					</p>
 				</section>		
 				
-				<section id="export2" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="export3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Export to Stata (cont.)
+					</h4>
 					<h3>
 					shp2dta
 					</h3>
@@ -1431,7 +1456,7 @@
 						</ul>
 				</section>
 
-				<section id="ex3b" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex3b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #3 (cont.)
 					</h4>
@@ -1461,7 +1486,7 @@
 						</ul>
 					</p>
 					<p>
-						But Table To Excel is much, much simpler to execute
+						But Table To Excel is simpler to execute
 					</p>
 				</section>				
 
@@ -1515,7 +1540,7 @@
 					Exercise #4
 					</h4>
 					<h3>
-						Export the Model as Python script
+						Export Python script from Model Builder
 					</h3>
 					<p>
 						1. Right-click the model and click "Edit" in Catalogue Window
@@ -1533,7 +1558,7 @@
 					</p>
 				</section>
 				
-				<section id="editors" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="editors" style="text-align: left;">
 					<h3>
 						How to edit Python scripts
 					</h3>
@@ -1566,7 +1591,7 @@
 					</p>
 				</section>				
 
-				<section id="template1" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="template1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						How to edit Python scripts (cont.)
 					</h3>
@@ -1609,7 +1634,7 @@
 					</ul>															
 				</section>
 				
-				<section id="python_essentials" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="python_essentials" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
 					</h3>
@@ -1630,7 +1655,7 @@
 					</p>
 				</section>
 				
-				<section id="object1" data-transition="fade" style="text-align: left;">
+				<section id="object1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.1</h4>
 					<h3>
 						Object
@@ -1649,7 +1674,7 @@
 					</p>
 				</section>
 
-				<section id="object2" data-transition="fade" style="text-align: left;">
+				<section id="object2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Object (cont.)
 					</h3>
@@ -1695,8 +1720,16 @@
 				<section id="overwrite" data-transition="fade" style="text-align: left;">
 					<h4>Overwriting output files</h4>
 					<p>
-						Run a script. Browse the output. You're not satisfied. Revise the script. Run the script again. By default, you will then get an error because overwriting the output file is not allowed.
+						By default, overwriting the output file is not allowed.
 					</p>														
+					<ul>
+						<li>
+							Run a script. Browse the output. You're not satisfied. Revise the script. Run the script again.
+						</li>
+						<li>
+							You'll then get an error.
+						</li>
+					</ul>
 					<p>
 						The following command line (case-sensitive!)
 					</p>
@@ -1713,7 +1746,7 @@
 					</ul>	
 				</section>
 				
-				<section id="directory_name" data-transition="fade" style="text-align: left;">
+				<section id="directory_name" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>Directory Name in Python</h4>
 					<p>
 						Never use \
@@ -1736,7 +1769,7 @@
 					</ul>	
 				</section>
 				
-				<section id="method" data-transition="fade" style="text-align: left;">
+				<section id="method" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.3</h4>
 					<h3>
 						Method
@@ -1760,7 +1793,7 @@
 					<img src="gis_lecture2/methods.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">					
 				</section>
 
-				<section id="why_model_builder" data-transition="slide-out fade-in" style="text-align: left;">
+				<section id="why_model_builder" data-transition="fade" style="text-align: left;">
 					<h3>
 						Why we use Model Builder
 					</h3>
@@ -1790,7 +1823,7 @@
 					</ul>	
 				</section>
 
-				<section id="try-except1" data-transition="fade" style="text-align: left;">
+				<section id="try-except1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #2</h4>
 					<h3>
 						Try-Except statement
@@ -1803,7 +1836,7 @@
 					</p>														
 				</section>
 				
-				<section id="try-except2" style="text-align: left;">
+				<section id="try-except2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Try-Except statement (cont.)
 					</h3>
@@ -1834,7 +1867,7 @@
 						Use try-except statement
 					</h3>
 					<p>
-						1. Copy all the geoprocessing commands in the exported script
+						1. Copy the geoprocessing commands in the exported script
 					</p>
 					<p>
 						2. Paste them between <code>try:</code> and <code>except:</code> in the template script
@@ -1853,14 +1886,7 @@
 				</section>				
 
 															
-				<section id="ex6b" data-transition="slide-in fade-out" style="text-align: left;">
-					<h4>
-						You should have something like this:
-					</h4>
-					<img src="gis_lecture2/try-except.png" style="border:none; background:none; box-shadow:none; width:600px; vertical-align:middle;">					
-				</section>
-				
-				<section id="strings1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="strings1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #3</h4>
 					<h3>
 						String variables
@@ -1895,14 +1921,11 @@
 						<li>
 							Don't forget to enclose the file name with double quotation marks
 						</li>
-						<li>
-							In Python, this is how to define a string, rather than a variable
-						</li>
 					</ul>						
 					
 				</section>
 
-				<section id="ex7a" style="text-align: left;">
+				<section id="ex7a" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>
 					Exercise #7
 					</h4>
@@ -1927,12 +1950,12 @@
 					
 				</section>		
 
-				<section id="ex7b" style="text-align: left;">
+				<section id="ex7b" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #7 (cont.)
 					</h4>
 					<p>
-						You now notice the variable <code>fishnet_shp__2_</code> contains the same file name as <code>fishnet_shp</code>
+						You should now notice the variable <code>fishnet_shp__2_</code> contains the same file name as <code>fishnet_shp</code>
 					</p>
 					<p>
 						Same for <code>centroids_shp__2_</code>
@@ -1944,29 +1967,22 @@
 						It's confusing. So: 
 					</p>
 					<p>
-						6. Replace <code>fishnet_shp__2_</code> with <code>fishnet_shp</code>
-					</p>
-					<p>
-						7. Replace <code>centroids_shp__2_</code> with <code>centroids_shp</code>
+						6. Use "Edit > Replace" to replace:
 					</p>
 					<ul>
 						<li>
-							Use "Edit > Replace" to forget replacing all
+							 <code>fishnet_shp__2_</code> with <code>fishnet_shp</code>
+						</li>
+						<li>
+							 <code>centroids_shp__2_</code> with <code>centroids_shp</code>
 						</li>
 					</ul>						
 					<p>
-						8. Delete the duplicated lines
+						7. Delete the duplicated lines
 					</p>
 				</section>
 				
-				<section id="ex7c" data-transition="slide-in fade-out" style="text-align: left;">
-					<h4>
-						You should now have something like this:
-					</h4>
-					<img src="gis_lecture2/.png" style="border:none; background:none; box-shadow:none; width:600px; vertical-align:middle;">					
-				</section>
-
-				<section id="print1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="print1"  style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #4</h4>
 					<h3>
 						Print
@@ -1982,7 +1998,10 @@
 					</p>
 					<ul>
 						<li>
-							Useful to know which part of the script is currently run (this also helps you handle errors)
+							Tells which part of the script is currently run
+						</li>
+						<li>
+							Lets you know where the script caused an error
 						</li>
 						<li>
 							Can be used to display a value that a method returns
@@ -2008,14 +2027,7 @@
 					</p>
 				</section>	
 
-				<section id="ex8b" data-transition="slide-in fade-out" style="text-align: left;">
-					<h4>
-						You should now have something like this:
-					</h4>
-					<img src="gis_lecture2/.png" style="border:none; background:none; box-shadow:none; width:600px; vertical-align:middle;">					
-				</section>
-
-				<section id="comment1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="comment1" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #5</h4>
 					<h3>
 						Comment
@@ -2031,12 +2043,12 @@
 					</p>
 				</section>
 
-				<section id="ex9a" style="text-align: left;">
+				<section id="ex9a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #9
 					</h4>
 					<h3>
-						Skip some commands temporarily
+						Skip command lines temporarily
 					</h3>
 					<p>
 						Suppose you're not sure if this script will properly create DHS cluster point features.
@@ -2063,7 +2075,7 @@
 					</p>
 				</section>	
 
-				<section id="ex9a" style="text-align: left;">
+				<section id="ex9a" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #9 (cont.)
 					</h4>
@@ -2090,7 +2102,7 @@
 					</p>
 				</section>	
 
-				<section id="ex9b" style="text-align: left;">
+				<section id="ex9b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #9 (cont.)
 					</h4>
@@ -2129,7 +2141,7 @@
 							Someone else may have had the same problem and posted the question on the web
 						</li>
 						<li>
-							And ArcGIS experts have answered the question
+							And ArcGIS experts may have answered the question
 						</li>
 					</ul>						
 					<p>
