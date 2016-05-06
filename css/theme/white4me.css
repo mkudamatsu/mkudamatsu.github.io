@@ -141,10 +141,10 @@ body {
 .reveal pre {
   display: block;
   position: relative;
-  width: 90%;
-  margin: 20px auto;
+  width: 100%; /* Original: 90% */
+  margin: 20px auto; /* Original: 20px */
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.30em; /* Original: 0.55em */
   font-family: monospace;
   line-height: 1.2em;
   word-wrap: break-word;
@@ -157,7 +157,7 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 600px; /* Original: 400px */
   word-wrap: normal; }
 
 .reveal table {
