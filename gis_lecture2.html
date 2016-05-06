@@ -21,7 +21,7 @@
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -1859,7 +1859,7 @@
 					</p>
 				</section>
 
-				<section id="ex6a" style="text-align: left;">
+				<section id="ex6a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #6
 					</h4>
@@ -1885,6 +1885,58 @@
 					</ul>				
 				</section>				
 
+				<section id="ex6b" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+						You should have something like this:
+					</h4>
+					<pre>
+						<code data-trim>
+arcpy.env.workspace = "D:/temp" # NEVER USE single backslash (\).
+
+### Local variables ###
+////PASTE HERE//// # local variables from the exported script
+
+############################## Geoprocessing ##########################
+try:
+    # Process: Create Fishnet
+    arcpy.CreateFishnet_management(fishnet_shp, "-20.625 -40.625", "-20.625 -10.625", "1.25", "1.25", "65", "65", "", "NO_LABELS", "DEFAULT", "POLYGON")
+
+    # Process: Make XY Event Layer
+    arcpy.MakeXYEventLayer_management(dhs_txt, "longnum", "latnum", dhs_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+
+    # Process: Copy Features
+    arcpy.CopyFeatures_management(dhs_Layer, dhs_shp, "", "0", "0", "0")
+
+    # Process: Define Projection
+    arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
+
+    # Process: Feature To Point
+    arcpy.FeatureToPoint_management(fishnet_shp__2_, centroids_shp, "CENTROID")
+
+    # Process: Add XY Coordinates
+    arcpy.AddXY_management(centroids_shp)
+
+    # Process: Spatial Join
+    arcpy.SpatialJoin_analysis(fishnet_shp__2_, centroids_shp__2_, era40cells_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\fishnet.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,Id,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+
+    # Process: Spatial Join (2)
+    arcpy.SpatialJoin_analysis(dhs_shp, era40cells_shp, dhs_era40_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "latnum \"latnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,latnum,-1,-1;longnum \"longnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,longnum,-1,-1;clusterid \"clusterid\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,clusterid,-1,-1;Join_Count \"Join_Count\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Join_Count,-1,-1;TARGET_FID \"TARGET_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,TARGET_FID,-1,-1;Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id_1,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+
+    # Process: Table To Excel
+    arcpy.TableToExcel_conversion(dhs_era40_shp, dhs_era40_xls, "NAME", "CODE")
+
+    # Process: Export Feature Attribute to ASCII
+    arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
+
+# Return geoprocessing specific errors
+except arcpy.ExecuteError:
+    print arcpy.GetMessages()							
+
+# Return any other type of error
+						</code>
+					</pre>
+				</section>
+				
 															
 				<section id="strings1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #3</h4>
@@ -1950,7 +2002,7 @@
 					
 				</section>		
 
-				<section id="ex7b" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="ex7b" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #7 (cont.)
 					</h4>
@@ -1980,6 +2032,40 @@
 					<p>
 						7. Delete the duplicated lines
 					</p>
+				</section>
+
+				<section id="ex7c" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						You should now have something like this:
+					</h4>
+					<pre>
+						<code data-trim contenteditable>
+import arcpy
+
+### Set environment ###
+# Allow the overwriting of the output files 
+arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
+# Set the working directory.
+arcpy.env.workspace = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs" # NEVER USE single backslash (\).
+
+### Local variables ###
+dhs_txt = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\dhs.txt"
+
+fishnet_shp = "fishnet.shp"
+centroids_shp = "centroids.shp"
+dhs_Layer = "dhs_Layer"
+
+dhs_shp = "dhs.shp"
+era40cells_shp = "era40cells.shp"
+dhs_era40_shp = "dhs_era40.shp"
+dhs_era40_xls = "dhs_era40.xls"
+dhs_era40_csv = "dhs_era40.csv"
+
+############################## Geoprocessing ##########################
+try:
+    # Process: Create Fishnet							
+						</code>
+					</pre>
 				</section>
 				
 				<section id="print1"  style="text-align: left;">
@@ -2012,7 +2098,7 @@
 					</ul>						
 				</section>
 				
-				<section id="ex8a" style="text-align: left;">
+				<section id="ex8a" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>
 					Exercise #8
 					</h4>
@@ -2026,6 +2112,98 @@
 						Also add the print commands at the beginning of the script
 					</p>
 				</section>	
+
+
+				<section id="ex8b"  data-transition="fade" style="text-align: left;">
+					<h4>
+						You should now have something like this:
+					</h4>
+					<pre>
+						<code data-trim contenteditable>
+############################## Preamble #################################
+### Read the ArcGIS object ###
+print "Launch ArcGIS"
+import arcpy
+
+### Set environment ###
+# Allow the overwriting of the output files 
+print "Enable the overwriting"
+arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
+# Set the working directory.
+print "Set the directory where outputs are saved"
+arcpy.env.workspace = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs" # NEVER USE single backslash (\).
+
+### Local variables ###
+print "Define input files"
+dhs_txt = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\dhs.txt"
+
+print "Define intermediate files"
+fishnet_shp = "fishnet.shp"
+centroids_shp = "centroids.shp"
+dhs_Layer = "dhs_Layer"
+
+print "Define output files"
+dhs_shp = "dhs.shp"
+era40cells_shp = "era40cells.shp"
+dhs_era40_shp = "dhs_era40.shp"
+dhs_era40_xls = "dhs_era40.xls"
+dhs_era40_csv = "dhs_era40.csv"							
+						</code>
+					</pre>
+				</section>
+				<section id="ex8c" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						You should now have something like this (cont.):
+					</h4>
+					<pre>
+						<code data-trim contenteditable>
+############################## Geoprocessing ##########################
+try:
+    # Process: Make XY Event Layer
+    print "Create DHS cluster point features 1/2"
+    arcpy.MakeXYEventLayer_management(dhs_txt, "longnum", "latnum", dhs_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+
+    # Process: Copy Features
+    print "Create DHS cluster point features 2/2"
+    arcpy.CopyFeatures_management(dhs_Layer, dhs_shp, "", "0", "0", "0")
+
+    # Process: Create Fishnet
+    print "Create ERA-40 cell polygons step 1/5: Create Fishnet"
+    arcpy.CreateFishnet_management(fishnet_shp, "-20.625 -40.625", "-20.625 -10.625", "1.25", "1.25", "65", "65", "", "NO_LABELS", "DEFAULT", "POLYGON")
+
+    # Process: Define Projection
+    print "Create ERA-40 cell polygons step 2/5: Define Projection"
+    arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
+
+    # Process: Feature To Point
+    print "Create ERA-40 cell polygons step 3/5: Feature To Point"
+    arcpy.FeatureToPoint_management(fishnet_shp, centroids_shp, "CENTROID")
+
+    # Process: Add XY Coordinates
+    print "Create ERA-40 cell polygons step 4/5: Add XY Coordinates"
+    arcpy.AddXY_management(centroids_shp)
+
+    # Process: Spatial Join
+    print "Create ERA-40 cell polygons step 5/5: Spatial Join"
+    arcpy.SpatialJoin_analysis(fishnet_shp, centroids_shp, era40cells_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\fishnet.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,Id,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+
+    # Process: Spatial Join (2)
+    print "Merge DHS clusters with ERA-40 cell polygons"
+    arcpy.SpatialJoin_analysis(dhs_shp, era40cells_shp, dhs_era40_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "latnum \"latnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,latnum,-1,-1;longnum \"longnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,longnum,-1,-1;clusterid \"clusterid\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,clusterid,-1,-1;Join_Count \"Join_Count\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Join_Count,-1,-1;TARGET_FID \"TARGET_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,TARGET_FID,-1,-1;Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id_1,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+
+    # Process: Table To Excel
+    print "Export Excel file"
+    arcpy.TableToExcel_conversion(dhs_era40_shp, dhs_era40_xls, "NAME", "CODE")
+
+    # Process: Export Feature Attribute to ASCII
+    print "Export CSV file"
+    arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
+
+# Return geoprocessing specific errors							
+						</code>
+					</pre>
+				</section>
+
 
 				<section id="comment1" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #5</h4>
@@ -2075,7 +2253,62 @@
 					</p>
 				</section>	
 
-				<section id="ex9a" data-transition="fade" style="text-align: left;">
+				<section id="ex9b" data-transition="fade" style="text-align: left;">
+					<h4>
+						You should have something like this:
+					</h4>
+					<pre>
+						<code data-trim contenteditable>
+try:
+    # Process: Make XY Event Layer
+    print "Create DHS cluster point features 1/2"
+    arcpy.MakeXYEventLayer_management(dhs_txt, "longnum", "latnum", dhs_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+
+    # Process: Copy Features
+    print "Create DHS cluster point features 2/2"
+    arcpy.CopyFeatures_management(dhs_Layer, dhs_shp, "", "0", "0", "0")
+
+##    # Process: Create Fishnet
+##    print "Create ERA-40 cell polygons step 1/5: Create Fishnet"
+##    arcpy.CreateFishnet_management(fishnet_shp, "-20.625 -40.625", "-20.625 -10.625", "1.25", "1.25", "65", "65", "", "NO_LABELS", "DEFAULT", "POLYGON")
+##
+##    # Process: Define Projection
+##    print "Create ERA-40 cell polygons step 2/5: Define Projection"
+##    arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
+##
+##    # Process: Feature To Point
+##    print "Create ERA-40 cell polygons step 3/5: Feature To Point"
+##    arcpy.FeatureToPoint_management(fishnet_shp, centroids_shp, "CENTROID")
+##
+##    # Process: Add XY Coordinates
+##    print "Create ERA-40 cell polygons step 4/5: Add XY Coordinates"
+##    arcpy.AddXY_management(centroids_shp)
+##
+##    # Process: Spatial Join
+##    print "Create ERA-40 cell polygons step 5/5: Spatial Join"
+##    arcpy.SpatialJoin_analysis(fishnet_shp, centroids_shp, era40cells_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\fishnet.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,Id,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+##
+##    # Process: Spatial Join (2)
+##    print "Merge DHS clusters with ERA-40 cell polygons"
+##    arcpy.SpatialJoin_analysis(dhs_shp, era40cells_shp, dhs_era40_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "latnum \"latnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,latnum,-1,-1;longnum \"longnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,longnum,-1,-1;clusterid \"clusterid\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,clusterid,-1,-1;Join_Count \"Join_Count\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Join_Count,-1,-1;TARGET_FID \"TARGET_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,TARGET_FID,-1,-1;Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id_1,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+##
+##    # Process: Table To Excel
+##    print "Export Excel file"
+##    arcpy.TableToExcel_conversion(dhs_era40_shp, dhs_era40_xls, "NAME", "CODE")
+##
+##    # Process: Export Feature Attribute to ASCII
+##    print "Export CSV file"
+##    arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
+
+# Return geoprocessing specific errors
+except arcpy.ExecuteError:
+    print arcpy.GetMessages()
+						</code>
+					</pre>
+				</section>
+
+
+				<section id="ex9c" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #9 (cont.)
 					</h4>
@@ -2102,7 +2335,7 @@
 					</p>
 				</section>	
 
-				<section id="ex9b" data-transition="slide-out fade-in" style="text-align: left;">
+				<section id="ex9e" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #9 (cont.)
 					</h4>
