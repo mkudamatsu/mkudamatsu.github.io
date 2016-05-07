@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- For Google search results -->
+		<title>ArcGIS for Economics: Lecture 2</title>
+		<meta name="description" content="ArcGIS's Spatial Join for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<!-- Activate Reveal.js -->
+		<link rel="stylesheet" href="css/reveal.css">
+		
+		<!-- Define the theme -->
+		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--Add support for earlier versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<!-- To activate the CSS framework of Reveal.js -->
+		<div class="reveal">
+
+			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
+			<div class="slides">
+				
+				<!-- Slide contents start here -->
+				
+				<!-- My own slide templates -->
+				<section id="title">
+					<h3 style="color:slategrey">
+						ArcGIS 10 for Economics Research
+					</h3>
+					<h3>
+						Lecture 0
+					</h3>
+					<h2>
+						TITLE
+					</h2>
+					<br>
+					<p>Masayuki Kudamatsu</p>
+					<p>x May, 2016</p>
+					<br>
+					<p>
+						<small>Press SPACE to proceed. </small>
+						<br>
+						<small>To go back to the previous slide, press SHIFT+SPACE. </small>
+					</p>
+				</section>
+
+
+				<!-- Standard text slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					</h3>
+						<p>
+						</p>
+						<p>
+						</p>
+						<ul>
+							<li>
+							</li>
+							<li>
+							</li>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ul>
+				</section>
+
+				<!-- Standard image slide -->
+				<section id="image" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						
+					</h4>
+					<img src="gis_lecture0/.png" style="border: none; background: none; box-shadow:none; width: 300px;">
+					<p><small>(Image taken from )</small></p>
+				</section>
+
+				<!-- Standard weblink slide -->
+				<section id="websites" data-transition="slide-in slide-out" style="text-align: left;">
+					<p>
+						Refer to websites
+					</p>
+					<ul>
+						<li>
+							<a href="http://" target="_blank">Website name</a>
+						</li>
+					</ul>															
+				</section>
+
+
+				
+				<!-- Standard ordered list slide -->
+				<section id="ordered_list" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					</h3>
+					<p>
+						1. 
+					</p>
+					<ul>
+						<li>
+							
+						</li>
+					</ul>															
+					<p>
+						2. 
+					</p>
+					<p>
+						3. 
+					</p>
+					<p>
+						4. 
+					</p>
+					<p>
+						5. 
+					</p>
+				</section>
+								
+				<!-- ROAD MAP -->
+				<section id="road_map" style="text-align: left;">
+					<h3>
+						Today's road map
+					</h3>
+						<p>
+							1. 
+						</p>
+						<p>
+							2. 
+						</p>
+						<p>
+							3. 
+						</p>
+						<p>
+							4. 
+						</p>
+						<p>
+							5. 
+						</p>
+						<p>
+							6. 
+						</p>						
+				</section>			
+
+			<!-- SECTION for paper -->
+			<section>
+				<section id="section1">
+					<h1>
+						1. 
+					</h1>
+				</section>
+				
+				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Research Question</h3>
+					<p>
+					</p>					
+					<p>
+						Important?
+					</p>
+					<ul>
+						<li>
+						</li>
+						<li>
+						</li>
+						<li>
+						</li>
+					</ul>
+					<p>
+						Original?
+					</p>
+					<ul>
+						<li>
+						</li>
+						<li>
+						</li>
+						<li>
+						</li>
+					</ul>					
+					<p>
+						Feasible?
+					</p>
+				</section>
+				
+				<section id="data1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Data</h3>
+					<p>
+					</p>					
+						<ul>
+							<li>
+							</li>
+							<li>								
+							</li>
+							<li>
+							</li>
+						</ul>
+					<p>
+					</p>
+						<ul>
+							<li>
+							</li>
+							<li>								
+							</li>
+							<li>
+							</li>
+						</ul>
+				</section>
+
+				<section id="image" data-transition="slide-out slide-in">
+					<h4>
+					</h4>
+					<img src="gis_lecture0/.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<p>
+						<small>(taken from <a href="http://dx.doi.org/" target="_blank">Authors (year)</a>)</small>
+					</p>
+				</section>
+
+				<section id="equation1" data-transition="slide-out slide-in" style="text-align: left">
+					<h3>
+						Empirical specification
+					</h3>
+					<p>
+						<!-- Case by Case -->
+						\begin{align*}
+						y_{} = 
+						  + \boldsymbol{x}'_{}\boldsymbol{\gamma} + \varepsilon_{} 
+						\end{align*}
+					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: right">$y_{}$</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td style="text-align: right">$\boldsymbol{x}_{}$</td>
+							<td>Controls</td>
+						</tr>
+						<tr>
+							<td style="text-align: right">$ $</td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
+
+				<section id="result1"  data-transition="slide-in slide-out">
+					<h4>
+						Main results
+					</h4>
+					<img src="gis_lecture0/.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p>
+						<small>(Table x of Authors year)</small>
+					</p>
+				</section>
+
+			</section>
+
+
+				<!-- Preparation -->
+				<section id="preparation1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<ol>
+						<li>
+							Launch ArcMap 10 (it takes time)
+						</li>
+						<li>
+							<a href="" target="_blank">Download the zipped dataset for lecture 0</a>
+						</li>
+						<li>
+							Save it to Downloads (C:\Users\username\Downloads)
+						</li>
+						<li>		
+							Right-click it and choose "7-Zip > Extract Here"
+						</li>
+						<li>
+							In ArcMap, open Catalogue Window, right-click "Folder Connections", select "Connect to Folder", and choose "Downloads > Lecture0"
+						</li>
+						<li>
+							Create a new folder called outputs (where we will create new files)
+						</li>
+					</ol>
+				</section>
+				
+			<!-- SECTION for ArcMap -->
+			<section>
+				<section id="section5">
+					<h1>
+						5. Replicate Authors (year)
+					</h1>
+				</section>
+
+				<section id="what_we_learn" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						we will learn how to:
+					</h3>
+					<p>1.  (Exercise x)</p>
+					<p>2.  (Exercise x)</p>
+					<p>3.  (Exercise x)</p>
+				</section>
+
+				<section id="ex1a" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1
+					</h4>
+					<h3>
+					</h3>
+					<p>
+						Geo-processing tools to be used for this exercise:
+					</p>					
+						<ol>
+							<li>
+							</li>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ol>
+					<p>
+						We use these tools in Model Builder.	
+					</p>
+						<ol>
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+							</li>
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "lecture0.tbx/exercise1" in "Lecture 0"
+							</li>
+						</ol>
+				</section>
+
+				<section id="toolname" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #0: Step 0
+					</h4>
+					<h3>
+						GEOPROCESSING TOOL NAME
+					</h3>					
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture0\outputs\.shp
+					</p>
+					<ul>
+						<li>
+						</li>
+					</ul>						
+					<p>
+						<strong> </strong>: 
+					</p>
+					<ul>
+						<li>
+						</li>
+					</ul>					
+					<p>
+						Uncheck "<strong></strong>"
+					</p>
+					<ul>
+						<li>
+						</li>
+					</ul>					
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+					<ul>
+						<li>
+							If the input file needs to be preserved, use Copy Features first (as in <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex6a" target="_blank">Lecture 1 Exercise 6</a>).
+						</li>
+					</ul>										
+				</section>
+
+
+				<section id="ex1b" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Explain why we need to do what's coming next
+					</p>					
+					<ul>
+						<li>
+							
+						</li>
+					</ul>					
+				</section>
+
+				<section id="ex1c" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output. 
+					</p>
+					<p>
+						Browse the attribute table of the output (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/attribute_table" target="_blank">Lecture 1</a>)
+					</p>					
+					<ul>
+						<li>
+						</li>
+					</ul>		
+					<p>
+						Is everything as expected?
+					</p>
+				</section>			
+
+				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					"Model" model for Lecture 0
+					</h3>
+					<p>
+						Look at "solutions4exercises/lec0model.tbx/" in the downloaded data folder for Lecture 0
+					</p>
+				</section>	
+			</section>
+
+			<!-- SECTION for Python -->
+			<section>
+				<section id="section6">
+					<h1>
+						6. 
+					</h1>
+				</section>
+
+				<section id="ex0" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #0
+					</h4>
+					<h3>
+					</h3>
+					<p>
+						1. 
+					</p>
+					<ul>
+						<li>
+						</li>
+					</ul>										
+					<p>
+						2. 
+					</p>
+					<p>
+						3. 
+					</p>
+				</section>
+				
+				<section id="script_example" data-transition="slide-out slide-in" style="text-align: left;">
+					<h4>
+						You should have something like this:
+					</h4>
+					<pre>
+						<code data-trim>
+PASTE CODE HERE
+						</code>
+					</pre>
+				</section>
+				
+				<section id="error_handling" data-transition="slide-out slide-in" style="text-align: left;">
+					<h4>
+					Error handling
+					</h4>
+					<p>
+						Sometimes, the output file is not what you intended.
+					</p>
+					<p style="margin-left: 60px;">
+						e.g., New fields in the attribute table are all zero
+					</p>
+					<p>
+						Revising the script may not solve the issue / You cannot find anything wrong with the script
+					</p>
+					<p>
+						If so, reboot Windows. This often solves the issue.
+					</p>
+					<p>
+						Still unsolved, ask Google.
+					</p>
+					<ul>
+						<li>
+							Someone else may have had the same problem and posted the question on the web
+						</li>
+						<li>
+							And ArcGIS experts may have answered the question
+						</li>
+					</ul>						
+					<p>
+						Last resort: ask at <a href="http://stackexchange.com/" target="_blank">Stack Exchange</a> or <a href="http://forums.arcgis.com" target="_blank">ArcGIS Forum</a>.
+					</p>
+				</section>	
+
+				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
+					<h3>
+					Model Python Script for Lecture 0
+					</h3>
+					<p>
+						Look at "solutions4exercises/lec0script.py" in the downloaded data folder for Lecture 0
+					</p>
+				</section>	
+			</section>
+
+
+				<section id="lessons" style="text-align: left;">
+					<h3>
+						What we've learned on ArcGIS
+					</h3>
+					<ol>	
+						<li>
+							
+						</li>
+						<li>
+\
+						</li>
+					</ol>
+					<p>
+						Do you remember which geo-processing tools you used for each of these tasks?
+					</p>
+				</section>
+
+			</div>
+			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
+
+		</div>
+		<!-- To end the activation of the CSS framework of Reveal.js -->		
+
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
+		
+		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
+		<script src="lib/js/head.min.js"></script>
+		<!-- Load reveal.js -->
+		<script src="js/reveal.js"></script>
+
+		<!-- Import MathJax, to use TeX for mathematic expressions -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<!-- Allow inline math expressions by using $ -->
+		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      processEscapes: true
+		    }
+		  });
+		</script>
+
+		<script>
+			// Set the options for Reveal.js
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false, // Disable the navigation arrows on bottom right
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false, // Disable the default rolling links
+
+				transition: 'slide', // Choose from: none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
