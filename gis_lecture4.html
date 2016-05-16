@@ -1,0 +1,1967 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- For Google search results -->
+		<title>ArcGIS for Economics: Lecture 2</title>
+		<meta name="description" content="ArcGIS's Spatial Join for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<!-- Activate Reveal.js -->
+		<link rel="stylesheet" href="css/reveal.css">
+		
+		<!-- Define the theme -->
+		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--Add support for earlier versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<!-- To activate the CSS framework of Reveal.js -->
+		<div class="reveal">
+
+			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
+			<div class="slides">
+				
+				<!-- Slide contents start here -->
+				
+				<!-- My own slide templates -->
+				<section id="title">
+					<h3 style="color:slategrey">
+						ArcGIS 10 for Economics Research
+					</h3>
+					<h3>
+						Lecture 4
+					</h3>
+					<h2>
+						Distance as instruments
+					</h2>
+					<br>
+					<p>Masayuki Kudamatsu</p>
+					<p>17 May, 2016</p>
+					<br>
+					<p>
+						<small>Press SPACE to proceed. </small>
+						<br>
+						<small>To go back to the previous slide, press SHIFT+SPACE. </small>
+					</p>
+				</section>
+
+				<section id="road_map" style="text-align: left;">
+					<h3>
+						Today's road map
+					</h3>
+						<p>
+							1. When is distance a valid instrument?
+						</p>
+						<p>
+							2. Nunn (2008)
+						</p>
+						<p>
+							3. Distance calculation
+						</p>
+						<ul>
+							<li>
+								Exercise 1: Replicate instruments in Nunn (2008)
+							</li>
+						</ul>
+						<p>
+							4. Intersect & Surface area calculation
+						</p>
+						<ul>
+							<li>
+								Exercise 2: Replicate slave trade data in Nunn (2008)
+							</li>
+						</ul>
+						<p>
+							5. List in Python
+						</p>
+				</section>			
+
+			<section>
+				<section id="section1" style="text-align: left;">
+					<h2>
+						1. When is distance a valid instrument?
+					</h2>
+					<p>
+						Let's first look at a few examples of distance used as instruments
+					</p>
+				</section>
+				
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					<a href="http://dx.doi.org/10.1016/j.jhealeco.2011.12.006" target="_blank">Oster (2012)</a>
+					</h3>
+						<p>
+							HIV prevalence $\uparrow$ $\Rightarrow$ Risky sexual behaviour $\downarrow$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Instrument: Distance to DR Congo
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\hat{\beta}_{IV} < 0$ while $\hat{\beta}_{OLS} > 0$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Life expectancy $\uparrow$ $\Rightarrow$ Effect $\uparrow$
+						</p>
+				</section>				
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.1016/j.jdeveco.2006.03.006" target="_blank">Woodruff & Zenteno (2007)</a>
+					</h3>
+						<p>
+							Migration rate to rich country (Mexico $\rightarrow$ USA) $\uparrow$ $\Rightarrow$ Investment in home country $\uparrow$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Instrument: Distance to early 20c railway stations
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\hat{\beta}_{IV} > 0$
+						</p>
+				</section>
+							
+
+
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Issues on distance as instruments #1
+					</h4>
+					<h3>
+						Exclusion restriction
+					</h3>
+						<p>
+							Selection in space
+						</p>
+						<ul>
+							<li>
+								More affluent can live close to cities, etc.
+							</li>
+						</ul>
+						<p>
+							Distance to cities/roads: access to markets, schools, clinics, etc.
+						</p>
+				</section>
+
+				<section id="rogall_iv" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						<a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx0aG9yc3RlbnJvZ2FsbHxneDoyYTkzZjNkODVjMTcxYzA5" target="_blank">Rogall (2014)</a>
+					</h3>
+						<p>
+							Presence of armed groups $\Rightarrow$ civilian participation in Rwandan genocide $\uparrow$
+						</p>
+					<img src="gis_lecture4/rogall2014f4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left">					
+						<p style="text-align: center;">
+							Instrument: 
+						</p>
+						<p style="text-align: center;">
+							Distance to main road
+						</p>
+						<p style="text-align: center;">x</p>
+						<p style="text-align: center;">rainfall along the dirt track to main road in 1994</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<img src="gis_lecture4/rogall2014f4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left">					
+						<p>
+							We will learn how to obtain:
+						</p>
+						<ul>
+							<li>
+								Village centroids
+							</li>
+							<li>
+								Distance to main roads
+							</li>
+							<li>
+								Shortest distance routes
+							</li>
+						</ul>
+						<p>
+							Use Buffer (Lecture 3) to identify 500m rainfall buffers
+						</p>
+						<br>
+						<p>
+							<small>
+								cf. The author took this GIS course, which made this research feasible.
+							</small>
+						</p>
+				</section>
+
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Issues on distance as instruments #2
+					</h4>
+					<h3>
+						LATE
+					</h3>
+						<p>
+							Treatment can be induced by other factors than distance
+						</p>
+						<p>
+							Is LATE of interest?
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.1111/j.1542-4774.2010.tb00544.x" target="_blank">McKenzie et al. (2010)</a>
+					</h3>
+						<p>
+							Migration to rich country (Tonga $\rightarrow$ NZ) $\Rightarrow$ Income $\uparrow$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Instrument: Distance to NZ's Dept. of Labor office
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							LATE is relevant: distance is the sole determinant of migration
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\hat{\beta}_{OLS} > \hat{\beta}_{IV} > 0$
+						</p>
+				</section>									
+			</section>
+							
+			<section>
+				<section id="section2" style="text-align: left;">
+					<h2>
+						2. Nunn (2008)
+					</h2>
+					<p>
+						Perhaps the best example of using distance as instruments
+					</p>
+				</section>
+				
+				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Research Question</h3>
+					<p>
+						Did slave trades cause African underdevelopment?
+					</p>					
+					<p>
+						Important?
+					</p>
+					<ul>
+						<li>
+							Many conjecture slave trades adversely affected Africa's living standards
+						</li>
+					</ul>					
+					<p>
+						Original?
+					</p>
+					<ul>
+						<li>
+							First systematic and convincing evidence of causality
+						</li>
+					</ul>					
+					<p>
+						Feasible?
+					</p>
+				</section>
+
+				<section id="data1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>Data</h4>
+					<h3>Treatment variable</h3>
+					<p>
+						# of slaves exported from each country: constructed from
+					</p>
+					<p>
+						1. # of slaves exported from each port of Africa
+					</p>					
+					<p>
+						2. Ethnicity of a sample of 100,000+ slaves shipped from Africa
+					</p>
+					<p>
+						3. Murdock's (1959) map of ethnic homelands in Africa
+					</p>
+				</section>
+				
+				<section id="data2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>Data (cont.)</h4>
+					<h3>Instruments</h3>
+					<img src="gis_lecture4/Nunn2008F5.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">
+					<p>
+						Distance to nearest slave trade centers
+					</p>
+					<ul>
+						<li>
+							Trans-Atlantic
+						</li>
+						<li>
+							Indian Ocean
+						</li>
+						<li>
+							Trans-Saharan
+						</li>
+						<li>
+							Red Sea
+						</li>
+					</ul>					
+				</section>
+				
+								
+				
+				<section id="equation1" data-transition="fade-out slide-in" style="text-align: left">
+					<h3>
+						Empirical specification (2nd stage)
+					</h3>
+					<p>
+						<!-- Case by Case -->
+						\begin{align*}
+						y_{i} = 
+						& \ \alpha + \beta \ln \Big(\frac{exports_i}{area_i}\Big) + \boldsymbol{X}'_{i}\boldsymbol{\gamma} + \varepsilon_{i} 
+						\end{align*}
+					</p>
+					<br>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$y_{i}$</td>
+							<td>GDP per capita in country $c$ in 2000</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$exports_i$</td>
+							<td># of slaves exported 1400-1900 from country $c$</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$area_i$</td>
+							<td>Land surface area of country $i$</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$\boldsymbol{X}_{i}$</td>
+							<td>Controls</td>
+						</tr>
+					</table>
+				</section>
+
+				<section id="equation2" data-transition="slide-out fade-in" style="text-align: left">
+					<h3>
+						Empirical specification (1st stage)
+					</h3>
+					<p>
+						<!-- Case by Case -->
+						\begin{align*}
+						\ln \Big(\frac{exports_i}{area_i}\Big)  = 
+						& \ \ \delta + \boldsymbol{D}'_i\boldsymbol{\Omega} +  \boldsymbol{X}'_{i}\boldsymbol{\eta} + \mu_{i} \\
+						\end{align*}
+					</p>
+					<br>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$\boldsymbol{D}_i$</td>
+							<td>Distance to nearest slave trade centers</td>
+						</tr>
+					</table>
+				</section>
+				
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					</h3>
+						<p>
+							Some of controls will be created by ArcGIS
+						</p>
+						<ul>
+							<li>
+								Distance from equator
+							</li>
+							<li>
+								Longitude of country $i$'s centroid
+							</li>
+						</ul>
+				</section>
+
+				<section id="result1"  data-transition="slide-in fade-out">
+					<h4>
+						1st stage results
+					</h4>
+					<img src="gis_lecture4/Nunn2008T4.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p>
+						<small>(Table IV of Nunn 2008)</small>
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Weak instruments
+					</h3>
+						<p>
+							F-stat on excluded instruments: very low
+						</p>
+						<p>
+							$\Rightarrow$ Moreira's (2003) CLR confidence intervals
+						</p>
+				</section>
+
+				<section id="result2"  data-transition="fade-in slide-out">
+					<h4>
+						2nd stage results
+					</h4>
+					<img src="gis_lecture4/Nunn2008T4a.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p>
+						<small>(Table IV of Nunn 2008)</small>
+					</p>
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Exclusion restrictions
+					</h3>
+						<p>
+							Location of slave trade centers:
+						</p>
+						<ul>
+							<li>
+								Determined by climate suitability of plantation crops / locatino of mines (p. 160)
+							</li>
+							<li>
+								Not affected by the distance to Africa
+							</li>
+						</ul>
+						<p>
+							Distance to slave markets $\neq$ Distance to other economic opportunities
+						</p>
+						<ul>
+							<li>
+								Reduced-form correlation is absent outside Africa (p. 163)
+							</li>
+						</ul>
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						LATE
+					</h3>
+						<p>
+							Maybe a smaller impact if countries voluntarily engaged in slave trades
+						</p>
+						<p>
+							Which might explain why $|\hat{\beta}_{2SLS}| > |\hat{\beta}_{OLS}|$
+						</p>
+						<ul>
+							<li>
+								Other reasons:
+							</li>
+						</ul>
+							<ol style="margin-left: 75px;">
+							<li>
+								Measurement error in $export_i$
+							</li>
+							<li>
+								Initially prosperous areas first export slaves
+							</li>
+								
+							</ol>
+						<p>
+							But LATE may be of more interest in this context
+						</p>
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Mechanisms
+					</h3>
+						<p>
+							Ethnic fractionalization
+						</p>
+						<p>
+							Weaker state
+						</p>
+						<p>
+							Low interpersonal trust (<a href="http://dx.doi.org/10.1257/aer.101.7.3221" target="_blank">Nunn & Wantchekon 2011</a>)
+						</p>
+				</section>
+
+			</section>
+
+
+				<!-- Preparation -->
+				<section id="preparation1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<p>
+						1. Launch ArcMap 10 (it takes time)
+					</p>
+					<p>
+						2. <a href="https://www.dropbox.com/s/fq2h2k89cin3yzv/Lecture4.zip?dl=0" target="_blank">Download the zipped dataset for lecture 4</a> 
+					</p>
+					<p>
+						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 Don't save in the remote server, which slows down ArcGIS
+						</li>
+					</ul>															
+					<p>
+						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\lecture4</code>
+						</li>
+					</ul>															
+				</section>
+
+				<section id="preparation2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<p>
+						5. Right-click the following zipped data and choose "<strong>7-Zip > Extract Here</strong>"
+					</p>
+					<ul>
+						<li>
+							10m-admin-0-countries.zip (country polygons)
+						</li>
+						<li>
+							10m-coastline.zip (coastline polylines)
+						</li>
+						<li>
+							Murdock_shapefile.zip (ethnic homeland polygons)
+						</li>
+					</ul>
+				</section>
+
+
+				<section id="preparation3" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						Now in ArcMap's <strong>Catalogue Window</strong>:
+					</p>
+					<p>
+						6. Establish connection to data folder
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Right-click "<strong>Folder Connections</strong>"
+						</li>
+						<li>
+							Select "<strong>Connect to Folder</strong>"
+						</li>
+						<li>
+							Choose "<strong>Downloads > lecture4</strong>"
+						</li>
+					</ul>
+					<p>
+						7. Create a new folder <strong>outputs</strong> inside <strong>lecture4</strong>
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 We will create all new files in this folder
+						</li>
+					</ul>															
+					<p>
+						8. Prepare the Model Builder
+					</p>
+					<ul style="margin-left: 72px;">
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+							</li>
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/lecture4</strong>" inside <strong>lecture4</strong>
+							</li>
+					</ul>
+				</section>
+
+			<section>
+				<section id="section3">
+					<h1>
+						3. Distance calculation 
+					</h1>
+				</section>
+
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Distance between points
+					</h3>
+						<p>
+							1. Obtain geographic coordinates
+						</p>
+						<p>
+							2. Use Great Circle Distance formula
+						</p>
+						<p>
+							\begin{align*}
+							d_{ij} =& \ 111.12 \times \arccos\big[\sin(La_i)\sin(La_j) \\ 								& + \cos(La_i)\cos(La_j)\cos(Lo_i-Lo_j)\big]
+							\end{align*}
+						</p>
+						<ul>
+							<li>
+							Can be implemented by Stata ado <code>globdist</code> 
+							</li>
+						</ul>			
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Globdist
+					</h4>
+						<p>
+							1. In Stata, type: <code>findit globdist</code>, to install
+						</p>
+						<p>
+							2. Prepare the data so that 
+						</p>
+						<ul>
+							<li>
+								lat / lon: coordinates of each observation
+							</li>
+							<li>
+								lat_i / lon_i: coordinates of location $i$
+							</li>
+						</ul>
+						<p>
+							3. Type: <code>globdist newvar, lat0(lat_i) lon0(lon_i)</code>
+						</p>
+						<ul>
+							<li>
+								newvar: distance to location $i$
+							</li>
+							<li>
+								use latvar(), lonvar(), to specify coordinate variables if not named lat / lon
+							</li>
+						</ul>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Alternative method for small areas
+					</h4>
+						<p>
+							UTM projection (cf.  <a href="http://mkudamatsu.github.io/gis_lecture3.html#/section4" target="_blank">Lec 3</a>) + Pythagorean theorem
+						</p>
+						<ul>
+							<li>
+								For study area spanning < 6&deg in longitude
+							</li>
+						</ul>
+				</section>
+				
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Distance between points and polylines
+					</h3>
+						<p>
+							Need the coordinate of nearest point on the polyline
+						</p>
+						<p>
+							Use ArcGIS's Near tool
+						</p>
+						<ul>
+							<li>
+								It also calculates the distance to nearest point
+							</li>
+						</ul>						
+						<p>
+							Application: <a href="#/rogall_iv" target="_blank">Rogall (2014)</a>, Redding & Sturm (2008)
+						</p>
+				</section>				
+
+				<section id="redding-sturm" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Detour: <a href="http://dx.doi.org/10.1257/aer.98.5.1766" target="_blank">Redding & Sturm (2008)</a>
+					</h4>
+					<img src="gis_lecture4/RS2008map.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">
+					<p>
+						West German cities near the border with East Germany:
+					</p>
+					<p>
+						Population growth $\downarrow$ after 1945
+					</p>
+					<p>
+						Distance to border: can be obtained by Near tool
+					</p>
+				</section>
+
+								
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Distance from polygons
+					</h3>
+						<p>
+							Countries, provinces, districts, etc.
+						</p>
+						<p>
+							Obtain the coordinate of polygon centroid
+						</p>
+						<p>
+							Can be implemented by:
+						</p>
+						<ul>
+							<li>
+								Stata ado <a href="http://http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
+							</li>
+							<li>
+								Feature To Point + Add XY Coordinates in ArcGIS (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Steps 3-4</a>)
+							</li>
+						</ul>		
+						<p>
+							Application: Campante & Do (2014)
+						</p>				
+				</section>				
+
+				<section id="campante-do" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Detour: <a href="http://dx.doi.org/10.1257/aer.104.8.2456" target="_blank">Campante & Do (2014)</a>
+					</h4>
+					<p>
+						Population concentration around US state capital city
+					</p>
+					<ul>
+						<li>
+						Measured by the <em>distance</em>-weighted sum of county population
+						</li>
+						<li>
+						Distance: btw capital and county <em>centroids</em>							
+						</li>
+					</ul>
+					<p>
+						$\Rightarrow$ US state govt quality $\uparrow$
+					</p>
+					<ul style="margin-left: 85px;">
+						<li>
+							Newspaper coverage of state politics $\uparrow$
+						</li>
+						<li>
+							Money politics $\downarrow$
+						</li>
+						<li>
+							Public good provision $\uparrow$
+						</li>
+					</ul>
+				</section>
+				
+								
+				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1
+					</h4>
+					<h3>
+						Replicate instruments in Nunn (2008): Distance to Slave trade centers
+					</h3>
+					<p>
+						1. Obtain country centroid coordinates
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Used as control variables as well
+							</li>
+						</ul>
+					<p>
+						2. Identify closest point on the coast from country centroid
+					</p>
+					<p>
+						3. Calculate distance to closest slave trade centers
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Trade center coordinates: use online gazetteer (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/xydata2" target="_blank">Lecture 1</a>)
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex1b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						
+					</h4>
+					<img src="gis_lecture4/Nunn2008F5.png" style="border: none; background: none; box-shadow:none; width: 700px;">
+				</section>
+
+
+
+
+				<section id="ex1centroids" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 1
+					</h4>
+					<h3>
+						Obtain country centroids
+					</h3>
+					<p>
+						Input: <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/" target="_blank">Natural Earth 1:10m Cultural Vector "Admin 0 - Countries"</a>
+					</p>					
+						<ul style="margin-left: 72px;">
+							<li>
+								Better than GAUL for obtaining centroids
+							</li>
+							<li>
+								GAUL: each island in the same country is a separate polygon... 
+							</li>
+						</ul>
+					<p>
+						Geo-processing tools:
+					</p>
+					<ul>
+						<li>
+							Feature To Point
+						</li>
+						<li>
+							Add XY Coordinates
+						</li>
+					</ul>
+				</section>
+								
+				<section id="ex1ftp" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 1
+					</h4>
+					<h3>
+						Feature To Point
+					</h3>
+					<p>
+						<strong>Input Features</strong>: ne_10m_admin_0_countries.shp
+					</p>					
+					<ul>
+						<li>
+							Country polygons
+						</li>
+					</ul>		
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture4\outputs\country_centroids.shp
+					</p>					
+					<p>
+						Uncheck "<strong>Inside</strong>"
+					</p>
+					<ul>
+						<li>
+							It's not clear how this option works
+						</li>
+						<li>
+							My personal correspondence with ESRI: "[F]ind a location in a relatively wide or open area inside the polygon and to avoid a location being too close to the polygon boundary"
+						</li>
+					</ul>										
+				</section>
+
+
+
+				<section id="ex1addxy" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 1 (cont.)
+					</h4>
+					<h3>
+						Add XY Coordinates (Data Management)
+					</h3>
+					<p>
+						<strong>Input Features</strong>: country_centroids.shp
+					</p>
+					<ul>
+						<li>
+							The output from Feature To Point
+						</li>
+					</ul>										
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				
+
+				<section id="ex1coast" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 2
+					</h4>
+					<h3>
+						Closest point on the coast
+					</h3>
+					<p>
+						Inputs: coastline polylines
+					</p>
+					<ul>
+						<li>
+							<a href="http://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-coastline/" target="_blank">Natural Earth 1:10m Physical Vector "Coastline"</a>
+						</li>
+					</ul>
+					<p>
+						Geo-processing tool: <strong>Near</strong>
+					</p>					
+					<ul>
+						<li>
+							<strong>Generate Near Table</strong> tool does the same job
+						</li>
+						<li>
+							But it drops country names...
+						</li>
+					</ul>
+				</section>
+
+				<section id="near" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						What Near tool does
+					</h3>
+					<img src="gis_lecture4/near.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<p>
+						<small>(source: <a href="http://pro.arcgis.com/en/pro-app/tool-reference/analysis/near.htm" target="_blank">ArcGIS Help on Near</a>)</small>
+					</p>
+				</section>
+
+				<section id="ex1near1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 2
+					</h4>
+					<h3>
+						Near
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: country_centroids.shp (2)
+					</p>
+					<ul>
+						<li>
+							Output from Add XY Coordinates
+						</li>
+					</ul>						
+					<p>
+						<strong>Near Features</strong>: 10m_coastline.shp
+					</p>
+					<ul>
+						<li>
+							Coastline polyline features
+						</li>
+					</ul>	
+					</section>
+				<section id="ex1near2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Near (cont.)
+					</h4>		
+					<p>
+						Check "<strong>Location</strong>"
+					</p>
+					<ul>
+						<li>
+							Otherwise the coordinate of the nearest point on coast won't be attached to attribute table
+						</li>
+					</ul>					
+					<p>
+						<strong>Method</strong>: GEODESIC
+					</p>
+					<ul>
+						<li>
+							Calculates distance by Great Circle Distance Formula
+						</li>
+						<li>
+							If we use a projected coordinate system, choose PLANAR.
+						</li>						
+					</ul>
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>							
+				</section>				
+
+				<section id="ex1step3a" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step3
+					</h4>
+					<h3>
+						Distance to slave trade centers
+					</h3>
+					<p>
+						Approach 1: use <code>globdist</code>
+					</p>
+					<ol>
+						<li>
+							Table to Excel, to export the output from Near tool
+						</li>
+						<li>
+							In Stata, use <code>globdist</code> to calculate distance between nearest point on the coast (NEAR_X, NEAR_Y) and all slave trade centers.
+						</li>
+						<li>
+							Pick the shortest distance
+						</li>
+					</ol>
+				</section>	
+
+				<section id="ex1step3b" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step3 (cont.)
+					</h4>
+					<h3>
+						Distance to slave trade centers
+					</h3>
+					<p>
+						Approach 2: use the Near tool in ArcGIS
+					</p>
+					<ol>
+						<li>
+							Create slave trade center point features
+						</li>
+						<li>
+							Create nearest coast point features (use NEAR_X, NEAR_Y)
+						</li>
+						<li>
+							Use Near (near features: slave trade centers)
+						</li>
+						<li>
+							Table to Excel
+						</li>
+					</ol>
+				</section>	
+
+				<section id="model_model1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					"Model" models for Exercise 1
+					</h3>
+					<p>
+						Approach1: "Lecture4\solutions4exercises\models.tbx\exercise1approach1"
+					</p>
+					<p>
+						Approach2: "Lecture4\solutions4exercises\models.tbx\exercise1approach2"
+					</p>
+				</section>	
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Extra #1
+					</h4>
+					<h3>
+						Centroids outside polygons
+					</h3>
+						<p>
+							Nunn (2008, p. 170): "For five countries where the centroid falls outside the land borders of the country (Gambia, Somalia, Cape Verde, Mauritius, and Seychelles) the point within the country closest to the centroid is used."
+						</p>
+						<p>
+							This can be done by the Near tool
+						</p>
+						<ul>
+							<li>
+								Near features: country polygons
+							</li>
+							<li>
+								(NEAR_X, NEAR_Y) will be different for those centroids outside polygons
+							</li>
+						</ul>
+				</section>
+				
+				<section id="xy2line" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Extra #2
+					</h4>
+					<h3>
+						Shortest distance route polylines
+					</h3>
+						<p>
+							To make a map that indicates the shortest distance:
+						</p>
+						<p>
+							Use the <strong>XY To Line</strong> tool
+						</p>
+						<ul>
+							<li>
+								<strong>Input Table</strong>: the output from Near tool
+							</li>
+							<li>
+								<strong>Start X Field / Y Field</strong>: POINT_X / POINT_Y
+							</li>
+							<li>
+								<strong>End X Field / Y Field</strong>: NEAR_X / NEAR_Y
+							</li>
+						</ul>
+						<p>
+							Application: <a href="#/rogall_iv" target="_blank">Rogall (2014)</a> to create input polyline features for Buffer
+						</p>
+				</section>
+
+				<section id="model_script1" data-transition="slide-out slide-in" style="text-align: left;">
+					<h3>
+					Model Python Script for Exercise 1
+					</h3>
+					<p>
+						Due to time constraint, we skip Python for Exercise 1
+					</p>
+					<p>
+						Model Python scripts: see "Lecture4\solutions4exercises\lec4ex1approach*.py"
+					</p>
+				</section>	
+
+			</section>
+							
+			<!-- SECTION for ArcMap -->
+			<section>
+				<section id="section4">
+					<h1>
+						4. Intersect + Surface Area Calculation
+					</h1>
+				</section>
+
+				<section id="aim1" data-transition="fade-out slide-in" style="text-align: left">
+					<h3>
+						Data we want to construct
+					</h3>
+					<p>
+						# of slaves exported from each country in Africa
+					</p>
+					<p>
+						Input datasets:
+					</p>
+					<ul>
+						<li>
+							# of slaves shipped from each <em>coastal</em> country
+						</li>
+						<li>
+							Each ethnic group's share in the total # of slaves exported from Africa
+						</li>
+						<li>
+							Ethnic homeland map (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/oldmap2b" target="_blank">Lecture 1</a>)
+						</li>
+					</ul>
+				</section>
+
+				<section id="aim2" data-transition="fade-out slide-in" style="text-align: left">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<h3>
+						Input data (hypothetical)
+					</h3>
+					<img src="gis_lecture4/inputdata.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+				</section>
+
+				<section id="aim3" data-transition="fade-out fade-in" style="text-align: left">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<h3>
+						Assign slaves from coast to inland
+					</h3>
+					<img src="gis_lecture4/slave1.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+				</section>
+
+				<section id="aim4" data-transition="fade-out fade-in" style="text-align: left">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<h3>
+						Superimpose country boundaries
+					</h3>
+					<img src="gis_lecture4/slave2.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p>
+						Surface area of ethnic C: 50% for X / 50% for Y
+					</p>
+				</section>
+
+				<section id="aim5" data-transition="fade-out fade-in" style="text-align: left">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<h3>
+						Deal with split ethnic homelands
+					</h3>
+					<img src="gis_lecture4/slave3.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p>
+						$\Rightarrow$ Assign slaves by <em>surface area</em> (Nunn 2008, fn. 4)
+					</p>
+				</section>
+
+				<section id="aim6" data-transition="fade-out fade-in" style="text-align: left">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<h3>
+						# of slaves exported by country
+					</h3>
+					<img src="gis_lecture4/slave4.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+				</section>
+
+				<section id="aim7" data-transition="slide-out fade-in" style="text-align: left">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<h3>
+						Use ArcGIS to create:
+					</h3>
+					<p>
+						Ethnic homeland by country intersection polygons
+					</p>
+					<p>
+						Attribute table:
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Country ID
+						</li>
+						<li>
+							Ethnic group ID
+						</li>
+						<li>
+							Surfare area
+						</li>
+					</ul>
+					<br>
+					<p>
+						Then export to Stata to do the other calculations...
+					</p>
+				</section>
+
+				<section id="ex2" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2
+					</h4>
+					<h3>
+						Surface area of intersection polygons
+					</h3>
+					<p>
+						Geo-processing tools to be used for this exercise:
+					</p>					
+					<p>
+						1. Intersect (Analysis)
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Split ethnic homelands by country boundary
+							</li>
+						</ul>
+					<p>
+						2. Project (Data Management)
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Choose coordinate system for surface area calculation
+							</li>
+						</ul>
+					<p>
+						3. Add Field + Calculate Field	
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Calculate surfare area as a new field of attribute table
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex2data" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<h3>
+						Input data
+					</h3>
+					<p>
+						Browse these data in ArcMap:
+					</p>
+					<p>
+						1. Ethnic homeland polygons (<code>borders_tribes.shp</code>)
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Downloaded from <a href="http://scholar.harvard.edu/nunn/pages/data-0" target="_blank">Nathan Nunn's website</a>
+							</li>
+						</ul>
+					<p>
+						2. Country polygons (<code>ne_10m_admin_0_countries.shp</code>)
+					</p>
+				</section>
+
+				<section id="ex2intersect1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 1
+					</h4>
+					<h3>
+						Intersect (Analysis)
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: 
+					</p>
+						<p>
+							borders_tribes.shp
+						</p>
+						<p>
+							ne_10m_admin_0_countries.shp
+						</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Use shift+click to select more than one file
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture4\outputs\intersect.shp
+					</p>
+					<p>
+						<strong>Join Attributes</strong>: ALL
+					</p>
+					<p>
+						<strong>Output Type</strong>: INPUT
+					</p>
+				</section>
+				
+				<section id="ex2intersect2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 1 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output. 
+					</p>
+					<p>
+						Browse the attribute table of the output
+					</p>					
+				</section>					
+
+				<section id="intersect1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Intersect vs Spatial Join
+					</h3>
+						<p>
+							<strong>Intersect</strong>: to obtain statistics (e.g. surface area) at the intersection level
+						</p>
+						<ul>
+							<li>
+								Output features: intersection polygons
+							</li>
+						</ul>		
+						<p>
+							<strong>Spatial Join</strong> (with JOIN_ONE_TO_MANY option), to know which ethnic group lives in which country
+						</p>
+						<ul>
+							<li>
+								Output features: target features
+							</li>
+						</ul>		
+				</section>
+
+				<section id="intersect2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Application of Intersect tool:
+					</h4>
+					<h3>
+						Detour: <a href="http://dx.doi.org/10.1093/qje/qjs011" target="_blank">Bleakey & Lin (2012)</a>
+					</h3>
+					<img src="gis_lecture4/bleakley-lin.png" style="border: none; background: none; box-shadow:none; width: 600px;">
+					<p>
+						<strong>Intersect</strong> fall lines + rivers to identify potential portage sites
+					</p>
+				</section>
+
+				<section id="area_calculation1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<h3>
+						Surface area calculation
+					</h3>
+						<p>
+							Use equal area projections
+						</p>
+						<ul>
+							<li>
+								Study area: whole Africa
+							</li>
+							<li>
+								UTM cannot handle such large area (cf. Lecture 3)
+							</li>
+						</ul>		
+						<p>
+							Sinusoidal: often used for the whole globe or the whole continent (Africa, Latin America)
+						</p>
+				</section>
+
+				<section id="sinusoida2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Sinusoidal projection
+					</h3>
+					<p>
+						Assume the Earth is a sphere. Then:
+					</p>
+					<p>
+						Length of 360&deg in latitude: same across all longitudes
+					</p>
+					<p>
+						Length of 360&deg in longitude:
+					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td>$2\pi$ x Earth's radius</td>
+							<td>at latitude 0&deg (equator)</td>
+						</tr>
+						<tr>
+							<td>$2\pi$ x Earth's radius x $\cos(\theta)$</td>
+							<td>at latitude $\theta$&deg</td>
+						</tr>
+					</table>
+					<img src="gis_lecture4/cosine.gif" style="border: none; background: none; box-shadow:none; width: 250px; text-align: center;">
+				</section>
+
+				<section id="sinusoidal2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Sinusoidal projection (cont.)
+					</h4>
+					<p>
+						Projected coordinate $(x',y')$ is given by:
+					</p>
+					<p>
+						\begin{align*}
+						y' & = M_y * y \\
+						x' & = M_x * (x - x_0) * \cos(y)
+						\end{align*}						
+					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$M_x, M_y$</td>
+							<td>Length of 1 &deg in longitude/latitude on equator (in meters)</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$y$</td>
+							<td>Latitude in geographic coordinate (&deg)</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$x$</td>
+							<td>Longitude in geographic coordinate (&deg)</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$x_0$</td>
+							<td><strong>Central meridian</strong></td>
+						</tr>
+					</table>
+					<p style="text-align: left;">
+						Central meridian: affect how map looks, not surface area calculation
+					</p>
+				</section>
+
+				<section id="sinusoidal3" data-transition="fade-in slide-out" >
+					<h4 style="text-align: left;">
+						Sinusoidal projection (cont.)
+					</h4>
+						<p style="text-align: left;">
+							Central meridian & all the parallels: straight lines
+						</p>
+						<p style="text-align: left;">
+							Other meridians: sinusoidal curves
+						</p>
+					<img src="gis_lecture4/sinusoidal.png" style="border: none; background: none; box-shadow:none; width: 800px">
+					<p style="text-align: center;">
+						<small>(<a href="http://www.absoluteastronomy.com/topics/Map_projection" target="_blank">image source)</a></small>
+					</p>
+				</section>
+
+								
+				<section id="ex2project" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 2
+					</h4>
+					<h3>
+						Project (Data Management)
+					</h3>					
+					<p>
+						<strong>Input Dataset or Feature Class</strong>: intersect.shp
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Output from Intersect
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Dataset or Feature Class</strong>: ...\Lecture4\outputs\intersect_sinusoidal.shp
+					</p>
+					<p>
+						<strong>Output Coordinate System</strong>: Africa_Sinusoidal
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Projected Coordinate System > Continental > Africa
+						</li>
+						<li>
+							Central meridian is set at 15&degE (middle of Africa)
+						</li>
+					</ul>											
+				</section>	
+
+				<section id="area_calculation2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<h3>
+						Add a new field to attribute table
+					</h3>
+						<p>
+							ArcGIS requires a two-step procedure:
+						</p>
+						<ul>
+							<li>
+								Create a blank field (Add Field)
+							</li>
+							<li>
+								Enter the values to the field (Calculate Field)
+							</li>
+						</ul>		
+				</section>
+				
+				<section id="add_field" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 3
+					</h4>
+					<h3>
+						Add Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: intersect_sinusoidal.shp
+					</p>
+					<ul>
+						<li>
+							Output from Project
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: area
+					</p>
+					<ul>
+						<li>
+							Or whatever you prefer (not exceeding 10 characters)
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Type</strong>: FLOAT
+					</p>
+					<ul>
+						<li>
+							Surface area: takes decimal values
+						</li>
+					</ul>						
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				<section id="ex2d" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output attribute table. 
+					</p>
+					<p>
+						You should see a field whose value is all zero
+					</p>
+						<p>
+							<small>Don't ask me why we cannot enter values to a new field directly...</small>
+						</p>
+				</section>	
+
+				<section id="calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 4
+					</h4>
+					<h3>
+						Calculate Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: intersect_sinusoidal.shp (2)
+					</p>
+					<ul>
+						<li>
+							Output from Add Field
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: area
+					</p>
+					<ul>
+						<li>
+							Or the same as what you specified in Add Field
+						</li>
+					</ul>						
+				</section>
+
+				<section id="calculate_field2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Calculate Field (cont.)
+					</h3>					
+					<p>
+						<strong>Expression</strong>: float(!SHAPE.AREA!)
+					</p>
+					<ul>
+						<li>
+							SHAPE.AREA: (hidden) field name for surface area
+						</li>
+						<li>
+							! ! tells Python what's enclosed is a field name
+						</li>
+						<li>
+							float(): avoid rounding-off to integer
+						</li>
+					</ul>	
+					<p style="margin-left: 40px;">
+						cf. ArcGIS Help on <a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/calculate-field-examples.htm" target="_blank">Calculate Field examples</a> 	
+					</p>					
+					<p>
+						<strong>Expression Type</strong>: PYTHON_9.3
+					</p>
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				<section id="ex2e" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #2 Step 4 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output attribute table. 
+					</p>
+					<p>
+						You should now see a field whose value is surface area in $m^2$
+					</p>
+				</section>	
+
+				<section id="ex2export1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 Step 5
+					</h4>
+					<h3>
+						Export Attribute Table
+					</h3>
+					<p>
+						Which geo-processing tool(s) should we use?
+					</p>
+				</section>	
+
+				<section id="ex2export2" data-transition="fade-in fade-out" style="text-align: left;">
+				<h4>
+					Exercise #2 Step 5 (cont.)
+				</h4>
+				<h3>
+					Table To Excel
+				</h3>					
+					<ul>
+						<li>
+							<strong>Input Table</strong>: intersect_sinusoidal.shp (3)
+						</li>
+						<li>
+							<strong>Output Excel File</strong>: ...\Lecture4\outputs\intersect_sinusoidal.xls
+						</li>
+					</ul>	
+				<br>
+				<p>
+					This time we go with Excel only.
+				</p>
+					<ul>
+						<li>
+							Advantage of Export Feature Attribute to ASCII: choose which fields to keep
+						</li>
+						<li>
+							Various country codes to choose from
+						</li>
+						<li>
+							Which one works best with your country data is unknown
+						</li>
+						<li>
+							Better to drop unnecessary variables in Stata
+						</li>
+					</ul>		
+					<br>		
+				</section>	
+
+				<section id="model_model2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					"Model" model for Lecture 4 Exercise 1
+					</h3>
+					<p>
+						Look at "lecture4\solutions4exercises\models.tbx\exercise2"
+					</p>
+				</section>	
+			</section>
+
+			<section>
+				<section id="section5">
+					<h1>
+						5. List in Python 
+					</h1>
+				</section>
+
+															
+				<section id="ex2python1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					Specify multiple input files in Python
+					</h3>
+					<p>
+						Now export a Python script
+					</p>
+					<p>
+						Look at the command line for Intersect
+					</p>
+					<pre>
+						<code data-trim>						
+# Process: Intersect
+arcpy.Intersect_analysis("C:\\Users\\xkudma\\Downloads\\Lecture4\\borders_tribes.shp #;C:\\Users\\xkudma\\Downloads\\Lecture4\\ne_10m_admin_0_countries.shp #", intersect_shp, "ALL", "", "INPUT")
+						</code>
+					</pre>
+					<p>
+						For geo-processing tools that take multiple inputs, Model Builder fails to use local variables for input file names
+					</p>
+					<p>
+						We ourselves need to use local variables
+					</p>
+				</section>	
+
+				<section id="ex2python2" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Specify multiple input files in Python (cont.)
+					</h4>
+					<p>
+					If you write the script as follows:
+					</p>
+					<p>
+						<code>
+							data1 = "data1.shp"
+						</code>
+					</p>
+					<p>
+						<code>
+							data2 = "data2.shp"
+						</code>
+					</p>
+					<p>
+						<code>
+							<mark>input_list = [data1, data2]</mark>
+						</code>
+					</p>
+					<p>
+						<code>arcpy.Intersect_analysis(<mark>input_list</mark>, intersect_shp, "ALL", "", "INPUT")</code> 
+					</p>
+					<p>
+						$\Rightarrow$ Python recognises 1st argument as
+					</p>
+					<p style="text-align: center;">
+					<code>
+						 ["data1.shp","data2.shp"]
+					</code>
+					</p>
+				</section>	
+
+				<section id="python101datatype" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python 101
+					</h4>
+					<h3>
+						Data type
+					</h3>
+						<p>
+							In Python, a variable can take several data types
+						</p>
+						<ul>
+							<li>
+								Number: <code>lesson = 4</code>
+							</li>
+							<li>
+								String: <code>software = "python"</code>
+							</li>
+							<li>
+								List: <code>list = [4,"python"]</code>
+							</li>
+							<li>
+								Dictionary: <code>dict = {"lesson": 4, "software": "python"}</code> (cf. Lec 8)
+							</li>
+						</ul>
+						<p>
+							See <a href="http://www.tutorialspoint.com/python/python_variable_types.htm" target="_blank">TutorialsPoint</a> for more on data type
+						</p>
+				</section>
+
+				<section id="python101list" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python 101
+					</h4>
+					<h3>
+						List
+					</h3>
+					<p>
+						list = [4,"python"]
+					</p>
+						<p>
+							To define a list, use [ ]
+						</p>
+						<p>
+							Each item is separated by ,
+						</p>
+						<p>
+							Items can either be numbers or strings
+						</p>
+						<p>
+							See <a href="http://www.tutorialspoint.com/python/python_lists.htm" target="_blank">TutorialsPoint</a> for more on list
+						</p>
+				</section>
+												
+				<section id="list4arcgis1a" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Python List for ArcGIS
+					</h3>
+					<p>
+						1. Loop over files (cf. <a href="http://mkudamatsu.github.io/gis_lecture3.html#/section6" target="_blank">Lec 3 Sec 6</a>)
+					</p>
+					<p>
+						2. Specify multiple input file names for a geo-processing tool
+					</p>
+						<ul>
+							<li>
+								Intersect
+							</li>
+							<li>
+								Near (for near features)
+							</li>
+						</ul>
+						<p>
+							See ArcGIS Online Help to tell whether list can be used
+						</p>
+				</section>
+
+				<section id="list4arcgis1b" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/intersect.htm" target="_blank"> ArcGIS Online Help for Intersect</a>
+					</h4>
+					<img src="gis_lecture4/list4arcgis.png" style="border: none; background: none; box-shadow:none; width: 900px;">				
+				</section>
+
+				<section id="list4arcgis2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Python List for ArcGIS
+					</h3>
+				</section>				
+								
+				<section id="ex2last" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<h3>
+						Edit the exported Python script
+					</h3>
+					<p>
+						1. Use the template (Lecture4\template4L4.py)
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Try-Except statement (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex6a" target="_blank">Lec 2 Ex 6</a>)
+						</li>
+						<li>
+							String variables for file names (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex7a" target="_blank">Lec 2 Ex 7</a>)
+						</li>
+						<li>
+							Print commands (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex8a" target="_blank">Lec 2 Ex 8</a>)
+						</li>
+					</ul>
+					<p>
+						2. Replace Intersect's input file names w/ a list
+					</p>
+					<p>
+						3. Close outputs in ArcMap
+					</p>
+					<p>
+						4. Run the script
+					</p>
+				</section>
+				
+				<section id="model_script1" data-transition="slide-out slide-in" style="text-align: left;">
+					<h3>
+					Model Python Script for Lecture 4 Exercise 2
+					</h3>
+					<p>
+						Look at "solutions4exercises/lec4ex2.py" in the downloaded data folder for Lecture 4
+					</p>
+				</section>	
+			</section>	
+
+
+				<section id="lessons" style="text-align: left;">
+					<h3>
+						What we've learned on ArcGIS
+					</h3>
+					<ol>	
+						<li>
+							Centroid coordinates
+						</li>
+						<li>
+							Nearest points on polyline features
+						</li>
+						<li>
+							Intersections of polygons/polylines
+						</li>
+						<li>
+							Surface area of polygons
+						</li>
+					</ol>
+					<p>
+						Do you remember which geo-processing tools you used for each of these tasks?
+					</p>
+				</section>
+
+			</div>
+			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
+
+		</div>
+		<!-- To end the activation of the CSS framework of Reveal.js -->		
+
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
+		
+		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
+		<script src="lib/js/head.min.js"></script>
+		<!-- Load reveal.js -->
+		<script src="js/reveal.js"></script>
+
+		<!-- Import MathJax, to use TeX for mathematic expressions -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<!-- Allow inline math expressions by using $ -->
+		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      processEscapes: true
+		    }
+		  });
+		</script>
+
+		<script>
+			// Set the options for Reveal.js
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false, // Disable the navigation arrows on bottom right
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false, // Disable the default rolling links
+
+				transition: 'slide', // Choose from: none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
