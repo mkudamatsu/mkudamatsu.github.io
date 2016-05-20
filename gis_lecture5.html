@@ -1,0 +1,2489 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- For Google search results -->
+		<title>ArcGIS for Economics: Lecture 5</title>
+		<meta name="description" content="ArcGIS's Zonal Statistics for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<!-- Activate Reveal.js -->
+		<link rel="stylesheet" href="css/reveal.css">
+		
+		<!-- Define the theme -->
+		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--Add support for earlier versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<!-- To activate the CSS framework of Reveal.js -->
+		<div class="reveal">
+
+			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
+			<div class="slides">
+				
+				<!-- Slide contents start here -->
+				
+				<!-- My own slide templates -->
+				<section id="title">
+					<h3 style="color:slategrey">
+						ArcGIS 10 for Economics Research
+					</h3>
+					<h3>
+						Lecture 5
+					</h3>
+					<h2>
+						Zonal Statistics
+					</h2>
+					<br>
+					<p>Masayuki Kudamatsu</p>
+					<p>20 May, 2016</p>
+					<br>
+					<p>
+						<small>Press SPACE to proceed. </small>
+						<br>
+						<small>To go back to the previous slide, press SHIFT+SPACE. </small>
+					</p>
+				</section>
+
+
+				<!-- Standard text slide -->
+				<section id="what_is_zonal_stat1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						What is Zonal Statistics?
+					</h3>
+						<p>
+							Summary statistics of raster data value within each polygon
+						</p>
+						<ul>
+							<li>
+								Mean / Standard deviation
+							</li>
+							<li>
+								Min / Max / Range
+							</li>
+							<li>
+								Sum
+							</li>
+							<li>
+								Count
+							</li>
+						</ul>
+						<p>
+							For integer raster:
+						</p>
+						<ul>
+							<li>
+								Median
+							</li>
+							<li>
+								Variety (# of unique values)
+							</li>
+							<li>
+								Majority (most frequent value)
+							</li>
+							<li>
+								Minority (least frequent value)
+							</li>
+						</ul>
+				</section>
+
+				<section id="what_is_zonal_stat1" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						What is Zonal Statistics? (cont.)
+					</h4>
+						<p>
+							Merge polygons with raster data, in other words
+						</p>
+						<p>
+							Polygon examples:
+						</p>
+						<ul>
+							<li>
+								Countries
+							</li>
+							<li>
+								Sub-national districts
+							</li>
+							<li>
+								Grid cells (this lecture)
+							</li>
+						</ul>						
+						<p>
+							Raster data examples:
+						</p>
+						<ul>
+							<li>
+								Population
+							</li>
+							<li>
+								Elevation (cf. Lecture 6)
+							</li>
+							<li>
+								Land use
+							</li>
+							<li>
+								Nighttime light
+							</li>
+						</ul>
+				</section>
+				
+				<section id="zonal_stat_in_econ" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Applications of Zonal Statistics
+					</h3>
+						<p>
+							Mean nighttime luminosity within:
+						</p>
+						<ul>
+							<li>
+								Country (<a href="http://dx.doi.org/10.1016/j.jpubeco.2015.03.011" target="_blank">Henderson et al. 2012</a>)
+							</li>
+							<li>
+								Provinces (<a href="http://dx.doi.org/10.1093/qje/qju004" target="_blank">Hodler & Raschky 2014</a>)
+							</li>
+							<li>
+								Electoral districts (<a href="http://dx.doi.org/10.1016/j.jpubeco.2015.03.011" target="_blank">Baskaran et al. 2015</a>)
+							</li>
+							<li>
+								Ethnic homelands (Michalopoulos & Papaioannou <a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a> / <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>, <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. 2016</a>)
+							</li>
+						</ul>
+						<p>
+							Population weights for averaging grid-cell data to country
+						</p>
+						<ul>
+							<li>
+								Temperature (<a href="http://dx.doi.org/10.1257/mac.4.3.66" target="_blank">Dell et al. 2012</a>)
+							</li>
+						</ul>
+				</section>
+
+				<section id="michalopoulos2012" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Applications of Zonal Statistics (cont.)
+					</h4>
+						<p>
+							<a href="http://dx.doi.org/10.1257/aer.102.4.1508" target="_blank">Michalopoulos (2012)</a>: probably the most ingenious research design that exploits zonal statsitics (and ArcGIS in general)
+						</p>
+
+				</section>
+
+				<section id="road_map" style="text-align: left;">
+					<h3>
+						Today's road map
+					</h3>
+						<p>
+							1. Michalopoulos (2012)
+						</p>
+						<p>
+							2. Virtual country data
+						</p>
+						<ul>
+							<li>
+								Intersect + Dissolve
+							</li>
+							<li>
+								Zonal Statistics as Table
+							</li>
+						</ul>
+						<p>
+							3. Adjacent cell pair data
+						</p>
+						<ul>
+							<li>
+								Extract Values To Points
+							</li>
+							<li>
+								Polygon Neighbors
+							</li>
+						</ul>						
+				</section>			
+
+			<!-- SECTION for paper -->
+			<section>
+				<section id="section1">
+					<h1>
+						1. Michalopoulos (2012)
+					</h1>
+				</section>
+				
+				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Research Question</h3>
+					<p>
+						Did geographic diversity cause ethnic diversity?
+					</p>					
+					<p>
+						Important?
+					</p>
+					<ul>
+						<li>
+							Ethnic diversity: known to "cause" low growth (<a href="http://dx.doi.org/10.1162/003355300555466" target="_blank">Easterly & Levine 1997</a>) and conflict (<a href="http://dx.doi.org/10.1257/0002828054201468" target="_blank">Montalvo & Reynal-Querol 2005</a>)
+						</li>
+					</ul>
+					<p>
+						Original?
+					</p>
+					<ul>
+						<li>
+							Cross-"virtual country" regression
+						</li>
+					</ul>					
+					<p>
+						Feasible?
+					</p>
+				</section>
+				
+				<section id="data1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Data</h3>
+					<p>
+						Spatial distribution of languages
+					</p>					
+						<ul>
+							<li>
+								World Lanugage Mapping System
+							</li>
+							<li>
+								Polygons of linguistic groups' homelands, 1990-95
+							</li>
+						</ul>
+					<p>
+						Suitability for agriculture (<a href="http://dx.doi.org/10.1046/j.1466-822x.2002.00294.x" target="_blank">Ramankutty et al. 2002</a>)
+					</p>
+						<ul>
+							<li>
+								Raster at 0.5&deg x 0.5&deg resolution
+							</li>
+							<li>
+								Fraction of a cell cultivable around 1990
+							</li>
+							<li>
+								Obtained by "regressing" observed cultivated areas (satellite images) on climate and soil
+							</li>
+						</ul>
+					<p>
+						Elevation and other geography variables
+					</p>
+					<ul>
+						<li>
+							<a href="http://gecon.yale.edu/" target="_blank">G-Econ database</a>
+						</li>
+					</ul>
+				</section>
+
+				<section id="empirical_challenge1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Empirical challenge
+					</h3>
+						<p>
+							Omitted variable bias in cross-country regression
+						</p>
+						<ul>
+							<li>
+								Countries with centralized modern state may have homogenized both languages and land quality
+							</li>
+						</ul>
+						<p>
+							Panel data analysis: infeasible
+						</p>
+						<ul>
+							<li>
+								Geography: time-invariant
+							</li>
+						</ul>
+				</section>
+
+				<section id="empirical_challenge2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Empirical challenge (cont.)
+					</h4>
+						<p>
+							Global raster data allows for sub-national district analysis
+						</p>
+						<ul>
+							<li>
+								Can control for country FE
+							</li>
+						</ul>
+						<p>
+							But... sub-national district boundaries: endogenous
+						</p>
+						<ul>
+							<li>
+								Maybe difficult to split districts by ethnicity if geography is diverse
+							</li>
+						</ul>
+				</section>
+
+				<section id="empirical_challenge3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Empirical challenge (cont.)
+					</h4>
+						<p>
+							Solution 1: cross-"virtual country" regression
+						</p>
+						<ul>
+							<li>
+								Divide the earth into 2.5&deg x 2.5&deg grid cells
+							</li>
+							<li>
+								Boundary thus exogeneous
+							</li>
+						</ul>
+						<p>
+							Solution 2: Dyadic regression
+						</p>
+						<ul>
+							<li>
+								Pair each raster cell with one of its 8 adjacent cells
+							</li>
+							<li>
+								Measure differences within each pair
+							</li>
+							<li>
+								Can control for raster cell FE
+							</li>
+						</ul>
+						<p>
+							Neither is feasible w/o GIS
+						</p>
+				</section>
+				
+				
+				<section id="image" data-transition="fade-out slide-in">
+					<h4>
+						Virtual country example
+					</h4>
+					<img src="gis_lecture5/michalopoulos2012f7.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<p>
+					</p>
+				</section>
+
+				<section id="equation1" data-transition="slide-out slide-in" style="text-align: left">
+					<h3>
+						Cross-"virtual country" regression
+					</h3>
+					<p>
+						<!-- Case by Case -->
+						\begin{align*}
+						ln(\#languages_i) = 
+							& \ \beta_0 + \beta_1 Latitude_i \\
+						 	& + \beta_2 SD(elevation)_i + \beta_3 SD(land_quality)_i \\
+							& + \boldsymbol{x}'_{i}\boldsymbol{\beta_4} + \varepsilon_{i} 
+						\end{align*}
+					</p>
+					<br>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$Latitude_i$</td>
+							<td>Literature has found its association w/ ethnic diversity</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$\boldsymbol{x}_i$</td>
+							<td>Can include country FE</td>
+						</tr>
+					</table>
+				</section>
+
+				<section id="standard_errors" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Standard errors
+					</h3>
+						<p>
+							Clustered at country level
+						</p>
+						<p>
+							Conley's (1999) method can also be used (cf. <a href="http://mkudamatsu.github.io/gis_lecture3.html#/conley_se5" target="_blank">Lec 3</a>)
+						</p>
+						<ul>
+							<li>
+								With <a href="http://www.fight-entropy.com/2010/06/standard-error-adjustment-ols-for.html" target="_blank">Hsiang's (2011) Stata code</a>, geographic coordinates can now be used
+							</li>
+						</ul>
+				</section>
+				
+				<section id="result1"  data-transition="slide-in slide-out">
+					<h4>
+						Results (table 4 columns 4-6)
+					</h4>
+					<table border="0" width="100%">
+						<tr>
+							<td colspan=5>Dependent Variable: ln(# of languages)</td>
+						</tr>
+						<tr>
+							<th style="border-top:1px solid black">Sample                  </th>
+							<th align="center"  style="border-top:1px solid black">         All              </th>
+							<th align="center"  style="border-top:1px solid black">         Tropics              </th>
+							<th align="center"  style="border-top:1px solid black">         Non-tropics          </th>
+						</tr>
+						<tr>
+							<td>SD(land quality)          </td>
+							<td align="center">       0.116***</td>
+							<td align="center">       0.103**                   </td>
+							<td align="center">       0.173*** </td>
+						</tr>
+						<tr>
+							<td>          </td>
+							<td align="center">       [0.033]</td>
+							<td align="center">       [0.048]                   </td>
+							<td align="center">       [0.055] </td>
+						</tr>
+						<tr>
+							<td>SD(elevation)         </td>
+							<td align="center">       0.082***</td>
+							<td align="center">       0.118**                   </td>
+							<td align="center">       0.093** </td>
+						</tr>
+						<tr>
+							<th>          </th>
+							<th align="center">       [0.030]</th>
+							<th align="center">       [0.057]                   </th>
+							<th align="center">       [0.043] </th>
+						</tr>
+						<tr>
+							<td>Country FE       </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+						</tr>
+						<tr>
+							<td>Other controls      </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+						</tr>
+						<tr>
+							<th># observations      </th>
+							<th align="center">         1663             </th>
+							<th align="center">          536             </th>
+							<th align="center">         1127            </th>
+						</tr>
+						<tr>
+							<td colspan=4>
+								Standard errors clustered at country level. 
+							</td>
+						</tr>
+						<tr>
+							<td colspan=4>
+								* significant at 10%, ** 5%, *** 1%.
+							</td>
+						</tr>
+					</table>
+				</section>
+				
+				<section id="equation2" data-transition="slide-out slide-in" style="text-align: left">
+					<h3>
+						Dyadic regression
+					</h3>
+					<p>Unit of analysis: pair of neighboring cells $ij$</p>
+					<p>
+						<!-- Case by Case -->
+						\begin{align*}
+						\%CommonLanguages_{ij} = 
+							& \ \gamma_0 + \gamma_1 \Delta(LandQuality)_{ij} \\
+						 	& + \gamma_2 \Delta(Elevation)_{ij} \\
+						    & + \boldsymbol{x}'_{ij}\boldsymbol{\gamma_3} + \xi_{ij} 
+						\end{align*}
+					</p>
+					<br>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$\boldsymbol{x}_i$</td>
+							<td>Can include cell FEs for $i$ and $j$</td>
+						</tr>
+					</table>
+				</section>				
+				
+				<section id="result2"  data-transition="slide-in slide-out">
+					<h4>
+						Results (table 6 columns 2-5)
+					</h4>
+					<table border="0" width="100%">
+						<tr>
+							<td colspan=5>Dependent Variable: % common language</td>
+						</tr>
+						<tr>
+							<th style="border-top:1px solid black">Sample                  </th>
+							<th align="center"  style="border-top:1px solid black">         All              </th>
+							<th align="center"  style="border-top:1px solid black">         Africa              </th>
+							<th align="center"  style="border-top:1px solid black">         Europe          </th>
+							<th align="center"  style="border-top:1px solid black">         Asia          </th>
+						</tr>
+						<tr>
+							<td>$\Delta$LandQuality         </td>
+							<td align="center">       -0.038***</td>
+							<td align="center">       -0.054***                   </td>
+							<td align="center">       -0.048** </td>
+							<td align="center">       -0.056*** </td>
+						</tr>				
+						<tr>
+							<td>          </td>
+							<td align="center">       [0.012]</td>
+							<td align="center">       [0.018]                   </td>
+							<td align="center">       [0.021] </td>
+							<td align="center">       [0.016] </td>
+						</tr>
+						<tr>
+							<td>$\Delta$Elevation         </td>
+							<td align="center">       -0.051***</td>
+							<td align="center">       -0.050***                   </td>
+							<td align="center">       -0.046** </td>
+							<td align="center">       -0.053*** </td>
+						</tr>				
+						<tr>
+							<th>          </th>
+							<th align="center">       [0.006]</th>
+							<th align="center">       [0.016]                   </th>
+							<th align="center">       [0.022] </th>
+							<th align="center">       [0.009] </th>
+						</tr>
+						<tr>
+							<td>Cell FE       </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+						</tr>
+						<tr>
+							<td>Controls      </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+							<td align="center">           YES             </td>
+						</tr>
+						<tr>
+							<th>Observations      </th>
+							<th align="center">         156570             </th>
+							<th align="center">          35305             </th>
+							<th align="center">          11975            </th>
+							<th align="center">          74830            </th>
+						</tr>
+						<tr>
+							<td colspan=5>
+								Standard errors clustered at country level. 
+							</td>
+						</tr>
+						<tr>
+							<td colspan=5>
+								* significant at 10%, ** 5%, *** 1%.
+							</td>
+						</tr>
+					</table>
+				</section>	
+			</section>
+
+
+				<!-- Preparation -->
+				<section>
+					<section id="preparation1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<p>
+						1. Launch ArcMap 10 (it takes time)
+					</p>
+					<p>
+						2. <a href="https://www.dropbox.com/s/1su4pw9uojh1pal/Lecture5.zip?dl=0" target="_blank">Download the zipped dataset for Lecture 5</a> 
+					</p>
+					<p>
+						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 Don't save in the remote server, which slows down ArcGIS
+						</li>
+					</ul>															
+					<p>
+						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture5</code>
+						</li>
+					</ul>															
+				</section>
+
+				<section id="preparation2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						5a. Right-click suit.zip (agricultural suitability raster) and choose "<strong>7-Zip > Extract to "suit\"</strong>"
+					</p>
+					<ul>
+						<li>
+							This is a raster data in ESRI grid format.
+						</li>
+						<li>
+							The directory structure for grid raster is very complicated
+						</li>
+						<li>
+							Keep every file in one subfolder to avoid confusion when browsed in Windows Explorer
+						</li>
+					</ul>
+
+					<p>
+						5b. Right-click the following zipped data and choose "<strong>7-Zip > Extract Here</strong>"
+					</p>
+					<ul>
+						<li>
+							10m-admin-0-countries.zip (country polygons)
+						</li>
+						<li>
+							GREG.zip (ethnolinguistic group polygons)
+						</li>
+					</ul>
+					
+				</section>
+
+
+				<section id="preparation3" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						Now in ArcMap's <strong>Catalogue Window</strong>:
+					</p>
+					<p>
+						6. Establish connection to data folder
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Right-click "<strong>Folder Connections</strong>"
+						</li>
+						<li>
+							Select "<strong>Connect to Folder</strong>"
+						</li>
+						<li>
+							Choose "<strong>Downloads > Lecture5</strong>"
+						</li>
+					</ul>
+					<p>
+						7. Create a new folder <strong>outputs</strong> inside <strong>Lecture5</strong>
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 We will create all new files in this folder
+						</li>
+					</ul>															
+					<p>
+						8. Prepare the Model Builder
+					</p>
+					<ul style="margin-left: 72px;">
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> and <a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/cleandata</strong>" inside <strong>Lecture5</strong>
+							</li>
+					</ul>
+				</section>
+
+				<section id="greg" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						Browse GREG.shp (<a href="http://www.icr.ethz.ch/data/other/greg" target="_blank">Geo-referencing of Ethnic Groups data</a>)
+					</p>
+					<ul>
+						<li>
+							We use this data because World Language Mapping System data is not for free
+						</li>
+					</ul>
+					<p>
+						Same language group split into several polygons if:
+					</p>
+					<ul>
+						
+						<li>
+							Inhabiting non-adjacent areas
+						</li>
+						<li>
+							Cohabitated with other language groups
+						</li>
+							<p>
+								$\Rightarrow$ Three fields for language group code/name
+							</p>
+					</ul>
+					<p>
+						In this lecture, we assume each polygon represents one language group				</p>
+				</section>
+
+				<section id="suit1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						Now browse the "suitability for agriculture" raster data
+					</p>
+					<p>
+						It has no coordinate system assigned.
+					</p>
+					<p>
+						We need to assign it ourselves, by looking at the meta data
+					</p>
+					<ul>
+						
+						<li>
+							But... There is no meta data to tell what coordinate system should be assigned
+						</li>
+						<li>
+							So we assume it's WGS 1984
+						</li>
+						<li>
+							(We should avoid using such spatial data...)
+						</li>
+					</ul>
+					<p>
+						Which geo-processing tool(s) should we use?
+					</p>
+				</section>
+
+				<section id="suit2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						Since Define Projection overwrites the input file, we should make a copy
+					</p>
+					<p>
+						The Copy Features tool works only with vector data
+					</p>
+					<p>
+						For raster data, we use the Copy Raster tool
+					</p>
+					<p>
+						Create a model as "<strong>models.tbx/cleandata</strong>"
+					</p>
+					<p>
+						Without running the model, export and edit a Python script. Then run the script.
+					</p>
+				</section>
+
+				<section id="data_cleaning1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Data cleaning
+					</h4>
+					<h3>
+						Copy Raster
+					</h3>					
+					<p>
+						<strong>Input Raster</strong>: ...\Lecture5\suit\suit
+					</p>
+					<p>
+						<strong>Output Raster Dataset</strong>: ...\Lecture5\outputs\landquality.tif
+					</p>
+					<ul>
+						<li>
+							By adding ".tif", we will save the raster in the TIFF format
+						</li>
+					</ul>						
+				</section>
+
+
+				<section id="data_cleaning2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Data cleaning (cont.)
+					</h4>
+					<h3>
+						Define Projection (Data Management)
+					</h3>
+					<p>
+						<strong>Input Dataset or Feature Class</strong>: landquality.tif
+					</p>
+					<p>
+						<strong>Coordinate System</strong>: GCS_WGS_1984
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Geographic Coordinate Systems > World > WGS 1984
+						</li>
+					</ul>										
+				</section>	
+			</section>
+								
+			<!-- SECTION for ArcMap -->
+			<section>
+				<section id="section2">
+					<h1>
+						2. Virtual Country Data
+					</h1>
+				</section>
+
+				<section id="aim1" data-transition="slide-out slide-in" style="text-align: left">
+					<h3>
+						Data we want to construct
+					</h3>
+					<p>
+						<strong>Unit of observations</strong>: Virtual country polygons
+					</p>
+					<ul>
+						<li>
+							2.5&deg x 2.5&deg cell's region with language data available (see p. 1516)
+						</li>
+					</ul>
+					<p>
+						<strong>Dependent variable</strong>: # of languages spoken
+					</p>
+					<p>
+						<strong>Regressor</strong>: Standard deviation of land quality
+					</p>
+				</section>
+				
+				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1
+					</h4>
+					<h3>
+						Virtual country polygons
+					</h3>
+					<p>
+						Geo-processing tools:
+					</p>					
+					<p>
+						1. Create Fishnet + Define Projection (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex1a" target="_blank">Lecture 2</a>)
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Creates 2.5&deg x 2.5&deg cells
+							</li>
+						</ul>
+					<p>
+						2. Add Field + Calculate Field
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Assign the unique ID in the attribute table
+							</li>
+						</ul>
+				</section>
+
+				<section id="fishnet1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 1
+					</h4>
+					<h3>
+						Create Fishnet
+					</h3>					
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\fishnet25.shp
+					</p>
+					<p>
+						<strong>Template Extent</strong> (see p. 1522)
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Top</strong>: 85
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Left</strong>: -180
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Right</strong>: 180
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Bottom</strong>: -65
+					</p>
+					<p>
+						$\Rightarrow$ Automatically fill in <strong>Fishnet Origin Coordinate</strong> and <strong>Y-Axis Coordinate</strong>
+					</p>
+				</section>
+				<section id="fishnet2" data-transition="fade" style="text-align: left;">
+					<h3>
+						Create Fishnet (cont.)
+					</h3>					
+					<p>
+						<strong>Cell Size Width</strong>: 2.5
+					</p>
+					<p>
+						<strong>Cell Size Height</strong>: 2.5
+					</p>
+					<p>
+						<strong>Number of Rows</strong>: 0
+					</p>
+					<p>
+						<strong>Number of Columns</strong>: 0
+					</p>
+					<p>
+						$\Rightarrow$ Automatically calculate # of rows/columns given the extent and cell size
+					</p>
+					
+				</section>
+				<section id="fishnet3" data-transition="fade-out fade-in" style="text-align: left;">
+					<h3>
+						Create Fishnet (cont.)
+					</h3>					
+					<p>
+						Uncheck "<strong>Create Label Points</strong>"
+					</p>
+					<ul>
+						<li>
+							Label points: unnecessary for our purpose
+						</li>
+						<li>
+							Model Builder will still show label points as an output from Create Fishnet. This is a bug.
+						</li>
+					</ul>					
+					<p>
+						<strong>Geometry Type</strong>: POLYGON
+					</p>
+					<ul>
+						<li>
+							By default, this option is set as POLYLINE. Make sure to change it.
+						</li>
+					</ul>					
+				</section>
+
+				<section id="coordinate_system_choice" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #1 (cont.)
+					</h4>
+						<p>
+							What coordinate system should we assign to the fishnet?
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Same one as other spatial datasets
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\Rightarrow$ Check the coordinate system of GREG
+						</p>
+						<ul class="fragment" data-fragment-index="3">
+							<li>
+								How? Review <a href="http://mkudamatsu.github.io/gis_lecture1.html#/check_cs" target="_blank">Lecture 1</a> 
+						</ul>
+				</section>
+
+				<section id="define_projection" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 2
+					</h4>
+					<h3>
+						Define Projection (Data Management)
+					</h3>
+					<p>
+						<strong>Input Dataset or Feature Class</strong>: fishnet25.shp
+					</p>
+					<p>
+						<strong>Coordinate System</strong>: GCS_WGS_1984
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Geographic Coordinate Systems > World > WGS 1984
+						</li>
+						<li>
+							This is the coordinate system used by GREG
+						</li>
+					</ul>										
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>				
+				
+				<section id="unique_id1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the attribute table of fishnet25.shp.
+					</p>
+					<p>
+						Fields created:
+					</p>
+					<ul>
+						<li>
+						FID: unique integer identifier starting from 0							
+						</li>
+						<li>
+						Id: all values are 0...						
+						</li>
+					</ul>
+				</section>				
+
+				<section id="unique_id2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						We need virtual country ID for merging data in Stata
+					</p>
+					<p>
+						Field name FID is used for every shapefile...
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						$\Rightarrow$ Create your own ID for virtual countries
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						To create a new field, which tools can we use? (cf. <a href="http://mkudamatsu.github.io/gis_lecture4.html#/area_calculation2" target="_blank">Lec 4 Ex 2</a>)
+					</p>
+				</section>
+				
+				<section id="add_field" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 3
+					</h4>
+					<h3>
+						Add Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: fishnet25.shp (2)
+					</p>
+					<ul>
+						<li>
+							Output from Define Projection
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: cell25_id
+					</p>
+					<ul>
+						<li>
+							Or whatever you prefer (<span style="color:red">not exceeding 10 characters</span>)
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Type</strong>: SHORT
+					</p>
+					<ul>
+						<li>
+							We create integer identifier
+						</li>
+						<li>
+							Total # of cells: 8640
+						</li>
+					</ul>						
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				<section id="calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 4
+					</h4>
+					<h3>
+						Calculate Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: fishnet25.shp (3)
+					</p>
+					<ul>
+						<li>
+							Output from Add Field
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: cell25_id
+					</p>
+					<ul>
+						<li>
+							Or the same as what you specified in Add Field
+						</li>
+					</ul>						
+				</section>
+
+				<section id="calculate_field2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Calculate Field (cont.)
+					</h3>					
+					<p>
+						<strong>Expression</strong>: <span style="font-size: 2em">!FID! + 1</span>
+					</p>
+					<ul>
+						<li>
+							! ! tells Python what's enclosed is a field name
+						</li>
+						<li>
+							You don't have to add 1
+						</li>
+						<li>
+							But ID usually starts from 1
+						</li>
+					</ul>	
+					<p>
+						<strong>Expression Type</strong>: PYTHON_9.3
+					</p>
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output attribute table. 
+					</p>
+					<p>
+						Is everything as expected?
+					</p>
+				</section>
+
+				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2
+					</h4>
+					<h3>
+						# of languages spoken
+					</h3>
+					<p>
+						Simplest approach: <strong>Spatial Join (JOIN_ONE_TO_MANY)</strong>
+					</p>
+					<ul>
+						<li>
+							Match each virtual country w/ all intersecting language polygons
+						</li>
+						<li>
+							Then export the table to Stata
+						</li>
+						<li>
+							<code>collapse (count) ..., by(cell25_id)</code>
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex2b" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<h3>
+						# of languages spoken
+					</h3>
+					<p>
+						Alternative approach: <strong>Intersect + Dissolve</strong>
+					</p>
+					<ul>
+						<li>
+							<strong>Intersect</strong> throws away the area of a virtual country that's not overlapped w/ language polygons
+						</li>
+						<li>
+							<strong>Dissolve</strong> merges all language polygons w/i each virtual country
+						</li>
+					</ul>
+					<p>
+						Michalopoulos (2012, p. 1516): "... geographic measures are calculated focusing on regions with linguistic coverage ..."
+					</p>
+					<p>
+						$\Rightarrow$ Preferred approach in this context
+					</p>
+					<p>
+						Also allows you to create a map of # of languages spoken
+					</p>
+				</section>
+								
+				<section id="ex2intersect" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 1
+					</h4>
+					<h3>
+						Intersect (Analysis)
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: GREG.shp, fishnet25.shp (3)
+					</p>
+					<ul>
+						<li>
+							Click the <span style="color:red;">directory icon</span> to choose data outside the Model 
+						</li>
+						<li>
+							If using the drop-down menu, data file name won't properly be exported in a Python script.
+						</li>
+					</ul>
+					
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\intersect.shp
+					</p>
+					<p>
+						<strong>Join Attributes</strong>: ALL
+					</p>
+					<p>
+						<strong>Output Type</strong>: INPUT
+					</p>
+				</section>
+
+				<section id="ex2dissolve" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 2
+					</h4>
+					<h3>
+						Dissolve (Analysis)
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: intersect.shp
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\vcountry.shp
+					</p>
+					<p>
+						<strong>Dissolve_Field(s)</strong>: cell25_id
+					</p>
+					<p>
+						<strong>Statistics Field(s)</strong>: FID_GREG
+					</p>
+					<p>
+						<strong>Statistic Type</strong>: COUNT
+					</p>
+					<p>
+						Check "<strong>Create multipart features</strong>"
+					</p>
+					<ul>
+						<li>
+							Otherwise non-contiguous polygons won't be dissolved
+						</li>
+					</ul>
+				</section>				
+
+				<section id="validate1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						To check if # of languages spoken is properly calculated: 
+					</p>
+					<ul>
+						<li>
+							Browse <strong>fishnet25.shp</strong> (make polygon color unfilled)
+						</li>
+						<li>
+							Select (say) <strong>cell_id 1340</strong> in attribute table
+						</li>
+						<li>
+							Right-click fishnet25.shp and choose "Selection > Zoom To Selected Features"
+						</li>
+						<li>
+							Now count # of polygons in GREG.shp within this cell
+						</li>
+						<p>
+							$\Rightarrow$ It's 4
+						</p>
+						<li>
+							Browse attribute table of <strong>vcountry.shp</strong>
+						</li>
+						<li>
+							For cell_id 1340, COUNT_FID has a value of 4?
+						</li>
+					</ul>
+				</section>
+				
+				<section id="validate2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<p>
+						Polygons in GREG.shp are slightly overlapping over each other
+					</p>
+					<ul>
+						<li>
+							Zoom in a lot to the boundaries of GREG.shp
+						</li>
+					</ul>
+					<p>
+						$\Rightarrow$ Intersect creates tiny polygons along the border
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Solution: set XY Tolerance a little bit higher in the Intersect tool 
+					</p>
+				</section>				
+
+				<section id="xy_tolerance1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						XY Tolerance
+					</h3>
+					<img src="gis_lecture5/xytolerance.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
+				
+					<p>
+						Size of a square treated as a point in geo-processing
+					</p>
+					<p>
+						Default: 0.001 meters
+					</p>
+				</section>	
+
+				<section id="xy_tolerance2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					XY Tolerance (cont.)
+					</h4>
+					<p>
+						Increasing XY Tolerance a bit (say, to 1 meter) usually solves the problem of Intersect, Spatial Join etc.
+					</p>
+				</section>	
+
+				<section id="ex2intersect_correct" data-transition="fade-in slide-out" style="text-align: left;">
+					<h1 style="text-align: center;">
+					CORRECTION
+					</h1>
+					<h4>
+					Exercise #2: Step 1
+					</h4>
+					<h3>
+						Intersect (Analysis)
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: GREG.shp, fishnet25.shp (3)
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\intersect.shp
+					</p>
+					<p>
+						<strong>Join Attributes</strong>: ALL
+					</p>
+					<p>
+						<span style="color:red;"><strong>XY Tolerance</strong>: 1 Meters</span>
+					</p>
+					<p>
+						<strong>Output Type</strong>: INPUT
+					</p>
+				</section>
+				
+				<section id="intersect_dissolve1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Application of Intersect + Dissolve #1
+					</h4>
+					<h3>
+						<a href="http://dx.doi.org/10.1257/aer.90.5.1209" target="_blank">Hoxby (2000)</a>
+					</h3>
+					<p>
+						Does competition improve school quality?
+					</p>
+					<p>
+						<strong># of streams</strong> within city: IV for # of school districts
+					</p>
+					<ul>						
+					<li>
+						Intersect streams w/ metropolitan areas
+					</li>
+					<li>
+						Dissolve by metropolitan area
+					</li>
+					</ul>
+					<p>
+						Similar idea was used by <a href="http://dx.doi.org/10.3982/ECTA13448" target="_blank">Bai and Jia (2016)</a>						
+					</p>
+				</section>
+
+				<section id="intersect_dissolve2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Application of Intersect + Dissolve #2
+					</h4>
+					<h3>
+						<a href="http://www.nber.org/papers/w17620" target="_blank">Michalopoulos & Papaioannou (2015)</a>
+					</h3>
+					<p>
+						Split ethnic groups in Africa
+					</p>
+					<p>
+						$\Rightarrow$ More violence, discriminattion, less access to education and public goods
+					</p>
+					<ul>
+						<li>
+							Intersect ethnic homeland polygons with country polygons
+						</li>
+						<li>
+							Dissolve by ethnic homeland
+						</li>
+					</ul>
+				</section>
+				
+				<section id="ex3a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3
+					</h4>
+					<h3>
+						Standard deviation of land quality
+					</h3>
+					<p>
+						Inputs:
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Virtual country polygons (with language data available)
+							</li>
+							<li>
+								Suitability for Agriculture raster
+							</li>
+						</ul>
+					<p>
+						Geo-processing tool: <strong>Zonal Statistics as Table</strong>
+					</p>
+				</section>
+
+				<section id="zonal_statistics_tool" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Zonal Statistics as Table
+					</h3>
+					<p>
+						Creates a table where
+					</p>
+					<ul>
+						<li>
+							Each row: polygon zone
+						</li>
+						<li>
+							Columns: zonal statistics
+						</li>
+					</ul>
+					<p>
+						Output is NOT the attribute table to input polygons
+					</p>
+					<ul>
+						<li>
+							Use Table To Excel, to export
+						</li>
+					</ul>
+					<p>
+						Don't confuse with another tool called <strong>Zonal Statistics</strong>
+					</p>
+					<ul>
+						<li>
+							Creates a raster data, instead of a table
+						</li>
+					</ul>											
+				</section>
+
+				<section id="spatial_analyst1" data-transition="fade-in fade-out" style="text-align: left;">
+					<p>
+						Cannot use Zonal Statistics as Table? See next slide:
+					</p>					
+				</section>
+								
+				<section id="spatial_analyst2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Spatial Analyst extension
+					</h3>					
+					<p>
+						Zonal Statistics as Table is part of the Spatial Analyst extension.
+					</p>
+					<ul>
+						<li>
+							This extension allows us to work on raster datasets
+						</li>
+					</ul>											
+					<p>
+						By default, you're not allowed to use it.
+					</p>
+					<p>
+						To activate, click in the menu bar "Customize > Extensions..." and check "Spatial Analyst"
+					</p>
+					<ul>
+						<li>
+							Same holds for other extensions
+						</li>
+					</ul>											
+				</section>
+
+												
+				<section id="zonal_stat1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 1
+					</h4>
+					<h3>
+						Zonal Statistics as Table
+					</h3>					
+					<p>
+						<strong>Input raster or feature zone data</strong>: vcountry.shp
+					</p>
+					<ul>
+						<li>
+							Output from Dissolve
+						</li>
+					</ul>						
+					<p>
+						<strong>Zone field</strong>: cell25_id
+					</p>
+					<p>
+						<strong>Input value raster</strong>: landquality.tif
+					</p>
+					<ul>
+						<li>
+							Output from <a href="#/suit2" target="_blank">data cleaning we did</a>
+						</li>
+						<li>
+							Use the directory icon, not drop-down menu
+						</li>
+					</ul>																
+				</section>
+				
+				<section id="zonal_stat2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Zonal Statistics as Table (cont.)
+					</h4>
+					<p>
+						<strong>Output table</strong>: ...\Lecture5\outputs\landquality25.dbf
+					</p>
+					<ul>
+						<li>
+							Adding ".dbf" will create a table in the dBASE format
+						</li>
+					</ul>						
+					<p>
+						Check "<strong>Ignore NoData in calculations</strong>"
+					</p>
+					<ul>
+						<li>
+							If unchecked, zonal statistics is missing if there is at least one raster cell with NoData
+						</li>
+					</ul>					
+					<p>
+						<strong>Statistics type</strong>: ALL
+					</p>
+					<ul>
+						<li>
+							STD: main regressor
+						</li>
+						<li>
+							MEAN: control
+						</li>
+						<li>
+							RANGE: robustness check (Table 5B column 3)
+						</li>
+					</ul>					
+				</section>
+				
+				<section id="table2excel" data-transition="fade-in fade-out" style="text-align: left;">
+				<h4>
+					Exercise #3 Step 2
+				</h4>
+				<h3>
+					Table To Excel
+				</h3>					
+					<ul>
+						<li>
+							<strong>Input Table</strong>: landquality25.dbf
+						</li>
+						<li>
+							<strong>Output Excel File</strong>: ...\Lecture5\outputs\landquality25.xls
+						</li>
+					</ul>	
+				<br>
+				<p>
+					Here we cannot use Export Feature Attribute to ASCII
+				</p>
+					<ul>
+						<li>
+							Zonal Statistics as Table creates a table, not a feature class
+						</li>
+						<li>
+							Export Feature Attribute to ASCII only takes a feature class as the input
+						</li>
+					</ul>		
+					<br>		
+				</section>	
+				
+				<section id="ex3c" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output Excel file. 
+					</p>
+					<p>
+						OID: just the row ID
+					</p>
+					<p>
+						cell25_id: use this to merge in Stata
+					</p>
+					<p>
+						COUNT: # of raster cells used for calculation
+					</p>
+					<ul>
+						<li>
+							Used for sample selection (at least 10; see p. 1524)
+						</li>
+					</ul>		
+					<p>
+						AREA: in degrees and thus useless
+					</p>
+				</section>			
+
+				<section id="table3a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Extra
+					</h4>
+					<h3>
+						Data for Table 3
+					</h3>
+					<p>
+						How to obtain zonal stats for areas without language data?
+					</p>
+					<img src="gis_lecture5/michalopoulos2012t3.png" style="border: none; background: none; box-shadow:none; width: 750px;">					
+				</section>
+
+				<section id="table3b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Data for Table 3 (cont.)
+					</h4>
+					<p>
+						Solution: 
+					</p>
+					<p>
+						Union + Select + Zonal Statistics as Table
+					</p>
+					<ul>
+					<li>
+						<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/analysis-toolbox/union.htm" target="_blank">Union</a>: same as Intersect except for keeping unmatched features (as multipart features)
+					</li>
+					<li>
+						If unmatched, FID_GREG = -1
+					</li>
+					<li>
+						Select: keep features by their attritubes (cf. Lecture 6)
+					</li>
+					<li>
+						Keep those with FID_GREG = -1
+					</li>
+				</ul>
+				</section>
+
+				<section id="model_model1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					"Model" model for Exercises 1-3
+					</h3>
+					<p>
+						Look at "Lecture5\solutions4exercises\models.tbx\lec5ex1-3"
+					</p>
+				</section>	
+				
+				<section id="assignment1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Assignment #1
+					</h4>
+					<h3>
+						Sample selection by population
+					</h3>
+					<p>
+						"In the regression analysis, virtual countries of at least 3,000 inhabitants are included." (p. 1523)
+					</p>					
+					<p>
+						$\Rightarrow$ Obtain population for each virtual country
+					</p>
+					<ul>
+						<li>
+							Use <a href="http://sedac.ciesin.columbia.edu/data/set/gpw-v3-population-count" target="_blank">population raster by Gridded Population of the World</a>
+						</li>
+						<li>
+							Then which geo-processing tool should you use?
+						</li>
+					</ul>
+				</section>
+
+				<section id="assignment2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Assignment #2
+					</h4>
+					<h3>
+						# of countries in each virtual country
+					</h3>
+					<p>
+						Which geo-processing tool(s) should you use?
+					</p>
+				</section>
+				
+				<section id="assignment3" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Assignment #3
+					</h4>
+					<h3>
+						Other control variables
+					</h3>
+					<p>
+						Reviewing Lecture 4 allows you to create:
+					</p>
+					<p>
+						1. Absolute latitude
+					</p>					
+					<p>
+						2. Migratory distance from East Africa (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/distance1" target="_blank">hint</a>)
+					</p>
+					<ul>
+						<li>
+							See p.10 of <a href="https://www.aeaweb.org/aer/data/june2012/20090179_app.pdf" target="_blank">Data Appendix</a> for detail
+						</li>
+					</ul>
+					<p>
+						3. Surface area (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/area_calculation1" target="_blank">hint</a>)
+					</p>
+					<p>
+						4. Sea distance (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/distance2" target="_blank">hint</a>)
+					</p>					
+					<p>
+						5. Water area (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/ex2tools" target="_blank">hint</a>)
+					</p>
+					<ul>
+						<li>
+							Use <a href="http://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-lakes/" target="_blank">Natural Earth's Lakes + Reservoirs</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- SECTION for Python -->
+			<section>
+				<section id="section3">
+					<h1>
+						3. Adjacent cell pair data
+					</h1>
+				</section>
+
+				<section id="ex5" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					Data we want to construct
+					</h3>
+					<p>
+						1. Data at 0.5&degx0.5&deg cell level 
+					</p>
+					<p>
+						2. List of adjacent cell pairs
+					</p>
+					<ul>
+						<li>
+							Unit of observations
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex4a" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4
+					</h4>
+					<h3>
+						0.5&deg x 0.5&deg cell data
+					</h3>
+					<p>
+						1. Create cell polygons (cf. Exercise 1)
+					</p>
+					<p>
+						2. Extract language spoken
+					</p>
+					<p>
+						3. Extract land quality
+					</p>					
+				</section>
+
+				<section id="ex4fishnet1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 1 (1)
+					</h4>
+					<h3>
+						Create Fishnet
+					</h3>					
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\fishnet05.shp
+					</p>
+					<p>
+						<strong>Template Extent</strong>
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Top</strong>: 85
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Left</strong>: -180
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Right</strong>: 180
+					</p>
+					<p style="margin-left: 60px;">
+						<strong>Bottom</strong>: -65
+					</p>
+					<p>
+						$\Rightarrow$ Automatically fill in <strong>Fishnet Origin Coordinate</strong> and <strong>Y-Axis Coordinate</strong>
+					</p>
+				</section>
+				<section id="ex4fishnet2" data-transition="fade" style="text-align: left;">
+					<h3>
+						Create Fishnet (cont.)
+					</h3>					
+					<p>
+						<strong>Cell Size Width</strong>: <span style="color:red;">0.5</span>
+					</p>
+					<p>
+						<strong>Cell Size Height</strong>: <span style="color:red;">0.5</span>
+					</p>
+					<p>
+						<strong>Number of Rows</strong>: 0
+					</p>
+					<p>
+						<strong>Number of Columns</strong>: 0
+					</p>
+					<p>
+						$\Rightarrow$ Automatically calculate # of rows/columns given the extent and cell size
+					</p>
+					
+				</section>
+				<section id="ex4fishnet3" data-transition="fade-out fade-in" style="text-align: left;">
+					<h3>
+						Create Fishnet (cont.)
+					</h3>					
+					<p>
+						Uncheck "<strong>Create Label Points</strong>"
+					</p>
+					<ul>
+						<li>
+							Label points: unnecessary for our purpose
+						</li>
+						<li>
+							Model Builder will still show label points as an output from Create Fishnet. This is a bug.
+						</li>
+					</ul>					
+					<p>
+						<strong>Geometry Type</strong>: POLYGON
+					</p>
+					<ul>
+						<li>
+							By default, this option is set as POLYLINE. Make sure to change it.
+						</li>
+					</ul>					
+				</section>
+
+				<section id="ex4define_projection" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 1 (2)
+					</h4>
+					<h3>
+						Define Projection (Data Management)
+					</h3>
+					<p>
+						<strong>Input Dataset or Feature Class</strong>: fishnet05.shp
+					</p>
+					<p>
+						<strong>Coordinate System</strong>: GCS_WGS_1984
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							Geographic Coordinate Systems > World > WGS 1984
+						</li>
+						<li>
+							This is the coordinate system used by GREG
+						</li>
+					</ul>										
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>				
+							
+
+				<section id="ex4add_field" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 1 (3)
+					</h4>
+					<h3>
+						Add Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: fishnet05.shp (2)
+					</p>
+					<ul>
+						<li>
+							Output from Define Projection
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: cell05_id
+					</p>
+					<ul>
+						<li>
+							Or whatever you prefer (not exceeding 10 characters)
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Type</strong>: <span style="color:red;">LONG</span>
+					</p>
+					<ul>
+						<li>
+							Total # of cells: 216,000
+						</li>
+						<li>
+							SHORT takes up to 32,767
+						</li>
+					</ul>						
+				</section>
+
+				<section id="ex4calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 1 (4)
+					</h4>
+					<h3>
+						Calculate Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: fishnet05.shp (3)
+					</p>
+					<ul>
+						<li>
+							Output from Add Field
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: cell05_id
+					</p>
+					<ul>
+						<li>
+							Or the same as what you specified in Add Field
+						</li>
+					</ul>						
+				</section>
+
+				<section id="ex4calculate_field2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						Calculate Field (cont.)
+					</h3>					
+					<p>
+						<strong>Expression</strong>: <span style="font-size: 2em">!FID! + 1</span>
+					</p>
+					<ul>
+						<li>
+							! ! tells Python what's enclosed is a field name
+						</li>
+					</ul>	
+					<p>
+						<strong>Expression Type</strong>: PYTHON_9.3
+					</p>
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				<section id="ex4step2" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4 Step2
+					</h4>
+					<h3>
+						Extract language spoken
+					</h3>
+					<p>
+						Use Spatial Join
+					</p>
+					<ul>
+						<li>
+							Name (or code) of languages needed to obtain % of common languages within a pair of adjacent cells
+						</li>
+					</ul>
+					<p>
+						When exported to Stata, execute:
+					</p>
+					<p>
+						<code>bysort cell05_id: gen id = _n</code>
+					</p>
+					<p>
+						<code>reshape wide ..., i(cell05_id) j(id)</code>
+					</p>
+					<p>
+						to make one row per cell
+					</p>
+				</section>
+
+				<section id="ex4step2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4 Step2 (cont.)
+					</h4>
+					<h3>
+						Spatial Join
+					</h3>
+					<p>
+						<strong>Target Features</strong>: fishnet05.shp (4)
+					</p>					
+					<ul>
+						<li>
+							Output from Calculate Field
+						</li>
+					</ul>						
+					<p>
+						<strong>Join Features</strong>: GREG.shp
+					</p>					
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\cell05.shp
+					</p>
+					<p>
+						<strong>Join Operation</strong>: JOIN_ONE_TO_MANY
+					</p>					
+					<p>
+						<span style="text-decoration: underline;">Uncheck "<strong>Keep All Target Features</strong>"</span>
+					</p>
+					<ul>
+						<li>
+							Drops all the cells without language data
+						</li>
+					</ul>
+				</section>
+				
+				<section id="ex4step3" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4 Step3
+					</h4>
+					<h3>
+						Extract land quality
+					</h3>
+					<p>
+						We could use Zonal Statistics as Table
+					</p>
+					<p>
+						But each polygon has only one raster cell
+					</p>					
+					<p>
+						Here we take alternative approach:
+					</p>
+					<ul>
+						<li>Feature To Point</li>
+						<li><strong>Extract Multi Values To Points</strong></li>
+					</ul>
+				</section>
+				
+				<section id="emv2p" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Extract Multi Values To Points
+					</h3>
+					<p>
+						Extract raster values from the cell below the point feature
+					</p>
+					<p>
+						Value -9999 will be assigned if no raster data
+					</p>
+					<p>
+						This tool also overwrites the input attribute table
+					</p>		
+					<p>
+						cf. Another tool Extract Values To Points does the same thing, but one raster at a time (and field name cannot be chosen)
+					</p>			
+				</section>
+
+				<section id="ex4step3a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 3 (1)
+					</h4>
+					<h3>
+						Feature To Point
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: cell05.shp (4)
+					</p>
+					<ul>
+						<li>
+							Output from Spatial Join
+						</li>
+						<li>
+							We don't need cells where no language is spoken
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\cell05centroids.shp
+					</p>
+					<p>
+						Uncheck "<strong>Inside</strong>"
+					</p>
+				</section>
+
+				<section id="ex4step3b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 3 (2)
+					</h4>
+					<h3>
+						Extract Multi Values To Points
+					</h3>					
+					<p>
+						<strong>Input point features</strong>: cell05centroids.shp (4)
+					</p>
+					<ul>
+						<li>
+							Output from Feature To Point
+						</li>
+					</ul>						
+					<p>
+						<strong>Input rasters</strong>: landquality.tif (2)
+					</p>
+					<p>
+						<strong>Output field name</strong>: land_q
+					</p>
+					<ul>
+						<li>
+							Field name cannot be longer than 10 characters
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex4step4" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 4
+					</h4>
+					<h3>
+						Export data to Stata
+					</h3>					
+					<p>
+						We cannot use Table to Excel
+					</p>
+					<ul>
+						<li>
+							# of cells: more than Excel's limit of 65535
+						</li>
+					</ul>						
+					<p>
+						$\Rightarrow$ use Export Feature Attributes to ASCII
+					</p>
+				</section>				
+				<section id="ex4efa2a" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 4 (cont.)
+					</h4>
+					<h3>
+						Export Feature Attribute to ASCII
+					</h3>					
+							<p>
+								<strong>Input Feature Class</strong>: cell05centroids.shp (2)
+							</p>
+							<p>
+								<strong>Value Field</strong>: cell05id, G1ID, G2ID, G3ID, land_q
+							</p>
+							<p>
+								<strong>Delimiter</strong>: SPACE
+							</p>
+					<ul>
+						<li>
+							Not COMMA, to avoid confusing with <a href="https://en.wikipedia.org/wiki/Decimal_mark#Countries_using_Arabic_numerals_with_decimal_comma" target="_blank">decimal mark</a>					</li>
+					</ul>	
+							<p>
+								<strong>Output ASCII File</strong>: ...\Lecture5\outputs\cell05.txt
+							</p>
+							<p>
+								Check "<strong>Add Field Name to Output</strong>"
+							</p>							
+				</section>
+
+				
+				<section id="ex5a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5
+					</h4>
+					<h3>
+						List of adjacent cell pairs
+					</h3>
+					<p>
+						Inputs: 0.5&deg x 0.5&deg cell polygons (cf. Exercise #4)
+					</p>
+					<p>
+						Geo-processing tools: Polygon Neighbors
+					</p>					
+				</section>
+				
+				<section id="polygon_neighbors" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Polygon Neighbors
+					</h3>
+					<img src="gis_lecture5/polygonneighbors1.png" style="border:none; background:none; box-shadow:none; width:200px; float: left;">
+					<img src="gis_lecture5/polygonneighbors2.png" style="border:none; background:none; box-shadow:none; width:600px; float: right;">
+				</section>				
+
+				<section id="acemoglu_et_al2015" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Application of Polygon Neighbors
+					</h4>
+					<h3>
+						<a href="http://dx.doi.org/10.1257/aer.20140044" target="_blank">Acemoglu et al. (2015)</a>
+					</h3>
+					<p>
+						State capacity in one municipality 
+					</p>
+					<p>
+						$\Rightarrow$ State capacity & prosperity in neighboring municipalities
+					</p>
+					<ul>
+						<li>
+							Polygon Neighbors: identify neighboring municipalities among 1017 in total in Colombia
+						</li>
+					</ul>
+				</section>
+				
+				<section id="ex5polygon_neighbors" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #5 Step 1
+					</h4>
+					<h3>
+						Polygon Neighbors
+					</h3>
+					<p>
+						<strong>Input Features</strong>: cells05.shp
+					</p>
+					<ul>
+						<li>
+							Output from Spatial Join
+						</li>
+					</ul>					
+					<p>
+						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors.dbf
+					</p>
+					<p>
+						<strong>Report By Field(s)</strong>: check cell05_id
+					</p>
+					<p>
+						Uncheck "<strong>Include both sides of neighbor relationship</strong>"
+					</p>
+					<ul>
+						<li>
+							Otherwise each pair is observed twice
+						</li>
+						<li>
+							Check if unit of analysis is the cell, not the pair (e.g., Acemoglu et al. 2015)
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex5toomanyrows1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5 (cont.)
+					</h4>
+					<h3>
+						Export table with many rows
+					</h3>
+					<p>
+						Run the tool and browse the table
+					</p>
+					<p>
+						Notice # of rows more than Excel's limit of 65535
+					</p>
+					<p>
+						$\Rightarrow$ Table to Excel does not work
+					</p>
+					<p>
+						ArcGIS has no tool to export table as a text file
+					</p>
+					<p>
+						What should we do?
+					</p>
+				</section>
+
+				<section id="ex5toomanyrows2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Export table with many rows (cont.)
+					</h4>
+					<p>
+						Solution: <strong>Table Select</strong>
+					</p>
+					<p>
+						This tool picks a subset of rows from the input table
+					</p>
+					<p>
+						$\Rightarrow$ Divide the table into several
+					</p>
+				</section>
+				
+				<section id="ex5table_select1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5 Step 2
+					</h4>
+					<h3>
+						Table Select
+					</h3>
+					<p>
+						<strong>Input Table</strong>: cell_neighbors.dbf
+					</p>
+					<p>
+						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors1.dbf
+					</p>
+					<p>
+						<strong>Expression</strong>: "OID" < 65000
+					</p>
+					<ul>
+						<li>
+							"OID": row #
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex5table_select1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5 Step 2 (cont.)
+					</h4>
+					<h3>
+						Table Select
+					</h3>
+					<p>
+						<strong>Input Table</strong>: cell_neighbors.dbf
+					</p>
+					<p>
+						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors2.dbf
+					</p>
+					<p>
+						<strong>Expression</strong>: "OID" >= 65000 AND "OID" < 130000
+					</p>
+					<p>
+						And so on until all rows are covered.å
+					</p>
+				</section>
+
+				<section id="ex5table2excel" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #5 Step 3
+					</h4>
+					<h3>
+						Table to Excel
+					</h3>
+					<p>
+						<strong>Input Table</strong>: cell_neighbors1.dbf
+					</p>
+					<p>
+						<strong>Output Excel File</strong>: ...\Lecture5\outputs\cell_neighbors1.xls
+					</p>
+					<p>
+						And so on, and append them in Stata
+					</p>
+				</section>
+																
+
+				
+				<section id="model_model2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					"Model" model for Exercises 4-5
+					</h3>
+					<p>
+						Look at "Lecture5\solutions4exercises\models.tbx\lec5ex4-5"
+					</p>
+				</section>	
+			</section>	
+				
+			<section>					
+				<section id="checkoutextension" data-transition="slide-out fade-in" style="text-align: left;">
+					<h3>
+					Python: Check Out Extension
+					</h3>
+					<p>
+						When using Spatial Analyst extension tools...
+					</p>
+					<ul>
+						<li>
+							Zonal Statistics as Table
+						</li>
+						<li>
+							Extract Multi Values To Points
+						</li>
+					</ul>
+					<p>
+						Make sure you add:
+					</p>
+					<p style="text-align: center;">
+						<code>arcpy.CheckOutExtension("Spatial")</code>
+					</p>
+					<p>
+						Otherwise these tools cannot be run.
+					</p>
+				</section>	
+
+
+				<section id="model_script" data-transition="fade-out slide-in" style="text-align: left;">
+					<h3>
+					Model Python Script for Lecture 5
+					</h3>
+					<p>
+						Look at "solutions4exercises/*.py" in the downloaded data folder for Lecture 5
+					</p>
+				</section>	
+			</section>
+
+				<section id="lessons" style="text-align: left;">
+					<h3>
+						What we've learned on ArcGIS
+					</h3>
+					How to obtain:
+						<p>
+							1. Unique identifier
+						</p>
+						<p>
+							2. # of features w/i each polygon
+						</p>
+						<p>
+							3. Summary stats of raster values w/i each polygon
+						</p>
+						<p>
+							4. Raster value for each point
+						</p>
+						<p>
+							5. List of adjacent polygon pairs
+						</p>
+						<p>
+						Do you remember which geo-processing tool(s) you used for each of these tasks?
+					</p>
+				</section>
+
+			</div>
+			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
+
+		</div>
+		<!-- To end the activation of the CSS framework of Reveal.js -->		
+
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
+		
+		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
+		<script src="lib/js/head.min.js"></script>
+		<!-- Load reveal.js -->
+		<script src="js/reveal.js"></script>
+
+		<!-- Import MathJax, to use TeX for mathematic expressions -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<!-- Allow inline math expressions by using $ -->
+		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      processEscapes: true
+		    }
+		  });
+		</script>
+
+		<script>
+			// Set the options for Reveal.js
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false, // Disable the navigation arrows on bottom right
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false, // Disable the default rolling links
+
+				transition: 'slide', // Choose from: none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
