@@ -791,11 +791,22 @@
 						Conley (1999) standard error (cont.)
 					</h3>
 					<p>
-						For a <em>cross-sectional</em> regression using spatial data, Conley standard errors are by now the industry standard.
+						Conley's (1999) Stata ado cannot be used for <em>panel regressions</em>...
 					</p>
 					<p>
-						This method cannot be used for <em>panel regressions</em>...
+						<a href="http://dx.doi.org/10.1073/pnas.1009510107" target="_blank">Hsiang (2010)</a> extends it to a panel data, with <a href="http://www.fight-entropy.com/2010/06/standard-error-adjustment-ols-for.html" target="_blank">a new Stata ado</a>
 					</p>
+					<ul>
+						<li>
+							Non-parametrically accounts for serial correlation
+						</li>
+						<li>
+							Allows you to use uniform kernel ($K_{ij}=1$ within cutoff)
+						</li>
+						<li>
+							Compatible with geographic coordinates
+						</li>
+					</ul>
 				</section>				
 
 				<section id="result3"  data-transition="slide-in slide-out">
