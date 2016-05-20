@@ -64,9 +64,9 @@
 					<p>20 May, 2016</p>
 					<br>
 					<p>
-						<small>Press SPACE to proceed. </small>
+						<small>Press <span style="color:red;">SPACE</span> to proceed. </small>
 						<br>
-						<small>To go back to the previous slide, press SHIFT+SPACE. </small>
+						<small>To go back to the previous slide, press <span style="color:red;">SHIFT+SPACE</span>. </small>
 					</p>
 				</section>
 
@@ -216,7 +216,7 @@
 						</p>
 						<ul>
 							<li>
-								Extract Values To Points
+								Extract Multi Values To Points
 							</li>
 							<li>
 								Polygon Neighbors
@@ -339,7 +339,7 @@
 						</ul>
 				</section>
 
-				<section id="empirical_challenge3" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="empirical_challenge3" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Empirical challenge (cont.)
 					</h4>
@@ -374,7 +374,7 @@
 				</section>
 				
 				
-				<section id="image" data-transition="fade-out slide-in">
+				<section id="image" data-transition="fade-in slide-out">
 					<h4>
 						Virtual country example
 					</h4>
@@ -390,9 +390,9 @@
 					<p>
 						<!-- Case by Case -->
 						\begin{align*}
-						ln(\#languages_i) = 
+						ln(\#Languages_i) = 
 							& \ \beta_0 + \beta_1 Latitude_i \\
-						 	& + \beta_2 SD(elevation)_i + \beta_3 SD(land_quality)_i \\
+						 	& + \beta_2 sd(Elevation)_i + \beta_3 sd(LandQuality)_i \\
 							& + \boldsymbol{x}'_{i}\boldsymbol{\beta_4} + \varepsilon_{i} 
 						\end{align*}
 					</p>
@@ -524,7 +524,7 @@
 					</h4>
 					<table border="0" width="100%">
 						<tr>
-							<td colspan=5>Dependent Variable: % common language</td>
+							<td colspan=5>Dependent Variable: % Common Languages</td>
 						</tr>
 						<tr>
 							<th style="border-top:1px solid black">Sample                  </th>
@@ -700,9 +700,9 @@
 					</ul>
 				</section>
 
-				<section id="greg" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="greg" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Prepare for the rest of this lecture (cont.)
+						Data Cleaning 1: GREG
 					</h4>
 					<p>
 						Browse GREG.shp (<a href="http://www.icr.ethz.ch/data/other/greg" target="_blank">Geo-referencing of Ethnic Groups data</a>)
@@ -731,9 +731,24 @@
 						In this lecture, we assume each polygon represents one language group				</p>
 				</section>
 
+				<section id="greg2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Data Cleaning 1: GREG (cont.)
+					</h4>
+					<p>
+						For how to make each language has only one polygon, see:
+					</p>
+					<p>
+						Model: solutions4exercises/models.tbx/cleanGREG
+					</p>
+					<p>
+						Python script: solutions4exercises/L5cleanGREG.py
+					</p>
+				</section>				
+
 				<section id="suit1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Prepare for the rest of this lecture (cont.)
+						Data Cleaining 2: Suitability for Agriculture
 					</h4>
 					<p>
 						Now browse the "suitability for agriculture" raster data
@@ -763,7 +778,7 @@
 
 				<section id="suit2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						Prepare for the rest of this lecture (cont.)
+						Data Cleaining 2: Suitability for Agriculture (cont.)
 					</h4>
 					<p>
 						Since Define Projection overwrites the input file, we should make a copy
@@ -780,11 +795,14 @@
 					<p>
 						Without running the model, export and edit a Python script. Then run the script.
 					</p>
+					<p>
+						Model Python script: solutions4exercise/L5cleandata.py
+					</p>
 				</section>
 
 				<section id="data_cleaning1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Data cleaning
+						Data Cleaining 2: Suitability for Agriculture (cont.)
 					</h4>
 					<h3>
 						Copy Raster
@@ -805,7 +823,7 @@
 
 				<section id="data_cleaning2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Data cleaning (cont.)
+						Data Cleaining 2: Suitability for Agriculture (cont.)
 					</h4>
 					<h3>
 						Define Projection (Data Management)
@@ -1206,7 +1224,7 @@
 						Intersect (Analysis)
 					</h3>					
 					<p>
-						<strong>Input Features</strong>: GREG.shp, fishnet25.shp (3)
+						<strong>Input Features</strong>: GREG.shp, fishnet25.shp (4)
 					</p>
 					<ul>
 						<li>
@@ -1672,7 +1690,7 @@
 					"Model" model for Exercises 1-3
 					</h3>
 					<p>
-						Look at "Lecture5\solutions4exercises\models.tbx\lec5ex1-3"
+						Look at "solutions4exercises\models.tbx\lec5ex1-3"
 					</p>
 				</section>	
 				
@@ -2086,7 +2104,7 @@
 						Feature To Point
 					</h3>					
 					<p>
-						<strong>Input Features</strong>: cell05.shp (4)
+						<strong>Input Features</strong>: cell05.shp
 					</p>
 					<ul>
 						<li>
@@ -2112,7 +2130,7 @@
 						Extract Multi Values To Points
 					</h3>					
 					<p>
-						<strong>Input point features</strong>: cell05centroids.shp (4)
+						<strong>Input point features</strong>: cell05centroids.shp
 					</p>
 					<ul>
 						<li>
@@ -2120,7 +2138,7 @@
 						</li>
 					</ul>						
 					<p>
-						<strong>Input rasters</strong>: landquality.tif (2)
+						<strong>Input rasters</strong>: landquality.tif
 					</p>
 					<p>
 						<strong>Output field name</strong>: land_q
@@ -2365,10 +2383,10 @@
 					"Model" model for Exercises 4-5
 					</h3>
 					<p>
-						Look at "Lecture5\solutions4exercises\models.tbx\lec5ex4-5"
+						Look at "solutions4exercises\models.tbx\lec5ex4-5"
 					</p>
 				</section>	
-			</section>	
+			</section>
 				
 			<section>					
 				<section id="checkoutextension" data-transition="slide-out fade-in" style="text-align: left;">
@@ -2396,14 +2414,16 @@
 						Otherwise these tools cannot be run.
 					</p>
 				</section>	
-
-
+				
 				<section id="model_script" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 					Model Python Script for Lecture 5
 					</h3>
 					<p>
-						Look at "solutions4exercises/*.py" in the downloaded data folder for Lecture 5
+						Exercises 1-3: "solutions4exercises/L5ex1-3.py"
+					</p>
+					<p>
+						Exercises 4-5: "solutions4exercises/L5ex4-5.py"
 					</p>
 				</section>	
 			</section>
