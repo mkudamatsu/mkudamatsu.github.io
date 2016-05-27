@@ -1,0 +1,1912 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- For Google search results -->
+		<title>ArcGIS for Economics: Lecture 7</title>
+		<meta name="description" content="ArcGIS for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<!-- Activate Reveal.js -->
+		<link rel="stylesheet" href="css/reveal.css">
+		
+		<!-- Define the theme -->
+		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--Add support for earlier versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<!-- To activate the CSS framework of Reveal.js -->
+		<div class="reveal">
+
+			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
+			<div class="slides">
+				
+				<!-- Slide contents start here -->
+				
+				<!-- My own slide templates -->
+				<section id="title">
+					<h3 style="color:slategrey">
+						ArcGIS 10 for Economics Research
+					</h3>
+					<h3>
+						Lecture 7
+					</h3>
+					<h2>
+						Spatial Regression Discontinuity Design
+					</h2>
+					<br>
+					<p>Masayuki Kudamatsu</p>
+					<p>27 May, 2016</p>
+					<br>
+					<p>
+						<small>Press <span style="color:red;">SPACE</span> to proceed. </small>
+						<br>
+						<small>To go back to the previous slide, press <span style="color:red;">SHIFT+SPACE</span>. </small>
+					</p>
+				</section>
+
+				<section id="road_map" style="text-align: left;">
+					<h3>
+						Today's road map
+					</h3>
+						<p>
+							1. Econometrics for spatial RD design
+						</p>
+						<p>
+							2. Spatial RD examples
+						</p>
+						<p>
+							3. Geo-processing for spatial RD design
+						</p>
+						<p>
+							4. Calculate 3D polyline length
+						</p>
+				</section>			
+
+			<section>
+				<section id="section1">
+					<h1>
+						1. Econometrics for Spatial RD Design 
+					</h1>
+				</section>
+				
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						What's unique about Spatial RD
+					</h3>
+					<p>
+						Forcing variable: two-dimensional vector (i.e. coordinates)
+					</p>
+					<p>
+						Cutoff: boundary lines
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						$\Rightarrow$ How should we extend the standard RD design?
+					</p>
+				</section>
+				
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3 style="text-align: left;">
+						Approach 1: Scalar RD
+					</h3>
+					<br>
+					<p style="text-align: left;">
+						\begin{align*}
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+						\end{align*}
+					</p>
+					<br>
+						<p>
+							Project coordinates into distance to boundary ($Dist_i$)
+						</p>
+						<ul>
+							<li>
+								$Dist_i < 0$ for control areas
+							</li>
+						</ul>
+				</section>				
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4 style="text-align: left;">
+						Approach 1: Scalar RD (cont.)
+					</h4>
+					<br>
+					<p style="text-align: left;">
+						\begin{align*}
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+						\end{align*}
+					</p>
+					<br>
+						<p style="text-align: left;">
+							Then use standard RD design	w/ <span style="color:red;">boundary segment FE</span> ($\mu_s$)				
+						</p>
+						<ul style="text-align: left;">
+							<li>
+								$i$'s nearest point on boundary $\in$ Segment $s$
+							</li>
+						</ul>
+				</section>				
+
+				<section id="" data-transition="fade-in slide-out" >
+					<h4 style="text-align: left;">
+						Approach 1: Scalar RD (cont.)
+					</h4>
+					<p style="text-align: left;">
+						w/o boundary segment FE, you compare point $i$ to $k$ in diagram below
+					</p>
+					<img src="gis_lecture7/Keele-Titiunik2014f3.png" style="border: none; background: none; box-shadow:none; width: 500px">											
+
+					<p>
+						<small>(Figure 3 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>					
+						
+					</p>
+				</section>				
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Limitations of Scalar RD
+					</h3>
+						<p>
+							RD polynomials may not be zero across all boundary points
+						</p>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p class="fragment" data-fragment-index="1">
+							$\Rightarrow$ Cannot estimate heterogeneous treatment effects at various boundary points
+						</p>
+						<img src="gis_lecture7/Keele-Titiunik2014f6.png" style="border: none; background: none; box-shadow:none; width: 450px" class="fragment" data-fragment-index="1">	
+						<p style="text-align: right;" class="fragment" data-fragment-index="1">
+						<small>(Figure 6 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>
+						</p>										
+				</section>
+
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Approach 2: Boundary RD
+					</h3>
+						<br>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							Use coordinates ($\boldsymbol{x}_i$) for RD polynomials
+						</p>
+						<ul>
+							<li>
+								Not zero at boundary
+							</li>
+						</ul>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Approach 2: Boundary RD (cont.)
+					</h4>
+						<br>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							Pick (equally-spaced) points on boundary (denoted by $n$)
+						</p>
+						<p>
+							Assign each observation to its nearest boundary point, to define $\mu_n$
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Approach 2: Boundary RD (cont.)
+					</h4>
+						<br>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							Treatment effect at boundary point $n$: given by
+						</p>
+						<p>
+							\begin{align*}
+							\beta + \boldsymbol{x}'_n\boldsymbol{\delta}
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							<small>See Chapter 2 of <a href="http://nrs.harvard.edu/urn-3:HUL.InstRepos:9368030" target="_blank">Zajonc (2012)</a> (commonly cited as Imbens and Zajonc 2011) for more detail</small>
+
+						</p> 
+				</section>				
+				
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Limitations to Boundary RD
+					</h3>
+						<p>
+							Require lots of observations along the boundary
+						</p>
+						<ul>
+							<li>
+								Infeasible with sub-national district level data
+							</li>
+						</ul>
+						<p>
+							Average treatment effect estimates: similar to scalar RD estimates anyway
+						</p>
+						<p>
+							Data compilation: cumbersome
+						</p>
+						<ul>
+							<li>
+								ArcGIS helps a lot, though
+							</li>
+						</ul>
+				</section>
+				
+				<section id="treatment_bundle" data-transition="slide-out slide-in" style="text-align: left;">
+					<h3>
+						Treatment boundary
+					</h3>
+					<p>
+						Tends to overlap with other boundaries
+					</p>
+					<ul>
+						<li>
+							Municipalities, school districts, electoral districts, etc.
+						</li>
+					</ul>
+					<img src="gis_lecture7/Keele-Titiunik2014f5.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">											
+					<p>
+						$\Rightarrow$ Focus on segments where nothing else overlaps
+					</p>
+					<p style="text-align: right;">
+						<small>(Figure 5 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>					
+						
+					</p>
+					
+				</section>
+			</section>
+			
+			<section>
+				<section id="section2">
+					<h1>
+						2. Spatial RD Examples 
+					</h1>
+				</section>
+				
+				<section id="dell1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.3982/ECTA8121" target="_blank">Dell (2010)</a>
+					</h3>
+						<p>
+							Does forced labor system during Spanish colonial rule affect todya's living standards in Peru? If so, why?
+						</p>
+						<p>
+							Interesting?
+						</p>
+						<ul>
+							<li>
+								Yes, if why question is answered
+							</li>
+							<li>
+								Lots of "history matters" papers already out there
+							</li>
+						</ul>
+						<p>
+							Original?
+						</p>
+						<ul>
+							<li>
+								Focus on mechanism of long-run effect of history
+							</li>
+							<li>
+								Pioneer in spatial RD design
+							</li>
+							<li>
+								Findings go against well-known Engerman-Sokoloff hypothesis
+							</li>
+						</ul>
+				</section>
+
+				<section id="dell2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>Dell (2010) (cont.)
+					</h4>
+					<h3>
+						Mita
+					</h3>
+						<p>
+							1573-1812: Spanish colonial rule forced 1/7 of adult male population in parts of Peru & Bolivia to work in the Potosi silver & Huancavelica mercury mines
+						</p>
+					<img src="gis_lecture7/figure1.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">				
+						<p>
+							Communities subject to mita: clearly defined geographically
+						</p>
+				</section>
+
+				<section id="dell3" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>Dell (2010) (cont.)
+					</h4>
+					<h3>
+						Data for outcomes
+					</h3>
+						<p>
+							Household consumption in 2001
+						</p>
+						<p>
+							Heights of 6-9 years old students
+						</p>
+						<p>
+							Road lengths by districts
+						</p>
+						<ul>
+							<li>
+								We will calculate this later
+							</li>
+						</ul>
+				</section>
+
+				<section id="dell3" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>Dell (2010) (cont.)
+					</h4>
+					<h3>
+						Data for intermediate outcomes
+					</h3>
+						<p>
+							% rural population in hacienda (large land-holding) in 1689, 1845, 1940
+						</p>
+						<p>
+							Education in 1876, 1940, 2001
+						</p>
+						<p>
+							$\Rightarrow$ Allows to identify mechanisms
+						</p>
+				</section>
+				
+				<section id="dell4" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>Dell (2010) (cont.)
+					</h4>
+					<h3>
+						Results
+					</h3>
+						<p>
+							Mita areas: worse-off today
+						</p>
+						<p>
+							Historically, less educated & <strong>less unequal in land holding</strong>
+						</p>
+						<p>
+							$\Rightarrow$ Against Engerman Sokoloff hypothesis (e.g. <a href="http://dx.doi.org/10.1257/jep.14.3.217" target="_blank">Sokoloff & Engerman 2000</a>) 
+						</p>
+				</section>
+				
+
+				
+
+												
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">Michalopoulos & Papaioannou (2014)</a>
+					</h3>
+					<img src="gis_lecture7/MP2014f3d.png" style="border:none; background:none; box-shadow:none; width:350px; float: right;">				
+						<p>
+							Ntnl govt quality $\Rightarrow$ development?
+						</p>
+						<p>
+							Look at ethnic homelands split by national boarders in Africa
+						</p>
+						<ul>
+							<li>
+								Segment FE = Ethnicity FE
+							</li>
+						</ul>
+						<p>
+							Find no difference in nighttime light across border on average
+						</p>
+						<p>
+							Large heterogeneity across ethnic groups, though
+						</p>
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.1016/j.jpubeco.2016.01.007" target="_blank">Berger et al. (2016)</a>
+					</h3>
+						<p>
+							Does higher TV license fees increase evasion in Austria?
+						</p>
+						<p>
+							Exploit differences in fees across states
+						</p>
+						<p>
+							Focus on state borders where covariates are balanced
+						</p>
+						<img src="gis_lecture7/BFST2016f1.png" style="border:none; background:none; box-shadow:none; width:600px;">				
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="https://sites.google.com/site/rgonzalezarregoitia/job-market-paper" target="_blank">Gonzalez (2015)</a>
+					</h3>
+						<p>
+							Cellphone coverage $\Rightarrow$ Electoral fraud $\downarrow$ in Afghanistan
+						</p>
+						<p>
+							1000+ polling stations w/i 5km from coverage boundary
+						</p>
+						<p>
+							$\Rightarrow$ Boundary RD approach: feasible
+						</p>
+						<img src="gis_lecture7/Gonzalez2015f6.png" style="border:none; background:none; box-shadow:none; width:500px;">				
+				</section>
+
+			</section>
+
+
+				<!-- Preparation -->
+				<section id="preparation1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Prepare for the rest of this lecture
+					</h3>
+					<p>
+						1. Launch ArcMap 10 (it takes time)
+					</p>
+					<p>
+						2. <a href="https://www.dropbox.com/s/nczow48b8tdwlwd/Lecture7.zip?dl=0" target="_blank">Download the zipped dataset for Lecture 7</a> 
+					</p>
+					<p>
+						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 Don't save in the remote server, which slows down ArcGIS
+						</li>
+					</ul>															
+					<p>
+						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture7</code>
+						</li>
+					</ul>															
+				</section>
+
+				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+						Prepare for the rest of this lecture (cont.)
+					</h4>
+					<p>
+						Now in ArcMap's <strong>Catalogue Window</strong>:
+					</p>
+					<p>
+						5. Establish connection to data folder
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							Right-click "<strong>Folder Connections</strong>"
+						</li>
+						<li>
+							Select "<strong>Connect to Folder</strong>"
+						</li>
+						<li>
+							Choose "<strong>Downloads > Lecture7</strong>"
+						</li>
+					</ul>
+					<p>
+						6. Create a new folder <strong>outputs</strong> inside <strong>Lecture7</strong>
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 We will create all new files in this folder
+						</li>
+					</ul>															
+					<p>
+						7. Prepare the Model Builder
+					</p>
+					<ul style="margin-left: 72px;">
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+							</li>
+							<li>
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/exercises1-3</strong>" inside <strong>Lecture7</strong>
+							</li>
+					</ul>
+				</section>
+			</section>
+			<!-- SECTION for ArcMap -->
+			<section>
+				<section id="section3">
+					<h1>
+						3. Geo-processing for Spatial RD Design
+					</h1>
+				</section>
+
+				<section id="ordered_list" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Spatial RD Design Data Generation
+					</h3>
+					<p>
+						1. Attach treatment indicator to district polygons
+					</p>
+					<p>
+						2. Treatment boundary polylines
+					</p>
+					<p>
+						3. Boundary segment indicator & Distance to boundary
+					</p>
+					<p>
+						4. Visualize spatial RD plots
+					</p>
+				</section>
+								
+				<section id="ex1inputs" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1
+					</h4>
+					<h3>
+						Attach mita district indicator
+					</h3>
+					<p>
+						Inputs:
+					</p>
+					<p>
+						1. StudyDistricts.shp (district polygons)
+					</p>
+					<ul>
+						<li>
+							District ID: dist_id
+						</li>
+					</ul>
+					<p>
+						2. districts.txt (list of mita districts)
+					</p>
+					<ul>
+						<li>
+							District ID: dist_id
+						</li>
+						<li>
+							Mita indicator: mita
+						</li>
+					</ul>
+				</section>
+				
+				<section id="ex1tools" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Geo-processing tools to be used for this exercise:
+					</p>					
+					<p>
+						1. Table to Table
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Convert the table in text format into dBASE
+							</li>
+							<li>
+								Otherwise Join Field does not work
+							</li>
+						</ul>
+					<p>
+						2. Copy Features + Join Field
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Attach mita indicator to district polygons
+							</li>
+							<li>
+								cf. <a href="http://mkudamatsu.github.io/gis_lecture6.html#/ex4step1" target="_blank">Lecture 6 Exercise 4 Step 1</a>
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex1table2table" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 1
+					</h4>
+					<h3>
+						Table to Table
+					</h3>					
+					<p>
+						<strong>Input Rows</strong>: districts.txt
+					</p>
+					<p>
+						<strong>Output Location</strong>: ...\Lecture7\outputs
+					</p>
+					<ul>
+						<li>
+							Directory in which the output table is saved
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Table</strong>: districts.dbf
+					</p>
+					<p>
+						<strong>Expression</strong>: leave it blank
+					</p>
+					<ul>
+						<li>
+							Can be used to keep only some rows
+						</li>
+					</ul>					
+					<p>
+						<strong>Field Map</strong>: leave as it is
+					</p>
+				</section>
+
+				<section id="ex1copy_features" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 2
+					</h4>
+					<h3>
+						Copy Features
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: StudyDistricts.shp
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\mita_districts.shp
+					</p>
+					<ul>
+						<li>
+							Do not use districts.shp, because its attribute table will have the same file name as the output from Table to Table
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex1join_field" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #1: Step 2
+					</h4>
+					<h3>
+						Join Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: mita_districts.shp
+					</p>
+					<ul>
+						<li>
+							Output from Copy Features
+						</li>
+					</ul>
+					<p>
+						<strong>Input Join Field</strong>: dist_id
+					</p>
+					<p>
+						<strong>Join Table</strong>: districts.dbf
+					</p>
+					<p>
+						<strong>Output Join Field</strong>: dist_id
+					</p>
+					<p>
+						<strong>Join Fields</strong>: mita
+					</p>
+				</section>
+
+				<section id="ex1final" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #1 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the attribute table of the output
+					</p>					
+					<p>
+						Is everything as expected?
+					</p>
+				</section>			
+
+				<section id="ex2tools" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2
+					</h4>
+					<h3>
+						Mita boundary polyline
+					</h3>
+					<p>
+						Geoprocessing tools:
+					</p>
+					<p>
+						1. Dissolve
+					</p>
+					<ul>
+						<li>
+							Create mita area polygon and non-mita area polygon
+						</li>
+					</ul>
+					<p>
+						2. Polygon To Line + Select
+					</p>
+					<ul>
+						<li>
+							Convert polygons to their boundary polylines
+						</li>
+						<li>
+							Then keep those tangent on the other polygons
+						</li>
+					</ul>
+				</section>
+
+`				<section id="polygon2line" data-transition="fade-out fade-in" style="text-align: left">
+					<h3>
+						Polygon To Line
+					</h3>
+					<p>
+						<small>(Image taken from <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/polygon-to-line.htm" target="_blank">
+ArcGIS Help on Polygon To Line</a>) </small>
+					<img src="gis_lecture7/polygon2line.png" style="border: none; background: none; box-shadow:none; width: 800px;">	
+					</p>
+					<p>
+						For treatment boundary polylines
+					</p>
+						<p>
+							$\Rightarrow$ LEFT_FID $\neq$ -1 
+						</p>
+				</section>
+
+				<section id="ex2dissolve" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 1
+					</h4>
+					<h3>
+						Dissolve
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: mita_districts.shp (2)
+					</p>
+					<ul>
+						<li>
+							Output from Join Field
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\mita_area.shp
+					</p>
+					<p>
+						<strong>Dissolve_Field(s)</strong>: mita
+					</p>
+					<p>
+						Check "<strong>Create multipart features</strong>"
+					</p>
+				</section>
+
+				<section id="ex2polygon2line" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 2
+					</h4>
+					<h3>
+						Polygon To Line
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: mita_area.shp
+					</p>
+					<ul>
+						<li>
+							Output from Dissolve
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\polygon2line.shp
+					</p>
+					<p>
+						<span style="color:red;">Check</span> "<strong>Identify and store polygon neighboring information</strong>"
+					</p>
+					<ul>
+						<li>
+							If unchecked, each polygon becomes one polyline
+						</li>
+					</ul>					
+				</section>				
+
+				<section id="ex2select" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Step 3
+					</h4>
+					<h3>
+						Select
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: polygon2line.shp
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\boundary.shp
+					</p>
+					<p>
+						<strong>Expression</strong>: <span style="font-size:1.5em;">"LEFT_FID" <> -1</span>
+					</p>
+					<ul>
+						<li>
+							Enclose field name with " "
+						</li>
+						<li>
+							<> means not equal to
+						</li>
+					</ul>					
+				</section>								
+
+				<section id="ex2alternative" data-transition="slide-in slide-out" style="text-align: left">
+					<h4>
+						Exercise #2 (cont.)
+					</h4>
+					<h3>
+						Alternative solution
+					</h3>
+					<p>
+						1. Select with "mita" = 1
+					</p>
+					<ul>
+						<li>
+							Create a mita area polygon
+						</li>
+					</ul>
+					<p>
+						2. Select with "mita" = 0
+					</p>
+					<ul>
+						<li>
+							Create a non-mita area polygon
+						</li>
+					</ul>
+					<p>
+						3. Intersect with <span style="color:red;">output type LINE</a>
+					</p>
+					<ul>
+						<li>
+							Intersection of the two polygons will be kept as a polyline
+						</li>
+						<li>
+							With output type INPUT, no feature will be created
+						</li>
+					</ul>
+				</section>
+
+				<section id="distance2boundary" data-transition="slide-out slide-in" style="text-align: left">
+					<h3>
+						Distance to boundary
+					</h3>
+					<p>
+						Can now be calculated by Near tool with the boundary polyline as near feature
+					</p>
+					<ul>
+						<li>
+							cf. <a href="http://mkudamatsu.github.io/gis_lecture4.html#/ex1step3b" target="_blank">Lecture 4 Exercise 1 Step 3</a>
+						</li>
+					</ul>
+					<p>
+						But we also need "boundary segment fixed effects that denote
+which of <span style="color:red;">four equal length segments of the boundary</span> is the closest to the observation’s district capital" (Dell 2010, p. 1870)
+					</p>
+					<p>
+						$\Rightarrow$ Split each boundary line by half
+					</p>
+				</section>
+
+
+
+				<section id="ex3tools" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3
+					</h4>
+					<h3>
+						Bounday segment fixed effects
+					</h3>
+					<p>
+						Geo-processing tools:
+					</p>					
+					<p>
+						1. Unsplit Line
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Convert each boundary into one polyline
+							</li>
+							<li>
+								Necessary because Polygon To Line fails to create one polyline for the southern boundary...
+							</li>
+						</ul>
+					<p>
+						2. Add Field + Calculate Field
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Add midpoint coordinates
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex3tools2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3 (cont.)
+					</h4>
+					<p>
+						3. Make XY Event Layer + Copy Features
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Create midpoint point features
+							</li>
+						</ul>
+					<p>
+						4. Split Line at Point
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Divide each boundary at midpoint
+							</li>
+						</ul>
+					<p>
+						5. Copy Features + Near (w/ district capitals as input)
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Attach boundary segment indicator
+							</li>
+							<li>
+								Calculate distance to boundary
+							</li>
+						</ul>
+				</section>
+
+				<section id="ex3unsplit" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 1
+					</h4>
+					<h3>
+						Unsplit Line
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: boundary.shp
+					</p>
+					<ul>
+						<li>
+							Output from Select
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\boundary_unsplit.shp
+					</p>
+				</section>
+
+				<section id="ex3midpoint_xy" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 2
+					</h4>
+					<h3>
+						Midpoint coordinates
+					</h3>					
+					<p>
+						We will add two new fields
+					</p>
+					<ul>
+						<li>
+							One for midpoint longitude
+						</li>
+						<li>
+							The other for midpoint latitude
+						</li>
+					</ul>						
+					<p>
+						$\Rightarrow$ Use Add Field + Calculate Field twice
+					</p>
+				</section>
+
+				<section id="ex3add_field" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 2 (cont.)
+					</h4>
+					<h3>
+						Add Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: boundary_unsplit.shp
+					</p>
+					<p>
+						<strong>Field Name</strong>: midpoint_X / midpoint_Y
+					</p>
+					<ul>
+						<li>
+							Or whatever you prefer (not exceeding 10 characters)
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Type</strong>: DOUBLE
+					</p>
+					<ul>
+						<li>
+							We want to have the exact coordinate
+						</li>
+					</ul>						
+				</section>
+
+				<section id="ex3calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 2 (cont.)
+					</h4>
+					<h3>
+						Calculate Field
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: boundary_unsplit.shp
+					</p>
+					<ul>
+						<li>
+							<span style="color:red;">Output from Add Field</a>
+						</li>
+					</ul>						
+					<p>
+						<strong>Field Name</strong>: midpoint_X / midpoint_Y
+					</p>
+					<ul>
+						<li>
+							Or the same as what you specified in Add Field
+						</li>
+					</ul>						
+					<p>
+						<strong>Expression</strong>: see next slide
+					</p>
+					<p>
+						<strong>Expression Type</strong>: PYTHON_9.3
+					</p>
+				</section>
+				
+				<section id="positionAlongLine" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						position Along Line method
+					</h3>					
+					<p>
+						<code style="font-size: 0.8em">!shape!.positionAlongLine(<mark>0.5</mark>,True).firstPoint.X</code>
+					</p>
+					<p>
+						0.5 for mid points
+					</p>
+					<ul>
+						<li>
+							Change this fraction for other points on polyline
+						</li>
+					</ul>
+					<p>
+						$\Rightarrow$ Multiple boundary points for heterogeneous treatment effects estimation
+					</p>
+					<ul>
+						<li>
+							Use loop over values in Python (cf. <a href="http://mkudamatsu.github.io/gis_lecture6.html#/section5" target="_blank">Lecture 6</a>)
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex3makexy" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 3
+					</h4>
+					<h3>
+						Make XY Event Layer
+					</h3>					
+					<p>
+						<strong>XY Table</strong>: boundary_unsplit.shp (5)
+					</p>
+					<ul>
+						<li>
+							Output from Calculate Field (2)
+						</li>
+					</ul>						
+					<p>
+						<strong>X Field</strong>: midpoint_X
+					</p>
+					<p>
+						<strong>Y Field</strong>: midpoint_Y
+					</p>
+					<p>
+						<strong>Spatial Reference</strong>: WGS_1984_UTM_Zone_18S
+					</p>
+					<ul>
+						<li>
+							Make sure using the same coordinate system as boundary polylines
+						</li>
+					</ul>					
+				</section>
+
+				<section id="ex3copy1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 3 (cont.)
+					</h4>
+					<h3>
+						Copy Features
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: output from Make XY Event Layer
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\midpoints.shp
+					</p>
+				</section>
+				
+				<section id="ex3split_line" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 4
+					</h4>
+					<h3>
+						Split Line at Point
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: boundary_unsplit.shp (5)
+					</p>
+					<p>
+						<strong>Point Features</strong>: midpoints.shp
+					</p>
+					<ul>
+						<li>
+							Output from Copy Features (2)
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\boundary_segments.shp
+					</p>
+				</section>
+
+				<section id="ex3copy2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 5
+					</h4>
+					<h3>
+						Copy Features
+					</h3>					
+					<ul>
+						<li>
+							To avoid overwriting the original file by Near tool
+						</li>
+					</ul>
+					<p>
+						<strong>Input Features</strong>: district_capitals.shp
+					</p>
+					<ul>
+						<li>
+							In the data4ecercises folder
+						</li>
+					</ul>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\district_capitals_near.shp
+					</p>
+				</section>
+
+				<section id="ex3near" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3: Step 5 (cont.)
+					</h4>
+					<h3>
+						Near
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: district_capitals_near.shp
+					</p>
+					<p>
+						<strong>Near Features</strong>: boundary_segments.shp
+					</p>
+					<p>
+						Check "<strong>Location</strong>"
+					</p>
+					<ul>
+						<li>
+							We don't need this, but can be used for error checking
+						</li>
+					</ul>					
+					<p>
+						<strong>Method</strong>: PLANAR
+					</p>
+					<ul>
+						<li>
+							We are using UTM projection, not WGS 1984
+						</li>
+					</ul>					
+				</section>
+
+				<section id="ex3final" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #3 (cont.)
+					</h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output attribute table. 
+					</p>
+					<p>
+						NEAR_FID: Nearest boundary segment ID
+					</p>					
+					<ul>
+						<li>
+							Same as FID in boundary_segments.shp
+						</li>
+					</ul>
+					<p>
+						NEAR_DIST: Distance to boundary
+					</p>
+				</section>			
+
+				<section id="ex3extra" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					For boundary RD
+					</h3>
+					<p>
+						Use multiple boundary points as near features for the Near tool
+					</p>
+					<p>
+						$\Rightarrow$ NEAR_FID indicates nearest boundary points, to create neighborhood fixed effects
+					</p>
+				</section>			
+				
+				
+				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+					"Model" model for Lecture 0
+					</h3>
+					<p>
+						Look at "Lecture0\solutions4exercises\models.tbx\lecture0"
+					</p>
+				</section>
+				
+				<section id="visualization1" data-transition="slide-out fade-in" >
+					<h4 style="text-align: left">
+						Extra
+					</h4>
+					<h3 style="text-align: left">
+						Spatial RD Visualization
+					</h3>
+					<p style="text-align: left">
+						How can we draw a map like this? (Dell 2010 uses R)
+					</p>
+					<img src="gis_lecture7/figure2.png" style="border:none; background:none; box-shadow:none; width:800px;">
+					<p><small>Figure 2 of Dell (2010)</small></p>
+				</section>
+
+				<section id="visualization2" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Spatial RD Visualization (cont.)
+					</h4>
+					<p>
+						A possible solution for ArcGIS + Stata:
+					</p>
+					<p>
+						1. Polygon To Raster, to create treatment indicator raster
+					</p>
+					<ul>
+						<li>
+							Input polygons: Treatment and non-treatment areas
+						</li>
+						<li>
+							Field for treatment indicator
+						</li>
+					</ul>
+					<p>
+						2. Raster To ASCII, to export raster as ASCII
+					</p>
+					<p>
+						3. ras2dta.ado, to read in Stata (cf. <a href="http://www.stata-journal.com/sjpdf.html?articlenum=dm0014" target="_blank">Muller 2005</a>)
+					</p>
+				</section>
+				<section id="visualization3" data-transition="fade-out fade-in" style="text-align: left">				
+					<h4>
+						Spatial RD Visualization (cont.)
+					</h4>
+					<p>
+						4. Generate cell centroid coordinates
+					</p>
+					<ul>
+						<li>
+							By a Stata code like this one (not guaranteed to work)
+						</li>
+					</ul>
+					<pre>
+						<code data-trim>
+#delimit ;
+/* Read the raster data  */
+ras2dta, files("raster.asc")
+    idcell(cellid)
+    genxcoord(xcoord)
+    genycoord(ycoord)
+    saving("raster.dta")
+    header /* Create "h_raster.dta" that includes the raster header information, to be used when exporting the raster */
+    replace
+    clear
+    ;
+
+/* Extract header information */
+use "h_raster.dta", clear;
+local xllcorner = hdr[6]; /* Longitude of the bottom left corner */
+local yllcorner = hdr[8]; /* Latitude of the bottom left corner */
+local cellsize = hdr[10]; /* Cell width/height in decimal */ 
+
+/* Recover the geographic coordinates */
+use "raster.dta", clear;
+local inv_cellsize = int(1/`cellsize'); /* Inverse of the cell size */
+gen double lon = `xllcorner' + (xcoord - 1)/`inv_cellsize';
+gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
+						</code>
+					</pre>
+					
+				</section>
+				<section id="visualization4" data-transition="fade-out slide-in" style="text-align: left">				
+					<h4>
+						Spatial RD Visualization (cont.)
+					</h4>
+					<p>
+						5. Obtain predicted values of outcome from estimated coefficients
+					</p>
+					<p>
+						6. Export this value as raster in ASCII format by dta2ras (part of the ras2dta.ado package)
+					</p>
+					<p>
+						7. ASCII To Raster, to convert it into TIFF raster (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex5a" target="_blank">Lec 1 Ex 5</a>) 
+					</p>
+					<p>
+						8. Read it in ArcMap and choose nice color gradation
+					</p>
+				</section>
+			</section>
+
+			<!-- SECTION for Python -->
+			<section>
+				<section id="section4">
+					<h1>
+						4. Calculate 3D polyline length
+					</h1>
+				</section>
+
+				<section id="hilly" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Road length in hilly areas
+					</h3>
+					<p>
+						Peru is a hilly country
+					</p>					
+					<p>
+						$\Rightarrow$ Ignoring elevation can be misleading
+					</p>
+					<p>
+						$\Rightarrow$ Use the <strong>Add Surface Information</strong> tool 
+					</p>
+				</section>		
+
+				<section id="add_surface_info" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Add Surface Information
+					</h3>
+					<p>
+						Take elevation raster and vector data as inputs
+					</p>
+					<p>
+						Add new fields to the input attribute table (i.e. overwriting)
+					</p>
+					<ul>
+						<li>
+							3D length for polylines
+						</li>
+						<li>
+							3D surface area for polygons
+						</li>
+					</ul>
+					<p>
+						For more detail, see <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/3d-analyst-toolbox/add-surface-information.htm" target="_blank">ArcGIS Help</a> 
+					</p>
+				</section>		
+
+				<section id="extension" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Add Surface Information (cont.)
+					</h4>
+					<p>
+						Tool is part of <strong>3D Analyst</strong> extension
+					</p>					
+					<p>
+						Click "Tool > Extensions" to activate the extension in ArcMap
+					</p>
+					<p>
+						In Python, add the following command line:
+					</p>
+					<p style="text-align: center;">
+						<code>arcpy.CheckOutExtension("3D")</code>
+					</p>					
+				</section>		
+												
+				<section id="ex4tools" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4
+					</h4>
+					<h3>
+						Road length by district
+					</h3>
+					<p>
+						Inputs:
+					</p>
+					<p>
+						Road polylines for Peru (raods_prj.shp)
+					</p>
+					<ul>
+						<li>
+							Projected to WGS 1984 UTM 18S
+						</li>
+					</ul>
+					<p>
+						STRM30 (W100S10.DEM)
+					</p>
+					<ul>
+						<li>
+							Coordinate system: WGS 1984
+						</li>
+					</ul>
+				</section>		
+
+				<section id="ex4tools" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4 (cont.)
+					</h4>
+					<p>
+						Geo-processing tools:
+					</p>					
+					<p>
+						1. Select
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Obtain length by road type
+							</li>
+						</ul>
+					<p>
+						2. Intersect + Dissolve
+					</p>
+						<ul style="margin-left: 72px;">
+							<li>
+								Obtain total length by district
+							</li>
+						</ul>
+					<p>
+						3. Project Raster
+					</p>
+						<ul>
+							<li>
+								Polyline length calculation requires UTM projection
+							</li>
+						</ul>
+					<p>
+						4. Add Surface Information
+					</p>
+				</section>			
+
+				<section id="road_data" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Codebook for road data
+					</h3>					
+					<p style="font-size:0.5em;">
+						(according to <code>maketable8.do</code> in the replication files)
+					</p>
+					<p>
+						<strong>RUTA</strong>: type of road
+					</p>
+					<ul>
+						<li>
+							Departamental: Regional
+						</li>
+						<li>
+							Vecinal: Local
+						</li>
+					</ul>
+					<p>
+						<strong>SUPERFICIE</strong>: road condition
+					</p>
+					<ol>
+						<li>
+							Paved
+						</li>
+						<li>
+							Gravel
+						</li>
+						<li>
+							non-gravel
+						</li>
+						<li>
+							trocha carrozable (?)
+						</li>
+						<li>
+							Under construction
+						</li>
+						<li value="9">
+							Planned
+						</li>
+					</ol>
+				</section>
+
+				<section id="dell2010t8" data-transition="slide-out slide-in">
+					<h4>
+						Dell (2010) Table VIII
+					</h4>
+					<img src="gis_lecture7/Dell2010T8.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+				</section>
+				
+				<section id="ex4select1" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 1
+					</h4>
+					<h3>
+						Select
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: roads_prj
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\roads_paved.shp
+					</p>
+					<p>
+						<strong>Expression</strong>: 
+					</p>
+					<p>
+						"RUTA" = 'Departamental' AND ("SUPERFICIE" = 1 OR "SUPERFICIE" =2)
+					</p>
+					<ul>
+						<li>
+							Field name: enclosed by " "
+						</li>
+						<li>
+							String value: enclosed by ' '
+						</li>
+						<li>
+							AND / OR: logical operator $\land$ / $\lor$
+						</li>
+					</ul>
+				</section>
+
+				<section id="ex4select2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 1 (cont.)
+					</h4>
+					<p>
+						For regional roads:
+					</p>
+					<p>
+						"RUTA" = 'Departamental' AND "SUPERFICIE" >= 1 AND "SUPERFICIE" <=4
+					</p>
+					<p>
+						For local roads:
+					</p>
+					<p>
+						"RUTA" = 'Vecinal' AND "SUPERFICIE" >= 1 AND "SUPERFICIE" <=4
+					</p>
+					<p></p>
+				</section>
+				
+				<section id="ex4intersect" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 2
+					</h4>
+					<h3>
+						Intersect
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: StudyDistricts, roads_paved.shp
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\intersect_paved.shp
+					</p>
+					<p>
+						<strong>Output Type</strong>: INPUT
+					</p>
+				</section>				
+
+				<section id="ex4dissolve" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 2 (cont.)
+					</h4>
+					<h3>
+						Dissolve
+					</h3>					
+					<p>
+						<strong>Input Features</strong>: intersect_paved.shp
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\district_roads_paved.shp
+					</p>
+					<p>
+						<strong>Dissolve_Field(s)</strong>: dist_id
+					</p>
+					<p>
+						Check "<strong>multipart features</strong>"
+					</p>
+				</section>				
+
+				<section id="raster_projection" data-transition="fade-out slide-in" style="text-align: left">
+					<h3>
+						Projecting raster data
+					</h3>
+					<p>
+						Now we need to project elevation data to UTM
+					</p>
+					<p>
+						Which involves <strong>resampling</strong> (i.e. interpolation)
+					</p>
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture7/raster_wgs.png" style="border: none; background: none; box-shadow:none; width:300px;">					
+							</td>
+							<td>
+								$\Rightarrow$
+							</td>
+							<td>
+								<img src="gis_lecture7/raster_utm.png" style="border: none; background: none; box-shadow:none; width:300px;">					
+							</td>
+						</tr>
+						<tr>
+						<td>
+							Raster in WGS 1984
+						</td>
+						<td></td>
+						<td style="text-align: center;">
+							Raster in UTM
+						</td>
+						</tr>
+					</table>
+					<p style="text-align: center">
+							Cell in WGS1984 $\neq$ Cell in UTM
+					</p>
+					<p style="text-align: right;">
+						<small>(<a href="http://cartographicperspectives.org/index.php/journal/article/view/cp71-finn-et-al/130" target="_blank">image source</a>) </small>
+					</p>
+					
+				</section>
+
+				<section id="ex4project_raster" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 3
+					</h4>
+					<h3>
+						Project Raster
+					</h3>					
+					<p>
+						<strong>Input Raster</strong>: \data4exercises\W100S10.DEM
+					</p>
+					<p>
+						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\elevation_prj.tif
+					</p>
+					<p>
+						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_18S
+					</p>
+					<p>
+						<strong>Resampling Technique</strong>: Bilinear or Cubic
+					</p>
+					<ul>
+						<li>
+							NEAREST or MAJORITY: for categorical raster
+						</li>
+					</ul>					
+					<p>
+						<strong>Output Cell Size</strong>: 1000 for X / 1000 for Y
+					</p>
+					<ul>
+						<li>
+							30 arc-sec $\approx$ 1km
+						</li>
+						<li>
+							Default value can also be used
+						</li>
+					</ul>					
+				</section>
+				
+								
+				<section id="ex4addsurface" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 4
+					</h4>
+					<h3>
+						Add Surface Information
+					</h3>					
+					<p>
+						<strong>Input Feature Class</strong>: district_roads_paved.shp
+					</p>
+					<ul>
+						<li>
+							Output from Dissolve
+						</li>
+					</ul>						
+					<p>
+						<strong>Input Surface</strong>: elevation_prj.tif
+					</p>
+					<p>
+						<strong>Output Property</strong>: SURFACE_LENGTH
+					</p>
+					<p>
+						NOTE: This tool overwrites the input data. 
+					</p>
+				</section>
+
+				<section id="ex4table2excel" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4: Step 5
+					</h4>
+					<h3>
+						Table To Excel
+					</h3>					
+					<p>
+						<strong>Input Table</strong>: district_roads_paved.shp (2)
+					</p>
+					<ul>
+						<li>
+							Output from Add Surface Information
+						</li>
+					</ul>						
+					<p>
+						<strong>Output Excel File</strong>: ...\Lecture7\outputs\district_roads_paved.xls
+					</p>
+				</section>								
+
+				<section id="script_example" data-transition="slide-out fade-in" style="text-align: left;">
+					<h3>
+						Loop over road types in Python
+					</h3>
+					<p>
+						Use list loop to change file names
+					</p>
+					<ul>
+						<li>
+							<code>typeList = ["paved","regional","local"]</code>
+						</li>
+						<li>
+							<code>for type in typeList:</code>
+						</li>
+					</ul>
+					<p>
+						For Select, use <a href="http://www.tutorialspoint.com/python/python_if_else.htm" target="_blank">if/elif/else statements</a>
+					</p>
+					<ul>
+						<li>
+							<code>
+								if type == "paved":
+							</code>
+						</li>
+						<li>
+							<code>
+								elif type == "regional":
+							</code>
+						</li>
+						<li>
+							<code>
+								else:
+							</code>
+						</li>
+					</ul>
+					
+				</section>
+				<section id="model_script" data-transition="fade-out slide-in" style="text-align: left;">
+					<h3>
+					Model Python Script for Lecture 7
+					</h3>
+					<p>
+						To be uploaded...
+					</p>
+				</section>	
+			</section>
+
+
+				<section id="lessons" style="text-align: left;">
+					<h3>
+						What we've learned on ArcGIS
+					</h3>
+					<ol>
+						<li>
+							Attach new variables in text file to features
+						</li>
+						<li>
+							Obtain treatment boundary polylines
+						</li>	
+						<li>
+							Obtain polyline midpoints
+						</li>
+						<li>
+							Split polylines at equal intervals
+						</li>
+						<li>
+							Obtain boundary segment indicator for spatial RD design
+						</li>
+						<li>
+							Project raster data
+						</li>
+						<li>
+							Calculate 3D polyline length
+						</li>
+					</ol>
+					<p>
+						Do you remember which geo-processing tools you used for each of these tasks?
+					</p>
+				</section>
+
+			</div>
+			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
+
+		</div>
+		<!-- To end the activation of the CSS framework of Reveal.js -->		
+
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
+		
+		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
+		<script src="lib/js/head.min.js"></script>
+		<!-- Load reveal.js -->
+		<script src="js/reveal.js"></script>
+
+		<!-- Import MathJax, to use TeX for mathematic expressions -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<!-- Allow inline math expressions by using $ -->
+		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      processEscapes: true
+		    }
+		  });
+		</script>
+
+		<script>
+			// Set the options for Reveal.js
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false, // Disable the navigation arrows on bottom right
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false, // Disable the default rolling links
+
+				transition: 'slide', // Choose from: none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
