@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- For Google search results -->
+		<title>ArcGIS for Economics: Lecture x</title>
+		<meta name="description" content="ArcGIS for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<!-- Activate Reveal.js -->
+		<link rel="stylesheet" href="css/reveal.css">
+		
+		<!-- Define the theme -->
+		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--Add support for earlier versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<!-- To activate the CSS framework of Reveal.js -->
+		<div class="reveal">
+
+			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
+			<div class="slides">
+				
+				<!-- Slide contents start here -->
+				
+				<!-- My own slide templates -->
+				<section id="title">
+					<h3 style="color:slategrey">
+						ArcGIS 10 for Economics Research
+					</h3>
+					<br>
+					<h3>
+						Term Paper Guideline
+					</h3>
+					<br>
+					<p>Masayuki Kudamatsu</p>
+					<p>30 May, 2016</p>
+					<br>
+				</section>
+
+				<section id="deadline">
+					<h3>
+						Deadline
+					</h3>
+					<p style="font-size: 2em;">
+						9 am, Monday 27 June
+					</p>
+					<p>
+						Send a PDF copy to m.kudamatsu@gmail.com
+					</p>
+				</section>
+
+				<section id="rq" style="text-align: left;">
+					<h3>
+						Content
+					</h3>
+					<p>
+						1. Research Question
+					</p>
+					<ul>
+						<li>
+							Why interesting / important?
+						</li>
+						<li>
+							How original?
+						</li>
+					</ul>
+					<p>
+						No lengthy literature review
+					</p>
+				</section>
+
+				<section id="theory" style="text-align: left;">
+					<h4>
+						Content (cont.)
+					</h4>
+					<p>
+						2. Theory
+					</p>
+					<ul>
+						<li>
+							Explain mechanisms for why your treatment variable affects the outcomes you're looking at
+						</li>
+					</ul>
+					<p>
+						This will guide you through empirical analysis
+					</p>
+				</section>
+
+				<section id="data" style="text-align: left;">
+					<h4>
+						Content (cont.)
+					</h4>
+					<p>
+						3. Data
+					</p>
+					<ul>
+						<li>
+							Unit of observations
+						</li>
+						<li>
+							Sample period
+						</li>
+						<li>
+							List of variables to be used
+						</li>
+						<li>
+							Sampling method: how representative your sample is
+						</li>
+						<li>
+							Summary statistics (+ mean comparison by treatment)
+						</li>
+					</ul>
+				</section>
+
+				<section id="empirial_strategy" style="text-align: left;">
+					<h4>
+						Content (cont.)
+					</h4>
+					<p>
+						4. Empirical strategy
+					</p>
+					<ul>
+						<li>
+							Equations to estimate
+						</li>
+						<li>
+							Estimation methods (OLS, Probit, etc.) including s.e. calculation (Conley 1999 or clustered at what level?)
+						</li>
+						<li>
+							Identifying assumption
+						</li>
+					</ul>
+				</section>
+
+				<section id="results1" style="text-align: left;">
+					<h4>
+						Content (cont.)
+					</h4>
+					<p>
+						5. Results
+					</p>
+					<p>
+						Even if you haven't got any result yet, produce regression tables
+					</p>
+				</section>
+
+				<section id="main_result">
+					<table border="0" width="100%" style="font-size:0.7em;">
+						<tr>
+							<td colspan=5>Dependent Variable: xxx</td>
+						</tr>
+						<tr>
+							<td style="border-top:1px solid black">         </td>
+							<td align="center" style="border-top:1px solid black">(1) </td>
+							<td align="center" style="border-top:1px solid black"> (2)                         </td>
+							<td align="center" style="border-top:1px solid black"> (3) </td>
+							<td align="center" style="border-top:1px solid black"> (4)             </td>
+							<td align="center" style="border-top:1px solid black"> (5)             </td>
+						</tr>
+						<tr>
+							<th >Sample:                    </th>
+							<th align="center">         all             </th>
+							<th align="center"  >        all             </th>
+							<th align="center"   >        all              </th>
+							<th align="center" >        all              </th>
+							<th align="center" >        not migrated              </th>
+						</tr>
+						<tr>
+							<td>Treatment 1          </td>
+							<td align="center">       x.xx </td>
+							<td align="center">                          </td>
+							<td align="center">       x.xx </td>
+							<td align="center">       x.xx              </td>
+							<td align="center">       x.xx              </td>
+						</tr>
+						<tr>
+							<td>                    </td>
+							<td align="center">     (x.xx)              </td>
+							<td align="center">                          </td>
+							<td align="center">     (x.xx)              </td>
+							<td align="center">     (x.xx)              </td>
+							<td align="center">     (x.xx)              </td>
+						</tr>
+						<tr>
+							<td>Treatment 2              </td>
+							<td align="center">                          </td>
+							<td align="center">       x.xx              </td>
+							<td align="center">       x.xx              </td>
+							<td align="center">       x.xx              </td>
+							<td align="center">       x.xx              </td>
+						</tr>
+						<tr>
+							<td>                    </td>
+							<td align="center">                          </td>
+							<td align="center">     (x.xx)              </td>
+							<td align="center">     (x.xx)              </td>
+							<td align="center">     (x.xx)              </td>
+							<td align="center">     (x.xx)              </td>
+						</tr>
+						<tr>
+							<td>Control</td>
+							<td align="center">                          </td>
+							<td align="center">                     </td>
+							<td align="center">                    </td>
+							<td align="center">       x.xx              </td>
+							<td align="center">       x.xx              </td>
+						</tr>
+						<tr>
+							<td>                     </td>
+							<td align="center">                          </td>
+							<td align="center">                     </td>
+							<td align="center">                    </td>
+							<td align="center">       (x.xx)              </td>
+							<td align="center">       (x.xx)              </td>
+						</tr>
+						<tr>
+							<td> F-statistic                    </td>
+							<td align="center">                          </td>
+							<td align="center">                     </td>
+							<td align="center">                    </td>
+							<td align="center">       xx.xx              </td>
+							<td align="center">       xx.xx              </td>
+						</tr>
+						<tr> <!-- To draw the horizontal line below this row, we use <th>, whose style is changed in css -->
+							<th>	</th>
+							<th align="center">                          </th>
+							<th align="center">                          </th>
+							<th align="center">                          </th>
+							<th align="center">     [0.xxx]              </th>
+							<th align="center">     [0.xxx]              </th>
+						</tr>
+						<tr>
+							<td>Fixed Effects       </td>
+							<td align="center">           Y              </td>
+							<td align="center">           Y              </td>
+							<td align="center">           Y              </td>
+							<td align="center">           Y              </td>
+							<td align="center">           Y              </td>
+						</tr>
+						<tr>
+							<td># provinces         </td>
+							<td align="center">          xx              </td>
+							<td align="center">          xx              </td>
+							<td align="center">          xx              </td>
+							<td align="center">          xx              </td>
+							<td align="center">          xx              </td>
+						</tr>
+						<tr> <!-- To draw the horizontal line below this row, we use <th>, whose style is changed in css -->
+							<th># observations      </th>
+							<th align="center">         xxx              </th>
+							<th align="center">         xxx             </th>
+							<th align="center">         xxx              </th>
+							<th align="center">         xxx             </th>
+							<th align="center">         xxx             </th>
+						</tr>
+						<tr>
+							<td colspan=5>Standard errors clustered at province level; * significant at 10%, ** 5%, *** 1%.</td>
+						</tr>
+					</table>
+				</section>
+				
+				<section id="results3" style="text-align: left;">
+					<h4>
+						Content (cont.)
+					</h4>
+					<p>
+						5. Results (cont.)
+					</p>
+					<p>
+						Describe what each column aims to show
+					</p>
+					<ul>
+						<li>
+							Why restricting the sample?
+						</li>
+						<li>
+							What identification concern is dealt with?
+						</li>
+					</ul>
+				</section>				
+				
+								
+			</div>
+			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
+
+		</div>
+		<!-- To end the activation of the CSS framework of Reveal.js -->		
+
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
+		
+		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
+		<script src="lib/js/head.min.js"></script>
+		<!-- Load reveal.js -->
+		<script src="js/reveal.js"></script>
+
+		<!-- Import MathJax, to use TeX for mathematic expressions -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<!-- Allow inline math expressions by using $ -->
+		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      processEscapes: true
+		    }
+		  });
+		</script>
+
+		<script>
+			// Set the options for Reveal.js
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false, // Disable the navigation arrows on bottom right
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false, // Disable the default rolling links
+
+				transition: 'slide', // Choose from: none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
