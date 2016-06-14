@@ -66,7 +66,7 @@
 						Why GIS for economics?
 					</h3>
 					<p class="fragment" data-fragment-index="1">
-						Reason 1: it makes more research feasible
+						Reason 1: GIS makes more research feasible
 					</p>
 				</section>
 				<!-- My own slide templates -->
@@ -97,7 +97,7 @@
 						<p>
 							Digitized by <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a>
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Used by <a href="http://dx.doi.org/10.1257/aer.101.7.3221" target="_blank">Nunn & Wantchekon (2011)</a>, Michalopoulos & Papaioannou (<a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a>, <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>, <a href="http://www.nber.org/papers/w17620" target="_blank">2015</a>), <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>, <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. (2016)</a>, etc.
 							<p>
 						<small>(Figure 5A of <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>)
@@ -125,7 +125,7 @@
 						Why GIS for economics?
 					</h3>
 					<p>
-						Reason 2: it makes identification more credible
+						Reason 2: GIS makes identification more credible
 					</p>
 				</section>
 <!-- Standard slide -->
@@ -137,7 +137,7 @@
 						by controlling for more covariates
 					</h3>
 					<p style="text-align: left;">
-						e.g., Peer effect estimation
+						e.g. Peer effect estimation
 					</p>
 					<img src="gis_lecture_overview/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 450px;">
 					<p style="text-align: right;">
@@ -184,7 +184,7 @@
 					<h3 style="text-align: left;">
 						by exogenous boundaries
 					</h3>
-						<img src="gis_lecture_overview/virtual_countries.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+						<img src="gis_lecture_overview/virtual_countries.png" style="border: none; background: none; box-shadow:none; width: 1100px;">					
 					<p style="text-align: right;">
 						<small>(<a href="https://drive.google.com/file/d/0B4s_WKe-US99YzA1OGY1ZWYtNGQwYS00YjdhLTg3YTYtMGQ1YjBhOTk3YWM0/view" target="_blank">image source</a>)
 						</small>
@@ -238,14 +238,14 @@
 				</section>
 
 			<section>
-				<section id="datatype" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
+				<section id="datatype" data-transition="slide-in slide-out">
+					<h3 style="text-align: left;">
 						1.1 Data type
 					</h3>
-					<p>Spatial data comes in two different formats: 						<strong>Vector</strong> & <strong>Raster</strong>
+					<p style="text-align: left;">Spatial data comes in two different formats: 						<strong>Vector</strong> & <strong>Raster</strong>
 					</p>
 					<img src="gis_lecture1/vector-raster.jpg" style="border: none; background: none; box-shadow:none; width: 300px;">
-					<p>How to edit data differs a lot between them</p>
+					<p style="text-align: left;">How to edit data differs a lot between them</p>
 				</section>
 
 				<section id="datatype" data-transition="slide-in fade-out" style="text-align: left;">
@@ -442,10 +442,10 @@
 					<h3>
 						1.2 Coordinate Systems
 					</h3>
-					<p>Earth is a sphere (approximately)</p>					
-					<p>Various ways to <em>two-dimensionally</em> represent Earth</p>
-					<p>Each way corresponds to a <strong>coordinate system</strong>
-						<ul>
+					<p class="fragment" data-fragment-index="1">Earth is a sphere (approximately)</p>					
+					<p class="fragment" data-fragment-index="1">Various ways to <em>two-dimensionally</em> represent Earth</p>
+					<p class="fragment" data-fragment-index="2">Each way corresponds to a <strong>coordinate system</strong>
+						<ul class="fragment" data-fragment-index="2">
 							<li>
 								Also called "spatial reference" or "map projection"
 							</li>
@@ -458,10 +458,10 @@
 						Why important?
 					</h3>
 					<p>To merge different spatial datasets accurately</p>
-					<p style="margin-left: 30px;">
+					<p style="margin-left: 30px;" class="fragment" data-fragment-index="1">
 							cf. Apple Map did this wrong when it was launched in 2012
 					</p>										
-					<img src="gis_lecture_overview/apple_map.jpg" style="border:none; background:none; box-shadow:none; width: 800px;">
+					<img src="gis_lecture_overview/apple_map.jpg" style="border:none; background:none; box-shadow:none; width: 800px;" class="fragment" data-fragment-index="1">
 				</section>
 
 				<section id="cs2" data-transition="fade-in slide-out" style="text-align: left;">
@@ -481,7 +481,7 @@
 						Each location is coded by angle from earth center
 					</p>
 					<p style="margin-left: 30px;">
-							e.g., Stockholm: 59.3293&deg N / 18.0686&deg E
+							e.g. Stockholm: 59.3293&deg N / 18.0686&deg E
 					</p>										
 					<p>
 						Most popular: <strong>WGS 1984</strong> 
@@ -497,7 +497,7 @@
 					<p style="text-align: center;">	
 						<em>Cylinder</em>
 					</p>
-					<img src="gis_lecture1/cylindrical.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture1/cylindrical.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
 				</section>
 				
 				<section id="projected_cs2" data-transition="fade">
@@ -509,7 +509,7 @@
 					<p style="text-align: center;">	
 						<em>Cone</em>
 					</p>
-					<img src="gis_lecture1/conic.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture1/conic.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
 				</section>
 				
 				<section id="projected_cs3" data-transition="fade">
@@ -521,7 +521,7 @@
 					<p style="text-align: center;">	
 						<em>Plane</em>
 					</p>
-					<img src="gis_lecture1/planar.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture1/planar.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
 				</section>
 
 				<section id="projected_cs4" data-transition="fade-out fade-in">
@@ -568,10 +568,12 @@
 					<h3>
 						1.3 GIS Software
 					</h3>
-					<p>
+					<p class="fragment" data-fragment-index="1"
+>
 						<strong>ArcGIS</strong>
 					</p>					
-					<ul>
+					<ul class="fragment" data-fragment-index="1"
+>
 						<li>
 							Python-friendly
 						</li>
@@ -579,10 +581,10 @@
 							Buggy; tricky to create map images; Windows only
 						</li>						
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						<strong>QGIS</strong>
 					</p>					
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
 							Free; easy to create map images; compatible with any OS
 						</li>
@@ -593,7 +595,7 @@
 							Tutorial: <a href="http://www.qgistutorials.com" target="_blank">www.qgistutorials.com</a>
 						</li>						
 					</ul>
-					<p class="fragment" data-fragment-index="1">
+					<p class="fragment" data-fragment-index="3">
 						$\Rightarrow$ ArcGIS recommended for the ease of use of Python (for replication), at least for now
 					</p>
 				</section>				
@@ -649,20 +651,20 @@
 				</section>
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						2.1 Satellite image data
+						2.1 Satellite images
 					</h3>
 					<p>
 						Images consist of pixels
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Map each pixel's "color" into raster value
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
-							Use statistical learning methods
+							By using statistical learning methods
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						A lot of time (and money to hire experts) needed, though.
 					</p>
 				</section>
@@ -710,13 +712,18 @@
 					</ul>
 				</section>
 				<section id="satellite1b" data-transition="fade" style="text-align: left">
+					<h4>
+						Application: Burgess et al. 2012 (cont.)
+					</h4>
 					<p>
 						Cannot rely on official stats of logging
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1"
+>
 					$\Rightarrow$ Use satellite images
 					</p>
-					<ul style="margin-left: 85px;">
+					<ul style="margin-left: 85px;" class="fragment" data-fragment-index="1"
+>
 						<li>
 							Spatial resolution: 250m x 250m pixel
 						</li>
@@ -892,7 +899,7 @@
 							</ul>
 						</ul>					
 				</section>
-				<section id="xydata4" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="xydata4" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					2.3 Points (cont.)
 					</h4>
@@ -912,7 +919,7 @@
 					</p>
 				</section>				
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Python code for creating point features
 					</h4>
@@ -1006,7 +1013,6 @@ cellsize = "2.5"
 bottom_left = "-180 -65"
 top_right = "180 85"
 y_axis = "-180 -55"
-# WGS 1984
 coordinate_system = arcpy.SpatialReference(4326)
 
 arcpy.CreateFishnet_management(
@@ -1126,17 +1132,20 @@ arcpy.DefineProjection_management(
 				</section>
 <!-- Standard slide -->
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for Spatial Join
+					</h4>
 <!-- Command lines -->
 <pre style="font-size: 1em;">
 <code data-trim data-noescape><!-- data-noescape allows for <mark> -->
 import arcpy
-arcpy.env.workspace = "C:/data"
 
 target = "cities.shp"
 join = "weather_data_cells.shp"
 output = "cities_with_weather_data.shp"
 
-arcpy.SpatialJoin_analysis(target, join, output)
+arcpy.SpatialJoin_analysis(
+	target, join, output)
 </code>
 </pre>
 				</section>
@@ -1258,8 +1267,11 @@ intersectOutput = "streams_by_country.shp"
 dissolve_field = "county_id"
 outFeatures = "counties_number_of_streams.shp"
 
-arcpy.Intersect_analysis(inFeatures, intersectOutput)
-arcpy.Dissolve_management(intersectOutput, outFeatures, dissolve_field, <mark>"COUNT"</mark>)
+arcpy.Intersect_analysis(
+	inFeatures, intersectOutput)
+arcpy.Dissolve_management(
+	intersectOutput, outFeatures, 
+	dissolve_field, <mark>"COUNT"</mark>)
 </code>
 </pre>		
 				</section>
@@ -1359,7 +1371,7 @@ arcpy.Dissolve_management(intersectOutput, outFeatures, dissolve_field, <mark>"C
 							</li>
 						</ul>
 				</section>				
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						3.3 Zonal Statistics as Table (cont.)
 					</h4>
@@ -1374,6 +1386,33 @@ arcpy.Dissolve_management(intersectOutput, outFeatures, dissolve_field, <mark>"C
 							<strong>Buffer</strong> + Zonal Statistics as Table
 						</li>
 					</ul>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for zonal statistics
+					</h4>
+<!-- Command lines -->
+<pre style="font-size: 0.7em;">
+<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+arcpy.CheckOutExtension("spatial")
+
+# Inputs
+elevation = "srtm30.dem"
+districts = "district.shp"
+# Intermediate
+zonalstat = "zonalstat.dbf"
+# Outputs
+mean_elevation = "mean_elevation.xls"
+
+arcpy.gp.ZonalStatisticsAsTable_sa(
+	districts, "dist_id", elevation, 
+	zonalstat, "DATA", "MEAN")
+arcpy.TableToExcel_conversion(
+	zonalstat, mean_slope)
+</code>
+</pre>
 				</section>
 				
 <!-- Standard slide -->
@@ -1652,7 +1691,7 @@ arcpy.Dissolve_management(intersectOutput, outFeatures, dissolve_field, <mark>"C
 						Python code for average slope
 					</h4>
 <!-- Command lines -->
-<pre style="font-size: 0.5em;">
+<pre style="font-size: 0.7em;">
 <code data-trim data-noescape><!-- data-noescape allows for <mark> -->
 import arcpy
 arcpy.CheckOutExtension("spatial")
@@ -1660,23 +1699,18 @@ arcpy.CheckOutExtension("spatial")
 # Inputs
 elevation = "srtm30.dem"
 districts = "district.shp"
-
 # Intermediates
 slope = "slope.tif"
 zonalstat = "zonalstat.dbf"
 
-# Outputs
-mean_slope = "mean_slope.xls"
-
-# Obtain average slope by district
-<mark>arcpy.gp.Slope_sa(elevation, slope, "PERCENT_RISE", "0,000009")</mark>
-arcpy.gp.ZonalStatisticsAsTable_sa(districts, "dist_id", slope, zonalstat, "DATA", "MEAN")
-arcpy.TableToExcel_conversion(zonalstat, mean_slope)
+<mark>arcpy.gp.Slope_sa(
+	elevation, slope, "PERCENT_RISE", "0,000009")</mark>
+arcpy.gp.ZonalStatisticsAsTable_sa(
+	districts, "dist_id", slope, 
+	zonalstat, "DATA", "MEAN")
 </code>
 </pre>
 				</section>
-
-
 			</section>			
 
 			<section>
@@ -1693,6 +1727,35 @@ arcpy.TableToExcel_conversion(zonalstat, mean_slope)
 						<img src="gis_lecture6/reclassify2.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 					</p>
 				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for slope category
+					</h4>
+<!-- Command lines -->
+<pre style="font-size: 0.7em;">
+<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+arcpy.CheckOutExtension("spatial")
+
+# Inputs
+elevation = "srtm30.dem"
+# Outputs
+slope = "slope.tif"
+slope_3_6 = "slope3to6.tif"
+
+arcpy.gp.Slope_sa(
+	elevation, slope, "PERCENT_RISE", "0,000009")
+<mark>arcpy.gp.Reclassify_sa(
+	slope, "Value", 
+	"0 3 0;3 6 1;6 193,22999999999999 0", 
+	slope_3_6, "DATA")</mark>
+</code>
+</pre>
+				</section>
+				
+				
+				
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
