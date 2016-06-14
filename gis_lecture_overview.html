@@ -1,0 +1,3375 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- For Google search results -->
+		<title>ArcGIS for Economics</title>
+		<meta name="description" content="ArcGIS for economics researchers">
+		<meta name="author" content="Masayuki Kudamatsu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<!-- Activate Reveal.js -->
+		<link rel="stylesheet" href="css/reveal.css">
+		
+		<!-- Define the theme -->
+		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<!-- Disable >
+		<link rel="stylesheet" href="lib/css/tomorrow.css">
+		<!-->
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--Add support for earlier versions of Internet Explorer -->
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<!-- To activate the CSS framework of Reveal.js -->
+		<div class="reveal">
+
+			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
+			<div class="slides">
+				
+				<!-- Slide contents start here -->
+				
+				<!-- My own slide templates -->
+				<section id="title" data-transition="fade" data-background="gis_lecture1/lights2013.png">
+					<h2 style="color:white;">
+						GIS for Economics Research
+					</h2>
+					<p style="font-size: 0.7em; color:white;">Masayuki Kudamatsu</p>
+					<p style="font-size: 0.7em; color:white;">14-15 June, 2016</p>
+				</section>
+
+			<section>				
+				<!-- My own slide templates -->
+				<section id="" data-transition="slide-in fade-out">
+					<h3>
+						Why GIS for economics?
+					</h3>
+					<p class="fragment" data-fragment-index="1">
+						Reason 1: it makes more research feasible
+					</p>
+				</section>
+				<!-- My own slide templates -->
+				<section id="why_gis1" data-transition="fade-in fade-out">
+					<h4 style="text-align: left;">
+						GIS makes research feasible (1/3)
+					</h4>
+					<h3 style="text-align: left;">
+						by merging data by location
+					</h3>
+					<img src="gis_lecture_overview/dell2009f2-3.png" style="border:none; background:none; box-shadow:none; width: 350px;">
+					<p>
+						<small>(Figure 2.3 of <a href="http://scholar.harvard.edu/dell/classes/gis-applied-economists-lecture-notes-only" target="_blank">Dell 2009</a>)</small>
+					</p>
+				</section>
+				<!-- My own slide templates -->
+				<section id="why_gis2" style="text-align: left;"  data-transition="fade-in fade-out">
+					<h4>
+						GIS makes research feasible (2/3)
+					</h4>
+					<h3>
+						by scanned old maps
+					</h3>
+						<p>
+							e.g. Ethnic homelands in Africa by <a href="https://books.google.com/books?id=RdTGQic7KMUC" target="_blank">Murdock (1959)</a>
+						</p>
+					<img src="gis_lecture_overview/alsan2015f5a.png" style="border:none; background:none; box-shadow:none; width: 400px; float: left;">
+						<p>
+							Digitized by <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a>
+						</p>
+						<p>
+							Used by <a href="http://dx.doi.org/10.1257/aer.101.7.3221" target="_blank">Nunn & Wantchekon (2011)</a>, Michalopoulos & Papaioannou (<a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a>, <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>, <a href="http://www.nber.org/papers/w17620" target="_blank">2015</a>), <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>, <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. (2016)</a>, etc.
+							<p>
+						<small>(Figure 5A of <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>)
+						</small>
+					</p>
+				</section>
+				<section id="why_gis3" style="text-align: left;"  data-transition="fade-in slide-out">
+					<h4>
+						GIS makes research feasible (3/3)
+					</h4>
+					<h3>
+						by satellite images
+					</h3>
+					<p>
+						e.g. <a href="http://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html" target="_blank">DMSP-OLS Nighttime Lights</a>
+					<img src="gis_lecture1/lights1992.png" style="border: none; background: none; box-shadow:none; width:700px; float: center;">
+					</p>
+					<p>					
+						Used by <a href="http://dx.doi.org/10.1257/aer.102.2.994" target="_blank">Henderson et al (2012)</a>, <a href="http://dx.doi.org/10.1093/qje/qjw003" target="_blank">Pinkovskiy & Sala-i-Martin (2016)</a>, <a href="http://dx.doi.org/10.1093/qje/qju004" target="_blank">Hodler & Raschky (2014)</a>, Michalopoulos & Papaioannou (<a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a>, <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>), <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al (2016)</a>, etc.
+					</p> 
+				</section> 				
+				<!-- My own slide templates -->
+				<section id="" data-transition="slide-in fade-out">
+					<h3>
+						Why GIS for economics?
+					</h3>
+					<p>
+						Reason 2: it makes identification more credible
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left;">
+						GIS makes identification credible (1/4)
+					</h4>
+					<h3 style="text-align: left;">
+						by controlling for more covariates
+					</h3>
+					<p style="text-align: left;">
+						e.g., Peer effect estimation
+					</p>
+					<img src="gis_lecture_overview/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 450px;">
+					<p style="text-align: right;">
+						<small>(Figure 4 of <a href="http://dx.doi.org/10.1257/aer.100.1.35" target="_blank">Conley & Udry (2010)</a>)
+						</small>
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left;">
+						GIS makes identification credible (2/4)
+					</h4>
+					<h3 style="text-align: left;">
+						by constructing instruments
+					</h3>
+					<img src="gis_lecture_overview/Nunn2008F5.png" style="border: none; background: none; box-shadow:none; width: 700px; float: left;">
+					<p style="text-align: left;">
+						e.g. Distance
+					</p>
+					<p style="text-align: right;">
+						<small>(Figure 5 of <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn 2008</a>)
+						</small>
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left;">
+						GIS makes identification credible (3/4)
+					</h4>
+					<h3 style="text-align: left;">
+						by regression discontinuity
+					</h3>
+					<img src="gis_lecture7/figure2.png" style="border:none; background:none; box-shadow:none; width:800px;">	
+					<p style="text-align: right;">
+						<small>(Figure 2 of <a href="http://dx.doi.org/10.3982/ECTA8121" target="_blank">Dell (2010)</a>)
+						</small>
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left;">
+						GIS makes identification credible (4/4)
+					</h4>
+					<h3 style="text-align: left;">
+						by exogenous boundaries
+					</h3>
+						<img src="gis_lecture_overview/virtual_countries.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p style="text-align: right;">
+						<small>(<a href="https://drive.google.com/file/d/0B4s_WKe-US99YzA1OGY1ZWYtNGQwYS00YjdhLTg3YTYtMGQ1YjBhOTk3YWM0/view" target="_blank">image source</a>)
+						</small>
+					</p>
+				</section>	
+			</section>
+				<!-- ROAD MAP -->
+				<section id="road_map" style="text-align: left;">
+					<h3>
+						Road map
+					</h3>
+						<p>
+							1. GIS basics
+						</p>
+						<p>
+							2. Create spatial datasets on your own
+						</p>
+						<p>
+							3. Merge spatial datasets
+						</p>
+						<p>
+							4. Elevation 
+						</p>
+						<p>
+							5. Distance
+						</p>
+						<p>
+							6. Spatial regression discontinuity
+						</p>
+						<p>
+							7. Surface area
+						</p>						
+						<p>
+							8. Map Algebra
+						</p>
+				</section>			
+
+				<section id="section3">
+					<h1>
+						1. GIS Basics
+					</h1>
+						<p>
+							Data type
+						</p>
+						<p>
+							Coordinate systems
+						</p>
+						<p>
+							GIS software
+						</p>
+				</section>
+
+			<section>
+				<section id="datatype" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						1.1 Data type
+					</h3>
+					<p>Spatial data comes in two different formats: 						<strong>Vector</strong> & <strong>Raster</strong>
+					</p>
+					<img src="gis_lecture1/vector-raster.jpg" style="border: none; background: none; box-shadow:none; width: 300px;">
+					<p>How to edit data differs a lot between them</p>
+				</section>
+
+				<section id="datatype" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Vector data
+					</h3>
+					<p>
+						Comes in three formats: 					
+					</p>
+					<ul>
+						<li>
+							Polygons
+						</li>
+						<li>
+							Polylines
+						</li>
+						<li>
+							Points
+						</li>
+					</ul>
+					<p>
+						File format: <strong>Shapefile</strong> (.shp)
+					</p>
+				</section>
+
+
+				<section id="" data-transition="fade-in fade-out" data-background="gis_lecture_overview/countries.png">
+					<h4>
+					Polygon example #1	
+					</h4>
+					<h3>
+						Countries
+					</h3>
+					<p>
+						Source: <a href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" target="_blank">GAUL</a>
+					</p>					
+				</section>
+				<section id="" data-transition="fade-in fade-out" style="text-align: center;" data-background="gis_lecture_overview/districts.png">
+					<h4>
+					Polygon example #2	
+					</h4>
+					<h3>
+						Sub-national districts
+					</h3>
+					<p>
+					<p>
+						Source: <a href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" target="_blank">GAUL</a>
+					</p>					
+				</section>
+				<section id="" data-transition="fade-in fade-out" style="text-align: center;" data-background="gis_lecture_overview/greg.png">
+					<h4>
+					Polygon example #3
+				</h4>
+					<h3>
+						Language groups
+					</h3>
+					<p>
+						Source: <a href="http://www.icr.ethz.ch/data/other/greg" target="_blank">GREG</a>
+					</p>					
+				</section>
+				<section id="" data-transition="fade-in slide-out" data-background="gis_lecture_overview/lakes.png">
+					<h4>
+					Polygon example #4	
+					</h4>
+					<h3>
+						Lakes & Reservoirs
+					</h3>
+					<p>
+						Source: <a href="http://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-lakes/" target="_blank">Natural Earth</a>
+					</p>					
+				</section>
+
+				<section id="" data-transition="slide-in fade-out"  data-background="gis_lecture_overview/roads.png">
+					<h4>
+					Polyline example #1
+					</h4>
+					<h3>
+						Roads
+					</h3>
+					<p>
+						Source: <a href="http://sedac.ciesin.columbia.edu/data/set/groads-global-roads-open-access-v1" target="_blank">gROADS</a>
+					</p>					
+				</section>
+				<section id="" data-transition="fade-in fade-out"  data-background="gis_lecture_overview/rivers.png">
+					<h4>
+					Polyline example #2
+					</h4>
+					<h3>
+						Rivers
+					</h3>
+					<p>
+						Source: <a href="http://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-rivers-lake-centerlines/" target="_blank">Natural Earth</a>
+					</p>					
+				</section>
+				<section id="" data-transition="fade-in slide-out"  data-background="gis_lecture_overview/coastlines.png">
+					<h4>
+					Polyline example #3
+					</h4>
+					<h3>
+						Coastlines
+					</h3>
+					<p>
+						Source: <a href="http://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-coastline/" target="_blank">Natural Earth</a>
+					</p>					
+				</section>
+
+				<section id="" data-transition="slide-in fade-out"  data-background="gis_lecture_overview/acled.png">
+					<h4>
+					Point example
+					</h4>
+					<h3>
+						Conflict locations (1997-2015)
+					</h3>
+					<p>
+						Source: <a href="http://www.acleddata.com/data/version-6-data-1997-2015/" target="_blank">ACLED</a>
+					</p>					
+				</section>
+
+				<section id="vector" style="text-align: left;">
+					<h4>
+						Vector data (cont.)
+					</h4>
+					<p>
+						Each unit: called a <strong>feature</strong>
+					</p>
+					<img src="gis_lecture_overview/attribute_table.jpg" style="border:none; background:none; box-shadow:none; width: 700px; float: right;">
+					<p>
+						Comes w/ <strong>attribute table</strong>
+					</p>
+					<p style="text-align: right;">
+					<small>(<a href="http://www.geog.ucsb.edu/~jeff/gis/choropleth_maps.html" target="_blank">image source</a>)</small>
+					</p>
+				</section>
+
+				<section id="raster1" data-transition="slide-in fade-out" >
+					<h3 style="text-align: left;">
+						Raster data
+					</h3>
+					<p style="text-align: left;">
+						Divides the earth surface into many "square" cells (or pixels)
+					</p>					
+					<p style="text-align: left;">
+						Each cell contains one value
+					</p>					
+					<img src="gis_lecture_overview/raster.png" style="border:none; background:none; box-shadow:none; width: 600px;">
+				</section>
+
+				<section id="" data-transition="fade-in fade-out"  data-background="gis_lecture_overview/popden.png"  style="text-align: left;">
+					<h4>
+					Raster example #1
+					</h4>
+					<h3>
+						Population density
+					</h3>
+					<p>
+						Resolution: 2.5 arc-minutes
+					</p>
+					<p>
+						Source: <a href="" target="_blank">Gridded Population of the World</a>
+					</p>					
+				</section>					
+				<section id="" data-transition="fade-in fade-out"  data-background="gis_lecture_overview/elev.png" style="text-align: left;">
+					<h4>
+					Raster example #2
+					</h4>
+					<h3>
+						Elevation
+					</h3>
+					<p>
+						Resolution: 30 arc-seconds
+					</p>
+					<p>
+						Source: <a href="" target="_blank">STRM30</a>
+					</p>					
+				</section>					
+				<section id="" data-transition="fade-in fade-out" data-background="gis_lecture_overview/light.png" style="text-align: left;">
+					<h4 style="color:white">
+					Raster example #3
+					</h4>
+					<h3 style="color:white">
+						Nighttime light
+					</h3>
+					<p style="color:white">
+						Resolution: 30 arc-seconds
+					</p>
+					<p style="color:white">
+						Source: <a href="http://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html" target="_blank">DMSP-OLS</a>
+					</p>					
+				</section>					
+			</section>
+			
+			<section>
+				<section id="" data-transition="slide-in slide-out"  style="text-align: left;">
+					<h3>
+						1.2 Coordinate Systems
+					</h3>
+					<p>Earth is a sphere (approximately)</p>					
+					<p>Various ways to <em>two-dimensionally</em> represent Earth</p>
+					<p>Each way corresponds to a <strong>coordinate system</strong>
+						<ul>
+							<li>
+								Also called "spatial reference" or "map projection"
+							</li>
+						</ul>
+					</p>										
+				</section>
+				
+				<section id="cs2" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Why important?
+					</h3>
+					<p>To merge different spatial datasets accurately</p>
+					<p style="margin-left: 30px;">
+							cf. Apple Map did this wrong when it was launched in 2012
+					</p>										
+					<img src="gis_lecture_overview/apple_map.jpg" style="border:none; background:none; box-shadow:none; width: 800px;">
+				</section>
+
+				<section id="cs2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						Why important? (cont.)
+					</h3>
+					<p>
+						To calculate distance and surface area properly
+					</p>
+				</section>
+				
+				<section id="geographc_cs1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Geographic Coordinate Systems
+					</h3>
+					<p>
+						Each location is coded by angle from earth center
+					</p>
+					<p style="margin-left: 30px;">
+							e.g., Stockholm: 59.3293&deg N / 18.0686&deg E
+					</p>										
+					<p>
+						Most popular: <strong>WGS 1984</strong> 
+					</p>										
+				</section>
+				
+				<section id="projected_cs1" data-transition="slide-in fade-out">
+					<h3 style="text-align: left;">
+						Projected Coordinate Systems
+					</h3>
+					<p style="text-align: left;">
+						Earth surface is projected by "light" from earth center on: 					</p>
+					<p style="text-align: center;">	
+						<em>Cylinder</em>
+					</p>
+					<img src="gis_lecture1/cylindrical.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+				
+				<section id="projected_cs2" data-transition="fade">
+					<h3 style="text-align: left;">
+						Projected Coordinate Systems
+					</h3>
+					<p style="text-align: left;">
+						Earth surface is projected by "light" from earth center on: 					</p>
+					<p style="text-align: center;">	
+						<em>Cone</em>
+					</p>
+					<img src="gis_lecture1/conic.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+				
+				<section id="projected_cs3" data-transition="fade">
+					<h3 style="text-align: left;">
+						Projected Coordinate Systems
+					</h3>
+					<p style="text-align: left;">
+						Earth surface is projected by "light" from earth center on: 					</p>
+					<p style="text-align: center;">	
+						<em>Plane</em>
+					</p>
+					<img src="gis_lecture1/planar.png" style="border: none; background: none; box-shadow:none;">					
+				</section>
+
+				<section id="projected_cs4" data-transition="fade-out fade-in">
+					<h3 style="text-align: left;">
+						Projected Coordinate Systems (cont.)
+					</h3>
+					<p style="text-align: left;">
+						Each location: coded in <em>meters</em> from a certain origin
+					</p>
+					<img src="gis_lecture_overview/projected_cs.png" style="border:none; background:none; box-shadow:none; width: 600px;">
+				</section>
+
+				<section id="projected_cs5" data-transition="slide-out fade-in" style="text-align: left;">
+					<h3 style="text-align: left;">
+						Projected Coordinate Systems (cont.)
+					</h3>
+					<p >
+						Examples (relevant for social scientists):
+					</p>
+					<ul style="text-align: left;">
+						<li>
+							UTM projections
+						</li>
+						<li>
+							Equal Area projections
+						</li>
+					</ul>
+					<p>
+						We will learn these projections later.
+					</p>
+				</section>
+
+				<section id="cs_reference" style="text-align: left;">
+					<h3>
+						If you want to know more:
+					</h3>
+					<p>
+						<em>Map Projections: A Working Manual</em>, by John P. Snyder (U.S. Geological Survey, 1987) <a href="http://pubs.er.usgs.gov/publication/pp1395" target="_blank">(Downloadable for free)</a> 
+					</p>
+				</section>
+			</section>
+			<section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						1.3 GIS Software
+					</h3>
+					<p>
+						<strong>ArcGIS</strong>
+					</p>					
+					<ul>
+						<li>
+							Python-friendly
+						</li>
+						<li>
+							Buggy; tricky to create map images; Windows only
+						</li>						
+					</ul>
+					<p>
+						<strong>QGIS</strong>
+					</p>					
+					<ul>
+						<li>
+							Free; easy to create map images; compatible with any OS
+						</li>
+						<li>
+							Python-unfriendly
+						</li>
+						<li>
+							Tutorial: <a href="http://www.qgistutorials.com" target="_blank">www.qgistutorials.com</a>
+						</li>						
+					</ul>
+					<p class="fragment" data-fragment-index="1">
+						$\Rightarrow$ ArcGIS recommended for the ease of use of Python (for replication), at least for now
+					</p>
+				</section>				
+				<section id="gis_software2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						1.3 GIS Software (cont.)
+					</h4>
+					<p>
+						<strong>R</strong>
+					</p>					
+					<ul>
+						<li>
+							Textbook: <a href="https://books.google.se/books?id=kje2ngEACAAJ" target="_blank">Brunsdon & Comber (2015)</a>
+						</li>
+						<li><a href="http://www.nickeubank.com/gis-in-r/" target="_blank">Tutorial by Nick Eubank</a></li> 						
+					</ul>
+					<p>
+						<strong><a href="http://geopandas.org/" target="_blank">Geopandas</a></strong>
+					</p>
+					<ul>
+						<li>
+							A Python extension to work on spatial data
+						</li>
+						<li>
+							Still under development (as of May 2016)
+						</li>
+					</ul>
+				</section>					
+			</section>
+						
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h2>
+						2. Create spatial data
+					</h2>
+					<h2>
+						on your own
+					</h2>
+					<br>
+						<p>
+							Satellite images
+						</p>
+						<p>
+							Scanned old maps
+						</p>
+						<p>
+							Point locations
+						</p>
+						<p>
+							Grid cells
+						</p>
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						2.1 Satellite image data
+					</h3>
+					<p>
+						Images consist of pixels
+					</p>
+					<p>
+						Map each pixel's "color" into raster value
+					</p>
+					<ul>
+						<li>
+							Use statistical learning methods
+						</li>
+					</ul>
+					<p>
+						A lot of time (and money to hire experts) needed, though.
+					</p>
+				</section>
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						2.1 Satellite image data (cont.)
+					</h4>
+					<p>
+						Some satellite images: freely available
+					</p>					
+					<ul>
+						<li>
+							See <a href="http://gisgeography.com/free-satellite-imagery-data-list/" target="_blank">"15 Free Satellite Imagery Data Sources"</a> by GIS Geography
+						</li>
+					</ul>
+					<p>
+						Examples of constructing data from satellite images
+					</p>
+					<ul>
+						<li>
+							<a href="http://blogs.worldbank.org/impactevaluations/measuring-yields-space" target="_blank">Measuering Yields from Space</a>
+						</li>
+						<li>
+							Deforestation
+						</li>
+					</ul>						
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Application: <a href="http://dx.doi.org/10.1093/qje/qjs034" target="_blank">Burgess et al. 2012</a>
+					</h3>
+					<p>
+						# of districts w/i province $\uparrow$ $\Rightarrow$ Deforestation $\uparrow$
+					</p>
+					<p>
+						Theory:
+					</p>
+					<ul>
+						<li>
+							Each district govt official engages in Cournot competition in selling (illegal) logging permits
+						</li>
+						<li>
+							More districts $\Rightarrow$ More supply of illegal permits
+						</li>
+					</ul>
+				</section>
+				<section id="satellite1b" data-transition="fade" style="text-align: left">
+					<p>
+						Cannot rely on official stats of logging
+					</p>
+					<p>
+					$\Rightarrow$ Use satellite images
+					</p>
+					<ul style="margin-left: 85px;">
+						<li>
+							Spatial resolution: 250m x 250m pixel
+						</li>
+						<li>
+							Data: electromagnetic radiation strength in 36 bands of spectrum
+						</li>
+						<li>
+							Develop algorithm to convert radiation patterns to forest coverage
+						</li>
+					</ul>
+				</section>
+				<section id="satellite1c" data-transition="fade" >
+					<h4>
+						Pixel-level data on deforestation
+					</h4>
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2001a.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+							<td>
+								<img src="gis_lecture1/forest2008a.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+					</table>
+					<p>
+						<small>(Figure I of Burgess et al. 2012) </small>
+					</p>
+				</section>					
+				<section id="satellite1d" data-transition="slide-out fade-in" >
+					<h4>
+						District-level data on deforestation
+					</h4>
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2001b.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2008b.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+							</td>
+						</tr>
+					</table>
+					<p>
+						<small>(Figure II of Burgess et al. 2012) </small>
+					</p>
+				</section>					
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						2.2 Scanned Old Maps
+					</h3>
+						<p>
+							First, geo-reference the map
+						</p>
+							<ul>
+								<li>
+								See <a href="http://www.library.yale.edu/MapColl/files/docs/03-Geocoding%20&%20Georeferencing%20in%20ArcGIS.pdf" target="_blank">Yale Map Collection (2009)</a> (pp. 8-10)									
+								</li>
+							</ul>
+						<p class="fragment" data-fragment-index="1">
+							Then, create vector data by tracing lines w/ mouse
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>
+								See <a href="http://wikis.evergreen.edu/computing/index.php/ArcGIS_10:_Editing_%26_Creating_Your_Own_Shapefiles" target="_blank">ArcGIS 10: Editing & Creating Your Own Shapefiles</a> (Parts 3-6)
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="2">
+						Also time-consuming but feasible with patience
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Application: <a href="http://dx.doi.org/10.1257/aer.20131031" target="_blank">Burgess et al. 2015</a>
+					</h3>
+					<p>
+						Did Kenyan presidents build more roads for their co-ethnics?
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Digitize Michelin maps for Kenya since 1961
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						Track road network expansion over time
+					</p>
+				</section>				
+				<section id="oldmap1b" data-transition="fade-in slide-out" >
+					<h4>
+						Digitizing old maps
+					</h4>
+					<img src="gis_lecture1/BurgessRoads1.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<p>
+						<small>(source: <a href="http://siteresources.worldbank.org/DEC/Resources/84797-1257266550602/JedwabR.pdf" target="_blank">Remi Jedwab's presentation slide</a>)</small>
+					</p>
+				</section>
+			
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						2.3 Points
+					</h3>
+					<p>
+						First, create a table in text format, where:
+					</p>
+					<ul>						
+					<li>
+						Each row: location
+					</li>					
+					<li>
+						Column 1: longitude (x value)
+					</li>					
+					<li>
+						Column 2: latitude (y value)
+					</li>					
+					<li class="fragment" data-fragment-index="1">
+						Other columns: attributes of each location
+					</li>					
+						<ul class="fragment" data-fragment-index="1">
+							<li>Name</li>
+							<li>Statistics</li>
+							<li>Key (unique ID)</li>
+							<li>Foreign keys (for merging with other data)</li>
+						</ul>					
+					</ul>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						How to obtain longitude & latitude?
+					</h3>					
+					<p>
+						<strong>GPS receiver</strong>
+					</p>
+						<ul>
+							<li>
+								If you conduct your own survey
+							</li>
+						</ul>
+					<p>
+						<strong>Online gazetteer</strong>
+					</p>
+						<ul>
+							<li>
+								If location names are available, search at:
+							</li>
+							<ul>	
+							<li>
+								<a href="http://www.geonames.org" target="_blank">Geonames</a>
+							</li>
+							<ul>
+								<li>
+									<a href="https://blogs.esri.com/esri/arcgis/2012/01/06/geonames-tools-toolbox-is-available-for-download/" target="_blank">Geonames Tools toolbox</a> automates search
+								</li>
+							</ul>
+							<li>
+								<a href="http://www.fallingrain.com/world" target="_blank">Global Gazetteer Version 2.3</a>
+							</li>
+							<li>
+								<a href="http://dma.jrc.it/services/fuzzyg/" target="_blank">JRC Fuzzy Gazetteer</a>
+							</li>
+							</ul>
+							<li>
+								If address is available, use Google Geocoder
+							</li>
+							<ul>
+								<li>
+									Stata ado <code><a href="http://jearl.faculty.arizona.edu/sites/jearl.faculty.arizona.edu/files/traveltime3%20geocode3_b.pdf" target="_blank">geocode3</a></code> automates search
+								</li>
+							</ul>
+						</ul>					
+				</section>
+				<section id="xydata4" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					2.3 Points (cont.)
+					</h4>
+					<p>
+					To convert the text file table into point vector data in ArcGIS, use:
+					</p>					
+						<ul>
+						<li>
+							Make XY Event Layer
+						</li>
+						<li>
+							Copy Features
+						</li>
+						</ul>
+						<p>
+					These are the examples of <strong>geo-processing tools</strong>
+					</p>
+				</section>				
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for creating point features
+					</h4>
+					<!-- Command lines -->
+					<pre style="font-size: 0.8em;">
+					<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+
+input_table = "coordiates.txt"
+output_shp = "points.shp"
+
+varname_x = "longitude"
+varname_y = "latitude"
+
+coordinate_system = arcpy.SpatialReference(4326)
+
+arcpy.MakeXYEventLayer_management(
+	input_table, varname_x, varname_y, 
+	"Layer", coordinate_system)
+arcpy.CopyFeatures_management("Layer", output_shp)    
+
+					</code>
+					</pre>					
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						2.4 Grid cells
+					</h3>
+					<img src="gis_lecture_overview/gridcells.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<p>
+						Any size of grid cell polygons can be created in ArcGIS
+					</p>
+				</section>	
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						2.4 Grid cells (cont.)
+					</h4>
+					<p>
+						Useful for:
+					</p>					
+					<ul>
+						<li>
+							Merging weather data
+						</li>
+						<ul style="margin-left: 60px;">
+							<li>WorldClim (<a href="http://dx.doi.org/10.1257/aer.99.2.198" target="_blank">Dell, Jones, & Olken 2009</a>)</li>
+							<li>GCPC (<a href="http://www.jstor.org/stable/10.1086/421174" target="_blank">Miguel et al. 2004</a>)</li>
+							<li>TOMS air pollution index (<a href="http://dx.doi.org/10.3368/jhr.44.4.916" target="_blank">Jayachandran 2009</a>)</li>
+						</ul>
+						<li>
+							Exogenous boundaries
+						</li>
+					</ul>
+				</section>	
+
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						2.4 Grid cells (cont.)
+					</h4>
+					<p>
+					To create grid cell polygons in ArcGIS, use:
+					</p>					
+						<ul>
+						<li>
+							Create Fishnet
+						</li>
+						<li>
+							Define Projection
+						</li>
+						</ul>
+						<p>
+					These are also the examples of <strong>geo-processing tools</strong>
+					</p>
+				</section>	
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for creating point features
+					</h4>
+					<!-- Command lines -->
+					<pre style="font-size: 0.7em;">
+					<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+
+output_shp = "gridcells25.shp"
+cellsize = "2.5"
+bottom_left = "-180 -65"
+top_right = "180 85"
+y_axis = "-180 -55"
+# WGS 1984
+coordinate_system = arcpy.SpatialReference(4326)
+
+arcpy.CreateFishnet_management(
+	output_shp, bottom_left, y_axis, 
+	cellsize, cellsize, "0", "0", top_right, 
+	"NO_LABELS", "", "POLYGON")
+arcpy.DefineProjection_management(
+	output_shp, coordinate_system)
+					</code>
+					</pre>					
+				</section>
+			</section>
+<!-- New Section -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Geo-processing tools
+					</h3>
+					<p>
+						Master ArcGIS = Know which geo-processing tools to use
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Takes vector/raster data as inputs
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Most will create new vector/raster data
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Some tools just overwrite the input data
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">
+						Can be executed in Python
+					</p>
+					<ul class="fragment" data-fragment-index="3">
+						<li>
+							Should be, for replication
+						</li>
+					</ul>
+				</section>
+				
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Plan for rest of this lecture
+					</h3>
+					<p>
+						Introduce each geo-processing tool
+					</p>
+					<p>
+						Demonstrate how it's used by economists
+					</p>
+				</section>			
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h1>
+						3. Merge spatial datasets
+					</h1>
+					<ol>
+						<li>
+							Spatial Join
+						</li>
+						<li>
+							Intersect + Dissolve
+						</li>
+						<li>
+							Zonal Statistics as Table
+						</li>
+					</ol>
+				</section>
+			</section>
+				
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						3.1 Spatial Join
+					</h3>
+					<p>
+						Add new variables from a second vector data
+					</p>
+					<p>
+						Based on <strong>location</strong>
+					</p>
+					<ul>
+						<li>
+							Not on key variables as in Stata's <code>merge</code>
+						</li>
+					</ul>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						3.1 Spatial Join (cont.)
+					</h4>
+					<p>
+						One useful application: merge with weather data
+					</p>
+					<p>
+						Weather data: available at grid cell level
+					</p>
+					<ul>
+						<li>
+							No information on country, province, district etc.
+						</li>
+					</ul>					
+				</section>
+<!-- Image slide -->
+				<section id="" data-transition="fade-in fade-out" >
+					<h4 style="text-align: left;">
+						3.1 Spatial Join (cont.)
+					</h4>
+					<p  style="text-align: left;">
+						$\Rightarrow$ Spatial Join specifies which grid cells are relevant for each observation
+					</p>
+					<img src="gis_lecture_overview/spatial_join_with_cells.png" style="border:none; background:none; box-shadow:none; width: 200px;">					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+<!-- Command lines -->
+<pre style="font-size: 1em;">
+<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+arcpy.env.workspace = "C:/data"
+
+target = "cities.shp"
+join = "weather_data_cells.shp"
+output = "cities_with_weather_data.shp"
+
+arcpy.SpatialJoin_analysis(target, join, output)
+</code>
+</pre>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>Application 1: <a href="http://dx.doi.org/10.1162/rest.91.2.245" target="_blank">Feyrer & Sacerdote (2009)</a></h3>
+					<p>
+						European colonization $\Rightarrow$ Economic development?
+					</p>					
+					<p class="fragment" data-fragment-index="1">
+						Sample: islands (geo-referenced)
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						IVs for duration of colonization:
+					</p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>
+							Mean east-west wind speed
+						</li>
+						<li>
+							SD of east-west wind speed
+						</li>
+					</ul>
+				</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left;">
+						Application 1: Feyer & Sacerdote (2009) (cont.)
+					</h4>
+					<p style="text-align: left;">
+						Wind data: <a href="http://cersat.ifremer.fr/" target="_blank">CERSAT</a> (1&deg x 1&deg)
+					</p>
+					<img src="gis_lecture_overview/cersat2001aug.png" style="border:none; background:none; box-shadow:none; width: 800px;">
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>Application 2: <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a></h3>
+					<img src="gis_lecture_overview/Tsetsefly.jpg" style="border: none; background: none; box-shadow:none; width: 200px; float: right;">					
+					<p>
+						Tsetse flies $\Rightarrow$ Africa's underdevelopment?
+					</p>
+					<p  class="fragment" data-fragment-index="1">
+						Weather in 1871 at 2&deg x 2&deg resolution
+					</p>
+					<p  class="fragment" data-fragment-index="1">
+						Temperature & humidity fed into a model to predict Tsetse fly survival
+					</p>
+				</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left;">
+						Application 2: Alsan (2015) (cont.)
+					</h4>
+					<p style="text-align: left;">
+						Matched with Ethnographic Atlas
+					</p>
+<!-- Two images side by side -->
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture_overview/alsan2015f5a.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+							<td>
+								<img src="gis_lecture_overview/alsan2015f3a.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+					</table>
+						<small>(Figures 5A and 3A of Alsan 2015)</small>
+				</section>
+			</section>
+
+<!-- New Section -->
+
+<!-- New Section -->
+			<section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="slide-in fade-out">
+					<h3 style="text-align: left;">
+						3.2 Intersect + Dissolve
+					</h3>
+					<p style="text-align: left;">
+						<strong>Intersect</strong>: Creates intersection features
+					</p>
+					<img src="gis_lecture_overview/intersect.gif" style="border:none; background:none; box-shadow:none; width: 600px;">
+				</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in fade-out"  style="text-align: left;">
+					<h4 style="text-align: left;">
+						3.2 Intersect + Dissolve (cont.)
+					</h4>
+					<p style="text-align: left;">
+						<strong>Dissolve</strong>: Combines features by key variables
+					</p>
+					<img src="gis_lecture_overview/dissolve.gif" style="border:none; background:none; box-shadow:none; width: 600px;">
+					<p style="text-align: left;">
+						Can also create summary statistics
+					</p>
+					<ul style="text-align: left;">
+						<li>
+							Stata's <code>collapse</code>
+						</li>
+					</ul>
+				</section>
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						3.2 Intersect + Dissolve (cont.)
+					</h4>
+					<p>
+						Can calculate # of polygons/polylines w/i zone polygon
+					</p>
+<!-- Command lines -->
+<pre style="font-size: 0.9em;">
+<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+
+inFeatures = ["counties.shp", "streams.shp"]
+intersectOutput = "streams_by_country.shp"
+dissolve_field = "county_id"
+outFeatures = "counties_number_of_streams.shp"
+
+arcpy.Intersect_analysis(inFeatures, intersectOutput)
+arcpy.Dissolve_management(intersectOutput, outFeatures, dissolve_field, <mark>"COUNT"</mark>)
+</code>
+</pre>		
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.1257/aer.90.5.1209" target="_blank">Hoxby (2000)</a>
+					</h3>
+					<p>
+						Competition $\Rightarrow$ School quality $\uparrow$?
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						IV: <strong># of streams</strong> w/i city
+					</p>
+					<ul class="fragment" data-fragment-index="1">						
+					<li>
+						More streams $\Rightarrow$ More school districts
+					</li>
+					</ul>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 2: <a href="http://dx.doi.org/10.3982/ECTA13448" target="_blank">Bai and Jia (2016)</a>
+					</h3>
+					<p>
+						In early 20c, Imperial China abolished 1300-year-old civil service exams
+					</p>
+					<p>
+						Prefectures w/ higher quota $\Rightarrow$ more uprisings during the 1911 Revolution
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						IV: <strong># of streams</strong> w/i prefecture
+					</p>
+					<ul class="fragment" data-fragment-index="1">						
+					<li>
+						Quota depends on # of counties w/i prefecture
+					</li>
+				</ul>
+				</section>
+			</section>
+
+<!-- New Section -->
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						3.3 Zonal Statistics as Table
+					</h3>
+					<p>
+						Calculates sum stat of raster values w/i zone
+					</p>
+					<p>
+						Zone: defined by polygon or polyline
+					</p>
+					<ul>
+						<li>
+							Stata's <code>collapse</code> by zone, executed on raster data
+						</li>
+					</ul>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						3.3 Zonal Statistics as Table (cont.)
+					</h4>
+						<ul>
+							<li>
+								Mean / Standard deviation
+							</li>
+							<li>
+								Min / Max / Range
+							</li>
+							<li>
+								Sum
+							</li>
+							<li>
+								Count
+							</li>
+						</ul>
+						<p>
+							For integer raster:
+						</p>
+						<ul>
+							<li>
+								Median
+							</li>
+							<li>
+								Variety (# of unique values)
+							</li>
+							<li>
+								Majority (most frequent value)
+							</li>
+							<li>
+								Minority (least frequent value)
+							</li>
+						</ul>
+				</section>				
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						3.3 Zonal Statistics as Table (cont.)
+					</h4>
+					<p>
+						If unit of analysis is point, use either:
+					</p>
+					<ul>
+						<li>
+							<strong>Extract Multi Values To Points</strong>
+						</li>
+						<li>
+							<strong>Buffer</strong> + Zonal Statistics as Table
+						</li>
+					</ul>
+				</section>
+				
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.1093/qje/qjs034" target="_blank">Burgess et al. 2012</a>
+					</h3>
+					<table>
+						<tr>
+							<td>
+								Pixel-level
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								District-level
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="gis_lecture1/forest2001a.png" style="border: none; background: none; box-shadow:none; width: 300px;">					
+							</td>
+							<td style="vertical-align:middle;">
+								$\Rightarrow$
+							</td>
+							<td>
+								<img src="gis_lecture1/forest2001b.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+							</td>
+						</tr>
+					</table>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 2: Nighttime light studies
+					</h3>
+					<p>
+						Obtain the mean cell value by:
+					</p>
+						<ul>
+							<li>
+								Country (<a href="http://dx.doi.org/10.1016/j.jpubeco.2015.03.011" target="_blank">Henderson et al. 2012</a>)
+							</li>
+							<li>
+								Provinces (<a href="http://dx.doi.org/10.1093/qje/qju004" target="_blank">Hodler & Raschky 2014</a>)
+							</li>
+							<li>
+								Electoral districts (<a href="http://dx.doi.org/10.1016/j.jpubeco.2015.03.011" target="_blank">Baskaran et al. 2015</a>)
+							</li>
+							<li>
+								Ethnic homelands (Michalopoulos & Papaioannou <a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a> / <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>, <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. 2016</a>)
+							</li>
+						</ul>					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out">
+					<h3 style="text-align: left;">
+						Application 3: <a href="http://dx.doi.org/10.1257/mac.4.3.66" target="_blank">Dell et al. 2012</a>
+					</h3>
+					<p style="text-align: left;">
+						Temperature $\uparrow$ $\Rightarrow$ Economic growth $\downarrow$?
+					</p>
+					<p style="text-align: left;">
+						Use population-weighted average temperature
+					</p>
+					<img src="gis_lecture_overview/dell2009f2-3.png" style="border:none; background:none; box-shadow:none; width: 350px;">
+					<p>
+						<small>(Figure 2.3 of <a href="http://scholar.harvard.edu/dell/classes/gis-applied-economists-lecture-notes-only" target="_blank">Dell 2009</a>)</small>
+					</p>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Application 4: <a href="http://dx.doi.org/10.1257/aer.102.4.1508" target="_blank">Michalopoulos (2012)</a>
+					</h3>
+					<p>
+						Geographic diversity $\Rightarrow$ Ethnic diversity?
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Empirical challenge:
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Endogeneity of geographic diversity by country formation
+						</li>
+					</ul>
+					<img src="gis_lecture_overview/virtual_countries.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;"  class="fragment" data-fragment-index="2">					
+					<p class="fragment" data-fragment-index="2">
+						$\Rightarrow$ 2.5&degx2.5&deg grid cells as units of analysis
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Application 4: Michalopoulos (2012) (cont.)
+					</h4>
+					<p>
+					How to measure ethnic & geographic diversity, then?
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						ArcGIS helps:
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Intersect + Dissolve $\Rightarrow$ # of languages spoken
+						</li>
+						<li>
+							Zonal Statistics $\Rightarrow$ S.D. of elevation / land quality
+						</li>
+					</ul>
+				</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left;">
+						Application 4: Michalopoulos (2012) (cont.)
+					</h4>
+						<img src="gis_lecture5/michalopoulos2012f7.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+				</section>
+			</section>
+
+<!-- New Section -->
+			<section>
+				<section id="" data-background="gis_lecture_overview/elev.png">
+					<h1>
+						4. Elevation
+					</h1>
+					<ol>
+						<li>
+							Slope
+						</li>
+						<li>
+							Slope + Reclassify
+						</li>
+						<li>
+							Irregular Terrain Model
+						</li>
+					</ol>
+				</section>
+			</section>
+
+<!-- New Section -->
+			<section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3 style="text-align: left;">
+						4.1 Slope
+					</h3>
+				<p>
+					Returns either $\theta$ or $\tan\theta$ in diagram below
+				</p>
+				<p>
+				<img src="gis_lecture6/slope.gif" style="border: none; background: none; box-shadow:none; width: 800px;">
+				</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						4.1 Slope (cont.)
+					</h4>
+					<p>
+						<img src="gis_lecture6/cells.gif" style="border: none; background: none; box-shadow:none; width: 200px; float: right;">
+
+					</p>
+					<p>
+						$\tan\theta$ for cell $e$ is obtained by
+					</p>
+					<p>
+						\begin{align*}
+							\Rightarrow \ \tan \theta = \sqrt{(dz/dx)^2+(dz/dy)^2}
+						\end{align*}
+					</p>
+					<p>
+						where
+					</p>
+					<p>
+						\begin{align*}
+						\frac{dz}{dx} = & \ \Big[\frac{c + 2f + i}{4} - \frac{a+2d+g}{4}\Big] / 2 \\
+						\frac{dz}{dy} = & \ \Big[\frac{a+2b+c}{4} - \frac{g + 2h + i}{4}\Big] / 2
+						\end{align*}						
+					</p>				
+				</section>
+			<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<h3>
+					Application 1: <a href="http://dx.doi.org/10.1257/aer.101.7.3078" target="_blank">Dinkelman (2011)</a>
+				</h3>
+					<p>
+						Electrification in South Africa (1996-2001) 
+					</p>
+					<p>
+						$\Rightarrow$ Female labor supply $\uparrow$
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						IV: <strong>mean land slope</strong>
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Flat terrain: cheap to lay power lines
+						</li>
+					</ul>
+			</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left;">
+						Application 1: Dinkelman (2011) (cont.)
+					</h4>
+<!-- Two images side by side -->
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture_overview/dinkelman2011f2slope.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+							<td>
+								<img src="gis_lecture_overview/dinkelman2011f2electricity.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Slope (lighter = flatter)								
+							</td>
+							<td>
+								Electrification (red)
+							</td>
+						</tr>
+					</table>
+				</section>
+
+			<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<h3>
+					Application 2: <a href="http://dx.doi.org/10.1162/qjec.2008.123.3.1251" target="_blank">Qian (2008)</a>
+				</h3>
+					<p>
+						Tea production $\uparrow$ in China due to liberalization in 1979
+					</p>
+					<p>
+						$\Rightarrow$ Male-to-female ratio $\downarrow$
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						IV: <strong>mean land slope</strong>
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Tea grows in hilly terrain
+						</li>
+					</ul>
+				</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left;">
+						Application 2: Qian (2008) (cont.)
+					</h4>
+<!-- Two images side by side -->
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture_overview/qian2008f4slope.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+							<td>
+								<img src="gis_lecture_overview/qian2008f4tea.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Slope (darker = steeper)								
+							</td>
+							<td>
+								Tea (darker = more)
+							</td>
+						</tr>
+					</table>
+				</section>				
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for average slope
+					</h4>
+<!-- Command lines -->
+<pre style="font-size: 0.5em;">
+<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+arcpy.CheckOutExtension("spatial")
+
+# Inputs
+elevation = "srtm30.dem"
+districts = "district.shp"
+
+# Intermediates
+slope = "slope.tif"
+zonalstat = "zonalstat.dbf"
+
+# Outputs
+mean_slope = "mean_slope.xls"
+
+# Obtain average slope by district
+<mark>arcpy.gp.Slope_sa(elevation, slope, "PERCENT_RISE", "0,000009")</mark>
+arcpy.gp.ZonalStatisticsAsTable_sa(districts, "dist_id", slope, zonalstat, "DATA", "MEAN")
+arcpy.TableToExcel_conversion(zonalstat, mean_slope)
+</code>
+</pre>
+				</section>
+
+
+			</section>			
+
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						4.2 Slope + Reclassify
+					</h3>
+					<p>
+						<strong>Reclassify</strong>: Creates categorical raster data
+					</p>
+					<p>
+						Example: a dummy variable for slope 3-6%
+						<img src="gis_lecture6/reclassify2.png" style="border: none; background: none; box-shadow:none; width: 600px;">
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.1162/qjec.122.2.601" target="_blank">Duflo & Pande (2007)</a>
+					</h3>
+					<p>
+						Irrigation dams $\Rightarrow$ Poverty $\downarrow$?
+					</p>					
+					<p class="fragment" data-fragment-index="1">
+						IV: Fraction of river areas in three slope ranges
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						$\Leftarrow$ Easy to build if river slope is:
+					</p>
+						<ul style="margin-left: 85px;" class="fragment" data-fragment-index="1">
+							<li>
+								Moderate (1.5-3%) for irrigation dams
+							</li>
+							<li>
+								Very steep (6%+) for hydroelectricity dams
+							</li>
+						</ul>
+				</section>
+<!-- Image slide (center the image while left-align the title)-->
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left;">
+						Application 1: Duflo & Pande (2007) (cont.)
+					</h4>
+<!-- Two images side by side -->
+					<table>
+						<tr>
+							<td>
+								<img src="gis_lecture_overview/DP2007f4slope.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+							<td>
+								<img src="gis_lecture_overview/DP2007f2dam.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+						<tr>
+							<td>
+								River slope (darker = steeper)								
+							</td>
+							<td>
+								Dams (darker = more)
+							</td>
+						</tr>
+					</table>
+				</section>				
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Application 1: Duflo & Pande (2007) (cont.)
+					</h4>
+					<p>
+						Intersect + Dissolve $\Rightarrow$ River by districts
+					</p>
+					<p>
+						Slope + Reclassify $\Rightarrow$ Indicator for each slope range
+					</p>
+					<p>
+						Zonal Statistics as Table $\Rightarrow$ Fraction of river areas in each slope range by district
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 2: <a href="http://dx.doi.org/10.1162/qjec.2010.125.3.1253" target="_blank">Saiz (2010)</a>
+					</h3>
+						<p>
+							Measures % of areas with slope > 15% as unsuitability for urban development
+						</p>
+						<p>
+							Finds housing supply inelastic in such areas
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Slope of over 15%: now often used as geographic constraints to housing supply / urban development
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>
+								<a href="http://dx.doi.org/10.1257/aer.20131706" target="_blank">Diamond (2016)</a>, <a href="http://economics.mit.edu/files/10362" target="_blank">Hariri (2015)</a>, <a href="http://dx.doi.org/10.2139/ssrn.2291081" target="_blank">Chen & Kung (2013)</a>
+							</li>
+						</ul>					
+				</section>
+			</section>
+<!-- New Section -->
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						4.3 Irregular Terrain Model
+					</h3>
+					<p>
+						Used by radio/tv enginneers to predict signal reception
+					</p>
+					<img src="gis_lecture6/olken.png" style="border:none; background:none; box-shadow:none; width:800px;">
+					<p style="text-align: right;">
+						<small>
+							(Figure 2 of <a href="http://dx.doi.org/10.1257/app.1.4.1" target="_blank">Olken (2009)</a>)
+						</small>
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.1257/app.1.4.1" target="_blank">Olken (2009)</a>
+					</h3>
+					<p>
+						# of TV channels $\uparrow$ in Indonesia 						$\Rightarrow$ Social capital $\downarrow$
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						IV: <strong>TV signal strength</strong>
+					</p>					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Application 2: 					<a href="http://dx.doi.org/10.1093/qje/qju020" target="_blank">Yanagizawa-Drott (2014)</a>
+</h3>
+					<p>
+						Anti-Hutu radio $\Rightarrow$ Rwandan genocide incidents $\uparrow$				
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						IV: <strong>radio signal strength</strong>
+					</p>
+					<img src="gis_lecture_overview/yanagizawa2014f2.png" style="border: none; background: none; box-shadow:none; width: 600px;" class="fragment" data-fragment-index="1">					
+				</section>
+			</section>
+
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h1>
+						5. Distance
+					</h1>
+					<p>
+						Coordinate systems for distance
+					</p>
+					<p>
+						Buffer + Spatial Join
+					</p>
+					<p>
+						Feature To Point + Near
+					</p>
+					<p>
+						Feature To Point + Generate Near Table
+					</p>
+				</section>
+			</section>
+<!-- New Section -->
+			<section>
+				<section id="" style="text-align: left;">
+					<h3>
+						5.1 Coordinate systems for distance
+					</h3>
+					<p>
+						UTM projections for polyline length
+					</p>
+					<p>
+						Geographic coordinate systems can also be used for distance from points
+					</p>
+				</section>
+
+				<section id="what_is_utm1" data-transition="slide-in fade-out" >
+					<h3 style="text-align: left;">
+						What is UTM?
+					</h3>
+					<p style="text-align: left;">
+						Stands for Universal Transverse Mercator
+					</p>
+					<p style="text-align: left;">
+						Project earth surface onto the cylinder that is tangent on <strong>standard meridian</strong>
+					</p>
+					<img src="gis_lecture3/utmprojection.png" style="border: none; background: none; box-shadow:none; width: 300px;">
+					<p style="text-align: left;">
+						Father away from standard meridian, more distortion
+					</p>
+				</section>				
+
+				<section id="what_is_utm2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						What is UTM? (cont.)
+					</h4>
+					<p style="text-align: left;">
+						To minimize distortion:
+					</p>
+					<p>
+						1. Divide Earth into 60 zones (6&deg wide in longitude)
+					</p>
+					<img src="gis_lecture3/utm.jpg" style="border: none; background: none; box-shadow:none; width: 800px;">
+				</section>				
+
+				<section id="what_is_utm3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						What is UTM? (cont.)
+					</h4>
+					<p>
+						2. For each zone, set standard meridian in the middle	
+					</p>
+					<p>
+						3. Scale down distance along standard meridian by 0.9996 					</p>
+						<ul>
+							<li>
+								This number is called <strong>scale factor</strong>							</li>
+							<li>
+								0.9996 minimizes overall distortion w/i the 6&deg-wide zone
+							</li>
+						</ul>	
+				</section>	
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Calculate length of polylines
+					</h3>
+					<p>
+						Project, to UTM
+					</p>
+					<p>
+						Add Field + Calculate Field
+					</p>
+					<p>
+						<span style="font-size:2em">float(!shape.length!)</span>					
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						Calculate <span style="color:red;">3D</span> length of polylines
+					</h3>
+					<p>
+						Project polylines, to UTM
+					</p>
+					<p>
+						Project Raster to UTM for elevation raster
+					</p>
+					<p>
+						Add Surface Information
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>Applications</h3>
+					<p>
+						Dell (2010): length of roads by district as intermediate outcome
+					</p>
+					<p>
+						Duflo & Pande (2007): length of rivers by district as control
+					</p>
+				</section>
+			
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Distance between points
+					</h3>
+						<p>
+							1. Obtain geographic coordinates
+						</p>
+						<p>
+							2. Use the Great Circle Distance formula
+						</p>
+						<p>
+							\begin{align*}
+							d_{ij} =& \ 111.12 \times \cos^{-1}\big[\sin(La_i)\sin(La_j) \\ 								& + \cos(La_i)\cos(La_j)\cos(Lo_i-Lo_j)\big]
+							\end{align*}
+						</p>
+						<ul style="margin-left: 82px;">
+							<li>
+								$d_{ij}$: distance in km from $i$ to $j$
+							</li>
+							<li>
+								Proof: see <a href="http://mathworld.wolfram.com/GreatCircle.html" target="_blank"> Wolfram MathWorld</a>
+							</li>
+							<li>
+							Can be implemented by Stata ado <code>globdist</code> 
+							</li>
+						</ul>			
+				</section>
+
+				<section id="distance2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Distance between points (cont.)
+					</h4>
+					<p>
+						Distance from polygons: obtain their centroids
+					</p>
+						<ul>
+							<li>
+								Stata ado <a href="http://http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
+							</li>
+							<li>
+								Feature To Point + Add XY Coordinates in ArcGIS (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Steps 3-4</a>)
+							</li>
+						</ul>		
+					<p>
+						Distance to polyline: obtain nearest point on it
+					</p>
+					<ul>
+						<li>
+							Near in ArcGIS
+						</li>
+					</ul>
+				</section>		
+			</section>
+
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" >
+					<h3 style="text-align: left;">
+						5.2 Buffer
+					</h3>
+						<p style="text-align: left;">
+							Creates neighborhood polygons
+						</p>
+						<p style="text-align: left;">
+							Size of neighborhood can be specified
+						</p>
+						<p style="text-align: left;">
+							For points: a circle of $x$-meter/feet radius
+						</p>
+						<img src="gis_lecture_overview/buffer1.png" style="border: none; background: none; box-shadow:none;">
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" >
+					<h4 style="text-align: left;">
+						5.2 Buffer (cont.)
+					</h4>
+<!-- Two images side by side -->
+					<table>
+						<tr>
+							<td style="vertical-align:middle;">
+								For polylines:
+							</td>
+							<td>
+								<img src="gis_lecture_overview/buffer2.png" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:middle;">
+								For polygons:
+							</td>
+							<td>
+								<img src="gis_lecture_overview/buffer3.gif" style="border: none; background: none; box-shadow:none;">					
+							</td>
+						</tr>
+					</table>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Buffer (cont.)
+					</h4>
+					<p>
+						Then use buffer polygons as target features in Spatial Join
+					</p>
+					<p>
+						$\Rightarrow$ Identify other features in the neighborhood
+					</p>
+<!-- Command lines -->
+<pre style="font-size: 0.5em;">
+<code data-trim data-noescape><!-- data-noescape allows for <mark> -->
+import arcpy
+
+# Identify other villages within 20-mile radius
+
+in_features = "C:/input/villages.shp"
+buffer = "C:/temp/village_buffer.shp"
+out_feature_class = "C:/output/village_neighbors.shp"
+radius = "20 miles"
+
+arcpy.Buffer_analysis(in_features, buffer, radius)
+arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_MANY")
+</code>
+</pre>					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out">
+					<h3 style="text-align: left;">
+						Application 1: <a href="http://dx.doi.org/10.1111/j.1468-0262.2004.00481.x" target="_blank">Miguel & Kremer (2004)</a>
+					</h3>
+					<p style="text-align: left;">
+						Deworming school children $\Rightarrow$ Infection in neighborhood $\downarrow$?
+					</p>
+					<img src="gis_lecture_overview/MK2004buffer2.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+					<p>
+						<small>(<a href="http://www.slideshare.net/povertyaction/ipa-kenya-maseno-conference" target="_blank">Image source</a>)</small>
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out">
+					<h3 style="text-align: left;">
+						Application 2: <a href="http://dx.doi.org/10.1257/aer.100.1.35" target="_blank">Conley & Udry (2010)</a>
+					</h3>
+					<p style="text-align: left;">
+						Farmer's use of new technology $\Rightarrow$ Learning by friends?
+					</p>
+					<img src="gis_lecture_overview/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left;" class="fragment" data-fragment-index="1">
+					<p style="text-align: left;" class="fragment" data-fragment-index="1">
+						Control for average use in neighborhood (1km radius)
+					</p>					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 3: <a href="http://dx.doi.org/10.1257/aer.20140079" target="_blank">Muehlenbachs et al. (2015)</a>
+					</h3>
+				<img src="gis_lecture_overview/muehlenbachs2015f6.png" style="border: none; background: none; box-shadow:none; width: 320px; float: left;">
+					<p>
+						Shale gas $\Rightarrow$ House price $\downarrow$?
+					</p>
+					<p>
+						Treatment: # of drilled wells in 2km radius of each house
+					</p>
+					<p>
+						Sample restriction: 1km buffer along water service area boundary
+					</p>
+				<p>
+					<small>(Figure 6 of Muelenbachs et al. 2015)</small>
+				</p>				
+				</section>		
+			</section>
+			
+<!-- New Section -->
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						5.3 Feature To Point + Near
+					</h3>
+					<p>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/feature-to-point.htm" target="_blank">
+							Feature To Point
+						</a>						
+						: Creates centroids of input features
+					</p>
+					<img src="gis_lecture_overview/feature2point.png" style="border:none; background:none; box-shadow:none; width: 600px;">					
+				</section>
+
+				<section id="near" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						5.3 Feature To Point + Near (cont.)
+					</h4>
+					<p>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/near.htm" target="_blank">Near</a>: Finds nearest feature to each input feature
+					</p>
+					<p>
+						Also calculates distance to it
+					</p>
+					<p>
+						If nearest features are polyline / polygon
+					</p>
+					<p>
+						$\Rightarrow$ Can obtain coordinate of nearest point
+					</p>
+					<img src="gis_lecture_overview/near.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+				</section>				
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a>
+					</h3>
+					<p>
+						Slave trade $\Rightarrow$ Africa's underdevelopment?
+					</p>
+					<p>
+						IV for slave trade: Distance to nearest slave trade centers
+					</p>
+					<img src="gis_lecture4/Nunn2008F5.png" style="border: none; background: none; box-shadow:none; width: 500px;">
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Application 1: Nunn (2008) (cont.)
+					</h4>
+					<p>
+						Feature To Point $\Rightarrow$ Country centroids
+					</p>
+					<p>
+						Near w/ coastline $\Rightarrow$ Nearest point on coast
+					</p>
+					<p>
+						Make XY Event Layer + Copy Feature $\Rightarrow$ Nearest coastal point feature class
+					</p>
+					<p>
+						Near w/ slave trade centers $\Rightarrow$ Distance to nearest trade center
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Application 1: Nunn (2008) (cont.)
+					</h4>
+					<p>
+						Feature To Point $\Rightarrow$ Country centroids
+					</p>
+					<p>
+						Near w/ coastline $\Rightarrow$ Nearest point on coast
+					</p>
+					<p>
+						Make XY Event Layer + Copy Feature $\Rightarrow$ Nearest coastal point feature class
+					</p>
+					<p>
+						Near w/ slave trade centers $\Rightarrow$ Distance to nearest trade center
+					</p>
+				</section>
+				
+				<section id="nunn2008exclusion" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Exclusion restrictions
+					</h3>
+						<p>
+							Location of slave trade centers:
+						</p>
+						<ul>
+							<li>
+								Determined by climate suitability of plantation crops / locatino of mines (p. 160)
+							</li>
+							<li>
+								Not affected by the distance to Africa
+							</li>
+						</ul>
+						<p>
+							Distance to slave markets $\neq$ Distance to other economic opportunities
+						</p>
+						<ul>
+							<li>
+								Reduced-form correlation is absent outside Africa (p. 163)
+							</li>
+						</ul>
+				</section>
+
+				<section id="nunn2008late" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						LATE
+					</h3>
+						<p>
+							Maybe a smaller impact if countries voluntarily engaged in slave trades
+						</p>
+						<p>
+							But LATE may be of more interest in this context
+						</p>
+				</section>								
+				<section id="rogall_iv" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Application 2: 
+						<a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx0aG9yc3RlbnJvZ2FsbHxneDoyYTkzZjNkODVjMTcxYzA5" target="_blank">Rogall (2014)</a>
+					</h3>
+						<p>
+							Presence of armed groups $\Rightarrow$ civilian participation in Rwandan genocide $\uparrow$
+						</p>
+					<img src="gis_lecture4/rogall2014f4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left">					
+						<p style="text-align: center;">
+							Instrument: 
+						</p>
+						<p style="text-align: center;">
+							Distance to main road
+						</p>
+						<p style="text-align: center;">x</p>
+						<p style="text-align: center;">rainfall along the dirt track to main road during genocide</p>
+						<ul>
+							<li>
+								XY To Line + Buffer + Spatial Join
+							</li>
+						</ul>
+				</section>
+				
+			</section>
+<!-- New Section -->
+			<section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3> 
+						5.4 Feature To Point + Generate Near Table
+					</h3>
+					<p>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/generate-near-table.htm" target="_blank">Generate Near Table</a>:
+						Same as Near tool
+					</p>
+					<p>
+						Except more than one nearest feature allowed
+					</p>
+					<p>
+						$\Rightarrow$ Useful to calculate distance to many points
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.1257/aer.104.8.2456" target="_blank">Campante & Do (2014)</a>
+					</h3>
+					<p>
+						Population concentration around US state capital city
+					</p>
+					<ul>
+						<li>
+						Measured by the <em>distance</em>-weighted sum of county population
+						</li>
+						<li>
+						Distance: btw capital and county <em>centroids</em>							
+						</li>
+					</ul>
+					<p>
+						$\Rightarrow$ US state govt quality $\uparrow$
+					</p>
+					<ul style="margin-left: 85px;">
+						<li>
+							Newspaper coverage of state politics $\uparrow$
+						</li>
+						<li>
+							Money politics $\downarrow$
+						</li>
+						<li>
+							Public good provision $\uparrow$
+						</li>
+					</ul>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Application 2: <a href="http://dx.doi.org/10.1093/qje/120.3.1003" target="_blank">Currie & Neidell (2005)</a>
+					</h3>
+					<p>
+						Air pollution $\Rightarrow$ Infant mortality in California?
+					</p>					
+					<p>
+						Data:						
+					</p>
+					<ul>
+						<li>
+							Infant mortality: individual-level with zip-code of mothers' residency
+						</li>					
+						<li>
+							Air pollution: monitor-level (geo-referenced)
+						</li>
+					</ul>
+					<p>
+						How to construct pollution measure at zip-code level?
+					</p>
+				</section>
+				
+				<section id="map1" data-transition="fade-out fade-in">
+					<h4>
+						Monitor locations & zip-code polygons
+					</h4>
+					<img src="gis_lecture2/zipcodes.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<p>
+						<small>(taken from <a href="http://dx.doi.org/10.1016/j.jhealeco.2004.05.002" target="_blank">Neidell 2004</a>)</small>
+					</p>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Application 2: Currie & Neidell (2005) (cont.)
+					</h4>
+					<p>
+						Feature To Point $\Rightarrow$ Zip-code zone centroids
+					</p>
+					<p>
+						Near with monitors $\Rightarrow$ Distance to each monitor
+					</p>
+					<p>
+						Average pollution by weighting each monitor with inverse distance (within 20 miles)
+					</p>
+				</section>
+			</section>
+			
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h1>
+						6. Spatial Regressioin Discontinuity
+					</h1>
+				</section>
+
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3 style="text-align: left;">
+						Approach 1: Scalar RD
+					</h3>
+					<br>
+					<p style="text-align: left;">
+						\begin{align*}
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+						\end{align*}
+					</p>
+					<br>
+						<p>
+							Project coordinates into distance to boundary ($Dist_i$)
+						</p>
+						<ul>
+							<li>
+								$Dist_i < 0$ for control areas
+							</li>
+						</ul>
+				</section>				
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4 style="text-align: left;">
+						Approach 1: Scalar RD (cont.)
+					</h4>
+					<br>
+					<p style="text-align: left;">
+						\begin{align*}
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+						\end{align*}
+					</p>
+					<br>
+						<p style="text-align: left;">
+							Then use standard RD design	w/ <span style="color:red;">boundary segment FE</span> ($\mu_s$)				
+						</p>
+						<ul style="text-align: left;">
+							<li>
+								$i$'s nearest point on boundary $\in$ Segment $s$
+							</li>
+						</ul>
+				</section>				
+
+				<section id="" data-transition="fade-in slide-out" >
+					<h4 style="text-align: left;">
+						Approach 1: Scalar RD (cont.)
+					</h4>
+					<p style="text-align: left;">
+						w/o boundary segment FE, you compare point $i$ to $k$ in diagram below
+					</p>
+					<img src="gis_lecture7/Keele-Titiunik2014f3.png" style="border: none; background: none; box-shadow:none; width: 500px">											
+
+					<p>
+						<small>(Figure 3 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>					
+						
+					</p>
+				</section>				
+
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Approach 2: Boundary RD
+					</h3>
+						<br>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							Use coordinates ($\boldsymbol{x}_i$) for RD polynomials
+						</p>
+						<ul>
+							<li>
+								Not zero at boundary
+							</li>
+						</ul>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Approach 2: Boundary RD (cont.)
+					</h4>
+						<br>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							Pick (equally-spaced) points on boundary (denoted by $n$)
+						</p>
+						<p>
+							Assign each observation to its nearest boundary point, to define $\mu_n$
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Approach 2: Boundary RD (cont.)
+					</h4>
+						<br>
+						<p style="text-align: left;">
+							\begin{align*}
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							Treatment effect at boundary point $n$: given by
+						</p>
+						<p>
+							\begin{align*}
+							\beta + \boldsymbol{x}'_n\boldsymbol{\delta}
+							\end{align*}
+						</p>
+						<br>
+						<p>
+							<small>See Chapter 2 of <a href="http://nrs.harvard.edu/urn-3:HUL.InstRepos:9368030" target="_blank">Zajonc (2012)</a> (commonly cited as Imbens and Zajonc 2011) for more detail</small>
+
+						</p> 
+				</section>		
+				
+				<section id="ordered_list" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Spatial RD Design Data Generation
+					</h3>
+					<p>
+						1. Attach treatment indicator to zone polygons
+					</p>
+					<p>
+						2. Treatment boundary polylines
+					</p>
+					<p>
+						3. Boundary segment indicator & Distance to boundary
+					</p>
+					<p>
+						4. Visualize spatial RD plots
+					</p>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						1. Attach treatment indicator to zone polygons						
+					</h3>
+					<p>
+						Create a text file table of treatment indicator
+					</p>
+					<p>
+						Table To Table, to convert it into dBASE format
+					</p>
+					<p>
+						Join Field, to attach treatment indicator to polygons
+					</p>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						2. Treatment boundary polylines						
+					</h3>
+					<p>
+						Select, to create two feature classses
+					</p>
+					<ul>
+						<li>
+							One for treated zones
+						</li>
+						<li>
+							The other for control zones
+						</li>
+					</ul>
+					<p>
+						Intersect with output type LINE
+					</p>
+					<img src="gis_lecture_overview/intersect_line_output.gif" style="border:none; background:none; box-shadow:none; width: 500px;">			
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						3. Boundary segment indicator & Distance to boundary
+					</h3>
+					<p>
+						First, split boundary polyline into segments of equal length
+					</p>
+					<ul>
+						<li>					
+							Unsplit Line
+						</li>
+						<li>
+							Add Field + Calculate Field $\Rightarrow$ split point coordinate
+						</li>
+					<p>
+						<code style="font-size: 0.8em">!shape!.positionAlongLine(<mark>0.5</mark>,True).firstPoint.X</code>
+					</p>
+						<li>
+							Make XY Event Layer + Copy Features $\Rightarrow$ Split point features
+						</li>
+						<li>
+							Split Line At Point
+						</li>
+					</ul>					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						3. Boundary segment indicator & Distance to boundary (cont.)
+					</h4>
+					<p>
+						Then, use Near
+					</p>
+					<ul>
+						<li>
+							Distance to boundary
+						</li>
+						<li>
+							Nearest segment feature ID (NEAR_FID)
+						</li>
+					</ul>
+					<img src="gis_lecture_overview/near_table.png" style="border:none; background:none; box-shadow:none; width: 600px;">
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 1: <a href="http://dx.doi.org/10.3982/ECTA8121" target="_blank">Dell (2010)</a>
+					</h3>
+					<p>
+						Does forced labor system during Spanish colonial rule affect todya's living standards in Peru? If so, why?
+					</p>
+					<img src="gis_lecture7/figure2.png" style="border:none; background:none; box-shadow:none; width:800px;">					
+				</section>
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 2: <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">Michalopoulos & Papaioannou (2014)</a>
+					</h3>
+					<img src="gis_lecture7/MP2014f3d.png" style="border:none; background:none; box-shadow:none; width:350px; float: right;">				
+						<p>
+							Ntnl govt quality $\Rightarrow$ development?
+						</p>
+						<p>
+							Look at ethnic homelands split by national boarders in Africa
+						</p>
+						<ul>
+							<li>
+								Segment FE = Ethnicity FE
+							</li>
+						</ul>
+						<p>
+							Find no difference in nighttime light across border on average
+						</p>
+						<p>
+							Large heterogeneity across ethnic groups, though
+						</p>
+				</section>
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.1016/j.jpubeco.2016.01.007" target="_blank">Berger et al. (2016)</a>
+					</h3>
+						<p>
+							Does higher TV license fees increase evasion in Austria?
+						</p>
+						<p>
+							Exploit differences in fees across states
+						</p>
+						<p>
+							Focus on state borders where covariates are balanced
+						</p>
+						<img src="gis_lecture7/BFST2016f1.png" style="border:none; background:none; box-shadow:none; width:600px;">				
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="https://sites.google.com/site/rgonzalezarregoitia/job-market-paper" target="_blank">Gonzalez (2015)</a>
+					</h3>
+						<p>
+							Cellphone coverage $\Rightarrow$ Electoral fraud $\downarrow$ in Afghanistan
+						</p>
+						<p>
+							1000+ polling stations w/i 5km from coverage boundary
+						</p>
+						<p>
+							$\Rightarrow$ Boundary RD approach: feasible
+						</p>
+						<img src="gis_lecture7/Gonzalez2015f6.png" style="border:none; background:none; box-shadow:none; width:500px;">				
+				</section>				
+			</section>
+
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h1>
+						7. Surface Area
+					</h1>
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Geographic Coordinate Systems
+					</h3>
+					<p>
+						Not suitable for calculating surface area
+					</p>
+					<ul style="margin-left: 60px;">
+						<li>
+							<span style="font-size: 1.5em">1&deg</span> in lat: <span style="font-size: 1.5em">110.6</span>km at equator / <span style="font-size: 1.5em">111.7</span>km at poles							
+						</li>
+						<li>
+							<span style="font-size: 1.5em">1&deg</span> in lon: <span style="font-size: 1.5em">111.3</span>km at equator / <span style="font-size: 1.5em">55.8</span>km at 60&deg N/S 
+						</li>
+					</ul>										
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<p>
+						Project, to an Equal Area projection
+					</p>
+					<p>
+						Add Field + Calculate Field
+					</p>
+					<p>
+						<span style="font-size: 2em">float(!SHAPE.AREA!)</span>
+					</p>
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Equal Area projections
+					</h3>
+					<p>
+						All give the (approximately) correct surface area
+					</p>
+					<p>
+						Difference is in how the projected map looks
+					</p>
+				</section>
+
+				<section id="equal_area2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Equal area projection #1
+					</h4>
+					<h3>
+						Lambert Cylindrical Equal Area
+					</h3>
+					<p>
+						Shrink latitude to compensate shorter unit of longitude towards Poles
+					</p>
+					<br>
+					<img src="gis_lecture1/lambert.jpg" style="border: none; background: none; box-shadow:none;">										
+				</section>
+
+				<section id="equal_area3" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Equal area projection #2
+					</h4>
+					<h3>
+						Alberts Conic Equal Area
+					</h3>
+					<p>
+						Standard map projection for USA
+					</p>
+					<br>
+					<img src="gis_lecture1/AlbertsConic.jpg" style="border: none; background: none; box-shadow:none;">										
+				</section>
+
+				<section id="equal_area1" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Equal area projection #3
+					</h4>
+					<h3>
+						Sinusoidal Projection
+					</h3>
+					<p>
+						Shrink longitude by $\cos(latitude)$
+					</p>
+					<br>
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">					
+					<img src="gis_lecture4/cosine.gif" style="border: none; background: none; box-shadow:none; width: 250px; float: left;">					
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application: <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a>
+					</h3>
+					<img src="gis_lecture1/ethnicboundary.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">					
+					<p>
+						Assign # of slaves from each ethnic group into different countries by surface area
+					</p>
+					<p style="text-align: right;"
+>
+						<small>Figure II of <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a></small>
+					</p>
+				</section>		
+			</section>
+
+
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h1>
+						8. Map Algebra
+					</h1>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+						<p>
+							Cell-by-cell calculation across multiple raster datasets
+						</p>
+						<p>
+							1. Arithmetic operations
+						</p>
+						<ul>
+							<li>
+								with numbers (e.g., <code>raster*2</code>)
+							</li>
+							<li>
+								across several raster datasets (e.g., <code>ras1 + ras2</code>)
+							</li>
+						</ul>
+						<p>
+							2. Functions
+						</p>
+						<ul>
+							<li>
+								<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/an-overview-of-the-math-tools.htm" target="_blank">Math toolset</a> (square root, logarithm, sine/cosine, etc.)
+							</li>
+							<li>
+							<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/cell-statistics.htm" target="_blank">Cell Statistics</a>
+							</li>
+							<li>
+							<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/focal-statistics.htm" target="_blank">Focal Statistics</a>
+							</li>
+						</ul>					
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application: <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar et al. (2015)</a>
+					</h3>
+					<p>
+						What caused the formation of the state?
+					</p>
+					<p>
+						Focus on crop type (cereals vs roots/tubers)
+					</p>
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Theory
+					</h4>
+					<h3>Roots and Tubers</h3>
+						<p>
+							Cassava, yam, taro, bananas...
+						</p>
+						<p>
+							Perishable upon harvest
+						</p>
+						<p>
+							Harvesting is non-seasonal
+						</p>
+						<p>
+							$\Rightarrow$ No incentive to steal / confiscate
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Theory (cont.)
+					</h4>
+					<h3>Cereals</h3>
+						<p>
+							Wheat, rice, maize...
+						</p>
+						<p>
+							Storable
+						</p>
+						<p>
+							Harvest within a short period of time
+						</p>
+						<p>
+							$\Rightarrow$ Incentive to steal / confiscate
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Theory (cont.)
+					</h4>
+					<h3>State formation</h3>
+						<p>
+							Building a state incurs a fixed cost
+						</p>
+						<p>
+							Bandits have no incentive to build a state with roots & tubers
+						</p>
+						<p>
+							Historical examples
+						</p>
+						<ul>
+							<li>
+								Ancinet Egypt: wheat with state
+							</li>
+							<li>
+								New Guinea: yam/taro without state
+							</li>
+						</ul>
+						<p>
+							cf. Coltan vs gold in DR Congo (<a href="http://dx.doi.org/10.2139/ssrn.2358701" target="_blank">Sanchez de la Sierra (2014)</a>)
+						</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Data on cereal / tuber productivity
+					</h4>
+					<h3>
+						<a href="http://gaez.fao.org/" target="_blank">GAEZ</a>
+					</h3>
+						<p>
+							Resolution: 5 x 5 arc-minutes (about 10 X 10 km)
+						</p>
+						<p>
+							Data: potential yields based on climate & soil
+						</p>
+						<p>
+							$\Rightarrow$ Exogeneous to human activities
+						</p>
+						<p>
+							$\Rightarrow$ Widely used by economists
+						</p>
+						<ul>
+							<li>
+								<a href="http://dx.doi.org/10.1093/qje/qjr009" target="_blank">Nunn & Qian (2011)</a>, <a href="http://dx.doi.org/10.1086/684719" target="_blank">Costinot et al. (2016)</a>, etc.
+							</li>
+						</ul>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Map Algebra in action
+					</h3>
+					<p>
+						1. Convert yields into calorie for 15 crops
+					</p>
+					<pre style="font-size:0.8em;">
+						<code data-trim data-noescape>
+# Setting up
+import arcpy
+arcpy.CheckOutExtension("spatial")
+
+# Input raster
+maize_yield = arcpy.sa.Raster("maize.tif")
+
+# Map algebra
+<mark>maize_calorie = maize_yield * 36.5</mark>
+
+# Save output
+maize_calorie.save("calorie_cereal_maize.tif")
+						</code>
+					</pre>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Map Algebra in action (cont.)
+					</h4>
+					<p>
+						2. Obtain maximum for each crop type
+					</p>
+					<pre style="font-size:0.6em;">
+						<code data-trim data-noescape>					
+# Maximum calorie by cereal crops
+input_cereals = arcpy.ListRasters("<mark>calorie_cereal_*</mark>", "TIF")
+max_cereal = <mark>CellStatistics(</mark>input_cereals, "<mark>MAXIMUM</mark>", "DATA"<mark>)</mark>
+
+# Maximum calorie by tuber/root crops
+input_tubers = arcpy.ListRasters("<mark>calorie_tuber_*</mark>", "TIF")
+max_tuber = <mark>CellStatistics(</mark>input_tubers, "<mark>MAXIMUM</mark>", "DATA"<mark>)</mark>
+						</code>
+					</pre>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Map Algebra in action (cont.)
+					</h4>
+					<p>
+						3. Take difference
+					</p>
+					<pre style="font-size:0.6em;">
+						<code data-trim data-noescape>					
+# Cereal's caloric advantage over tubers
+<mark>caloric_diff = max_cereal - max_tuber</mark>
+
+# Save the output
+caloric_diff.save("caloric_diff.tif")
+						</code>
+					</pre>
+				</section>
+			</section>
+<!-- New Section -->
+			<section>
+				<section id="">
+					<h1>
+						Focal Statistics
+					</h1>
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left">
+					<h3>
+						Focal Statistics
+					</h3>
+					<p>
+						Calculates summary statistics in neighbouring raster cells
+					</p>
+					<p>
+						e.g. Sum of immediate neighbors
+					<img src="gis_lecture8/focal_statistics_sum.png" style="border:none; background:none; box-shadow:none; width:600px;">
+					</p>					
+				</section>
+
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left">
+						Focal Statistics (cont.)
+					</h4>
+					<p style="text-align: left">
+						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
+					</p>
+					<img src="gis_lecture8/rectangle.png" style="border:none; background:none; box-shadow:none; width:600px">
+					<p>
+						Rectangle
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left">
+						Focal Statistics (cont.)
+					</h4>
+					<p style="text-align: left">
+						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
+					</p>
+					<img src="gis_lecture8/circle.png" style="border:none; background:none; box-shadow:none; width:600px;">						
+					<p>
+						Circle
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left">
+						Focal Statistics (cont.)
+					</h4>
+					<p style="text-align: left">
+						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
+					</p>
+					<img src="gis_lecture8/annulus.png" style="border:none; background:none; box-shadow:none; width:600px;">
+					<p>
+						Annulus (ring)
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left">
+						Focal Statistics (cont.)
+					</h4>
+					<p style="text-align: left">
+						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
+					</p>
+					<img src="gis_lecture8/wedge.png" style="border:none; background:none; box-shadow:none; width:600px;">
+					<p>
+						Wedge
+					</p>
+				</section>
+				
+				<section id="" data-transition="fade-in fade-out">
+					<h4 style="text-align: left">
+						Focal Statistics (cont.)
+					</h4>
+					<p style="text-align: left">
+						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
+					</p>
+					<img src="gis_lecture8/irregular.png" style="border:none; background:none; box-shadow:none; width:800px;">
+					<p>
+						Irregular
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out">
+					<h4 style="text-align: left">
+						Focal Statistics (cont.)
+					</h4>
+					<p style="text-align: left">
+						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
+					</p>
+					<img src="gis_lecture8/weight.png" style="border:none; background:none; box-shadow:none; width:800px;">
+					<p>
+						Weight
+					</p>
+				</section>				
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application: <a href="http://dx.doi.org/10.1162/REST_a_00161" target="_blank">Nunn & Puga (2011)</a>
+					</h3>
+					<p>
+						Estimate terrain ruggedness's impact on income per capita
+					</p>
+					<p>
+						Negative outside Africa
+					</p>
+					<ul>
+						<li>
+							Transportation cost
+						</li>
+					</ul>
+					<p>
+						Positive in Africa
+					</p>
+					<ul>
+						<li>
+							Negative once slave export is controlled for
+						</li>
+					</ul>
+				</section>
+				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+					<h3>
+						Terrain Ruggedness Index
+					</h3>
+					<p>
+						Originally proposed by <a href="ftp://ftp.remotesensing.org/qgis/doc/reference-docs/Terrain_Ruggedness_Index.pdf" target="_blank">Riley et al. (1999)</a>
+					</p>
+					<p>
+						Defined as:
+						\begin{align*}
+						TRI_{xy} =& \sqrt{\sum_{i=x-1}^{x+1} \sum_{j=y-1}^{y+1} (e_{ij}-e_{xy})^2}
+						\end{align*}
+					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$e_{xy}$</td>
+							<td>Elevation at longitude $x$ latitude $y$</td>
+						</tr>
+					</table>
+					<p class="fragment" data-fragment-index="1">
+						Can be obtained by Focal Statistics + Map Algebra
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						<small>Raster cell (30x30 arc-sec) level data is downloadable from <a href="http://diegopuga.org/data/rugged/#grid" target="_blank">Diego Puga's website</a></small>
+					</p>
+				</section>				
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Terrain Ruggedness Index (cont.)
+					</h4>
+					<p>
+						Expand the expression inside the square root:
+					</p>
+					<p>
+						\begin{align*}
+						TRI_{xy} =& \sqrt{\sum_i \sum_j (e_{ij})^2 - 2e_{xy}\sum_i\sum_j e_{ij} + 9 (e_{xy})^2}
+						\end{align*}
+					</p>
+					<p>
+						Map Algebra calculates $(e_{ij})^2$:
+					</p>
+					<pre style="font-size: 0.55em;">
+						<code data-trim data-noescape>
+elev = Raster("srtm30.tif")
+elev_sq = elev**2
+						</code>
+					</pre>
+				</section>	
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Terrain Ruggedness Index (cont.)
+					</h4>
+					<p>
+						Expand the expression inside the square root:
+					</p>
+					<p>
+						\begin{align*}
+						TRI_{xy} =& \sqrt{\sum_i \sum_j (e_{ij})^2 - 2e_{xy}\sum_i\sum_j e_{ij} + 9 (e_{xy})^2}
+						\end{align*}
+					</p>
+					<p>
+						Focal Statistics calculates $\sum_i \sum_j (e_{ij})^2$ and $\sum_i\sum_j e_{ij}$:
+					</p>
+					<pre style="font-size: 0.55em;">
+						<code data-trim data-noescape>
+sum_elev_sq = FocalStatistics(elev_sq, "", "SUM", "")
+sum_elev = FocalStatistics(elev, "", "SUM", "")
+						</code>
+					</pre>
+				</section>	
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left">
+					<h4>
+						Terrain Ruggedness Index (cont.)
+					</h4>
+					<p>
+						Expand the expression inside the square root:
+					</p>
+					<p>
+						\begin{align*}
+						TRI_{xy} =& \sqrt{\sum_i \sum_j (e_{ij})^2 - 2e_{xy}\sum_i\sum_j e_{ij} + 9 (e_{xy})^2}
+						\end{align*}
+					</p>
+					<p>
+						Map Algebra sums them up and takes square root:
+					</p>
+					<pre style="font-size: 0.55em;">
+						<code data-trim data-noescape>
+TRI_square = sum_elev_sq - 2*elev*sum_elev + 9*elev_sq
+TRI = SquareRoot(TRI_square)
+TRI.save("ruggedness.tif")
+						</code>
+					</pre>
+				</section>					 
+			</section>
+
+			<section>
+				<section id="section5">
+					<h1>
+						5. Other geo-processing tools used by economists
+					</h1>
+				</section>
+				<section id="polygon_neighbors" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Polygon Neighbors
+					</h3>
+					<img src="gis_lecture5/polygonneighbors1.png" style="border:none; background:none; box-shadow:none; width:200px; float: left;">
+					<img src="gis_lecture5/polygonneighbors2.png" style="border:none; background:none; box-shadow:none; width:600px; float: right;">
+				</section>				
+
+				<section id="acemoglu_et_al2015" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Application of Polygon Neighbors
+					</h4>
+					<h3>
+						<a href="http://dx.doi.org/10.1257/aer.20140044" target="_blank">Acemoglu et al. (2015)</a>
+					</h3>
+					<p>
+						State capacity in one municipality 
+					</p>
+					<p>
+						$\Rightarrow$ State capacity & prosperity in neighboring municipalities
+					</p>
+					<ul>
+						<li>
+							Polygon Neighbors: identify neighboring municipalities among 1017 in total in Colombia
+						</li>
+					</ul>
+				</section>					
+
+
+				<section id="what_we_learn" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/create-thiessen-polygons.htm" target="_blank">Create Thiessen Polygons</a> tool
+					</h3>
+					<p>
+						Divide surface by nearest point (aka Voronoi partition)
+					</p>
+					<p>
+					<img src="gis_lecture8/thiessen.jpg" style="border:none; background:none; box-shadow:none; width:400px;">
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						<a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. (2016)</a> use it as a robustness check to Murdock's ethnic homeland boundaries
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						Alsan (2015) (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/section2" target="_blank">Lec 2</a>) uses it as an alternative to the 20-miles radius of Ethnographic Atlas society location
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						<a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10348" target="_blank">Konig et al. (2015)</a>
+					</h3>
+					<img src="gis_lecture8/MRTZ2015F5a.png" style="border:none; background:none; box-shadow:none; width:500px; float:right;">
+					<p>
+						Estimate the externality of military efforts on allied partners' effort in DR Congo civil wars 
+					</p>
+					<p>
+						Use rainfall shock as instruments
+					</p>
+					<p>
+						But how do we measure the location of each military actor?
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Konig et al. (2015) (cont.)
+					</h4>
+					<p>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/minimum-bounding-geometry.htm" target="_blank">Minimum Bounding Geometry</a> tool with Convex Hull option
+					</p>
+					<img src="gis_lecture8/convex_hull.png" style="border:none; background:none; box-shadow:none; width:400px;">
+					<p>
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/directional-distribution.htm" target="_blank">Directional Distribution (Standard Deviation Ellipse)</a> tool
+					</p>
+					<img src="gis_lecture8/directional-distribution.gif" style="border:none; background:none; box-shadow:none; width:400px;">
+					
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						<a href="http://economics.mit.edu/files/10362" target="_blank">Hariri (2015)</a>
+					</h3>
+					<p>
+						How city shapes affect population, wages, and housing rents
+					</p>
+					<ul>
+						<li>
+							Compact shapes reduce transportation cost etc.
+						</li>
+					</ul>
+					<p>
+						How can we measure city shapes?
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Hariri (2015) (cont.)
+					</h4>
+					<img src="gis_lecture8/city_shape.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
+					<p>
+						Use nighttime light image
+					</p>
+					<p>
+						Luminosity over 40 is defined as urban area
+					</p>
+					<p>
+						$\Rightarrow$ Reclassify tool (cf. <a href="http://mkudamatsu.github.io/gis_lecture6.html#/reclassify1" target="_blank">Lec 6</a>)
+					</p>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Hariri (2015) (cont.)
+					</h4>
+					<p>
+						Then use the <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/region-group.htm" target="_blank">Region Group</a> tool, to assign unique ID to each urban area
+					</p>
+					<img src="gis_lecture8/region-group.png" style="border:none; background:none; box-shadow:none; width:500px">
+					<p>
+						For shape metrics, use <a href="https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-statistics-toolbox/an-overview-of-the-spatial-statistics-toolbox.htm" target="_blank">Spatial Statistics Toolbox</a>
+					</p>
+				</section>
+			</section>				
+			</div>
+			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
+
+		</div>
+		<!-- To end the activation of the CSS framework of Reveal.js -->		
+
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
+		
+		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
+		<script src="lib/js/head.min.js"></script>
+		<!-- Load reveal.js -->
+		<script src="js/reveal.js"></script>
+
+		<!-- Import MathJax, to use TeX for mathematic expressions -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<!-- Allow inline math expressions by using $ -->
+		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    tex2jax: {
+		      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		      processEscapes: true
+		    }
+		  });
+		</script>
+
+		<script>
+			// Set the options for Reveal.js
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false, // Disable the navigation arrows on bottom right
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false, // Disable the default rolling links
+
+				transition: 'slide', // Choose from: none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
