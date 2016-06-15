@@ -854,7 +854,7 @@
 				</section>
 
 <!-- Standard slide -->
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="obtain_coordinate" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						How to obtain longitude & latitude?
 					</h3>					
@@ -1624,10 +1624,10 @@ arcpy.TableToExcel_conversion(
 					<table>
 						<tr>
 							<td>
-								<img src="gis_lecture_overview/dinkelman2011f2slope.png" style="border: none; background: none; box-shadow:none;">					
+								<img src="gis_lecture_overview/dinkelman2011f2slope.png" style="border: none; background: none; box-shadow:none; width: 400px;">					
 							</td>
 							<td>
-								<img src="gis_lecture_overview/dinkelman2011f2electricity.png" style="border: none; background: none; box-shadow:none;">					
+								<img src="gis_lecture_overview/dinkelman2011f2electricity.png" style="border: none; background: none; box-shadow:none; width: 400px;">					
 							</td>
 						</tr>
 						<tr>
@@ -1910,19 +1910,99 @@ arcpy.gp.Slope_sa(
 						5.1 Coordinate systems for distance
 					</h3>
 					<p>
-						UTM projections for polyline length
+						Two approaches:
 					</p>
 					<p>
-						Geographic coordinate systems can also be used for distance from points
+						1. Geographic coordinate systems
+					</p>
+					<p>
+						2. UTM projections
 					</p>
 				</section>
 
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Approach 1: Geographic coordinate systems
+					</h4>
+					<h3>
+						Distance between points
+					</h3>
+						<p>
+							1. Obtain geographic coordinates (<a href="#/obtain_coordinate" target="_blank">How?</a>)
+						</p>
+						<p class="fragment" data-fragment-index="1"
+>
+							2. Use the Great Circle Distance formula
+						</p>
+						<p class="fragment" data-fragment-index="1"
+>
+							\begin{align*}
+							d_{ij} =& \ 111.12 \times \cos^{-1}\big[\sin(La_i)\sin(La_j) \\ 								& + \cos(La_i)\cos(La_j)\cos(Lo_i-Lo_j)\big]
+							\end{align*}
+						</p>
+						<ul style="margin-left: 82px;">
+							<li class="fragment" data-fragment-index="1">
+								$d_{ij}$: distance in km from $i$ to $j$
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Proof: see <a href="http://mathworld.wolfram.com/GreatCircle.html" target="_blank"> Wolfram MathWorld</a>
+							</li>
+							<li class="fragment" data-fragment-index="3">
+							Can be implemented by Stata ado <code>globdist</code> 
+							</li>
+						</ul>			
+				</section>
+
+				<section id="distance2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Approach 1: Geographic coordinate systems (cont.)
+					</h4>
+					<h3>
+						Distance from polygon
+					</h3>
+					<p>
+						Obtain their centroids by:
+					</p>
+						<ul>
+							<li>
+								Stata ado <a href="http://http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a>
+							</li>
+							<li>
+								Feature To Point + Add XY Coordinates in ArcGIS
+							</li>
+						</ul>
+					<p class="fragment" data-fragment-index="1">
+						Then use <code>globdist</code>
+					</p>		
+				</section>		
+
+				<section id="distance3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Approach 1: Geographic coordinate systems (cont.)
+					</h4>
+					<h3>
+						Distance to polylines
+					</h3>
+					<p>
+						Obtain nearest point on polyline by:
+					</p>
+					<ul>
+						<li>
+							Near in ArcGIS
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="1">
+						Near tool calculates distance as well
+					</p>
+				</section>		
+
 				<section id="what_is_utm1" data-transition="slide-in fade-out" >
 					<h3 style="text-align: left;">
-						What is UTM?
+						Approach 2: UTM projections
 					</h3>
 					<p style="text-align: left;">
-						Stands for Universal Transverse Mercator
+						UTM stands for Universal Transverse Mercator
 					</p>
 					<p style="text-align: left;">
 						Project earth surface onto the cylinder that is tangent on <strong>standard meridian</strong>
@@ -1935,7 +2015,7 @@ arcpy.gp.Slope_sa(
 
 				<section id="what_is_utm2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						What is UTM? (cont.)
+						Approach 2: UTM projections (cont.)
 					</h4>
 					<p style="text-align: left;">
 						To minimize distortion:
@@ -1946,13 +2026,20 @@ arcpy.gp.Slope_sa(
 					<img src="gis_lecture3/utm.jpg" style="border: none; background: none; box-shadow:none; width: 800px;">
 				</section>				
 
-				<section id="what_is_utm3" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="what_is_utm3" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						What is UTM? (cont.)
+						Approach 2: UTM projections (cont.)
 					</h4>
 					<p>
 						2. For each zone, set standard meridian in the middle	
 					</p>
+					<img src="gis_lecture3/utmprojection.png" style="border: none; background: none; box-shadow:none; width: 300px;">
+				</section>	
+
+				<section id="what_is_utm4" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Approach 2: UTM projections (cont.)
+					</h4>
 					<p>
 						3. Scale down distance along standard meridian by 0.9996 					</p>
 						<ul>
@@ -1964,100 +2051,98 @@ arcpy.gp.Slope_sa(
 						</ul>	
 				</section>	
 
+				<section id="what_is_utm4" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Approach 2: UTM projections (cont.)
+					</h4>
+					<p>
+						Once projected, use Pythagoras' Theorem
+					</p>
+					<img src="gis_lecture_overview/distance.png" style="border:none; background:none; box-shadow:none; width: 400px;">
+				</section>	
+
+				<section id="distance_calculation" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Distance calculation in ArcGIS
+					</h3>
+					<p>
+						Tools such as Buffer and Near calculate distance
+					</p>
+					<p>
+						<strong>GEODESIC</strong> option for geographic coordinates
+					</p>
+					<p>
+						<strong>PLANAR</strong> option for UTM projections
+					</p>
+				</section>	
+
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						Calculate length of polylines
+						Length of polylines
 					</h3>
 					<p>
-						Project, to UTM
+						e.g. River lengths, road distances
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Geographic coordinates cannot be used
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						$\Rightarrow$ Use UTM projections
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						If the study area is large, cut polylines by UTM zones
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Length of polylines (cont.)
+					</h4>
+					<h3>
+						ArcGIS tools to use for 2D length:
+					</h3>
+					<p>
+						Project
 					</p>
 					<p>
-						Add Field + Calculate Field
+						Add Field + Calculate Field with expression:
 					</p>
 					<p>
-						<span style="font-size:2em">float(!shape.length!)</span>					
+						<span style="font-size:2em">
+							float(!shape.length!)
+						</span>					
 					</p>
 				</section>
 <!-- Standard slide -->
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Length of polylines (cont.)
+					</h4>
 					<h3>
-						Calculate <span style="color:red;">3D</span> length of polylines
+						ArcGIS tools to use for 3D length:
 					</h3>
 					<p>
-						Project polylines, to UTM
+						Project (for polylines)
 					</p>
 					<p>
-						Project Raster to UTM for elevation raster
+						Project Raster (for elevation raster)
 					</p>
 					<p>
-						Add Surface Information
+						Add Surface Information, with SURFACE_LENGTH option
 					</p>
 				</section>
+
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>Applications</h3>
 					<p>
-						Dell (2010): length of roads by district as intermediate outcome
-					</p>
-					<p>
 						Duflo & Pande (2007): length of rivers by district as control
 					</p>
-				</section>
-			
-<!-- Standard slide -->
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>
-						Distance between points
-					</h3>
-						<p>
-							1. Obtain geographic coordinates
-						</p>
-						<p>
-							2. Use the Great Circle Distance formula
-						</p>
-						<p>
-							\begin{align*}
-							d_{ij} =& \ 111.12 \times \cos^{-1}\big[\sin(La_i)\sin(La_j) \\ 								& + \cos(La_i)\cos(La_j)\cos(Lo_i-Lo_j)\big]
-							\end{align*}
-						</p>
-						<ul style="margin-left: 82px;">
-							<li>
-								$d_{ij}$: distance in km from $i$ to $j$
-							</li>
-							<li>
-								Proof: see <a href="http://mathworld.wolfram.com/GreatCircle.html" target="_blank"> Wolfram MathWorld</a>
-							</li>
-							<li>
-							Can be implemented by Stata ado <code>globdist</code> 
-							</li>
-						</ul>			
-				</section>
-
-				<section id="distance2" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Distance between points (cont.)
-					</h4>
 					<p>
-						Distance from polygons: obtain their centroids
+						Dell (2010): length of roads by district as intermediate outcome
 					</p>
-						<ul>
-							<li>
-								Stata ado <a href="http://http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
-							</li>
-							<li>
-								Feature To Point + Add XY Coordinates in ArcGIS (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Steps 3-4</a>)
-							</li>
-						</ul>		
-					<p>
-						Distance to polyline: obtain nearest point on it
-					</p>
-					<ul>
-						<li>
-							Near in ArcGIS
-						</li>
-					</ul>
-				</section>		
+				</section>
 			</section>
 
 			<section>
@@ -2105,16 +2190,25 @@ arcpy.gp.Slope_sa(
 <!-- Standard slide -->
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Buffer (cont.)
+						5.2 Buffer (cont.)
 					</h4>
 					<p>
-						Then use buffer polygons as target features in Spatial Join
+						One useful application: 
 					</p>
 					<p>
-						$\Rightarrow$ Identify other features in the neighborhood
+						Identify other features in the neighborhood						
 					</p>
+					<p class="fragment" data-fragment-index="1">
+						$\Leftarrow$ Use buffer polygons as target features in Spatial Join with JOIN_ONE_TO_MANY options
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Python code for identifying neighbors
+					</h4>
 <!-- Command lines -->
-<pre style="font-size: 0.5em;">
+<pre style="font-size: 0.7em;">
 <code data-trim data-noescape><!-- data-noescape allows for <mark> -->
 import arcpy
 
@@ -2126,7 +2220,9 @@ out_feature_class = "C:/output/village_neighbors.shp"
 radius = "20 miles"
 
 arcpy.Buffer_analysis(in_features, buffer, radius)
-arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_MANY")
+arcpy.SpatialJoin_analysis(
+	buffer, in_features, 
+	out_feature_class, <mark>"JOIN_ONE_TO_MANY"</mark>)
 </code>
 </pre>					
 				</section>
@@ -2157,17 +2253,23 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 					</p>					
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Application 3: <a href="http://dx.doi.org/10.1257/aer.20140079" target="_blank">Muehlenbachs et al. (2015)</a>
 					</h3>
-				<img src="gis_lecture_overview/muehlenbachs2015f6.png" style="border: none; background: none; box-shadow:none; width: 320px; float: left;">
 					<p>
 						Shale gas $\Rightarrow$ House price $\downarrow$?
 					</p>
-					<p>
-						Treatment: # of drilled wells in 2km radius of each house
+					<p class="fragment" data-fragment-index="1">
+						Treatment: # of drilled wells w/i 2km radius of each house
 					</p>
+				</section>		
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<img src="gis_lecture_overview/muehlenbachs2015f6.png" style="border: none; background: none; box-shadow:none; width: 500px; float: right;">
+					<h4>
+						Application 3: Muehlenbachs et al. (2015) (cont.)
+					</h4>
 					<p>
 						Sample restriction: 1km buffer along water service area boundary
 					</p>
@@ -2180,15 +2282,13 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 <!-- New Section -->
 			<section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						5.3 Feature To Point + Near
 					</h3>
 					<p>
-						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/feature-to-point.htm" target="_blank">
 							Feature To Point
-						</a>						
-						: Creates centroids of input features
+							: Creates centroids of input features
 					</p>
 					<img src="gis_lecture_overview/feature2point.png" style="border:none; background:none; box-shadow:none; width: 600px;">					
 				</section>
@@ -2198,18 +2298,18 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						5.3 Feature To Point + Near (cont.)
 					</h4>
 					<p>
-						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/near.htm" target="_blank">Near</a>: Finds nearest feature to each input feature
+						Near: Finds nearest feature to each input feature
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Also calculates distance to it
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						If nearest features are polyline / polygon
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						$\Rightarrow$ Can obtain coordinate of nearest point
 					</p>
-					<img src="gis_lecture_overview/near.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<img src="gis_lecture_overview/near.png" style="border: none; background: none; box-shadow:none; width: 700px;" class="fragment" data-fragment-index="2">					
 				</section>				
 
 <!-- Standard slide -->
@@ -2223,25 +2323,7 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 					<p>
 						IV for slave trade: Distance to nearest slave trade centers
 					</p>
-					<img src="gis_lecture4/Nunn2008F5.png" style="border: none; background: none; box-shadow:none; width: 500px;">
-				</section>
-<!-- Standard slide -->
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Application 1: Nunn (2008) (cont.)
-					</h4>
-					<p>
-						Feature To Point $\Rightarrow$ Country centroids
-					</p>
-					<p>
-						Near w/ coastline $\Rightarrow$ Nearest point on coast
-					</p>
-					<p>
-						Make XY Event Layer + Copy Feature $\Rightarrow$ Nearest coastal point feature class
-					</p>
-					<p>
-						Near w/ slave trade centers $\Rightarrow$ Distance to nearest trade center
-					</p>
+					<img src="gis_lecture_overview/Nunn2008F5.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 				</section>
 <!-- Standard slide -->
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
@@ -2251,18 +2333,21 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 					<p>
 						Feature To Point $\Rightarrow$ Country centroids
 					</p>
-					<p>
-						Near w/ coastline $\Rightarrow$ Nearest point on coast
+					<p class="fragment" data-fragment-index="1">
+						Near w/ coastline $\Rightarrow$ Coordinates of nearest coastal point
 					</p>
-					<p>
-						Make XY Event Layer + Copy Feature $\Rightarrow$ Nearest coastal point feature class
+					<p class="fragment" data-fragment-index="2">
+						Make XY Event Layer + Copy Feature $\Rightarrow$ Nearest coastal point
 					</p>
-					<p>
-						Near w/ slave trade centers $\Rightarrow$ Distance to nearest trade center
+					<p class="fragment" data-fragment-index="3">
+						Near w/ slave trade centers $\Rightarrow$ Distance to nearest center
 					</p>
 				</section>
 				
 				<section id="nunn2008exclusion" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Application 1: Nunn (2008) (cont.)
+					</h4>
 					<h3>
 						Exclusion restrictions
 					</h3>
@@ -2271,16 +2356,16 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						</p>
 						<ul>
 							<li>
-								Determined by climate suitability of plantation crops / locatino of mines (p. 160)
+								Determined by climate suitability of plantation crops / location of mines (p. 160)
 							</li>
 							<li>
 								Not affected by the distance to Africa
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Distance to slave markets $\neq$ Distance to other economic opportunities
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="1">
 							<li>
 								Reduced-form correlation is absent outside Africa (p. 163)
 							</li>
@@ -2288,6 +2373,9 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 				</section>
 
 				<section id="nunn2008late" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Application 1: Nunn (2008) (cont.)
+					</h4>
 					<h3>
 						LATE
 					</h3>
@@ -2304,20 +2392,53 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						<a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx0aG9yc3RlbnJvZ2FsbHxneDoyYTkzZjNkODVjMTcxYzA5" target="_blank">Rogall (2014)</a>
 					</h3>
 						<p>
-							Presence of armed groups $\Rightarrow$ civilian participation in Rwandan genocide $\uparrow$
+							In Rwandan genocide:
 						</p>
-					<img src="gis_lecture4/rogall2014f4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left">					
-						<p style="text-align: center;">
+						<p>
+							Presence of armed groups $\Rightarrow$ civilian participation $\uparrow$?
+						</p>
+					<img src="gis_lecture4/rogall2014f4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left" class="fragment" data-fragment-index="1">					
+						<p style="text-align: center;" class="fragment" data-fragment-index="1">
 							Instrument: 
 						</p>
-						<p style="text-align: center;">
+						<p style="text-align: center;" class="fragment" data-fragment-index="1">
 							Distance to main road
 						</p>
-						<p style="text-align: center;">x</p>
-						<p style="text-align: center;">rainfall along the dirt track to main road during genocide</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="2">
+							x
+						</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="2">
+							Rainfall along the dirt track to main road during genocide
+						</p>
+				</section>
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Application 2: Rogall (2014) (cont.)
+					</h4>
+					<img src="gis_lecture4/rogall2014f4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: right">					
+						<p>
+							Distance to main road
+						</p>
 						<ul>
 							<li>
-								XY To Line + Buffer + Spatial Join
+								Feature To Point
+							</li>
+							<li>
+								Near
+							</li>
+						</ul>
+						<p>
+							Rainfall along the dirt track to main road during genocide
+						</p>
+						<ul>
+							<li>
+								XY To Line
+							</li>
+							<li>
+								Buffer
+							</li>
+							<li>
+								Spatial Join
 							</li>
 						</ul>
 				</section>
@@ -2328,35 +2449,20 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3> 
-						5.4 Feature To Point + Generate Near Table
+						5.4 Generate Near Table
 					</h3>
 					<p>
-						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/generate-near-table.htm" target="_blank">Generate Near Table</a>:
-						Same as Near tool
-					</p>
-					<p>
-						Except more than one nearest feature allowed
-					</p>
-					<p>
-						$\Rightarrow$ Useful to calculate distance to many points
+						Calculates distance to many features, besides nearest one
 					</p>
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Application 1: <a href="http://dx.doi.org/10.1257/aer.104.8.2456" target="_blank">Campante & Do (2014)</a>
 					</h3>
 					<p>
-						Population concentration around US state capital city
+						Population concentration around capital
 					</p>
-					<ul>
-						<li>
-						Measured by the <em>distance</em>-weighted sum of county population
-						</li>
-						<li>
-						Distance: btw capital and county <em>centroids</em>							
-						</li>
-					</ul>
 					<p>
 						$\Rightarrow$ US state govt quality $\uparrow$
 					</p>
@@ -2369,6 +2475,26 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						</li>
 						<li>
 							Public good provision $\uparrow$
+						</li>
+					</ul>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Application 1: Campante & Do (2014) (cont.)
+					</h4>
+					<p>
+						Measure population concentration around capital by:
+					</p>
+					<ul>
+						<li>
+							Feature To Point $\Rightarrow$ County centroids
+						</li>
+						<li>
+							Generate Near Table $\Rightarrow$ Distance from capital to county centroids
+						</li>
+						<li>
+							In Stata, obtain the weighted sum of population w/ inverse of distance as weight
 						</li>
 					</ul>
 				</section>
@@ -2412,10 +2538,16 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						Application 2: Currie & Neidell (2005) (cont.)
 					</h4>
 					<p>
-						Feature To Point $\Rightarrow$ Zip-code zone centroids
+						Feature To Point 
 					</p>
 					<p>
-						Near with monitors $\Rightarrow$ Distance to each monitor
+						$\Rightarrow$ Zip-code zone centroids
+					</p>
+					<p>
+						Generate Near Table
+					</p>
+					<p>
+						$\Rightarrow$ Distance from zip-code centroid to each monitor
 					</p>
 					<p>
 						Average pollution by weighting each monitor with inverse distance (within 20 miles)
@@ -2575,26 +2707,44 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-						1. Attach treatment indicator to zone polygons						
+						1. Attach treatment indicator			
 					</h3>
 					<p>
-						Create a text file table of treatment indicator
+						Create a text file table of:
 					</p>
-					<p>
-						Table To Table, to convert it into dBASE format
+					<ul>
+						<li>
+							Polygon ID
+						</li>
+						<li>
+							Treatment indicator
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="1">
+						<strong>Table To Table</strong> to convert it into <strong>dBASE format</strong>
 					</p>
-					<p>
-						Join Field, to attach treatment indicator to polygons
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Format for attribute tables in ArcGIS
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">
+						<strong>Join Field</strong> to merge the data by polygon ID
 					</p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>
+							It's ArcGIS's version of Stata's <code>merge</code>
+						</li>
+					</ul>
 				</section>
 
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-						2. Treatment boundary polylines						
+						2. Treatment boundary					
 					</h3>
 					<p>
-						Select, to create two feature classses
+						<strong>Select</strong> to create two polygon shapefiles
 					</p>
 					<ul>
 						<li>
@@ -2605,53 +2755,53 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						</li>
 					</ul>
 					<p>
-						Intersect with output type LINE
+						<strong>Intersect</strong> with output type LINE
 					</p>
 					<img src="gis_lecture_overview/intersect_line_output.gif" style="border:none; background:none; box-shadow:none; width: 500px;">			
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						3. Boundary segment indicator & Distance to boundary
+						3. Boundary segment indicator
 					</h3>
 					<p>
 						First, split boundary polyline into segments of equal length
 					</p>
 					<ul>
 						<li>					
-							Unsplit Line
+							<strong>Unsplit Line</strong>
 						</li>
 						<li>
-							Add Field + Calculate Field $\Rightarrow$ split point coordinate
+							<strong>Add Field</strong> + <strong>Calculate Field</strong> with expression:
 						</li>
 					<p>
 						<code style="font-size: 0.8em">!shape!.positionAlongLine(<mark>0.5</mark>,True).firstPoint.X</code>
 					</p>
 						<li>
-							Make XY Event Layer + Copy Features $\Rightarrow$ Split point features
+							<strong>Make XY Event Layer</strong> + <strong>Copy Features</strong> $\Rightarrow$ Split points
 						</li>
 						<li>
-							Split Line At Point
+							<strong>Split Line At Point</strong>
 						</li>
 					</ul>					
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						3. Boundary segment indicator & Distance to boundary (cont.)
+						3. Boundary segment indicator (cont.)
 					</h4>
 					<p>
-						Then, use Near
+						Then, use <strong>Near</strong>
 					</p>
 					<ul>
 						<li>
-							Distance to boundary
-						</li>
-						<li>
 							Nearest segment feature ID (NEAR_FID)
 						</li>
+						<li>
+							Distance to boundary (NEAR_DIST)
+						</li>
 					</ul>
-					<img src="gis_lecture_overview/near_table.png" style="border:none; background:none; box-shadow:none; width: 600px;">
+					<img src="gis_lecture_overview/near_table.png" style="border:none; background:none; box-shadow:none; width: 800px;">
 				</section>
 <!-- Standard slide -->
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
@@ -2679,10 +2829,10 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 								Segment FE = Ethnicity FE
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Find no difference in nighttime light across border on average
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							Large heterogeneity across ethnic groups, though
 						</p>
 				</section>
@@ -2728,46 +2878,32 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 				</section>
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						Geographic Coordinate Systems
+						Coordinate Systems for surface area
 					</h3>
 					<p>
-						Not suitable for calculating surface area
+						Geographic coordinate systems: not suitable
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							<span style="font-size: 1.5em">1&deg</span> in lat: <span style="font-size: 1.5em">110.6</span>km at equator / <span style="font-size: 1.5em">111.7</span>km at poles							
+							<span style="font-size: 1.5em">1&deg</span> in lat = <span style="font-size: 1.5em">110.6</span> km at equator / <span style="font-size: 1.5em">111.7</span> km at poles							
 						</li>
 						<li>
-							<span style="font-size: 1.5em">1&deg</span> in lon: <span style="font-size: 1.5em">111.3</span>km at equator / <span style="font-size: 1.5em">55.8</span>km at 60&deg N/S 
+							<span style="font-size: 1.5em">1&deg</span> in lon = <span style="font-size: 1.5em">111.3</span> km at equator / <span style="font-size: 1.5em">55.8</span> km at 60&deg N/S 
 						</li>
-					</ul>										
+					</ul>
+					<p class="fragment" data-fragment-index="1">
+						$\Rightarrow$ Use either:
+					</p>						
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							UTM projections (for small areas)
+						</li>
+						<li>
+							Equal Area projections (for large areas)
+						</li>
+					</ul>				
 				</section>
 
-<!-- Standard slide -->
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
-					<p>
-						Project, to an Equal Area projection
-					</p>
-					<p>
-						Add Field + Calculate Field
-					</p>
-					<p>
-						<span style="font-size: 2em">float(!SHAPE.AREA!)</span>
-					</p>
-				</section>
-
-<!-- Standard slide -->
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>
-						Equal Area projections
-					</h3>
-					<p>
-						All give the (approximately) correct surface area
-					</p>
-					<p>
-						Difference is in how the projected map looks
-					</p>
-				</section>
 
 				<section id="equal_area2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
@@ -2797,19 +2933,53 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 					<img src="gis_lecture1/AlbertsConic.jpg" style="border: none; background: none; box-shadow:none;">										
 				</section>
 
-				<section id="equal_area1" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="sinusoidal1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Equal area projection #3
 					</h4>
 					<h3>
 						Sinusoidal Projection
 					</h3>
+					<br>
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">					
+				</section>
+				<section id="sinusoidal2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Sinusoidal Projection (cont.)
+					</h4>
+					<img src="gis_lecture4/cosine.gif" style="border: none; background: none; box-shadow:none; width: 400px; float: left;">					
 					<p>
 						Shrink longitude by $\cos(latitude)$
 					</p>
 					<br>
-					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">					
-					<img src="gis_lecture4/cosine.gif" style="border: none; background: none; box-shadow:none; width: 250px; float: left;">					
+				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Equal Area projections
+					</h3>
+					<p>
+						All give the (approximately) correct surface area
+					</p>
+					<p>
+						Difference is in how the projected map looks
+					</p>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						ArcGIS tools to use for surface area:
+					</h3>
+					<p>
+						<strong>Project</strong>
+					</p>
+					<p>
+						<strong>Add Field</strong> + <strong>Calculate Field</strong> with expression:
+					</p>
+					<p>
+						<span style="font-size: 2em">float(!SHAPE.AREA!)</span>
+					</p>
 				</section>
 
 <!-- Standard slide -->
@@ -2825,19 +2995,17 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 >
 						<small>Figure II of <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a></small>
 					</p>
-				</section>		
+				</section>	
+
+	
 			</section>
 
 
 <!-- New Section -->
-			<section>
-				<section id="">
-					<h1>
+				<section id="" style="text-align: left;">
+					<h2>
 						8. Map Algebra
-					</h1>
-				</section>
-<!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					</h2>
 						<p>
 							Cell-by-cell calculation across multiple raster datasets
 						</p>
@@ -2867,10 +3035,11 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 							</li>
 						</ul>					
 				</section>
+			<section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						Application: <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar et al. (2015)</a>
+						Application 1: <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar et al. (2015)</a>
 					</h3>
 					<p>
 						What caused the formation of the state?
@@ -2879,7 +3048,7 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						Focus on crop type (cereals vs roots/tubers)
 					</p>
 				</section>
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Theory
 					</h4>
@@ -2939,12 +3108,9 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 								New Guinea: yam/taro without state
 							</li>
 						</ul>
-						<p>
-							cf. Coltan vs gold in DR Congo (<a href="http://dx.doi.org/10.2139/ssrn.2358701" target="_blank">Sanchez de la Sierra (2014)</a>)
-						</p>
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data on cereal / tuber productivity
 					</h4>
@@ -2970,10 +3136,10 @@ arcpy.SpatialJoin_analysis(buffer, in_features, out_feature_class, "JOIN_ONE_TO_
 						</ul>
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
 						Map Algebra in action
-					</h3>
+					</h4>
 					<p>
 						1. Convert yields into calorie for 15 crops
 					</p>
@@ -2995,34 +3161,62 @@ maize_calorie.save("calorie_cereal_maize.tif")
 					</pre>
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Map Algebra in action (cont.)
 					</h4>
 					<p>
 						2. Obtain maximum for each crop type
 					</p>
-					<pre style="font-size:0.6em;">
+					<pre style="font-size:0.8em;">
 						<code data-trim data-noescape>					
 # Maximum calorie by cereal crops
-input_cereals = arcpy.ListRasters("<mark>calorie_cereal_*</mark>", "TIF")
-max_cereal = <mark>CellStatistics(</mark>input_cereals, "<mark>MAXIMUM</mark>", "DATA"<mark>)</mark>
+input_cereals = arcpy.ListRasters(
+	"<mark>calorie_cereal_*</mark>", "TIF")
+max_cereal = CellStatistics(
+	input_cereals, "MAXIMUM", "DATA")
 
 # Maximum calorie by tuber/root crops
-input_tubers = arcpy.ListRasters("<mark>calorie_tuber_*</mark>", "TIF")
-max_tuber = <mark>CellStatistics(</mark>input_tubers, "<mark>MAXIMUM</mark>", "DATA"<mark>)</mark>
+input_tubers = arcpy.ListRasters(
+	"<mark>calorie_tuber_*</mark>", "TIF")
+max_tuber = CellStatistics(
+	input_tubers, "MAXIMUM", "DATA")
 						</code>
 					</pre>
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Map Algebra in action (cont.)
+					</h4>
+					<p>
+						2. Obtain maximum for each crop type
+					</p>
+					<pre style="font-size:0.8em;">
+						<code data-trim data-noescape>					
+# Maximum calorie by cereal crops
+input_cereals = arcpy.ListRasters(
+	"calorie_cereal_*", "TIF")
+max_cereal = <mark>CellStatistics</mark>(
+	input_cereals, "<mark>MAXIMUM</mark>", "DATA")
+
+# Maximum calorie by tuber/root crops
+input_tubers = arcpy.ListRasters(
+	"calorie_tuber_*", "TIF")
+max_tuber = <mark>CellStatistics</mark>(
+	input_tubers, "<mark>MAXIMUM</mark>", "DATA")
+						</code>
+					</pre>
+				</section>
+<!-- Standard slide -->
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Map Algebra in action (cont.)
 					</h4>
 					<p>
 						3. Take difference
 					</p>
-					<pre style="font-size:0.6em;">
+					<pre style="font-size:0.8em;">
 						<code data-trim data-noescape>					
 # Cereal's caloric advantage over tubers
 <mark>caloric_diff = max_cereal - max_tuber</mark>
@@ -3033,13 +3227,58 @@ caloric_diff.save("caloric_diff.tif")
 					</pre>
 				</section>
 			</section>
-<!-- New Section -->
 			<section>
-				<section id="">
-					<h1>
-						Focal Statistics
-					</h1>
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Application 2: <a href="http://dx.doi.org/10.1162/REST_a_00161" target="_blank">Nunn & Puga (2011)</a>
+					</h3>
+					<p>
+						Terrain ruggedness $\Rightarrow$ income per capita
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Negative impact outside Africa
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Transportation cost
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="2">
+						Positive impact in Africa
+					</p>
+					<ul class="fragment" data-fragment-index="2">
+						<li>
+							Negative once slave export is controlled for
+						</li>
+					</ul>
 				</section>
+				<section id="" data-transition="slide-in slide-out" style="text-align: left">
+					<h3>
+						Terrain Ruggedness Index
+					</h3>
+					<p>
+						Originally proposed by <a href="ftp://ftp.remotesensing.org/qgis/doc/reference-docs/Terrain_Ruggedness_Index.pdf" target="_blank">Riley et al. (1999)</a>
+					</p>
+					<p>
+						Defined as:
+						\begin{align*}
+						TRI_{xy} =& \sqrt{\sum_{i=x-1}^{x+1} \sum_{j=y-1}^{y+1} (e_{ij}-e_{xy})^2}
+						\end{align*}
+					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$e_{xy}$</td>
+							<td>Elevation at longitude $x$ latitude $y$</td>
+						</tr>
+					</table>
+					<p class="fragment" data-fragment-index="1">
+						Can be obtained by <strong>Focal Statistics</strong> + Map Algebra
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						<small>Raster cell (30x30 arc-sec) level data is downloadable from <a href="http://diegopuga.org/data/rugged/#grid" target="_blank">Diego Puga's website</a></small>
+					</p>
+				</section>				
 				<section id="" data-transition="slide-in fade-out" style="text-align: left">
 					<h3>
 						Focal Statistics
@@ -3130,59 +3369,8 @@ caloric_diff.save("caloric_diff.tif")
 						Weight
 					</p>
 				</section>				
-<!-- Standard slide -->
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
-						Application: <a href="http://dx.doi.org/10.1162/REST_a_00161" target="_blank">Nunn & Puga (2011)</a>
-					</h3>
-					<p>
-						Estimate terrain ruggedness's impact on income per capita
-					</p>
-					<p>
-						Negative outside Africa
-					</p>
-					<ul>
-						<li>
-							Transportation cost
-						</li>
-					</ul>
-					<p>
-						Positive in Africa
-					</p>
-					<ul>
-						<li>
-							Negative once slave export is controlled for
-						</li>
-					</ul>
-				</section>
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
-					<h3>
-						Terrain Ruggedness Index
-					</h3>
-					<p>
-						Originally proposed by <a href="ftp://ftp.remotesensing.org/qgis/doc/reference-docs/Terrain_Ruggedness_Index.pdf" target="_blank">Riley et al. (1999)</a>
-					</p>
-					<p>
-						Defined as:
-						\begin{align*}
-						TRI_{xy} =& \sqrt{\sum_{i=x-1}^{x+1} \sum_{j=y-1}^{y+1} (e_{ij}-e_{xy})^2}
-						\end{align*}
-					</p>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$e_{xy}$</td>
-							<td>Elevation at longitude $x$ latitude $y$</td>
-						</tr>
-					</table>
-					<p class="fragment" data-fragment-index="1">
-						Can be obtained by Focal Statistics + Map Algebra
-					</p>
-					<p class="fragment" data-fragment-index="1">
-						<small>Raster cell (30x30 arc-sec) level data is downloadable from <a href="http://diegopuga.org/data/rugged/#grid" target="_blank">Diego Puga's website</a></small>
-					</p>
-				</section>				
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Terrain Ruggedness Index (cont.)
 					</h4>
@@ -3191,13 +3379,25 @@ caloric_diff.save("caloric_diff.tif")
 					</p>
 					<p>
 						\begin{align*}
+						TRI_{xy} =& \sqrt{\sum_i \sum_j (e_{ij}-e_{xy})^2} \\
+								=& \sqrt{\sum_i \sum_j (e_{ij})^2 - 2e_{xy}\sum_i\sum_j e_{ij} + 9 (e_{xy})^2}
+						\end{align*}
+					</p>
+				</section>	
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Terrain Ruggedness Index (cont.)
+					</h4>
+					<p>
+						\begin{align*}
 						TRI_{xy} =& \sqrt{\sum_i \sum_j (e_{ij})^2 - 2e_{xy}\sum_i\sum_j e_{ij} + 9 (e_{xy})^2}
 						\end{align*}
 					</p>
 					<p>
 						Map Algebra calculates $(e_{ij})^2$:
 					</p>
-					<pre style="font-size: 0.55em;">
+					<pre style="font-size: 0.7em;">
 						<code data-trim data-noescape>
 elev = Raster("srtm30.tif")
 elev_sq = elev**2
@@ -3220,7 +3420,7 @@ elev_sq = elev**2
 					<p>
 						Focal Statistics calculates $\sum_i \sum_j (e_{ij})^2$ and $\sum_i\sum_j e_{ij}$:
 					</p>
-					<pre style="font-size: 0.55em;">
+					<pre style="font-size: 0.7em;">
 						<code data-trim data-noescape>
 sum_elev_sq = FocalStatistics(elev_sq, "", "SUM", "")
 sum_elev = FocalStatistics(elev, "", "SUM", "")
@@ -3243,7 +3443,7 @@ sum_elev = FocalStatistics(elev, "", "SUM", "")
 					<p>
 						Map Algebra sums them up and takes square root:
 					</p>
-					<pre style="font-size: 0.55em;">
+					<pre style="font-size: 0.7em;">
 						<code data-trim data-noescape>
 TRI_square = sum_elev_sq - 2*elev*sum_elev + 9*elev_sq
 TRI = SquareRoot(TRI_square)
@@ -3256,7 +3456,7 @@ TRI.save("ruggedness.tif")
 			<section>
 				<section id="section5">
 					<h1>
-						5. Other geo-processing tools used by economists
+						9. Other geo-processing tools used by economists
 					</h1>
 				</section>
 				<section id="polygon_neighbors" data-transition="fade-in fade-out" style="text-align: left;">
@@ -3290,7 +3490,7 @@ TRI.save("ruggedness.tif")
 
 				<section id="what_we_learn" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/create-thiessen-polygons.htm" target="_blank">Create Thiessen Polygons</a> tool
+						Create Thiessen Polygons
 					</h3>
 					<p>
 						Divide surface by nearest point (aka Voronoi partition)
@@ -3335,51 +3535,6 @@ TRI.save("ruggedness.tif")
 					</p>
 					<img src="gis_lecture8/directional-distribution.gif" style="border:none; background:none; box-shadow:none; width:400px;">
 					
-				</section>
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>
-						<a href="http://economics.mit.edu/files/10362" target="_blank">Hariri (2015)</a>
-					</h3>
-					<p>
-						How city shapes affect population, wages, and housing rents
-					</p>
-					<ul>
-						<li>
-							Compact shapes reduce transportation cost etc.
-						</li>
-					</ul>
-					<p>
-						How can we measure city shapes?
-					</p>
-				</section>
-
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h4>
-						Hariri (2015) (cont.)
-					</h4>
-					<img src="gis_lecture8/city_shape.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
-					<p>
-						Use nighttime light image
-					</p>
-					<p>
-						Luminosity over 40 is defined as urban area
-					</p>
-					<p>
-						$\Rightarrow$ Reclassify tool (cf. <a href="http://mkudamatsu.github.io/gis_lecture6.html#/reclassify1" target="_blank">Lec 6</a>)
-					</p>
-				</section>
-
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Hariri (2015) (cont.)
-					</h4>
-					<p>
-						Then use the <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/region-group.htm" target="_blank">Region Group</a> tool, to assign unique ID to each urban area
-					</p>
-					<img src="gis_lecture8/region-group.png" style="border:none; background:none; box-shadow:none; width:500px">
-					<p>
-						For shape metrics, use <a href="https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-statistics-toolbox/an-overview-of-the-spatial-statistics-toolbox.htm" target="_blank">Spatial Statistics Toolbox</a>
-					</p>
 				</section>
 			</section>				
 			</div>
