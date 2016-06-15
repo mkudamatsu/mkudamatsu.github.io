@@ -1893,13 +1893,13 @@ arcpy.gp.Slope_sa(
 						Coordinate systems for distance
 					</p>
 					<p>
-						Buffer + Spatial Join
+						Buffer
 					</p>
 					<p>
 						Feature To Point + Near
 					</p>
 					<p>
-						Feature To Point + Generate Near Table
+						Generate Near Table
 					</p>
 				</section>
 			</section>
@@ -1945,10 +1945,10 @@ arcpy.gp.Slope_sa(
 							<li class="fragment" data-fragment-index="1">
 								$d_{ij}$: distance in km from $i$ to $j$
 							</li>
-							<li class="fragment" data-fragment-index="2">
+							<li class="fragment" data-fragment-index="1">
 								Proof: see <a href="http://mathworld.wolfram.com/GreatCircle.html" target="_blank"> Wolfram MathWorld</a>
 							</li>
-							<li class="fragment" data-fragment-index="3">
+							<li class="fragment" data-fragment-index="2">
 							Can be implemented by Stata ado <code>globdist</code> 
 							</li>
 						</ul>			
@@ -1989,7 +1989,7 @@ arcpy.gp.Slope_sa(
 					</p>
 					<ul>
 						<li>
-							Near in ArcGIS
+							Near tool in ArcGIS
 						</li>
 					</ul>
 					<p class="fragment" data-fragment-index="1">
@@ -2002,7 +2002,7 @@ arcpy.gp.Slope_sa(
 						Approach 2: UTM projections
 					</h3>
 					<p style="text-align: left;">
-						UTM stands for Universal Transverse Mercator
+						(UTM = Universal Transverse Mercator)
 					</p>
 					<p style="text-align: left;">
 						Project earth surface onto the cylinder that is tangent on <strong>standard meridian</strong>
@@ -2143,6 +2143,31 @@ arcpy.gp.Slope_sa(
 						Dell (2010): length of roads by district as intermediate outcome
 					</p>
 				</section>
+
+<!-- Standard slide -->
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Shortest path problem
+					</h3>
+					<p>Use ArcGIS tools such as:</p>
+					<ul>
+						<li>
+							<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/cost-distance.htm" target="_blank">Cost Distance</a>
+						</li>
+						<li>
+							<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/cost-path.htm" target="_blank">Cost Path</a>
+						</li>
+						<li>
+							<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/path-distance.htm" target="_blank">Path Distance</a>
+						</li>
+						<li>
+							<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/corridor.htm" target="_blank">Corridor</a>
+						</li>
+					</ul>
+					<p>
+						See <a href="http://scholar.harvard.edu/dell/classes/gis-applied-economists-lecture-notes-only" target="_blank">Melissa Dell's lecture note</a> (pp. 18-25) for detail
+					</p>
+				</section>				
 			</section>
 
 			<section>
@@ -2214,10 +2239,11 @@ import arcpy
 
 # Identify other villages within 20-mile radius
 
-in_features = "C:/input/villages.shp"
-buffer = "C:/temp/village_buffer.shp"
-out_feature_class = "C:/output/village_neighbors.shp"
+in_features = "villages.shp"
 radius = "20 miles"
+
+buffer = "village_buffer.shp"
+out_feature_class = "village_neighbors.shp"
 
 arcpy.Buffer_analysis(in_features, buffer, radius)
 arcpy.SpatialJoin_analysis(
@@ -2247,7 +2273,7 @@ arcpy.SpatialJoin_analysis(
 					<p style="text-align: left;">
 						Farmer's use of new technology $\Rightarrow$ Learning by friends?
 					</p>
-					<img src="gis_lecture_overview/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 450px; float: left;" class="fragment" data-fragment-index="1">
+					<img src="gis_lecture_overview/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 550px; float: left;" class="fragment" data-fragment-index="1">
 					<p style="text-align: left;" class="fragment" data-fragment-index="1">
 						Control for average use in neighborhood (1km radius)
 					</p>					
@@ -2386,7 +2412,7 @@ arcpy.SpatialJoin_analysis(
 							But LATE may be of more interest in this context
 						</p>
 				</section>								
-				<section id="rogall_iv" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="rogall_iv" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Application 2: 
 						<a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx0aG9yc3RlbnJvZ2FsbHxneDoyYTkzZjNkODVjMTcxYzA5" target="_blank">Rogall (2014)</a>
@@ -2487,13 +2513,13 @@ arcpy.SpatialJoin_analysis(
 						Measure population concentration around capital by:
 					</p>
 					<ul>
-						<li>
+						<li class="fragment" data-fragment-index="1">
 							Feature To Point $\Rightarrow$ County centroids
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="2">
 							Generate Near Table $\Rightarrow$ Distance from capital to county centroids
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="3">
 							In Stata, obtain the weighted sum of population w/ inverse of distance as weight
 						</li>
 					</ul>
@@ -2506,10 +2532,10 @@ arcpy.SpatialJoin_analysis(
 					<p>
 						Air pollution $\Rightarrow$ Infant mortality in California?
 					</p>					
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Data:						
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
 							Infant mortality: individual-level with zip-code of mothers' residency
 						</li>					
@@ -2517,9 +2543,6 @@ arcpy.SpatialJoin_analysis(
 							Air pollution: monitor-level (geo-referenced)
 						</li>
 					</ul>
-					<p>
-						How to construct pollution measure at zip-code level?
-					</p>
 				</section>
 				
 				<section id="map1" data-transition="fade-out fade-in">
@@ -2538,18 +2561,21 @@ arcpy.SpatialJoin_analysis(
 						Application 2: Currie & Neidell (2005) (cont.)
 					</h4>
 					<p>
+						How to construct pollution measure at zip-code level?
+					</p>
+					<p class="fragment" data-fragment-index="1">
 						Feature To Point 
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						$\Rightarrow$ Zip-code zone centroids
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Generate Near Table
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						$\Rightarrow$ Distance from zip-code centroid to each monitor
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="3">
 						Average pollution by weighting each monitor with inverse distance (within 20 miles)
 					</p>
 				</section>
@@ -2561,6 +2587,21 @@ arcpy.SpatialJoin_analysis(
 					<h1>
 						6. Spatial Regressioin Discontinuity
 					</h1>
+				</section>
+
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						What's unique about Spatial RD
+					</h3>
+					<p>
+						Forcing variable: two-dimensional vector (i.e. coordinates)
+					</p>
+					<p>
+						Cutoff: boundary lines
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						$\Rightarrow$ How should we extend the standard RD design?
+					</p>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
@@ -2688,7 +2729,7 @@ arcpy.SpatialJoin_analysis(
 				
 				<section id="ordered_list" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-						Spatial RD Design Data Generation
+						Data Generation for Spatial RD
 					</h3>
 					<p>
 						1. Attach treatment indicator to zone polygons
@@ -2955,7 +2996,7 @@ arcpy.SpatialJoin_analysis(
 				</section>
 
 <!-- Standard slide -->
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Equal Area projections
 					</h3>
@@ -2967,9 +3008,9 @@ arcpy.SpatialJoin_analysis(
 					</p>
 				</section>
 <!-- Standard slide -->
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-						ArcGIS tools to use for surface area:
+						Calculate surface area in ArcGIS
 					</h3>
 					<p>
 						<strong>Project</strong>
