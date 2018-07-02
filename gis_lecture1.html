@@ -16,7 +16,7 @@
 
 		<!-- Activate Reveal.js -->
 		<link rel="stylesheet" href="css/reveal.css">
-		
+
 		<!-- Define the theme -->
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
@@ -45,14 +45,17 @@
 
 			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
 			<div class="slides">
-				
+
 				<!-- Slide contents start here -->
-				
+
 				<!-- My own slide templates -->
 				<section id="title">
 					<h3 style="color:slategrey">
-						ArcGIS 10 for Economics Research
+						Causal Inference with Spatial Data
 					</h3>
+					<p style="color:slategrey">
+ 						(ArcGIS 10 for Economics Research)
+					</p>
 					<h3>
 						Lecture 1
 					</h3>
@@ -61,7 +64,7 @@
 					</h2>
 					<br>
 					<p>Masayuki Kudamatsu</p>
-					<p>3 May, 2016</p>
+					<p>27 August, 2018</p>
 					<br>
 					<p>
 						<small>Press SPACE to proceed. </small>
@@ -85,9 +88,9 @@
 						</p>
 						<p>
 							4. Coordinate systems
-						</p>						
+						</p>
 				</section>
-			
+
 			<!-- SECTION 1 -->
 			<section>
 				<section id="section1">
@@ -95,14 +98,14 @@
 						1. Why GIS for economics?
 					</h1>
 				</section>
-				
+
 				<section id="why_gis1" style="text-align: left;">
 					<h3>
 						Make more research questions feasible
 					</h3>
 					<p>
 						Satellite images & old maps (this lecture)
-					</p>					
+					</p>
 					<p>
 						Merge datasets by proximity (Lec 2)
 					</p>
@@ -113,23 +116,23 @@
 						Estimate the spillover effect on the control group (Lec 3)
 					</p>
 				</section>
-				
+
 				<section id="why_gis2" style="text-align: left;">
 					<h3>
 						Make identification strategy more credible
 					</h3>
 					<p>
 						Control for more covariates / fixed effects (Lec 2, 3, 5)
-					</p>					
+					</p>
 					<p>
 						Instruments (Lec 4, 6)
-					</p>					
+					</p>
 					<p>
 						RD-design (Lec 7)
-					</p>					
+					</p>
 				</section>
 			</section>
-				
+
 			<!-- SECTION 2 -->
 			<section>
 				<section id="section2">
@@ -183,17 +186,17 @@
 					<table>
 						<tr>
 							<td>
-								<img src="gis_lecture1/forest2001a.png" style="border: none; background: none; box-shadow:none;">					
+								<img src="gis_lecture1/forest2001a.png" style="border: none; background: none; box-shadow:none;">
 							</td>
 							<td>
-								<img src="gis_lecture1/forest2008a.png" style="border: none; background: none; box-shadow:none;">					
+								<img src="gis_lecture1/forest2008a.png" style="border: none; background: none; box-shadow:none;">
 							</td>
 						</tr>
 					</table>
 					<p>
 						<small>(Figure I of Burgess et al. 2012) </small>
 					</p>
-				</section>					
+				</section>
 
 				<section id="satellite1d" data-transition="slide-out fade-in" >
 					<h4>
@@ -202,19 +205,19 @@
 					<table>
 						<tr>
 							<td>
-								<img src="gis_lecture1/forest2001b.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+								<img src="gis_lecture1/forest2001b.png" style="border: none; background: none; box-shadow:none; width: 500px;">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<img src="gis_lecture1/forest2008b.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+								<img src="gis_lecture1/forest2008b.png" style="border: none; background: none; box-shadow:none; width: 500px;">
 							</td>
 						</tr>
 					</table>
 					<p>
 						<small>(Figure II of Burgess et al. 2012) </small>
 					</p>
-				</section>	
+				</section>
 
 				<section id="satellite2a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
@@ -222,7 +225,7 @@
 					</h4>
 					<h3>Nighttime light 1992</h3>
 					<p><small>(Source: <a href="http://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html" target="_blank">Version 4 DMSP-OLS Nighttime Lights Time Series</a>)</small></p>
-								<img src="gis_lecture1/lights1992.png" style="border: none; background: none; box-shadow:none; width:900px;">					
+								<img src="gis_lecture1/lights1992.png" style="border: none; background: none; box-shadow:none; width:900px;">
 				</section>
 
 				<section id="satellite2b" data-transition="fade" style="text-align: left">
@@ -231,7 +234,7 @@
 					</h4>
 					<h3>Nighttime light 2013</h3>
 					<p><small>(Source: <a href="http://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html" target="_blank">Version 4 DMSP-OLS Nighttime Lights Time Series</a>)</small></p>
-								<img src="gis_lecture1/lights2013.png" style="border: none; background: none; box-shadow:none; width:900px;">					
+								<img src="gis_lecture1/lights2013.png" style="border: none; background: none; box-shadow:none; width:900px;">
 				</section>
 
 				<section id="satellite2c" data-transition="slide-out fade-in" style="text-align: left">
@@ -243,13 +246,13 @@
 					</p>
 					<p>
 						<a href="http://dx.doi.org/10.1093/qje/qjw003" target="_blank">Pinkovskiy & Sala-i-Martin (2016)</a>: accuracy of GDP versus household surveys
-					</p> 
+					</p>
 					<p>
 					Michalopoulos & Papaioannou (<a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a>, <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>), <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al (2016)</a>: measure ethnicity-level development in Africa
-					</p> 
+					</p>
 					<p>
 					<a href="http://dx.doi.org/10.1093/qje/qju004" target="_blank">Hodler & Raschky (2014)</a>: Presidents make their home region brighter
-					</p> 
+					</p>
 					<aside class="notes">
 						<ul>
 							<li>
@@ -260,7 +263,7 @@
 					</aside>
 				</section>
 
-			
+
 				<section id="oldmap1a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Old map example #1
@@ -275,11 +278,11 @@
 					</p>
 					<ul>
 						<li>
-							For line length calculation, see Lec 6 & 7 
+							For line length calculation, see Lec 6 & 7
 						</li>
 					</ul>
 					<p>
-						See if the president's ethnic group sees more roads built than other groups						
+						See if the president's ethnic group sees more roads built than other groups
 					</p>
 				</section>
 
@@ -287,7 +290,7 @@
 					<h4>
 						Digitizing old maps
 					</h4>
-					<img src="gis_lecture1/BurgessRoads1.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<img src="gis_lecture1/BurgessRoads1.png" style="border: none; background: none; box-shadow:none; width: 700px;">
 					<p>
 						<small>(source: <a href="http://siteresources.worldbank.org/DEC/Resources/84797-1257266550602/JedwabR.pdf" target="_blank">Remi Jedwab's presentation slide</a>)</small>
 					</p>
@@ -300,7 +303,7 @@
 						</ul>
 					</aside>
 				</section>
-				
+
 				<section id="oldmap2a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Old map example #2
@@ -321,7 +324,7 @@
 					<h4>
 						Ethnic homeland & country boudaries
 					</h4>
-					<img src="gis_lecture1/ethnicboundary.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<img src="gis_lecture1/ethnicboundary.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 					<p>
 						<small>Figure II of <a href="http://dx.doi.org/10.1162/qjec.2008.123.1.139" target="_blank">Nunn (2008)</a></small>
 					</p>
@@ -334,14 +337,14 @@
 						</ul>
 					</aside>
 				</section>
-				
+
 				<section id="practical_tips" style="text-align: left;">
 					<h3>
 						Practical advice
 					</h3>
 					<p>
 						<strong>Satellite images</strong>: some are freely available but very costly (time & money) to process
-					</p>					
+					</p>
 					<ul>
 						<li>
 							See <a href="http://gisgeography.com/free-satellite-imagery-data-list/" target="_blank">"15 Free Satellite Imagery Data Sources"</a> by GIS Geography
@@ -371,27 +374,27 @@
 						$\Rightarrow$ This course helps you <strong>use</strong> these datasets
 					</p>
 				</section>
-								
+
 			</section>
-			
+
 				<section id="gis_software" style="text-align: left;">
 					<h3>
 						GIS Software
 					</h3>
 					<p>
 						<strong>ArcGIS</strong>
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Python-friendly
 						</li>
 						<li>
 							Buggy; tricky to create map images; Windows only
-						</li>						
+						</li>
 					</ul>
 					<p>
 						<strong>QGIS</strong>
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Free; easy to create map images; compatible with any OS
@@ -401,7 +404,7 @@
 						</li>
 						<li>
 							Tutorial: <a href="http://www.qgistutorials.com" target="_blank">www.qgistutorials.com</a>
-						</li>						
+						</li>
 					</ul>
 					<p class="fragment" data-fragment-index="1">
 						$\Rightarrow$ For the ease of use of Python (for replication), we will learn ArcGIS
@@ -414,12 +417,12 @@
 					</h4>
 					<p>
 						<strong>R</strong>
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Textbook: <a href="https://books.google.se/books?id=kje2ngEACAAJ" target="_blank">Brunsdon & Comber (2015)</a>
 						</li>
-						<li><a href="http://www.nickeubank.com/gis-in-r/" target="_blank">Tutorial by Nick Eubank</a></li> 						
+						<li><a href="http://www.nickeubank.com/gis-in-r/" target="_blank">Tutorial by Nick Eubank</a></li>
 					</ul>
 					<p>
 						<strong><a href="http://geopandas.org/" target="_blank">Geopandas</a></strong>
@@ -452,7 +455,7 @@
 						<li>
 							 Don't save in the remote server, which slows down ArcGIS
 						</li>
-					</ul>															
+					</ul>
 					<p>
 						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
 					</p>
@@ -460,7 +463,7 @@
 						<li>
 							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture1</code>
 						</li>
-					</ul>															
+					</ul>
 				</section>
 
 				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
@@ -474,9 +477,9 @@
 							<li>10m-rivers-lake-centerlines.zip</li>
 							<li>g2009_1990_2.zip</li>
 							<li>g2009_2008_0.zip</li>
-							<li>gl_gpwfe_pdens_05_ascii_half.zip</li>							
+							<li>gl_gpwfe_pdens_05_ascii_half.zip</li>
 							<li>Note: Windows Explorer may hide ".zip" from file names...</li>
-						</ul>						
+						</ul>
 					<p>
 						6. Create a new folder <strong>outputs</strong> inside <strong>Lecture1</strong>
 					</p>
@@ -484,7 +487,7 @@
 						<li>
 							 We will create all new files in this folder
 						</li>
-					</ul>																				
+					</ul>
 				</section>
 			</section>
 
@@ -512,10 +515,10 @@
 					</h3>
 					<p>
 						Each spatial unit in vector data is called a <strong>feature</strong>
-					</p>					
+					</p>
 					<p>
-						Three types of a feature:					
-					</p>					
+						Three types of a feature:
+					</p>
 						<ol style="margin-left: 60px;">
 							<li>Polygon</li>
 							<li>Polyline</li>
@@ -531,14 +534,14 @@
 
 				<section id="polygon" style="text-align: left;">
 					<h4>
-					Vector data #1	
+					Vector data #1
 					</h4>
 					<h3>
 						Polygon features
 					</h3>
 					<p>
 						Represent geographic zones
-					</p>					
+					</p>
 						<ul>
 							<li>Countries (Lec 4 & 5)</li>
 							<li>Sub-national districts (Lec 6)</li>
@@ -556,7 +559,7 @@
 					</h3>
 					<p>
 						Data to be read: Global Administrative Unit Layers (GAUL)
-					</p>					
+					</p>
 						<ul>
 							<li>
 								National boundaries for 2008 (g2009_2008_0/g2008_0.shp)
@@ -570,10 +573,10 @@
 					</p>
 						<ul>
 							<li>
-								Don't see Catalog Window on the right? 
+								Don't see Catalog Window on the right?
 							</li>
 							<li>
-								Don't see the data directory in Catalogue Window? 
+								Don't see the data directory in Catalogue Window?
 							</li>
 							<li>
 								See next slide...
@@ -588,7 +591,7 @@
 					</h4>
 					<p>
 						If you don't see Catalog Window...
-					</p>					
+					</p>
 					<p>
 						$\Rightarrow$ Click "<strong>Windows</strong>" in the menu bar
 					</p>
@@ -606,8 +609,8 @@
 					Exercise #1 (cont.)
 					</h4>
 					<p>
-						Ignore the alert message "Unknown Spatial Reference" for the moment, by clicking OK. 
-					</p>					
+						Ignore the alert message "Unknown Spatial Reference" for the moment, by clicking OK.
+					</p>
 					<p>
 						We'll come back to this issue later in this lecture.
 					</p>
@@ -615,14 +618,14 @@
 
 				<section id="polyline" style="text-align: left;">
 					<h4>
-					Vector data #2	
+					Vector data #2
 					</h4>
 					<h3>
 						Polyline features
 					</h3>
 					<p>
 						Represent networks / routes
-					</p>					
+					</p>
 						<ul>
 							<li>Roads (Lec 7)</li>
 							<li>Rivers (Lec 6)</li>
@@ -639,7 +642,7 @@
 					</h3>
 					<p>
 						Data to be read: Natural Earth's Rivers and Lake Centerlines data (10m_rivers_lake_centerlines.shp)
-					</p>					
+					</p>
 					<p>
 						Browse this data (cf. Exercise 1)
 					</p>
@@ -648,7 +651,7 @@
 					</p>
 						<ul>
 							<li>
-								If you don't see Table of Contents, click "Windows" in the menu bar. 
+								If you don't see Table of Contents, click "Windows" in the menu bar.
 							</li>
 						</ul>
 					<p>
@@ -662,7 +665,7 @@
 					</h4>
 					<p>
 						Change the color of rivers to blue.
-					</p>					
+					</p>
 						<ul>
 							<li>
 								Click the symbol (in this case, colored line) just below the data name in Table of Contents.
@@ -676,31 +679,31 @@
 				<section id="ex2c" data-transition="slide-out fade-in" style="text-align: left;">
 					<p>
 						If you read the river data first and then the national boundary data, the river data would be hidden below the national boundary data.
-					</p>					
+					</p>
 						<ul>
 							<li>
 								In the Table of Contents window (the one on the left), drag the river data and drop it above the national boundary data.
 							</li>
 							<li>
-								Then rivers will show up 
+								Then rivers will show up
 							</li>
 						</ul>
 					<p>
 						If you cannot drag the data in the Table of Contents window, check if the List By Drawing Order icon is selected on top left.
 					</p>
-					<img src="gis_lecture1/toc.png" style="border: none; background: none; box-shadow:none; width: 400px;">					
+					<img src="gis_lecture1/toc.png" style="border: none; background: none; box-shadow:none; width: 400px;">
 				</section>
 
 				<section id="point" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Vector data #3	
+					Vector data #3
 					</h4>
 					<h3>
 						Point features
 					</h3>
 					<p>
 						Represent point location
-					</p>					
+					</p>
 						<ul>
 							<li>Plots (Lec 3)</li>
 							<li>Schools (Lec 3)</li>
@@ -709,7 +712,7 @@
 						</ul>
 					<p>
 						Can easily be created from <strong>XY data</strong>
-					</p>					
+					</p>
 				</section>
 
 				<section id="xydata1" data-transition="fade" style="text-align: left;">
@@ -718,16 +721,16 @@
 					</h3>
 					<p>
 						Each row: point feature
-					</p>					
+					</p>
 					<p>
 						Column 1: longitude (x value)
-					</p>					
+					</p>
 					<p>
 						Column 2: latitude (y value)
-					</p>					
+					</p>
 					<p>
 						Other columns: attributes of point feature
-					</p>					
+					</p>
 						<ul>
 							<li>Locaiton name</li>
 							<li>Statistics</li>
@@ -739,7 +742,7 @@
 				<section id="xydata2" data-transition="fade" style="text-align: left;">
 					<h3>
 						How to obtain longitude & latitude?
-					</h3>					
+					</h3>
 					<p>
 						<strong>GPS receivers</strong>
 					</p>
@@ -756,7 +759,7 @@
 				<section id="xydata2b" data-transition="fade" style="text-align: left;">
 					<h3>
 						How to obtain longitude & latitude? (cont.)
-					</h3>					
+					</h3>
 					<p>
 						<strong>Online gazetteer</strong>
 					</p>
@@ -764,7 +767,7 @@
 							<li>
 								If location names are available, search at:
 							</li>
-							<ul>	
+							<ul>
 							<li>
 								<a href="http://www.geonames.org" target="_blank">Geonames</a>
 							</li>
@@ -793,17 +796,17 @@
 							</li>
 						</ul>
 				</section>
-							
+
 			<section id="xydata3" data-transition="fade-in fade-out" style="text-align: left;">
 				<h3>
 					To import XY data to ArcGIS
 				</h3>
 				<p>
 					Data format: Tab-delimited text / Excel worksheet
-				</p>					
+				</p>
 					<ul>
 						<li>
-							Comma delimited text: sometimes work, sometimes don't  
+							Comma delimited text: sometimes work, sometimes don't
 						</li>
 						<li>
 							From Stata, use the "outsheet" command
@@ -819,7 +822,7 @@
 					</ul>
 					<p>
 					<small>Code example for 10 dicimal digits for longitude/latitude</small>
-					</p>				
+					</p>
 					<pre style="font-size: 0.6em;">
 						<code data-trim data-noescape>
 format lon %15.10f
@@ -835,7 +838,7 @@ outsheet lon lat using filename.txt, replace
 				</h3>
 				<p>
 					To convert XY data into a point feature class, use:
-				</p>					
+				</p>
 					<ul>
 						<li>
 							Make XY Event Layer
@@ -857,14 +860,14 @@ outsheet lon lat using filename.txt, replace
 						Convert XY data into point features
 					</h3>
 					<p>
-						Data to be read: CEPII Distances Database (geo_cepii.xls)         
-					</p>					
+						Data to be read: CEPII Distances Database (geo_cepii.xls)
+					</p>
 					<p>
 						Browse the data in Excel
 					</p>
 						<ul>
 							<li>
-								Which columns for longitude and latitude? 
+								Which columns for longitude and latitude?
 							</li>
 						</ul>
 					<p>
@@ -893,7 +896,7 @@ outsheet lon lat using filename.txt, replace
 						</li>
 						<ul>
 							<li>
-								If you don't see Search Window, click "Windows" in the menu bar. 
+								If you don't see Search Window, click "Windows" in the menu bar.
 							</li>
 						</ul>
 						<li>
@@ -903,7 +906,7 @@ outsheet lon lat using filename.txt, replace
 							Double-click the tool to set inputs, outputs, options etc.
 						</li>
 					</ol>
-				</section>			
+				</section>
 
 				<section id="makexy1" data-transition="fade" style="text-align: left;">
 					<h4>
@@ -915,7 +918,7 @@ outsheet lon lat using filename.txt, replace
 					<p><strong>XY Table</strong>: geo_cepii.xls/geo_cepii$</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							For an Excel file, double click it to choose a worksheet inside 							
+							For an Excel file, double click it to choose a worksheet inside
 						</li>
 					</ul>
 					<p><strong>X Field</strong>: lon</p>
@@ -923,7 +926,7 @@ outsheet lon lat using filename.txt, replace
 					<p><strong>Spatial Reference</strong>: WGS 1984</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Click <img src="gis_lecture1/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;"> & 
+							Click <img src="gis_lecture1/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;"> &
 						navigate to: "Geographic Coordinate Systems > World > WGS 1984"
 						</li>
 					</ul>
@@ -945,12 +948,12 @@ outsheet lon lat using filename.txt, replace
 						</li>
 						<li>
 							Click the input field you don't understand
-						</li> 
-						<li>							
+						</li>
+						<li>
 							The help document appears on the right column.
 						</li>
 					</ol>
-				</section>			
+				</section>
 
 				<section id="makexy2" data-transition="fade" style="text-align: left;">
 					<h4>
@@ -964,7 +967,7 @@ outsheet lon lat using filename.txt, replace
 					<p>We also want to save the point feature class in the disk</p>
 					<p>$\Rightarrow$ Always use the Copy Features tool next to convert the layer into a shapefile data
 				</section>
-				
+
 				<section id="copyfeatures1" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #3 (cont.)
@@ -1001,10 +1004,10 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Some geo-processing tools overwrite the input data... 
+							Some geo-processing tools overwrite the input data...
 						</li>
 					</ul>
-				</section>						
+				</section>
 
 				<section id="modelbuilder3" data-transition="fade" style="text-align: left;">
 					<h4>
@@ -1042,7 +1045,7 @@ outsheet lon lat using filename.txt, replace
 					<p>
 						Save frequently; ArcGIS often crashes.
 					</p>
-				</section>			
+				</section>
 
 				<section id="modelbuilder4" data-transition="fade" style="text-align: left;">
 					<h4>
@@ -1059,19 +1062,19 @@ outsheet lon lat using filename.txt, replace
 							Locate the model in Catalogue Window
 						</li>
 						<ul>
-							<li>								
+							<li>
 								If you cannot see a new folder/file you just created, right-click the parent directory and "Refresh".
 							</li>
 						</ul>
 						<li>
-							Right-click the model	
+							Right-click the model
 						</li>
 						<li>
 							Click "Edit" (NOT "Open")
 						</li>
 					</ol>
-				</section>	
-				
+				</section>
+
 				<section id="ex3last" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #3 (cont.)
@@ -1083,9 +1086,9 @@ outsheet lon lat using filename.txt, replace
 						Browse the output point feature shapefile
 					</p>
 					<p>
-						Capital cities (and other major cities) around the world should appear as point features. 
+						Capital cities (and other major cities) around the world should appear as point features.
 					</p>
-				</section>	
+				</section>
 
 				<section id="attribute_table" style="text-align: left;">
 					<p>
@@ -1116,10 +1119,10 @@ outsheet lon lat using filename.txt, replace
 					</h3>
 					<p>
 						Divides the earth surface into many "square" cells (or pixels)
-					</p>					
+					</p>
 					<p>
 						Each cell contains one value
-					</p>					
+					</p>
 					<p>
 						Often created from satellite images
 					</p>
@@ -1154,7 +1157,7 @@ outsheet lon lat using filename.txt, replace
 					</h3>
 					<p>
 						Most file formats can be browsed in ArcMap
-					</p>					
+					</p>
 					<ul style="margin-left: 60px;">
 						<li>
 							TIFF (.tif)
@@ -1176,7 +1179,7 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<p>
 						For the ASCII format (.asc), you need to convert (Excercise #5 below)
-					</p>					
+					</p>
 				</section>
 
 				<section id="ex4a" data-transition="slide-in fade-out" style="text-align: left;">
@@ -1187,11 +1190,11 @@ outsheet lon lat using filename.txt, replace
 						Browse TIFF raster
 					</h3>
 					<p>
-						Data to be read: DMSP-OLS nighttime light for year 2008         
+						Data to be read: DMSP-OLS nighttime light for year 2008
 					</p>
 					<ol>
 						<li>
-						Extract F162008.v4.tar							
+						Extract F162008.v4.tar
 						</li>
 						<ul>
 							<li>
@@ -1199,14 +1202,14 @@ outsheet lon lat using filename.txt, replace
 							</li>
 						</ul>
 						<li>
-						Extract .gz files to <strong>the same folder as .tfw files are located</strong>							
+						Extract .gz files to <strong>the same folder as .tfw files are located</strong>
 						</li>
 						<ul>
 							<li>
 								The .tfw file allows ArcMap to read a TIFF image of the same file name as geo-referenced <span style="font-size: 0.75em">(see <a href="http://gis.ess.washington.edu/data/raster/drg/tfw.html" target="_blank">Greenberg 2003</a> for detail)</span>
 							</li>
 						</ul>
-					</ol>					
+					</ol>
 				</section>
 
 				<section id="ex4b" data-transition="slide-out fade-in" style="text-align: left;">
@@ -1225,7 +1228,7 @@ outsheet lon lat using filename.txt, replace
 								If yes, displaying raster data becomes faster
 							</li>
 						</ul>
-					</ol>					
+					</ol>
 				<img src="gis_lecture1/pyramids.png" style="border:none; background:none; box-shadow:none; width:600px;">
 				</section>
 
@@ -1237,29 +1240,29 @@ outsheet lon lat using filename.txt, replace
 						Browse ASCII raster
 					</h3>
 					<p>
-						Data to be read: population density in 2005 (gl_gpwfe_pdens_05_ascii_half/glds05ag30.asc)         
+						Data to be read: population density in 2005 (gl_gpwfe_pdens_05_ascii_half/glds05ag30.asc)
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
 							Source: Gridded World of the Population
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Use the <strong>ASCII to Raster</strong> tool
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-						<strong>Output raster</strong>: add ".tif" to save in the TIFF format						
+						<strong>Output raster</strong>: add ".tif" to save in the TIFF format
 						</li>
 						<li>
-						<strong>Data type</strong>: FLOAT						
+						<strong>Data type</strong>: FLOAT
 						</li>
 						<ul>
 							<li>
 								Population density can be decimal
 							</li>
 						</ul>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="ex5b" data-transition="slide-out fade-in" style="text-align: left;">
@@ -1267,7 +1270,7 @@ outsheet lon lat using filename.txt, replace
 					Exercise #5 (cont.)
 					</h4>
 					<p>
-						When you read the converted population raster data, you may get an error message saying, "Spatial reference is undefined." 
+						When you read the converted population raster data, you may get an error message saying, "Spatial reference is undefined."
 					</p>
 					<p>
 						We'll come back to this issue shortly.
@@ -1288,7 +1291,7 @@ outsheet lon lat using filename.txt, replace
 						To export raster as the ASCII format, use <strong>Raster to ASCII</strong>
 					</p>
 				</section>
-				
+
 			</section>
 			<section>
 				<section id="section4">
@@ -1301,14 +1304,14 @@ outsheet lon lat using filename.txt, replace
 					<h3>
 						What is a coordinate system?
 					</h3>
-					<p>Earth is a sphere (approximately)</p>					
+					<p>Earth is a sphere (approximately)</p>
 					<p>Various ways to <em>two-dimensionally</em> represent the earth surface </p>
 					<p>Each way corresponds to a <strong>coordinate system</strong>
 					<p style="margin-left: 30px;">
 							aka. spatial reference / map projection
-					</p>										
+					</p>
 				</section>
-				
+
 				<section id="cs2" style="text-align: left;">
 					<h3>
 						Why important?
@@ -1316,7 +1319,7 @@ outsheet lon lat using filename.txt, replace
 					<p>To merge different spatial datasets accurately</p>
 					<p style="margin-left: 30px;">
 							cf. Apple Map did this wrong when it was launched in 2012
-					</p>										
+					</p>
 					<p>To calculate distance and surface area properly</p>
 				</section>
 
@@ -1333,7 +1336,7 @@ outsheet lon lat using filename.txt, replace
 						</li>
 					</ol>
 				</section>
-				
+
 				<section id="geographc_cs1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Geographic Coordinate Systems
@@ -1343,20 +1346,20 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<p style="margin-left: 30px;">
 							e.g., Gothenburg: 57&deg42'32'' N / 11&deg58'28'' E
-					</p>										
+					</p>
 					<p>
 						Not suitable for calculating surface area
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							<span style="font-size: 1.5em">1&deg</span> in lat: <span style="font-size: 1.5em">110.6</span>km at equator / <span style="font-size: 1.5em">111.7</span>km at poles							
+							<span style="font-size: 1.5em">1&deg</span> in lat: <span style="font-size: 1.5em">110.6</span>km at equator / <span style="font-size: 1.5em">111.7</span>km at poles
 						</li>
 						<li>
-							<span style="font-size: 1.5em">1&deg</span> in lon: <span style="font-size: 1.5em">111.3</span>km at equator / <span style="font-size: 1.5em">55.8</span>km at 60&deg N/S 
+							<span style="font-size: 1.5em">1&deg</span> in lon: <span style="font-size: 1.5em">111.3</span>km at equator / <span style="font-size: 1.5em">55.8</span>km at 60&deg N/S
 						</li>
-					</ul>										
+					</ul>
 				</section>
-				
+
 				<section id="geographc_cs2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Geographic Coordinate Systems (cont.)
@@ -1366,7 +1369,7 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Use great-circle distance formula (Lec 4)						
+							Use great-circle distance formula (Lec 4)
 						</li>
 						<li>
 							Can be obtained by Stata ado <strong>globdist</strong>
@@ -1374,9 +1377,9 @@ outsheet lon lat using filename.txt, replace
 					</ul>
 					<p>
 						<strong>WGS 1984</strong>: most popular
-					</p>										
+					</p>
 				</section>
-				
+
 				<section id="projected_cs1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Projected Coordinate Systems
@@ -1384,9 +1387,9 @@ outsheet lon lat using filename.txt, replace
 					<p>
 						Earth surface is projected by the "light" from the center of the earth on <em>cylinder</em>:
 					</p>
-					<img src="gis_lecture1/cylindrical.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture1/cylindrical.png" style="border: none; background: none; box-shadow:none;">
 				</section>
-				
+
 				<section id="projected_cs2" data-transition="fade" style="text-align: left;">
 					<h3>
 						Projected Coordinate Systems
@@ -1394,9 +1397,9 @@ outsheet lon lat using filename.txt, replace
 					<p>
 						Earth surface is projected by the "light" from the center of the earth on <em>cone</em>:
 					</p>
-					<img src="gis_lecture1/conic.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture1/conic.png" style="border: none; background: none; box-shadow:none;">
 				</section>
-				
+
 				<section id="projected_cs3" data-transition="fade" style="text-align: left;">
 					<h3>
 						Projected Coordinate Systems
@@ -1404,7 +1407,7 @@ outsheet lon lat using filename.txt, replace
 					<p>
 						Earth surface is projected by the "light" from the center of the earth on <em>plane</em>:
 					</p>
-					<img src="gis_lecture1/planar.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture1/planar.png" style="border: none; background: none; box-shadow:none;">
 				</section>
 
 				<section id="projected_cs4" data-transition="slide-out fade-in" style="text-align: left;">
@@ -1420,12 +1423,12 @@ outsheet lon lat using filename.txt, replace
 					<h3>
 						Which coordinate system to use?
 					</h3>
-					<p>WGS 1984</p>					
+					<p>WGS 1984</p>
 					<ul style="margin-left: 60px;">
 						<li>
 							Distance between two locations (Lec 4)
 						</li>
-					</ul>										
+					</ul>
 					<p>UTM</p>
 					<ul style="margin-left: 60px;">
 						<li>
@@ -1442,7 +1445,7 @@ outsheet lon lat using filename.txt, replace
 						</li>
 					</ul>
 				</section>
-															
+
 				<section id="equal_area1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Equal area projections
@@ -1452,9 +1455,9 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<br>
 					<h4>Sinusoidal Projection</h4>
-					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">										
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">
 				</section>
-				
+
 				<section id="equal_area2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Equal area projections
@@ -1464,7 +1467,7 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<br>
 					<h4>Lambert Cylindrical Equal Area projection</h4>
-					<img src="gis_lecture1/lambert.jpg" style="border: none; background: none; box-shadow:none;">										
+					<img src="gis_lecture1/lambert.jpg" style="border: none; background: none; box-shadow:none;">
 				</section>
 
 				<section id="equal_area3" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1476,7 +1479,7 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<br>
 					<h4>Alberts Conic Equal Area projection</h4>
-					<img src="gis_lecture1/AlbertsConic.jpg" style="border: none; background: none; box-shadow:none;">										
+					<img src="gis_lecture1/AlbertsConic.jpg" style="border: none; background: none; box-shadow:none;">
 				</section>
 
 				<section id="cs_reference" style="text-align: left;">
@@ -1484,7 +1487,7 @@ outsheet lon lat using filename.txt, replace
 						If you want to know more:
 					</h3>
 					<p>
-						<em>Map Projections: A Working Manual</em>, by John P. Snyder (U.S. Geological Survey, 1987) <a href="http://pubs.er.usgs.gov/publication/pp1395" target="_blank">(Downloadable for free)</a> 
+						<em>Map Projections: A Working Manual</em>, by John P. Snyder (U.S. Geological Survey, 1987) <a href="http://pubs.er.usgs.gov/publication/pp1395" target="_blank">(Downloadable for free)</a>
 					</p>
 				</section>
 
@@ -1523,14 +1526,14 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Remember <a href="#/ex1b" target="_blank">the alert message "Spatial reference is undefined" in Exercise #1</a>? 
+							Remember <a href="#/ex1b" target="_blank">the alert message "Spatial reference is undefined" in Exercise #1</a>?
 						</li>
 						<li>
 							It means the coordinate system is not assigned
 						</li>
 					</ul>
 				</section>
-				
+
 				<section id="coverage_toolbox" style="text-align: left;">
 					<h4>
 						Coverage toolbox
@@ -1540,7 +1543,7 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Those tools with "(Coverage)" in the name are meant for vector data in the old format (called <strong>coverage</strong>) 
+							Those tools with "(Coverage)" in the name are meant for vector data in the old format (called <strong>coverage</strong>)
 						</li>
 						<li>
 							Many of the tools we will learn in this course have their counterpart with "(Coverage)" in the name
@@ -1550,7 +1553,7 @@ outsheet lon lat using filename.txt, replace
 						</li>
 					</ul>
 				</section>
-				
+
 
 				<section id="ex6a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1564,7 +1567,7 @@ outsheet lon lat using filename.txt, replace
 					</p>
 					<p>
 						<a href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" target="_blank">GAUL's meta data</a> says it's WGS 1984
-					</p>				
+					</p>
 				</section>
 
 				<section id="ex6b" data-transition="fade-out fade-in" style="text-align: left;">
@@ -1575,13 +1578,13 @@ outsheet lon lat using filename.txt, replace
 						Use Define Projection to assign WGS 1984 (cf. <a href="#/makexy1" target="_blank">Exercise #3</a>)
 					</p>
 					<p>
-						This geo-processing tool <em>overwrites</em> the input file. 
+						This geo-processing tool <em>overwrites</em> the input file.
 					</p>
 					<p>
 						Essential to preserve the original input files for Python programming
 					</p>
 					<p>
-						$\Rightarrow$ Use Copy Features to create a copy which will be the input for Define Projection 
+						$\Rightarrow$ Use Copy Features to create a copy which will be the input for Define Projection
 					</p>
 				</section>
 
@@ -1631,7 +1634,7 @@ outsheet lon lat using filename.txt, replace
 					<p>
 						Browse the output. Does it look like this?
 					</p>
-					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">										
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">
 				</section>
 
 				<section id="ex7c" data-transition="slide-out fade-in" style="text-align: left;">
@@ -1676,14 +1679,14 @@ outsheet lon lat using filename.txt, replace
 					</h3>
 					<ol>
 						<li>
-						Set relative paths as the default							
+						Set relative paths as the default
 						</li>
 						<ul>
 							<li>
 								In the menu bar, click Customize > ArcMap Options
 							</li>
 							<li>
-								Check "Make relative paths the defaults for new map documents" 
+								Check "Make relative paths the defaults for new map documents"
 							</li>
 						</ul>
 						<li>
@@ -1691,7 +1694,7 @@ outsheet lon lat using filename.txt, replace
 						</li>
 						<ul>
 							<li>
-								This DOES NOT save the data 
+								This DOES NOT save the data
 							</li>
 						</ul>
 						<li>
@@ -1761,9 +1764,9 @@ outsheet lon lat using filename.txt, replace
 					<h3>
 						What we've learned on ArcGIS
 					</h3>
-					<ol>	
+					<ol>
 						<li>
-							Convert data format	
+							Convert data format
 						</li>
 						<ul>
 							<li>
@@ -1822,17 +1825,17 @@ outsheet lon lat using filename.txt, replace
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
 		</div>
-		<!-- To end the activation of the CSS framework of Reveal.js -->		
+		<!-- To end the activation of the CSS framework of Reveal.js -->
 
-		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
-		
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->
+
 		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
 		<script src="lib/js/head.min.js"></script>
 		<!-- Load reveal.js -->
 		<script src="js/reveal.js"></script>
 
 		<!-- Import MathJax, to use TeX for mathematic expressions -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 		<!-- Allow inline math expressions by using $ -->
 		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
 		<script type="text/x-mathjax-config">
