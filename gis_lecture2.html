@@ -689,7 +689,7 @@
 			<section>
 				<section id="section5">
 					<h1>
-						5. Replicate Kudamatsu et al. (2012)
+						5. Replicate Alsan (2015)
 					</h1>
 				</section>
 
@@ -729,7 +729,7 @@
 					Exercise #1
 					</h4>
 					<h3>
-						Create ERA-40 grid cell polygons
+						Create 20th-century Reanalysis data grid cell polygons
 					</h3>
 					<p>
 						Geo-processing tools to be used for this exercise:
@@ -769,10 +769,10 @@
 					Exercise #1 (cont.)
 					</h4>
 					<h3>
-						ERA-40 data
+						20th-century Reanalysis data
 					</h3>
 					<p>
-						Spatial resolution: 1.25&deg x 1.25&deg
+						Spatial resolution: 2&deg x 2&deg
 					</p>
 					<p>
 						Africa: roughly spans within
@@ -782,7 +782,7 @@
 						<li>20&deg W to 60&deg E</li>
 					</ul>
 					<p>
-						$\Rightarrow$ Create square polygons whose centroid is from (-20&deg, -40&deg) to (60&deg, 40&deg) at the interval of 1.25&deg
+						$\Rightarrow$ Create square polygons whose centroid is from (-20&deg, -40&deg) to (60&deg, 40&deg) at the interval of 2&deg
 					</p>
 					<ul>
 						<li>We will see why polygons, not points</li>
@@ -797,21 +797,21 @@
 						Create Fishnet
 					</h3>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\fishnet.shp
+						<strong>Output Feature Class</strong>: <code>\Lecture2\output\fishnet.shp</code>
 					</p>
 					<ul>
 						<li>
-							Always good idea to save outputs in a different directory (Lecture2/outputs, in this case)
+							Always good idea to save outputs in a different directory (<code>Lecture2/output</code>, in this case)
 						</li>
 					</ul>
 					<p>
 						<strong>Fishnet Origin Coordinate</strong>
 					</p>
 					<p style="margin-left: 60px;">
-						<strong>X Coordinate</strong>: -20.625
+						<strong>X Coordinate</strong>: -21
 					</p>
 					<p style="margin-left: 60px;">
-						<strong>Y Coordinate</strong>: -40.625
+						<strong>Y Coordinate</strong>: -41
 					</p>
 					<p>
 						$\Rightarrow$ Bottom-left polygon's centroid will be (-20&deg, -40&deg)
@@ -825,28 +825,28 @@
 						<strong>Y-Axis Coordinate</strong>
 					</p>
 					<p style="margin-left: 60px;">
-						<strong>X Coordinate</strong>: -20.625
+						<strong>X Coordinate</strong>: -21
 					</p>
 					<p style="margin-left: 60px;">
-						<strong>Y Coordinate</strong>: -10.625 (or any value other than -40.625)
+						<strong>Y Coordinate</strong>: -10 (or any value other than -41)
 					</p>
 					<p>
 						$\Rightarrow$ Y-Axis will be perpendicular to the horizontal X-Axis
 					</p>
 					<p>
-						<strong>Number of Rows</strong>: 65
+						<strong>Number of Rows</strong>: 41
 					</p>
 					<ul>
 						<li>
-							(40-(-40))/1.25 + 1 = 65
+							(40-(-40))/2 + 1 = 41
 						</li>
 					</ul>
 					<p>
-						<strong>Number of Columns</strong>: 65
+						<strong>Number of Columns</strong>: 41
 					</p>
 					<ul>
 						<li>
-							(60-(-20))/1.25 + 1 = 65
+							(60-(-20))/2 + 1 = 41
 						</li>
 					</ul>
 				</section>
@@ -875,15 +875,15 @@
 					</ul>
 				</section>
 
-				<section id="ex1ba" style="text-align: left;">
+				<section id="ex1ba" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1: Step 2
 					</h4>
 					<p>
-						Create Fishnet does not assign any coordination system to the output file
+						The Create Fishnet tool doesn't assign any coordination system to the output file
 					</p>
 					<p>
-						DHS cluster location data uses WGS 1984
+						Ethnographic Atlas data uses geographic coordinate system
 					</p>
 					<p>
 						$\Rightarrow$ Assign WGS 1984
@@ -893,9 +893,9 @@
 					</p>
 				</section>
 
-				<section id="define_projection" style="text-align: left;">
+				<section id="define_projection" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
-					Exercise #1: Step 2
+					Exercise #1: Step 2  (cont.)
 					</h4>
 					<h3>
 						Define Projection (Data Management)
@@ -932,21 +932,21 @@
 						Browse the output.
 					</p>
 					<p>
-						Overlay African country polygons.
+						Overlay the Ethnographic Atlas data
 					</p>
 					<ul>
 						<li>
-							ntblnds_africa.shp (included in the downloaded dataset)
+							<code>.../Lecture2/input/tribemap.shp</code>
 						</li>
 					</ul>
 					<p>
-						ERA-40 cell polygons should cover the whole Africa.
+						20th Century Reanalysis data cell polygons should cover the whole mainland Africa.
 					</p>
 				</section>
 
-				<section id="ex1d" style="text-align: left;">
+				<section id="ex1d" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1: Step 3
 					</h4>
 					<p>
 						Browse the attribute table of the output (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/attribute_table" target="_blank">Lecture 1</a>)
@@ -970,14 +970,14 @@
 						To add the centroid coordinate values in attribute table
 					</p>
 					<p>
-						<strong>Input Features</strong>: fishnet.shp (2)
+						<strong>Input Features</strong>: <code>fishnet.shp (2)</code>
 					</p>
 					<ul>
 						<li>
 							This is the output from Define Projection
 						</li>
 						<li>
-							Don't choose fishnet.shp (which is the output from Create Fishnet)
+							Don't choose <code>fishnet.shp</code> (which is the output from Create Fishnet)
 						</li>
 					</ul>
 					<p>
@@ -1014,29 +1014,24 @@
 					Exercise #2
 					</h4>
 					<h3>
-						Merge DHS clusters with ERA-40 cells
+						Merge Ethnographic Atlas locations with 20th Century Reanalysis cells
 					</h3>
 					<p>
-						1. Create a point feature class of DHS cluster locations
+						1. Create a point feature class of Ethnographic Atlas locations
 					</p>
 						<ul>
 							<li>
-								We have XY data of DHS clusters (Lecture2/dhs.txt)
+								We have XY data of Ethnographic Atlas locations (<code>Lecture2/ethnographic_atlas.csv</code>)
 							</li>
-							<ul style="color:slategrey">
-								<li>
-								Due to confidentiality requirements for data use, the file drops the original cluster and survey IDs
-								</li>
-							</ul>
 							<li>
 								Which geo-processing tools should we use? (hint: <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex3a" target="_blank">Lecture 1 Exercise 3</a>)
 							</li>
 						</ul>
 					<p>
-						2. Spatially merge DHS cluster points with ERA-40 cell polygons by Spatial Join
+						2. Spatially merge Ethnographic Atlas locations with 20th Century Reanalysis cells by Spatial Join
 					</p>
 					<p>
-						We build these on the Model for Excercise 1
+						We add these processes to the Model for Excercise 1
 					</p>
 				</section>
 
@@ -1048,25 +1043,23 @@
 						Make XY Event Layer
 					</h3>
 					<p>
-						<strong>XY Table</strong>: ...\Lecture2\dhs.txt
+						<strong>XY Table</strong>: <code>...\input\tribalmap.shp</code>
+					</p>
+					<ul>
+						<li>Note this tool can be used for shapefiles</li>
+					</ul>
+					<p>
+						<strong>X Field</strong>: <code>tribelon</code>
 					</p>
 					<p>
-						<strong>X Field</strong>: longnum
+						<strong>Y Field</strong>: <code>tribelat</code>
 					</p>
-					<p>
-						<strong>Y Field</strong>: latnum
-					</p>
+					<ul>
+						<li>These two variables were most likely to be created with the Add Geometry Attributes tool (cf. <a href="#f2p">Exercise 1 Step 3</a>)</li>
+					</ul>
 					<p>
 						<strong>Spatial Reference</strong>: GCS_WGS_1984
 					</p>
-					<ul style="margin-left: 60px;">
-						<li>
-							Click <img src="gis_lecture2/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">
-						</li>
-						<li>
-							Navigate to Geographic Coordinate Systems > World > WGS 1984
-						</li>
-					</ul>
 					<p>
 						Leave the other options as they are.
 					</p>
@@ -1080,15 +1073,18 @@
 						Copy Features
 					</h3>
 					<p>
-						<strong>Input Features</strong>: dhs_Layer
+						<strong>Input Features</strong>: tribalmap_Layer
 					</p>
 					<ul>
 						<li>
-							The output from Make XY Event Layer
+							The output from Make XY Event Layer:
+						</li>
+						<li>
+							Use the drop down menu
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\dhs.shp
+						<strong>Output Feature Class</strong>: <code>...\output\ethno_centroids.shp</code>
 					</p>
 				</section>
 
@@ -1115,7 +1111,7 @@
 						Spatial Join
 					</h3>
 					<p>
-						<strong>Target Feature Class</strong>: dhs.shp
+						<strong>Target Feature Class</strong>: <code>ethno_centroids.shp</code>
 					</p>
 					<ul>
 						<li>
@@ -1123,15 +1119,15 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Join Features</strong>: era40cells.shp
+						<strong>Join Features</strong>: <code>fishnet.shp</code>
 					</p>
 					<ul>
 						<li>
-							The output from Spatial Join (in Exercise 1)
+							The output from Add Geometry Attributes (in Exercise 1)
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\dhs_era40.shp
+						<strong>Output Feature Class</strong>: <code>...\outputs\ethno_centroids_with_20cr2.shp</code>
 					</p>
 				</section>
 
@@ -1144,7 +1140,7 @@
 					</p>
 					<ul>
 						<li>
-							We match each DHS cluster with one ERA-40 cell
+							We match each ethnic group with one weather data cell
 						</li>
 					</ul>
 					<p>
@@ -1152,7 +1148,7 @@
 					</p>
 					<ul>
 						<li>
-							We want to know which DHS clusters are not matched with ERA-40 data, if any
+							We want to know which ethnic groups aren't matched with weather data, if any
 						</li>
 					</ul>
 					<p>
@@ -1163,14 +1159,14 @@
 					</p>
 					<ul>
 						<li>
-							Each DHS cluster should match with the ERA-40 cell that intersects it
+							Each ethnic group's centroid should match with the weather cell that intersects it
 						</li>
 					</ul>
 				</section>
 
 				<section id="ex2g" style="text-align: left;">
 					<h4>
-					Exercise #2 (it's over)
+					Exercise #2 (we're done!)
 					</h4>
 					<p>
 						Now <em>save and</em> run the Model.
@@ -1190,18 +1186,22 @@
 
 				<section id="why_polygon" style="text-align: left;">
 					<h3>
-					Why cell polygon for ERA-40?
+					Why cell polygons for weather data?
 					</h3>
 					<p>
-						Why don't we match DHS clusters with ERA-40 cell centroids?
-					</p>
-					<p>
-						Doing this with Spatial Join (CLOSEST as the Match Option) will take <span style="font-size: 1.5em">a lot</span> of time
+						If we match ethnic groups with weather data cell centroids...
 					</p>
 					<ul>
 						<li>
-							Each of over <span style="font-size: 1.5em">17,000</span> DHS cluster points will be matched with the nearest of over <span style="font-size: 1.5em">700</span> ERA-40 cell centroid points
+							It is feasible with Spatial Join tool (CLOSEST as the Match Option)
 						</li>
+					</ul>
+					<p>
+						... it'll take <span style="font-size: 1.5em">a lot</span> of time
+					</p>
+					<ul>
+						<li>
+							Each of over <span style="font-size: 1.5em">843</span> ethnic groups will be matched with the nearest among <span style="font-size: 1.5em">1681</span> weather data cells</li>
 					</ul>
 					<p>
 						Much quicker to match points with polygons by INTERSECT
@@ -1213,11 +1213,11 @@
 					Export to Stata
 					</h3>
 					<p>
-						Now we want to export the attribute table of dhs_era40.shp to Stata
+						Now we want to export the attribute table of <code>ethno_centroids_with_20cr2.shp</code> to Stata
 					</p>
 					<ul>
 						<li>
-							Then we can merge DHS data with ERA-40 data
+							Then we can merge Ethnographic Atlas data with 20th Century Reanalysis data
 						</li>
 					</ul>
 					<p>
@@ -1265,13 +1265,8 @@
 						Converts the attribute table into an ASCII text file
 					</p>
 					<p>
-						Then use <code>insheet</code> in Stata
+						Then use <code>import delimited</code> in Stata
 					</p>
-					<ul>
-						<li>
-							Or <code>import delimited</code> in Stata 14
-						</li>
-					</ul>
 					<p>
 						This tool will automatically add centroid coordinates to the output ASCII file
 					</p>
@@ -1292,7 +1287,7 @@
 					</p>
 				</section>
 
-				<section id="ex3a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex3a1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #3
 					</h4>
@@ -1304,21 +1299,30 @@
 					</p>
 						<ul>
 							<li>
-								<strong>Input Table</strong>: dhs_era40.shp
+								<strong>Input Table</strong> (use drop-down menu): <code>ethno_centroids_with_20cr2.shp</code>
 							</li>
 							<li>
-								<strong>Output Excel File</strong>: ...\Lecture2\outputs\dhs_era40.xls
+								<strong>Output Excel File</strong>: <code>...\output\ethno_centroids_with_20cr2.xls</code>
 							</li>
 						</ul>
+				</section>
+
+				<section id="ex3a2" data-transition="fade -in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #3
+					</h4>
+					<h3>
+						Export Attribute Table (cont.)
+					</h3>
 					<p>
 						2. Export Feature Attribute to ASCII
 					</p>
 						<ul>
 							<li>
-								<strong>Input Feature Class</strong>: dhs_era40.shp
+								<strong>Input Feature Class</strong> (use drop-down menu): <code>ethno_centroids_with_20cr2.shp</code>
 							</li>
 							<li>
-								<strong>Value Field</strong>: clusterid, POINT_X, POINT_Y
+								<strong>Value Field</strong>: NAME, TRIBE_CODE, CENTROID_X, CENTROID_Y
 							</li>
 							<li>
 								<strong>Delimiter</strong>: SPACE
@@ -1328,7 +1332,7 @@
 							Not COMMA, to avoid confusing with <a href="https://en.wikipedia.org/wiki/Decimal_mark#Countries_using_Arabic_numerals_with_decimal_comma" target="_blank">decimal mark</a>					</li>
 					</ul>
 							<li>
-								<strong>Output ASCII File</strong>: ...\Lecture2\outputs\dhs_era40.txt
+								<strong>Output ASCII File</strong>: <code>...\output\ethno_centroids_with_20cr2.txt</code>
 							</li>
 							<li>
 								Check "<strong>Add Field Name to Output</strong>"
@@ -1344,7 +1348,7 @@
 						Browse the exported tables
 					</p>
 					<p>
-						dhs_era40.csv has two additional columns
+						<code>ethno_centroids_with_20cr2.txt</code> has two additional columns
 					</p>
 						<ul>
 							<li>
@@ -1355,13 +1359,13 @@
 							</li>
 						</ul>
 					<p>
-						Export Feature Attribute to ASCII may be preferrable
+						Export Feature Attribute to ASCII is preferrable for
 						<ul>
 							<li>
-								Lets you control which fields to be exported
+								Controling which fields to be exported (ArcGIS tends to create tons of garbage fields)
 							</li>
 							<li>
-								ArcGIS tends to create tons of garbage fields
+								Dealing with 65535+ observations
 							</li>
 						</ul>
 					</p>
@@ -1375,7 +1379,7 @@
 					"Model" model for Lecture 2
 					</h3>
 					<p>
-						Look at "solutions4exercises/lec2model.tbx/exercises1-3" in the downloaded data folder for Lecture 2
+						Look at <code>lec2model.tbx/exercises1-3</code> in the downloaded data folder <code>solutions4exercises</code>
 					</p>
 				</section>
 			</section>
