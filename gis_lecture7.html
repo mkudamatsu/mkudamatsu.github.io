@@ -16,7 +16,7 @@
 
 		<!-- Activate Reveal.js -->
 		<link rel="stylesheet" href="css/reveal.css">
-		
+
 		<!-- Define the theme -->
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
@@ -45,23 +45,26 @@
 
 			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
 			<div class="slides">
-				
+
 				<!-- Slide contents start here -->
-				
+
 				<!-- My own slide templates -->
 				<section id="title">
 					<h3 style="color:slategrey">
-						ArcGIS 10 for Economics Research
+						Causal Inference with Spatial Data
 					</h3>
+					<p style="color:slategrey">
+ 						(ArcGIS 10 for Economics Research)
+					</p>
 					<h3>
 						Lecture 7
 					</h3>
 					<h2>
-						Spatial Regression Discontinuity Design
+						Spatial RD Design
 					</h2>
 					<br>
 					<p>Masayuki Kudamatsu</p>
-					<p>27 May, 2016</p>
+					<p>31 August, 2018</p>
 					<br>
 					<p>
 						<small>Press <span style="color:red;">SPACE</span> to proceed. </small>
@@ -86,15 +89,15 @@
 						<p>
 							4. Calculate 3D polyline length
 						</p>
-				</section>			
+				</section>
 
 			<section>
 				<section id="section1">
 					<h1>
-						1. Econometrics for Spatial RD Design 
+						1. Econometrics for Spatial RD Design
 					</h1>
 				</section>
-				
+
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						What's unique about Spatial RD
@@ -109,7 +112,7 @@
 						$\Rightarrow$ How should we extend the standard RD design?
 					</p>
 				</section>
-				
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3 style="text-align: left;">
 						Approach 1: Scalar RD
@@ -117,7 +120,7 @@
 					<br>
 					<p style="text-align: left;">
 						\begin{align*}
-						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i}
 						\end{align*}
 					</p>
 					<br>
@@ -129,7 +132,7 @@
 								$Dist_i < 0$ for control areas
 							</li>
 						</ul>
-				</section>				
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4 style="text-align: left;">
@@ -138,19 +141,19 @@
 					<br>
 					<p style="text-align: left;">
 						\begin{align*}
-						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i}
 						\end{align*}
 					</p>
 					<br>
 						<p style="text-align: left;">
-							Then use standard RD design	w/ <span style="color:red;">boundary segment FE</span> ($\mu_s$)				
+							Then use standard RD design	w/ <span style="color:red;">boundary segment FE</span> ($\mu_s$)
 						</p>
 						<ul style="text-align: left;">
 							<li>
 								$i$'s nearest point on boundary $\in$ Segment $s$
 							</li>
 						</ul>
-				</section>				
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" >
 					<h4 style="text-align: left;">
@@ -159,13 +162,13 @@
 					<p style="text-align: left;">
 						w/o boundary segment FE, you compare point $i$ to $k$ in diagram below
 					</p>
-					<img src="gis_lecture7/Keele-Titiunik2014f3.png" style="border: none; background: none; box-shadow:none; width: 500px">											
+					<img src="gis_lecture7/Keele-Titiunik2014f3.png" style="border: none; background: none; box-shadow:none; width: 500px">
 
 					<p>
-						<small>(Figure 3 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>					
-						
+						<small>(Figure 3 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>
+
 					</p>
-				</section>				
+				</section>
 
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
@@ -176,17 +179,17 @@
 						</p>
 						<p style="text-align: left;">
 							\begin{align*}
-							y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i} 
+							y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i}
 							\end{align*}
 						</p>
 						<br>
 						<p class="fragment" data-fragment-index="1">
 							$\Rightarrow$ Cannot estimate heterogeneous treatment effects at various boundary points
 						</p>
-						<img src="gis_lecture7/Keele-Titiunik2014f6.png" style="border: none; background: none; box-shadow:none; width: 450px" class="fragment" data-fragment-index="1">	
+						<img src="gis_lecture7/Keele-Titiunik2014f6.png" style="border: none; background: none; box-shadow:none; width: 450px" class="fragment" data-fragment-index="1">
 						<p style="text-align: right;" class="fragment" data-fragment-index="1">
 						<small>(Figure 6 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>
-						</p>										
+						</p>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
@@ -196,7 +199,7 @@
 						<br>
 						<p style="text-align: left;">
 							\begin{align*}
-							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i}
 							\end{align*}
 						</p>
 						<br>
@@ -217,7 +220,7 @@
 						<br>
 						<p style="text-align: left;">
 							\begin{align*}
-							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i}
 							\end{align*}
 						</p>
 						<br>
@@ -236,7 +239,7 @@
 						<br>
 						<p style="text-align: left;">
 							\begin{align*}
-							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i} 
+							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i}
 							\end{align*}
 						</p>
 						<br>
@@ -252,9 +255,9 @@
 						<p>
 							<small>See Chapter 2 of <a href="http://nrs.harvard.edu/urn-3:HUL.InstRepos:9368030" target="_blank">Zajonc (2012)</a> (commonly cited as Imbens and Zajonc 2011) for more detail</small>
 
-						</p> 
-				</section>				
-				
+						</p>
+				</section>
+
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						Limitations to Boundary RD
@@ -279,7 +282,7 @@
 							</li>
 						</ul>
 				</section>
-				
+
 				<section id="treatment_bundle" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
 						Treatment boundary
@@ -292,25 +295,25 @@
 							Municipalities, school districts, electoral districts, etc.
 						</li>
 					</ul>
-					<img src="gis_lecture7/Keele-Titiunik2014f5.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">											
+					<img src="gis_lecture7/Keele-Titiunik2014f5.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">
 					<p>
 						$\Rightarrow$ Focus on segments where nothing else overlaps
 					</p>
 					<p style="text-align: right;">
-						<small>(Figure 5 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>					
-						
+						<small>(Figure 5 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>
+
 					</p>
-					
+
 				</section>
 			</section>
-			
+
 			<section>
 				<section id="section2">
 					<h1>
-						2. Spatial RD Examples 
+						2. Spatial RD Examples
 					</h1>
 				</section>
-				
+
 				<section id="dell1" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						<a href="http://dx.doi.org/10.3982/ECTA8121" target="_blank">Dell (2010)</a>
@@ -354,7 +357,7 @@
 						<p>
 							1573-1812: Spanish colonial rule forced 1/7 of adult male population in parts of Peru & Bolivia to work in the Potosi silver & Huancavelica mercury mines
 						</p>
-					<img src="gis_lecture7/figure1.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">				
+					<img src="gis_lecture7/figure1.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
 						<p>
 							Communities subject to mita: clearly defined geographically
 						</p>
@@ -398,7 +401,7 @@
 							$\Rightarrow$ Allows to identify mechanisms
 						</p>
 				</section>
-				
+
 				<section id="dell4" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>Dell (2010) (cont.)
 					</h4>
@@ -412,19 +415,19 @@
 							Historically, less educated & <strong>less unequal in land holding</strong>
 						</p>
 						<p>
-							$\Rightarrow$ Against Engerman Sokoloff hypothesis (e.g. <a href="http://dx.doi.org/10.1257/jep.14.3.217" target="_blank">Sokoloff & Engerman 2000</a>) 
+							$\Rightarrow$ Against Engerman Sokoloff hypothesis (e.g. <a href="http://dx.doi.org/10.1257/jep.14.3.217" target="_blank">Sokoloff & Engerman 2000</a>)
 						</p>
 				</section>
-				
 
-				
 
-												
+
+
+
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						<a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">Michalopoulos & Papaioannou (2014)</a>
 					</h3>
-					<img src="gis_lecture7/MP2014f3d.png" style="border:none; background:none; box-shadow:none; width:350px; float: right;">				
+					<img src="gis_lecture7/MP2014f3d.png" style="border:none; background:none; box-shadow:none; width:350px; float: right;">
 						<p>
 							Ntnl govt quality $\Rightarrow$ development?
 						</p>
@@ -457,7 +460,7 @@
 						<p>
 							Focus on state borders where covariates are balanced
 						</p>
-						<img src="gis_lecture7/BFST2016f1.png" style="border:none; background:none; box-shadow:none; width:600px;">				
+						<img src="gis_lecture7/BFST2016f1.png" style="border:none; background:none; box-shadow:none; width:600px;">
 				</section>
 
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
@@ -473,7 +476,7 @@
 						<p>
 							$\Rightarrow$ Boundary RD approach: feasible
 						</p>
-						<img src="gis_lecture7/Gonzalez2015f6.png" style="border:none; background:none; box-shadow:none; width:500px;">				
+						<img src="gis_lecture7/Gonzalez2015f6.png" style="border:none; background:none; box-shadow:none; width:500px;">
 				</section>
 
 			</section>
@@ -488,7 +491,7 @@
 						1. Launch ArcMap 10 (it takes time)
 					</p>
 					<p>
-						2. <a href="https://www.dropbox.com/s/nczow48b8tdwlwd/Lecture7.zip?dl=0" target="_blank">Download the zipped dataset for Lecture 7</a> 
+						2. <a href="https://www.dropbox.com/s/nczow48b8tdwlwd/Lecture7.zip?dl=0" target="_blank">Download the zipped dataset for Lecture 7</a>
 					</p>
 					<p>
 						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
@@ -497,7 +500,7 @@
 						<li>
 							 Don't save in the remote server, which slows down ArcGIS
 						</li>
-					</ul>															
+					</ul>
 					<p>
 						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
 					</p>
@@ -505,7 +508,7 @@
 						<li>
 							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture7</code>
 						</li>
-					</ul>															
+					</ul>
 				</section>
 
 				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
@@ -536,13 +539,13 @@
 						<li>
 							 We will create all new files in this folder
 						</li>
-					</ul>															
+					</ul>
 					<p>
 						7. Prepare the Model Builder
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a>
 							</li>
 							<li>
 								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/exercises1-3</strong>" inside <strong>Lecture7</strong>
@@ -575,7 +578,7 @@
 						4. Visualize spatial RD plots
 					</p>
 				</section>
-								
+
 				<section id="ex1inputs" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1
@@ -606,14 +609,14 @@
 						</li>
 					</ul>
 				</section>
-				
+
 				<section id="ex1tools" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
 					<p>
 						Geo-processing tools to be used for this exercise:
-					</p>					
+					</p>
 					<p>
 						1. Table to Table
 					</p>
@@ -644,7 +647,7 @@
 					</h4>
 					<h3>
 						Table to Table
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Rows</strong>: districts.txt
 					</p>
@@ -655,7 +658,7 @@
 						<li>
 							Directory in which the output table is saved
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Output Table</strong>: districts.dbf
 					</p>
@@ -666,7 +669,7 @@
 						<li>
 							Can be used to keep only some rows
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Field Map</strong>: leave as it is
 					</p>
@@ -678,7 +681,7 @@
 					</h4>
 					<h3>
 						Copy Features
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: StudyDistricts.shp
 					</p>
@@ -698,7 +701,7 @@
 					</h4>
 					<h3>
 						Join Field
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Table</strong>: mita_districts.shp
 					</p>
@@ -730,11 +733,11 @@
 					</p>
 					<p>
 						Browse the attribute table of the output
-					</p>					
+					</p>
 					<p>
 						Is everything as expected?
 					</p>
-				</section>			
+				</section>
 
 				<section id="ex2tools" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -774,13 +777,13 @@
 					<p>
 						<small>(Image taken from <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/polygon-to-line.htm" target="_blank">
 ArcGIS Help on Polygon To Line</a>) </small>
-					<img src="gis_lecture7/polygon2line.png" style="border: none; background: none; box-shadow:none; width: 800px;">	
+					<img src="gis_lecture7/polygon2line.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					</p>
 					<p>
 						For treatment boundary polylines
 					</p>
 						<p>
-							$\Rightarrow$ LEFT_FID $\neq$ -1 
+							$\Rightarrow$ LEFT_FID $\neq$ -1
 						</p>
 				</section>
 
@@ -790,7 +793,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					</h4>
 					<h3>
 						Dissolve
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: mita_districts.shp (2)
 					</p>
@@ -798,7 +801,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						<li>
 							Output from Join Field
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\mita_area.shp
 					</p>
@@ -816,7 +819,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					</h4>
 					<h3>
 						Polygon To Line
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: mita_area.shp
 					</p>
@@ -824,7 +827,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						<li>
 							Output from Dissolve
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\polygon2line.shp
 					</p>
@@ -835,8 +838,8 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						<li>
 							If unchecked, each polygon becomes one polyline
 						</li>
-					</ul>					
-				</section>				
+					</ul>
+				</section>
 
 				<section id="ex2select" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
@@ -844,7 +847,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					</h4>
 					<h3>
 						Select
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: polygon2line.shp
 					</p>
@@ -861,8 +864,8 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						<li>
 							<> means not equal to
 						</li>
-					</ul>					
-				</section>								
+					</ul>
+				</section>
 
 				<section id="ex2alternative" data-transition="slide-in slide-out" style="text-align: left">
 					<h4>
@@ -932,7 +935,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h3>
 					<p>
 						Geo-processing tools:
-					</p>					
+					</p>
 					<p>
 						1. Unsplit Line
 					</p>
@@ -993,7 +996,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Unsplit Line
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: boundary.shp
 					</p>
@@ -1001,7 +1004,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							Output from Select
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\boundary_unsplit.shp
 					</p>
@@ -1013,7 +1016,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Midpoint coordinates
-					</h3>					
+					</h3>
 					<p>
 						We will add two new fields
 					</p>
@@ -1024,7 +1027,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							The other for midpoint latitude
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						$\Rightarrow$ Use Add Field + Calculate Field twice
 					</p>
@@ -1036,7 +1039,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Add Field
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Table</strong>: boundary_unsplit.shp
 					</p>
@@ -1047,7 +1050,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							Or whatever you prefer (not exceeding 10 characters)
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Field Type</strong>: DOUBLE
 					</p>
@@ -1055,7 +1058,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							We want to have the exact coordinate
 						</li>
-					</ul>						
+					</ul>
 				</section>
 
 				<section id="ex3calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
@@ -1064,7 +1067,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Calculate Field
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Table</strong>: boundary_unsplit.shp
 					</p>
@@ -1072,7 +1075,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							<span style="color:red;">Output from Add Field</a>
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Field Name</strong>: midpoint_X / midpoint_Y
 					</p>
@@ -1080,7 +1083,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							Or the same as what you specified in Add Field
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Expression</strong>: see next slide
 					</p>
@@ -1088,11 +1091,11 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<strong>Expression Type</strong>: PYTHON_9.3
 					</p>
 				</section>
-				
+
 				<section id="positionAlongLine" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						position Along Line method
-					</h3>					
+					</h3>
 					<p>
 						<code style="font-size: 0.8em">!shape!.positionAlongLine(<mark>0.5</mark>,True).firstPoint.X</code>
 					</p>
@@ -1120,7 +1123,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Make XY Event Layer
-					</h3>					
+					</h3>
 					<p>
 						<strong>XY Table</strong>: boundary_unsplit.shp (5)
 					</p>
@@ -1128,7 +1131,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							Output from Calculate Field (2)
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>X Field</strong>: midpoint_X
 					</p>
@@ -1142,7 +1145,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							Make sure using the same coordinate system as boundary polylines
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="ex3copy1" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1151,7 +1154,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Copy Features
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: output from Make XY Event Layer
 					</p>
@@ -1159,14 +1162,14 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\midpoints.shp
 					</p>
 				</section>
-				
+
 				<section id="ex3split_line" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #3: Step 4
 					</h4>
 					<h3>
 						Split Line at Point
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: boundary_unsplit.shp (5)
 					</p>
@@ -1177,7 +1180,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							Output from Copy Features (2)
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\boundary_segments.shp
 					</p>
@@ -1189,7 +1192,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Copy Features
-					</h3>					
+					</h3>
 					<ul>
 						<li>
 							To avoid overwriting the original file by Near tool
@@ -1214,7 +1217,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</h4>
 					<h3>
 						Near
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: district_capitals_near.shp
 					</p>
@@ -1228,7 +1231,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							We don't need this, but can be used for error checking
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Method</strong>: PLANAR
 					</p>
@@ -1236,7 +1239,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<li>
 							We are using UTM projection, not WGS 1984
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="ex3final" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1247,11 +1250,11 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output attribute table. 
+						Browse the output attribute table.
 					</p>
 					<p>
 						NEAR_FID: Nearest boundary segment ID
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Same as FID in boundary_segments.shp
@@ -1260,7 +1263,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					<p>
 						NEAR_DIST: Distance to boundary
 					</p>
-				</section>			
+				</section>
 
 				<section id="ex3extra" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
@@ -1272,9 +1275,9 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					<p>
 						$\Rightarrow$ NEAR_FID indicates nearest boundary points, to create neighborhood fixed effects
 					</p>
-				</section>			
-				
-				
+				</section>
+
+
 				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 					"Model" model for Excercises 1-3
@@ -1283,7 +1286,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						Look at "Lecture7\lec7models.tbx\exercises1-3"
 					</p>
 				</section>
-				
+
 				<section id="visualization1" data-transition="slide-in fade-out" >
 					<h4 style="text-align: left">
 						Extra
@@ -1323,7 +1326,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						3. ras2dta.ado, to read in Stata (cf. <a href="http://www.stata-journal.com/sjpdf.html?articlenum=dm0014" target="_blank">Muller 2005</a>)
 					</p>
 				</section>
-				<section id="visualization3" data-transition="fade-out fade-in" style="text-align: left">				
+				<section id="visualization3" data-transition="fade-out fade-in" style="text-align: left">
 					<h4>
 						Spatial RD Visualization (cont.)
 					</h4>
@@ -1353,7 +1356,7 @@ ras2dta, files("raster.asc")
 use "h_raster.dta", clear;
 local xllcorner = hdr[6]; /* Longitude of the bottom left corner */
 local yllcorner = hdr[8]; /* Latitude of the bottom left corner */
-local cellsize = hdr[10]; /* Cell width/height in decimal */ 
+local cellsize = hdr[10]; /* Cell width/height in decimal */
 
 /* Recover the geographic coordinates */
 use "raster.dta", clear;
@@ -1362,9 +1365,9 @@ gen double lon = `xllcorner' + (xcoord - 1)/`inv_cellsize';
 gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						</code>
 					</pre>
-					
+
 				</section>
-				<section id="visualization4" data-transition="fade-in slide-out" style="text-align: left">				
+				<section id="visualization4" data-transition="fade-in slide-out" style="text-align: left">
 					<h4>
 						Spatial RD Visualization (cont.)
 					</h4>
@@ -1375,7 +1378,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						6. Export this value as raster in ASCII format by dta2ras (part of the ras2dta.ado package)
 					</p>
 					<p>
-						7. ASCII To Raster, to convert it into TIFF raster (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex5a" target="_blank">Lec 1 Ex 5</a>) 
+						7. ASCII To Raster, to convert it into TIFF raster (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex5a" target="_blank">Lec 1 Ex 5</a>)
 					</p>
 					<p>
 						8. Read it in ArcMap and choose nice color gradation
@@ -1397,14 +1400,14 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</h3>
 					<p>
 						Peru is a hilly country
-					</p>					
+					</p>
 					<p>
 						$\Rightarrow$ Ignoring elevation can be misleading
 					</p>
 					<p>
-						$\Rightarrow$ Use the <strong>Add Surface Information</strong> tool 
+						$\Rightarrow$ Use the <strong>Add Surface Information</strong> tool
 					</p>
-				</section>		
+				</section>
 
 				<section id="add_surface_info" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -1425,9 +1428,9 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						</li>
 					</ul>
 					<p>
-						For more detail, see <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/3d-analyst-toolbox/add-surface-information.htm" target="_blank">ArcGIS Help</a> 
+						For more detail, see <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/3d-analyst-toolbox/add-surface-information.htm" target="_blank">ArcGIS Help</a>
 					</p>
-				</section>		
+				</section>
 
 				<section id="extension" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
@@ -1435,7 +1438,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</h4>
 					<p>
 						Tool is part of <strong>3D Analyst</strong> extension
-					</p>					
+					</p>
 					<p>
 						Click "Tool > Extensions" to activate the extension in ArcMap
 					</p>
@@ -1444,9 +1447,9 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</p>
 					<p style="text-align: center;">
 						<code>arcpy.CheckOutExtension("3D")</code>
-					</p>					
-				</section>		
-												
+					</p>
+				</section>
+
 				<section id="ex4tools" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #4
@@ -1473,7 +1476,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 							Coordinate system: WGS 1984
 						</li>
 					</ul>
-				</section>		
+				</section>
 
 				<section id="ex4tools" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
@@ -1481,7 +1484,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</h4>
 					<p>
 						Geo-processing tools:
-					</p>					
+					</p>
 					<p>
 						1. Select
 					</p>
@@ -1509,12 +1512,12 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p>
 						4. Add Surface Information
 					</p>
-				</section>			
+				</section>
 
 				<section id="road_data" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Codebook for road data
-					</h3>					
+					</h3>
 					<p style="font-size:0.5em;">
 						(according to <code>maketable8.do</code> in the replication files)
 					</p>
@@ -1558,16 +1561,16 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<h4>
 						Dell (2010) Table VIII
 					</h4>
-					<img src="gis_lecture7/Dell2010T8.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<img src="gis_lecture7/Dell2010T8.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 				</section>
-				
+
 				<section id="ex4select1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #4: Step 1
 					</h4>
 					<h3>
 						Select
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: roads_prj
 					</p>
@@ -1575,7 +1578,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<strong>Output Feature Class</strong>: ...\Lecture7\outputs\roads_paved.shp
 					</p>
 					<p>
-						<strong>Expression</strong>: 
+						<strong>Expression</strong>:
 					</p>
 					<p>
 						"RUTA" = 'Departamental' AND ("SUPERFICIE" = 1 OR "SUPERFICIE" =2)
@@ -1611,14 +1614,14 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</p>
 					<p></p>
 				</section>
-				
+
 				<section id="ex4intersect" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #4: Step 2
 					</h4>
 					<h3>
 						Intersect
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: StudyDistricts, roads_paved.shp
 					</p>
@@ -1628,7 +1631,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p>
 						<strong>Output Type</strong>: INPUT
 					</p>
-				</section>				
+				</section>
 
 				<section id="ex4dissolve" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
@@ -1636,7 +1639,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</h4>
 					<h3>
 						Dissolve
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: intersect_paved.shp
 					</p>
@@ -1649,7 +1652,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p>
 						Check "<strong>multipart features</strong>"
 					</p>
-				</section>				
+				</section>
 
 				<section id="raster_projection" data-transition="fade-out slide-in" style="text-align: left">
 					<h3>
@@ -1664,13 +1667,13 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<table>
 						<tr>
 							<td>
-								<img src="gis_lecture7/raster_wgs.png" style="border: none; background: none; box-shadow:none; width:300px;">					
+								<img src="gis_lecture7/raster_wgs.png" style="border: none; background: none; box-shadow:none; width:300px;">
 							</td>
 							<td>
 								$\Rightarrow$
 							</td>
 							<td>
-								<img src="gis_lecture7/raster_utm.png" style="border: none; background: none; box-shadow:none; width:300px;">					
+								<img src="gis_lecture7/raster_utm.png" style="border: none; background: none; box-shadow:none; width:300px;">
 							</td>
 						</tr>
 						<tr>
@@ -1689,7 +1692,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p style="text-align: right;">
 						<small>(<a href="http://cartographicperspectives.org/index.php/journal/article/view/cp71-finn-et-al/130" target="_blank">image source</a>) </small>
 					</p>
-					
+
 				</section>
 
 				<section id="ex4project_raster" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1698,7 +1701,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</h4>
 					<h3>
 						Project Raster
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Raster</strong>: \data4exercises\W100S10.DEM
 					</p>
@@ -1715,7 +1718,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<li>
 							NEAREST or MAJORITY: for categorical raster
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Output Cell Size</strong>: 1000 for X / 1000 for Y
 					</p>
@@ -1726,17 +1729,17 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<li>
 							Default value can also be used
 						</li>
-					</ul>					
+					</ul>
 				</section>
-				
-								
+
+
 				<section id="ex4addsurface" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #4: Step 4
 					</h4>
 					<h3>
 						Add Surface Information
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Feature Class</strong>: district_roads_paved.shp
 					</p>
@@ -1744,7 +1747,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<li>
 							Output from Dissolve
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Input Surface</strong>: elevation_prj.tif
 					</p>
@@ -1752,7 +1755,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<strong>Output Property</strong>: SURFACE_LENGTH
 					</p>
 					<p>
-						NOTE: This tool overwrites the input data. 
+						NOTE: This tool overwrites the input data.
 					</p>
 				</section>
 
@@ -1762,7 +1765,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</h4>
 					<h3>
 						Table To Excel
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Table</strong>: district_roads_paved.shp (2)
 					</p>
@@ -1770,11 +1773,11 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<li>
 							Output from Add Surface Information
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Output Excel File</strong>: ...\Lecture7\outputs\district_roads_paved.xls
 					</p>
-				</section>								
+				</section>
 
 				<section id="script_example" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
@@ -1811,7 +1814,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 							</code>
 						</li>
 					</ul>
-					
+
 				</section>
 				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
@@ -1827,7 +1830,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p>
 						To be uploaded...
 					</p>
-				</section>	
+				</section>
 			</section>
 
 
@@ -1841,7 +1844,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						</li>
 						<li>
 							Obtain treatment boundary polylines
-						</li>	
+						</li>
 						<li>
 							Obtain polyline midpoints
 						</li>
@@ -1867,17 +1870,17 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
 		</div>
-		<!-- To end the activation of the CSS framework of Reveal.js -->		
+		<!-- To end the activation of the CSS framework of Reveal.js -->
 
-		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
-		
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->
+
 		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
 		<script src="lib/js/head.min.js"></script>
 		<!-- Load reveal.js -->
 		<script src="js/reveal.js"></script>
 
 		<!-- Import MathJax, to use TeX for mathematic expressions -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 		<!-- Allow inline math expressions by using $ -->
 		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
 		<script type="text/x-mathjax-config">

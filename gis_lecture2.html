@@ -16,7 +16,7 @@
 
 		<!-- Activate Reveal.js -->
 		<link rel="stylesheet" href="css/reveal.css">
-		
+
 		<!-- Define the theme -->
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
@@ -45,14 +45,17 @@
 
 			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
 			<div class="slides">
-				
+
 				<!-- Slide contents start here -->
-				
+
 				<!-- My own slide templates -->
 				<section id="title">
 					<h3 style="color:slategrey">
-						ArcGIS 10 for Economics Research
+						Causal Inference with Spatial Data
 					</h3>
+					<p style="color:slategrey">
+ 						(ArcGIS 10 for Economics Research)
+					</p>
 					<h3>
 						Lecture 2
 					</h3>
@@ -61,7 +64,7 @@
 					</h2>
 					<br>
 					<p>Masayuki Kudamatsu</p>
-					<p>6 May, 2016</p>
+					<p>28 August, 2018</p>
 					<br>
 					<p>
 						<small>Press SPACE to proceed. </small>
@@ -137,8 +140,8 @@
 						</p>
 						<p>
 							6. Introduction to Python for ArcGIS
-						</p>						
-				</section>			
+						</p>
+				</section>
 
 			<!-- SECTION 1 -->
 			<section>
@@ -147,12 +150,12 @@
 						1. <a href="http://dx.doi.org/10.1093/qje/120.3.1003" target="_blank">Currie & Neidell (2005)</a>
 					</h1>
 				</section>
-				
+
 				<section id="rq1" style="text-align: left;">
 					<h3>Research Question</h3>
 					<p>
 						Does air pollution cause infant mortality?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -180,17 +183,17 @@
 						<li>
 							Weekly data at individal level
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
 				</section>
-				
+
 				<section id="data1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						Infant mortality: individual-level with zip-code of mothers' residency
-					</p>					
+					</p>
 					<p>
 						Air pollution: monitor-level (geo-referenced)
 					</p>
@@ -206,11 +209,11 @@
 							<li>
 							Centroids: we will learn later
 							</li>
-							<li>								
+							<li>
 							20-mile radius: Lecture 3
 							</li>
 							<li>
-							Spatial Join: match the radius with monitors 
+							Spatial Join: match the radius with monitors
 							</li>
 						</ul>
 					<p>
@@ -227,7 +230,7 @@
 					<h4>
 						Monitor locations & zip-code polygons
 					</h4>
-					<img src="gis_lecture2/zipcodes.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<img src="gis_lecture2/zipcodes.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 					<p>
 						<small>(taken from <a href="http://dx.doi.org/10.1016/j.jhealeco.2004.05.002" target="_blank">Neidell 2004</a>)</small>
 					</p>
@@ -240,8 +243,8 @@
 					<p>
 						<!-- Case by Case -->
 						\begin{align*}
-						P_{izt} = 
-						  \boldsymbol{x}'_{zt}\boldsymbol{\beta} + \boldsymbol{z}'_i\boldsymbol{\gamma} + \boldsymbol{w}'_{zt}\boldsymbol{\delta} + \psi_{zt} + Y_{zt} + \alpha(t) + \varepsilon_{izt} 
+						P_{izt} =
+						  \boldsymbol{x}'_{zt}\boldsymbol{\beta} + \boldsymbol{z}'_i\boldsymbol{\gamma} + \boldsymbol{w}'_{zt}\boldsymbol{\delta} + \psi_{zt} + Y_{zt} + \alpha(t) + \varepsilon_{izt}
 						\end{align*}
 					</p>
 					<table border="0" width="100%">
@@ -280,35 +283,35 @@
 					<h4>
 						Main results
 					</h4>
-					<img src="gis_lecture2/table3a.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<img src="gis_lecture2/table3a.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(Table III of Currie & Neidell 2005)</small>
 					</p>
 				</section>
 
 				<section id="result1b"  data-transition="slide-out fade-in">
-					<img src="gis_lecture2/table3b.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<img src="gis_lecture2/table3b.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(Table III of Currie & Neidell 2005)</small>
 					</p>
 				</section>
-			
+
 			</section>
-				
+
 			<!-- SECTION 2 -->
 			<section>
 				<section id="section2">
 					<h1>
 						2. <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>
 					</h1>
-					<img src="gis_lecture2/Tsetsefly.jpg" style="border: none; background: none; box-shadow:none; width: 400px;">					
+					<img src="gis_lecture2/Tsetsefly.jpg" style="border: none; background: none; box-shadow:none; width: 400px;">
 				</section>
 
 				<section id="rq2" style="text-align: left;">
 					<h3>Research Question</h3>
 					<p>
 						Did Tsetse flies cause Africa's underdevelopment?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -330,7 +333,7 @@
 						<li>
 							Find Tsetse flies prevented political centralization
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
@@ -340,12 +343,12 @@
 					<h3>Data</h3>
 					<p>
 						Ethnographic Atlas + <a href="http://mkudamatsu.github.io/gis_lecture1.html#/oldmap2b" target="_blank">Murdock (1959)'s map</a>
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Pre-colonial data on use of domesticated animals, presence of intensive agriculture, political centralization
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Weather in 1871 from the 20th century reanalysis at 2&degx2&deg resolution
 					</p>
@@ -353,7 +356,7 @@
 						<li>
 							Average daily mean temperature / humidity: fed into a model to predict Tsetse fly survival
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Ethnic homeland polygons matched with weather grid points? (no description in the text)
 					</p>
@@ -366,8 +369,8 @@
 					<p>
 						<!-- Case by Case -->
 						\begin{align*}
-						Y_j = 
-						  \alpha + \delta TSI_j + \boldsymbol{X}'_{j}\boldsymbol{\omega} + \varepsilon_{j} 
+						Y_j =
+						  \alpha + \delta TSI_j + \boldsymbol{X}'_{j}\boldsymbol{\omega} + \varepsilon_{j}
 						\end{align*}
 					</p>
 					<table border="0" width="100%">
@@ -384,17 +387,17 @@
 							<td>Controls (incl.\ temperature, humidity in 1871)</td>
 						</tr>
 					</table>
-				</section>	
-				
+				</section>
+
 				<section id="result2" >
 					<h4>
 						Main Results
 					</h4>
 					<p>
-					<img src="gis_lecture2/alsan_table1.png" style="border: none; background: none; box-shadow:none; width: 750px;">					
+					<img src="gis_lecture2/alsan_table1.png" style="border: none; background: none; box-shadow:none; width: 750px;">
 						<small>(Table 1 of Alsan 2015)</small>
 					</p>
-				</section>	
+				</section>
 
 			</section>
 
@@ -411,7 +414,7 @@
 					<h3>Research Question</h3>
 					<p>
 						Did European colonization harm economic development of islands?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -433,17 +436,17 @@
 						<li>
 							Exploit randomness of colonization: wind
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
 				</section>
-				
+
 				<section id="data3a"  data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						<a href="http://islands.unep.ch/isldir.htm" target="_blank">UNEP Island Directory</a>
-					</p>					
+					</p>
 					<ul>
 						<li>
 							GDP per capita, infant mortality
@@ -451,7 +454,7 @@
 						<li>
 							Geographic coordinate
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Year of colonization (collected by authors)
 					</p>
@@ -467,7 +470,7 @@
 					<h4>
 						Wind data for August 2001
 					</h4>
-					<img src="gis_lecture2/cersat2001aug.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<img src="gis_lecture2/cersat2001aug.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(source: <a href="http://cersat.ifremer.fr/" target="_blank">CERSAT website</a>)</small>
 					</p>
@@ -500,30 +503,30 @@
 					<p>
 						Instruments for $c_i$: mean & s.d. of east-west wind speed
 					</p>
-				</section>	
-							
+				</section>
+
 				<section id="result3_1" data-transition="slide-in fade-out">
 					<h4>
 						First-stage Results
 					</h4>
-					<img src="gis_lecture2/FS2009a.png" style="border: none; background: none; box-shadow:none; width: 450px;">					
+					<img src="gis_lecture2/FS2009a.png" style="border: none; background: none; box-shadow:none; width: 450px;">
 					<p>
 						<small>(Table A.1 of Feyrer & Sacerdote 2009)</small>
 					</p>
-				</section>	
+				</section>
 
 				<section id="result3_2" data-transition="slide-out fade-in">
 					<h4>
 						Second-stage Results
 					</h4>
-					<img src="gis_lecture2/FS2009T2.png" style="border: none; background: none; box-shadow:none; width: 450px;">					
+					<img src="gis_lecture2/FS2009T2.png" style="border: none; background: none; box-shadow:none; width: 450px;">
 					<p>
 						<small>(Table 2 of Feyrer & Sacerdote 2009)</small>
 					</p>
-				</section>	
+				</section>
 
 			</section>
-			
+
 			<section>
 				<section id="section4">
 					<h1>
@@ -535,7 +538,7 @@
 					<h3>Research Question</h3>
 					<p>
 						How do annual weather fluctuations kill infants in Africa?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -557,22 +560,22 @@
 						<li>
 							RCTs on combatting infant death: no statistical power to detect impact
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
-				</section>	
+				</section>
 
 				<section id="data4a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						Infant mortality: Demographic and Health Surveys (DHS)
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Surveyed clusters (villages & town districts): geo-referenced by GPS receiver
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Weather 1957-2002: ERA-40 reanalysis at 1.25&deg x 1.25&deg
 					</p>
@@ -583,7 +586,7 @@
 						<li>
 							Total rainfall during growing season
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Clusters: matched with 1.25&deg x 1.25&deg cell polygons
 					</p>
@@ -593,12 +596,12 @@
 					<h4>
 						DHS clusters & ERA-40 cells
 					</h4>
-					<img src="gis_lecture2/KPS2012f1.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+					<img src="gis_lecture2/KPS2012f1.png" style="border: none; background: none; box-shadow:none; width: 500px;">
 					<p>
 						<small>(source: Figure 1 of Kudamatsu et al. 2012)</small>
 					</p>
 				</section>
-			
+
 				<section id="equation4" style="text-align: left">
 					<h3>
 						Empirical specification
@@ -606,7 +609,7 @@
 					<p>
 						<!-- Case by Case -->
 						\begin{align*}
-						y_{i,c,s,y} * 1000 = 
+						y_{i,c,s,y} * 1000 =
 						& \ \boldsymbol{M}'_{g,s,y}\boldsymbol{\alpha} + \boldsymbol{R}'_{g,s,y}\boldsymbol{\beta}  \\
 						& + \boldsymbol{W}'_{g,s,y}\boldsymbol{\gamma} + \mu_{c,s} + \eta_{x,y} + \delta^g T_{s,y} + \varepsilon_{i,c,s,y}
 						\end{align*}
@@ -642,12 +645,12 @@
 						</tr>
 					</table>
 				</section>
-					
+
 				<section id="results4a" data-transition="slide-in fade-out">
 					<h4>
 						Results on malarious weather
 					</h4>
-					<img src="gis_lecture2/KPS2012t3.png" style="border: none; background: none; box-shadow:none; width: 900px;">					
+					<img src="gis_lecture2/KPS2012t3.png" style="border: none; background: none; box-shadow:none; width: 900px;">
 					<p>
 						<small>(source: Table 3 of Kudamatsu et al. 2012)</small>
 					</p>
@@ -657,12 +660,12 @@
 					<h4>
 						Results on growing-season rainfall
 					</h4>
-					<img src="gis_lecture2/KPS2012t6.png" style="border: none; background: none; box-shadow:none; width: 900px;">					
+					<img src="gis_lecture2/KPS2012t6.png" style="border: none; background: none; box-shadow:none; width: 900px;">
 					<p>
 						<small>(source: Table 6 of Kudamatsu et al. 2012)</small>
 					</p>
 				</section>
-							
+
 			</section>
 
 				<section id="preparation1" style="text-align: left;">
@@ -681,7 +684,7 @@
 						</li>
 					</ol>
 				</section>
-				
+
 			<section>
 				<section id="section5">
 					<h1>
@@ -706,10 +709,10 @@
 					</h3>
 					<p>
 						In some datasets (weather data in particular), the unit of observations is a grid point (latitude and longitude at equal intervals).
-					</p>					
+					</p>
 					<p>
 						Examples other than what we have already seen:
-					</p>					
+					</p>
 						<ul style="margin-left: 60px;">
 							<li>WorldClim (<a href="http://dx.doi.org/10.1257/aer.99.2.198" target="_blank">Dell, Jones, & Olken 2009</a>)</li>
 							<li>GCPC (<a href="http://www.jstor.org/stable/10.1086/421174" target="_blank">Miguel et al. 2004</a>)</li>
@@ -717,7 +720,7 @@
 						</ul>
 					<p>
 						A graticule shapefile allows you to spatially merge such data with other data
-					</p>					
+					</p>
 				</section>
 
 				<section id="ex1a" style="text-align: left;">
@@ -729,7 +732,7 @@
 					</h3>
 					<p>
 						Geo-processing tools to be used for this exercise:
-					</p>					
+					</p>
 						<ol>
 							<li>
 								Create Fishnet
@@ -748,11 +751,11 @@
 							</li>
 						</ol>
 					<p>
-						As in Lecture 1, we use these tools in Model Builder.	
+						As in Lecture 1, we use these tools in Model Builder.
 					</p>
 						<ol>
 							<li>
-								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a>
 							</li>
 							<li>
 								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "lecture2.tbx/exercise1" in "Lecture 2"
@@ -766,7 +769,7 @@
 					</h4>
 					<h3>
 						ERA-40 data
-					</h3>					
+					</h3>
 					<p>
 						Spatial resolution: 1.25&deg x 1.25&deg
 					</p>
@@ -791,7 +794,7 @@
 					</h4>
 					<h3>
 						Create Fishnet
-					</h3>					
+					</h3>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\fishnet.shp
 					</p>
@@ -799,7 +802,7 @@
 						<li>
 							Always good idea to save outputs in a different directory (Lecture2/outputs, in this case)
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Fishnet Origin Coordinate</strong>
 					</p>
@@ -816,7 +819,7 @@
 				<section id="fishnet2" data-transition="fade" style="text-align: left;">
 					<h3>
 						Create Fishnet (cont.)
-					</h3>					
+					</h3>
 					<p>
 						<strong>Y-Axis Coordinate</strong>
 					</p>
@@ -836,7 +839,7 @@
 						<li>
 							(40-(-40))/1.25 + 1 = 65
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Number of Columns</strong>: 65
 					</p>
@@ -844,12 +847,12 @@
 						<li>
 							(60-(-20))/1.25 + 1 = 65
 						</li>
-					</ul>										
+					</ul>
 				</section>
 				<section id="fishnet3" data-transition="slide-out fade-in" style="text-align: left;">
 					<h3>
 						Create Fishnet (cont.)
-					</h3>					
+					</h3>
 					<p>
 						Uncheck "<strong>Create Label Points</strong>"
 					</p>
@@ -860,7 +863,7 @@
 						<li>
 							Model Builder will still show label points as an output from Create Fishnet. This is a bug.
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Geometry Type</strong>: POLYGON
 					</p>
@@ -868,7 +871,7 @@
 						<li>
 							By default, this option is set as POLYLINE. Make sure to change it.
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="ex1ba" style="text-align: left;">
@@ -877,7 +880,7 @@
 					</h4>
 					<p>
 						Create Fishnet does not assign any coordination system to the output file
-					</p>					
+					</p>
 					<p>
 						DHS cluster location data uses WGS 1984
 					</p>
@@ -888,7 +891,7 @@
 						How? We already learned this in <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex6a" target="_blank">Lecture 1 Exercise 6</a>.
 					</p>
 				</section>
-				
+
 				<section id="define_projection" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 2
@@ -903,18 +906,18 @@
 						<li>
 							Use the drop down menu to choose the output from Create Fishnet
 						</li>
-					</ul>										
+					</ul>
 					<p>
 						<strong>Coordinate System</strong>: GCS_WGS_1984
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Click <img src="gis_lecture2/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">						
+							Click <img src="gis_lecture2/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">
 						</li>
 						<li>
 							Navigate to Geographic Coordinate Systems > World > WGS 1984
 						</li>
-					</ul>										
+					</ul>
 				</section>
 
 				<section id="ex1c" style="text-align: left;">
@@ -925,19 +928,19 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output. 
+						Browse the output.
 					</p>
 					<p>
 						Overlay African country polygons.
-					</p>					
+					</p>
 					<ul>
 						<li>
 							ntblnds_africa.shp (included in the downloaded dataset)
 						</li>
-					</ul>		
+					</ul>
 					<p>
 						ERA-40 cell polygons should cover the whole Africa.
-					</p>								
+					</p>
 				</section>
 
 				<section id="ex1d" style="text-align: left;">
@@ -954,7 +957,7 @@
 						$\Rightarrow$ Next three geo-processing tools will add them to the attribute table
 					</p>
 				</section>
-				
+
 				<section id="f2p" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 3
@@ -967,7 +970,7 @@
 					</p>
 					<p>
 						<strong>Input Features</strong>: fishnet.shp (2)
-					</p>					
+					</p>
 					<ul>
 						<li>
 							This is the output from Define Projection
@@ -975,10 +978,10 @@
 						<li>
 							Don't choose fishnet.shp (which is the output from Create Fishnet)
 						</li>
-					</ul>		
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\centroids.shp
-					</p>					
+					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
 					</p>
@@ -986,7 +989,7 @@
 						<li>
 							This option doesn't work properly
 						</li>
-					</ul>										
+					</ul>
 				</section>
 
 				<section id="ex1db" style="text-align: left;">
@@ -997,7 +1000,7 @@
 						Feature To Point doesn't add coordinates to the attribute table of the output. So...
 					</p>
 				</section>
-				
+
 
 				<section id="addxy" style="text-align: left;">
 					<h4>
@@ -1008,7 +1011,7 @@
 					</h3>
 					<p>
 						Add input point features's coordinates to the attribute table
-					</p>					
+					</p>
 					<p>
 						<strong>Input Features</strong>: centroids.shp
 					</p>
@@ -1016,15 +1019,15 @@
 						<li>
 							The output from Feature To Point
 						</li>
-					</ul>										
+					</ul>
 					<p>
-						NOTE: This tool overwrites the input data. 
+						NOTE: This tool overwrites the input data.
 					</p>
 					<ul>
 						<li>
 							If the input file needs to be preserved, use Copy Features first (as in <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex6a" target="_blank">Lecture 1 Exercise 6</a>).
 						</li>
-					</ul>										
+					</ul>
 				</section>
 
 				<section id="ex1e" style="text-align: left;">
@@ -1032,7 +1035,7 @@
 					Exercise #1 (cont.)
 					</h4>
 					<p>
-						Now <em>save and</em> run the Model. 
+						Now <em>save and</em> run the Model.
 					</p>
 					<p>
 						Browse the output and its attribute table.
@@ -1068,7 +1071,7 @@
 						<li>
 							The output from Define Projection
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Join Features</strong>: centroids.shp (2)
 					</p>
@@ -1076,7 +1079,7 @@
 						<li>
 							The output from Add XY Coordinates
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\era40cells.shp
 					</p>
@@ -1093,7 +1096,7 @@
 						<li>
 							We match each cell polygon with one centroid point
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Check "<strong>Keep All Target Features</strong>"
 					</p>
@@ -1101,7 +1104,7 @@
 						<li>
 							If unchecked, those not matched will be dropped
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Field Map of Join Features</strong>: leave as it is
 					</p>
@@ -1109,7 +1112,7 @@
 						<li>
 							We will learn about this option in Lecture 3
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Match Option</strong>: INTERSECT
 					</p>
@@ -1117,14 +1120,14 @@
 						<li>
 							Each cell polygon should match with the centroid that intersects it
 						</li>
-					</ul>					
+					</ul>
 				</section>
 				<section id="ex1g" style="text-align: left;">
 					<h4>
 					Exercise #1 (it's over, finally)
 					</h4>
 					<p>
-						Now <em>save and</em> run the Model. 
+						Now <em>save and</em> run the Model.
 					</p>
 					<p>
 						Browse the output and its attribute table.
@@ -1143,7 +1146,7 @@
 					</h3>
 					<p>
 						1. Create a point feature class of DHS cluster locations
-					</p>					
+					</p>
 						<ul>
 							<li>
 								We have XY data of DHS clusters (Lecture2/dhs.txt)
@@ -1186,12 +1189,12 @@
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Click <img src="gis_lecture2/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">						
+							Click <img src="gis_lecture2/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">
 						</li>
 						<li>
 							Navigate to Geographic Coordinate Systems > World > WGS 1984
 						</li>
-					</ul>										
+					</ul>
 					<p>
 						Leave the other options as they are.
 					</p>
@@ -1211,7 +1214,7 @@
 						<li>
 							The output from Make XY Event Layer
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\dhs.shp
 					</p>
@@ -1222,7 +1225,7 @@
 					Exercise #2 (cont.)
 					</h4>
 					<p>
-						Now <em>save and</em> run the Model. 
+						Now <em>save and</em> run the Model.
 					</p>
 					<p>
 						Browse the output and its attribute table.
@@ -1246,7 +1249,7 @@
 						<li>
 							The output from Copy Features
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Join Features</strong>: era40cells.shp
 					</p>
@@ -1254,7 +1257,7 @@
 						<li>
 							The output from Spatial Join (in Exercise 1)
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\dhs_era40.shp
 					</p>
@@ -1271,7 +1274,7 @@
 						<li>
 							We match each DHS cluster with one ERA-40 cell
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Check "<strong>Keep All Target Features</strong>"
 					</p>
@@ -1279,7 +1282,7 @@
 						<li>
 							We want to know which DHS clusters are not matched with ERA-40 data, if any
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Field Map of Join Features</strong>: leave as it is
 					</p>
@@ -1290,7 +1293,7 @@
 						<li>
 							Each DHS cluster should match with the ERA-40 cell that intersects it
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="ex2g" style="text-align: left;">
@@ -1298,13 +1301,13 @@
 					Exercise #2 (it's over)
 					</h4>
 					<p>
-						Now <em>save and</em> run the Model. 
+						Now <em>save and</em> run the Model.
 					</p>
 					<ul>
 						<li>
 							I deliberately repeat this slide so you will form the habit of saving the Model before running it.
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Browse the output and its attribute table.
 					</p>
@@ -1322,12 +1325,12 @@
 					</p>
 					<p>
 						Doing this with Spatial Join (CLOSEST as the Match Option) will take <span style="font-size: 1.5em">a lot</span> of time
-					</p>					
+					</p>
 					<ul>
 						<li>
 							Each of over <span style="font-size: 1.5em">17,000</span> DHS cluster points will be matched with the nearest of over <span style="font-size: 1.5em">700</span> ERA-40 cell centroid points
 						</li>
-					</ul>										
+					</ul>
 					<p>
 						Much quicker to match points with polygons by INTERSECT
 					</p>
@@ -1344,7 +1347,7 @@
 						<li>
 							Then we can merge DHS data with ERA-40 data
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						3 ways to export the attribute table to the format readable by Stata
 					</p>
@@ -1358,7 +1361,7 @@
 						<li>
 							shp2dta (a STATA ado)
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="export1" data-transition="fade-in fade-out" style="text-align: left;">
@@ -1377,7 +1380,7 @@
 					<p>
 						But Excel cannot handle more than 65535 rows...
 					</p>
-				</section>																				
+				</section>
 
 				<section id="export2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
@@ -1396,12 +1399,12 @@
 						<li>
 							Or <code>import delimited</code> in Stata 14
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						This tool will automatically add centroid coordinates to the output ASCII file
 					</p>
-				</section>		
-				
+				</section>
+
 				<section id="export3" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Export to Stata (cont.)
@@ -1415,7 +1418,7 @@
 					<p>
 						But it works <em>only with polygons</em>
 					</p>
-				</section>		
+				</section>
 
 				<section id="ex3a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1426,7 +1429,7 @@
 					</h3>
 					<p>
 						1. Table To Excel
-					</p>					
+					</p>
 						<ul>
 							<li>
 								<strong>Input Table</strong>: dhs_era40.shp
@@ -1451,13 +1454,13 @@
 					<ul>
 						<li>
 							Not COMMA, to avoid confusing with <a href="https://en.wikipedia.org/wiki/Decimal_mark#Countries_using_Arabic_numerals_with_decimal_comma" target="_blank">decimal mark</a>					</li>
-					</ul>	
+					</ul>
 							<li>
 								<strong>Output ASCII File</strong>: ...\Lecture2\outputs\dhs_era40.txt
 							</li>
 							<li>
 								Check "<strong>Add Field Name to Output</strong>"
-							</li>							
+							</li>
 						</ul>
 				</section>
 
@@ -1467,7 +1470,7 @@
 					</h4>
 					<p>
 						Browse the exported tables
-					</p>					
+					</p>
 					<p>
 						dhs_era40.csv has two additional columns
 					</p>
@@ -1493,7 +1496,7 @@
 					<p>
 						But Table To Excel is simpler to execute
 					</p>
-				</section>				
+				</section>
 
 				<section id="model_model" style="text-align: left;">
 					<h3>
@@ -1502,7 +1505,7 @@
 					<p>
 						Look at "solutions4exercises/lec2model.tbx/exercises1-3" in the downloaded data folder for Lecture 2
 					</p>
-				</section>	
+				</section>
 			</section>
 
 			<section>
@@ -1516,7 +1519,7 @@
 					<h3>
 						Why Python?
 					</h3>
-					<p>Essential for replication</p>					
+					<p>Essential for replication</p>
 					<p>Convenient to repeat the same geo-processing</p>
 					<ul>
 						<li>
@@ -1528,9 +1531,9 @@
 						<li>
 							Within a script by using a loop (L3, L6, L8)
 						</li>
-					</ul>										
+					</ul>
 				</section>
-				
+
 				<section id="how_python" style="text-align: left;">
 					<h3>
 						How to write a Python script for ArcGIS?
@@ -1554,7 +1557,7 @@
 						<li>
 							If the model was saved before and is not opened yet
 						</li>
-					</ul>										
+					</ul>
 					<p>
 						2. Click in the menu bar "Model > Export > To Python Script"
 					</p>
@@ -1562,7 +1565,7 @@
 						3. Save as ***.py
 					</p>
 				</section>
-				
+
 				<section id="editors" style="text-align: left;">
 					<h3>
 						How to edit Python scripts
@@ -1575,7 +1578,7 @@
 					</p>
 					<p>
 						To run the script, IDEL is the most straightforward (press F5)
-					</p>									
+					</p>
 				</section>
 
 				<section id="ex5" style="text-align: left;">
@@ -1594,7 +1597,7 @@
 					<p>
 						3. Click "File > Open" to read a script
 					</p>
-				</section>				
+				</section>
 
 				<section id="template1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
@@ -1613,12 +1616,12 @@
 						<li>
 							Also avoid error making
 						</li>
-					</ul>															
+					</ul>
 					<p>
-						For this lecture, I prepare the template (Lecture2/template4L2.py) for you 
-					</p>										
+						For this lecture, I prepare the template (Lecture2/template4L2.py) for you
+					</p>
 				</section>
-				
+
 				<section id="template2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						How to edit Python scripts (cont.)
@@ -1636,9 +1639,9 @@
 						<li>
 							"<a href="http://gisgeography.com/free-gis-programming-tutorials/" target="_blank">Free GIS Programming Tutorials: Learn How to Code</a>" by GIS Geography (for other tutorials)
 						</li>
-					</ul>															
+					</ul>
 				</section>
-				
+
 				<section id="python_essentials" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
@@ -1659,7 +1662,7 @@
 						5. Comments
 					</p>
 				</section>
-				
+
 				<section id="object1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.1</h4>
 					<h3>
@@ -1673,7 +1676,7 @@
 						<li>
 							<code>arcpy</code> is an object containing all the ArcGIS geoprocessing tools
 						</li>
-					</ul>															
+					</ul>
 					<p>
 						The <code>import</code> command reads this object (i.e. launch ArcGIS)
 					</p>
@@ -1691,12 +1694,12 @@
 						<li>
 							<code>arcpy.env</code> is an object contained in <code>arcpy</code>
 						</li>
-					</ul>															
+					</ul>
 					<p>
 						Two types of commands in an object: <strong>property</strong> and <strong>method</strong>
 					</p>
 				</section>
-								
+
 				<section id="property" data-transition="fade" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.2</h4>
 					<h3>
@@ -1707,11 +1710,11 @@
 					</p>
 					<p>
 						To assign a new value of the property, type:
-					</p>														
+					</p>
 					<p style="text-align: center;">
 						<code>object.property = value</code>
 					</p>
-					<img src="gis_lecture2/properties.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">					
+					<img src="gis_lecture2/properties.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">
 					<ul>
 						<li>
 							<code>overwriteOutput</code>: whether the overwriting of output files is allowed
@@ -1719,14 +1722,14 @@
 						<li>
 							<code>workspace</code>: working directory name
 						</li>
-					</ul>	
+					</ul>
 				</section>
 
 				<section id="overwrite" data-transition="fade" style="text-align: left;">
 					<h4>Overwriting output files</h4>
 					<p>
 						By default, overwriting the output file is not allowed.
-					</p>														
+					</p>
 					<ul>
 						<li>
 							Run a script. Browse the output. You're not satisfied. Revise the script. Run the script again.
@@ -1743,19 +1746,19 @@
 					</p>
 					<p>
 						allows you to overwrite output files.
-					</p>														
+					</p>
 					<ul>
 						<li>
 							Python is case-sensitive
 						</li>
-					</ul>	
+					</ul>
 				</section>
-				
+
 				<section id="directory_name" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>Directory Name in Python</h4>
 					<p>
 						Never use \
-					</p>														
+					</p>
 					<ul>
 						<li>
 							In Python, \ is used for line continuation
@@ -1763,7 +1766,7 @@
 						<li>
 							In Windows, \ is used for directory path
 						</li>
-					</ul>	
+					</ul>
 					<p>
 						Use / or \\
 					</p>
@@ -1771,9 +1774,9 @@
 						<li>
 							The script exported from Model Builder uses \\
 						</li>
-					</ul>	
+					</ul>
 				</section>
-				
+
 				<section id="method" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.3</h4>
 					<h3>
@@ -1784,7 +1787,7 @@
 					</p>
 					<p>
 						To use a method, type:
-					</p>														
+					</p>
 					<p style="text-align: center;">
 						<code>object.method(arg1, arg2, ...)</code>
 					</p>
@@ -1795,7 +1798,7 @@
 
 				<section id="exported_script" data-transition="fade" style="text-align: left;">
 					<h4>Exported Python script</h4>
-					<img src="gis_lecture2/methods.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">					
+					<img src="gis_lecture2/methods.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">
 				</section>
 
 				<section id="why_model_builder" data-transition="fade" style="text-align: left;">
@@ -1825,7 +1828,7 @@
 						<li>
 							There's a built-in help, too, but the web version is more often updated
 						</li>
-					</ul>	
+					</ul>
 				</section>
 
 				<section id="try-except1" data-transition="fade-out slide-in" style="text-align: left;">
@@ -1838,15 +1841,15 @@
 					</p>
 					<p>
 						Try-except statement is essential to know what the error is about
-					</p>														
+					</p>
 				</section>
-				
+
 				<section id="try-except2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Try-Except statement (cont.)
 					</h3>
 					<p>
-						Python first attempts to execute <em>indented</em> commands below <code>try:</code>				
+						Python first attempts to execute <em>indented</em> commands below <code>try:</code>
 					<p>
 						If there is no error:
 					</p>
@@ -1854,7 +1857,7 @@
 						Pythoh skip all the indented commands after <code>except:</code>
 					</p>
 					<p>
-						If there is an error: 
+						If there is an error:
 					</p>
 					<p style="margin-left: 30px;">
 						Python execute the indented commands below <code>except:</code>
@@ -1887,8 +1890,8 @@
 						<li>
 							Best avoid using the tab key to indent commands
 						</li>
-					</ul>				
-				</section>				
+					</ul>
+				</section>
 
 				<section id="ex6b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
@@ -1935,14 +1938,14 @@ try:
 
 # Return geoprocessing specific errors
 except arcpy.ExecuteError:
-    print arcpy.GetMessages()							
+    print arcpy.GetMessages()
 
 # Return any other type of error
 						</code>
 					</pre>
 				</section>
-				
-															
+
+
 				<section id="strings1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #3</h4>
 					<h3>
@@ -1961,7 +1964,7 @@ except arcpy.ExecuteError:
 						<li>
 							Then you just need to change one line in the script where the input file name is defined
 						</li>
-					</ul>						
+					</ul>
 				</section>
 
 				<section id="strings2" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1978,8 +1981,8 @@ except arcpy.ExecuteError:
 						<li>
 							Don't forget to enclose the file name with double quotation marks
 						</li>
-					</ul>						
-					
+					</ul>
+
 				</section>
 
 				<section id="ex7a" data-transition="fade-out slide-in" style="text-align: left;">
@@ -2004,8 +2007,8 @@ except arcpy.ExecuteError:
 					<p>
 						5. Delete the directory path for outputs and intermediates
 					</p>
-					
-				</section>		
+
+				</section>
 
 				<section id="ex7b" data-transition="fade" style="text-align: left;">
 					<h4>
@@ -2021,7 +2024,7 @@ except arcpy.ExecuteError:
 						This happens when we use overwriting geoprocessing tools (Define Projection, Add XY Coordinates)
 					</p>
 					<p>
-						It's confusing. So: 
+						It's confusing. So:
 					</p>
 					<p>
 						6. Use "Edit > Replace" to replace:
@@ -2033,7 +2036,7 @@ except arcpy.ExecuteError:
 						<li>
 							 <code>centroids_shp__2_</code> with <code>centroids_shp</code>
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						7. Delete the duplicated lines
 					</p>
@@ -2048,7 +2051,7 @@ except arcpy.ExecuteError:
 import arcpy
 
 ### Set environment ###
-# Allow the overwriting of the output files 
+# Allow the overwriting of the output files
 arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
 # Set the working directory.
 arcpy.env.workspace = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs" # NEVER USE single backslash (\).
@@ -2068,11 +2071,11 @@ dhs_era40_csv = "dhs_era40.csv"
 
 ############################## Geoprocessing ##########################
 try:
-    # Process: Create Fishnet							
+    # Process: Create Fishnet
 						</code>
 					</pre>
 				</section>
-				
+
 				<section id="print1"  style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #4</h4>
 					<h3>
@@ -2100,9 +2103,9 @@ try:
 					<p style="text-align: center;">
 						<code>print arcpy.GetMessages()</code>
 					</p>
-					</ul>						
+					</ul>
 				</section>
-				
+
 				<section id="ex8a" data-transition="fade-out slide-in" style="text-align: left;">
 					<h4>
 					Exercise #8
@@ -2116,7 +2119,7 @@ try:
 					<p>
 						Also add the print commands at the beginning of the script
 					</p>
-				</section>	
+				</section>
 
 
 				<section id="ex8b"  data-transition="fade" style="text-align: left;">
@@ -2131,7 +2134,7 @@ print "Launch ArcGIS"
 import arcpy
 
 ### Set environment ###
-# Allow the overwriting of the output files 
+# Allow the overwriting of the output files
 print "Enable the overwriting"
 arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
 # Set the working directory.
@@ -2152,7 +2155,7 @@ dhs_shp = "dhs.shp"
 era40cells_shp = "era40cells.shp"
 dhs_era40_shp = "dhs_era40.shp"
 dhs_era40_xls = "dhs_era40.xls"
-dhs_era40_csv = "dhs_era40.csv"							
+dhs_era40_csv = "dhs_era40.csv"
 						</code>
 					</pre>
 				</section>
@@ -2204,7 +2207,7 @@ try:
     print "Export CSV file"
     arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
 
-# Return geoprocessing specific errors							
+# Return geoprocessing specific errors
 						</code>
 					</pre>
 				</section>
@@ -2219,7 +2222,7 @@ try:
 						To insert comments, type <code>#</code> at the beginning of a comment
 					</p>
 					<p>
-						Useful for others to understand (and for you to remember) what each command does 
+						Useful for others to understand (and for you to remember) what each command does
 					</p>
 					<p>
 						Also useful if you want to skip some commands for the time being
@@ -2249,14 +2252,14 @@ try:
 						<li>
 							You want to show the error message
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						2. Click "Format > Comment Out Region"
 					</p>
 					<p>
 						$\Rightarrow$ <code>##</code> will appear at the beginning of selected commands
 					</p>
-				</section>	
+				</section>
 
 				<section id="ex9b" data-transition="fade" style="text-align: left;">
 					<h4>
@@ -2343,7 +2346,7 @@ except arcpy.ExecuteError:
 					<p>
 						9. Check if everything is as expected
 					</p>
-				</section>	
+				</section>
 
 				<section id="ex9e" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
@@ -2358,7 +2361,7 @@ except arcpy.ExecuteError:
 					<p>
 						Before you run the Python script, close all the output files in ArcMap
 					</p>
-				</section>	
+				</section>
 
 				<section id="error_handling" style="text-align: left;">
 					<h4>
@@ -2386,11 +2389,11 @@ except arcpy.ExecuteError:
 						<li>
 							And ArcGIS experts may have answered the question
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						Last resort: ask at <a href="http://stackexchange.com/" target="_blank">Stack Exchange</a> or <a href="http://forums.arcgis.com" target="_blank">ArcGIS Forum</a>.
 					</p>
-				</section>	
+				</section>
 
 				<section id="model_script" style="text-align: left;">
 					<h3>
@@ -2399,14 +2402,14 @@ except arcpy.ExecuteError:
 					<p>
 						Look at "solutions4exercises/lec2script.py" in the downloaded data folder for Lecture 2
 					</p>
-				</section>	
+				</section>
 			</section>
 
 				<section id="lessons" style="text-align: left;">
 					<h3>
 						What we've learned on ArcGIS
 					</h3>
-					<ol>	
+					<ol>
 						<li>
 							Create a graticule shapefile
 						</li>
@@ -2423,17 +2426,17 @@ except arcpy.ExecuteError:
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
 		</div>
-		<!-- To end the activation of the CSS framework of Reveal.js -->		
+		<!-- To end the activation of the CSS framework of Reveal.js -->
 
-		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
-		
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->
+
 		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
 		<script src="lib/js/head.min.js"></script>
 		<!-- Load reveal.js -->
 		<script src="js/reveal.js"></script>
 
 		<!-- Import MathJax, to use TeX for mathematic expressions -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 		<!-- Allow inline math expressions by using $ -->
 		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
 		<script type="text/x-mathjax-config">
