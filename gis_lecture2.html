@@ -78,7 +78,7 @@
 						What is Spatial Join?
 					</h3>
 						<p>
-							Match <strong>features</strong> from two vector datasets by proximity
+							Match <strong>features</strong> from two vector datasets by location
 						</p>
 						<p>
 							Examples:
@@ -91,10 +91,10 @@
 								Ethnic homelands + Weather data grid points
 							</li>
 							<li>
-								Islands + Wind data grid cells
+								Islands + Wind data grid points
 							</li>
 							<li>
-								Surveyed villages + Weather data grid cells
+								Surveyed villages + Weather data grid points
 							</li>
 						</ul>
 				</section>
@@ -104,7 +104,7 @@
 						Benefits of Spatial Join
 					</h3>
 						<p>
-							Make more research design feasible
+							More feasible research design
 						</p>
 						<ul>
 							<li>
@@ -115,7 +115,7 @@
 							</li>
 						</ul>
 						<p>
-							Geographic zone fixed effects at very disaggregated level
+							Control for location fixed effects at very disaggregated level
 						</p>
 				</section>
 
@@ -198,7 +198,18 @@
 						Air pollution: monitor-level (geo-referenced)
 					</p>
 				</section>
-				<section id="data1b" data-transition="fade-out fade-in" style="text-align: left;">
+
+				<section id="map1" data-transition="fade-out fade-in">
+					<h4>
+						Monitor locations & zip-code polygons
+					</h4>
+					<img src="gis_lecture2/zipcodes.png" style="border: none; background: none; box-shadow:none; width: 600px;">
+					<p>
+						<small>(taken from <a href="http://dx.doi.org/10.1016/j.jhealeco.2004.05.002" target="_blank">Neidell 2004</a>)</small>
+					</p>
+				</section>
+
+				<section id="data1b" data-transition="slide-out fade-in" style="text-align: left;">
 					<p>
 						Zip-code level pollution is obtained by:
 					</p>
@@ -224,16 +235,6 @@
 								Distance between points: Lecture 4
 							</li>
 						</ul>
-				</section>
-
-				<section id="map1" data-transition="slide-out fade-in">
-					<h4>
-						Monitor locations & zip-code polygons
-					</h4>
-					<img src="gis_lecture2/zipcodes.png" style="border: none; background: none; box-shadow:none; width: 600px;">
-					<p>
-						<small>(taken from <a href="http://dx.doi.org/10.1016/j.jhealeco.2004.05.002" target="_blank">Neidell 2004</a>)</small>
-					</p>
 				</section>
 
 				<section id="equation1" style="text-align: left">
