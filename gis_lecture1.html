@@ -842,14 +842,11 @@
 					To import XY data to ArcGIS
 				</h3>
 				<p>
-					Data format: Tab-delimited text / Excel worksheet
+					Data format: Comma-delimited text (csv) / Excel worksheet
 				</p>
 					<ul>
 						<li>
-							Comma delimited text: sometimes work, sometimes don't
-						</li>
-						<li>
-							From Stata, use the "outsheet" command
+							From Stata, use <code>export delimited</code> (<a href="https://www.stata.com/manuals13/dimportdelimited.pdf">Stata help</a>)
 						</li>
 						<ul>
 							<li>
@@ -867,7 +864,7 @@
 						<code data-trim data-noescape>
 format lon %15.10f
 format lat %14.10f
-outsheet lon lat using filename.txt, replace
+export delimited lon lat using filename.csv, replace
 						</code>
 					</pre>
 			</section>
