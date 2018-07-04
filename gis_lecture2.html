@@ -955,19 +955,19 @@
 						We don't see centroid coordinates...
 					</p>
 					<p>
-						$\Rightarrow$ Next three geo-processing tools will add them to the attribute table
+						$\Rightarrow$ Use the Add Geometry Attributes tool
 					</p>
 				</section>
 
-				<section id="f2p" style="text-align: left;">
+				<section id="f2p" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #1: Step 3
+					Exercise #1: Step 3 (cont.)
 					</h4>
 					<h3>
-						Feature To Point
+						Add Geometry Attributes
 					</h3>
 					<p>
-						Creates a point feature class of centroids of the input polygon (or polyline) features
+						To add the centroid coordinate values in attribute table
 					</p>
 					<p>
 						<strong>Input Features</strong>: fishnet.shp (2)
@@ -981,54 +981,16 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\centroids.shp
-					</p>
-					<p>
-						Uncheck "<strong>Inside</strong>"
+						<strong>Geometry Properties</strong>: check CENTROID
 					</p>
 					<ul>
 						<li>
-							This option doesn't work properly
-						</li>
-					</ul>
-				</section>
-
-				<section id="ex1db" style="text-align: left;">
-					<h4>
-					Exercise #1 (cont.)
-					</h4>
-					<p>
-						Feature To Point doesn't add coordinates to the attribute table of the output. So...
-					</p>
-				</section>
-
-
-				<section id="addxy" style="text-align: left;">
-					<h4>
-					Exercise #1: Step 4
-					</h4>
-					<h3>
-						Add XY Coordinates (Data Management)
-					</h3>
-					<p>
-						Add input point features's coordinates to the attribute table
-					</p>
-					<p>
-						<strong>Input Features</strong>: centroids.shp
-					</p>
-					<ul>
-						<li>
-							The output from Feature To Point
+							The CENTROID_INSIDE is for hollow polygons
 						</li>
 					</ul>
 					<p>
-						NOTE: This tool overwrites the input data.
+						Note: this tool overwrites the input file
 					</p>
-					<ul>
-						<li>
-							If the input file needs to be preserved, use Copy Features first (as in <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex6a" target="_blank">Lecture 1 Exercise 6</a>).
-						</li>
-					</ul>
 				</section>
 
 				<section id="ex1e" style="text-align: left;">
@@ -1046,97 +1008,6 @@
 					</p>
 				</section>
 
-				<section id="ex1f" style="text-align: left;">
-					<h4>
-					Exercise #1 (cont.)
-					</h4>
-					<p>
-						Now attach these centroid coordinates to the original polygon features
-					</p>
-					<p>
-						Spatial Join does this.
-					</p>
-				</section>
-
-				<section id="spatial_join1" data-transition="slide-in fade-out" style="text-align: left;">
-					<h4>
-					Exercise #1: Step 5
-					</h4>
-					<h3>
-						Spatial Join
-					</h3>
-					<p>
-						<strong>Target Feature Class</strong>: fishnet.shp (2)
-					</p>
-					<ul>
-						<li>
-							The output from Define Projection
-						</li>
-					</ul>
-					<p>
-						<strong>Join Features</strong>: centroids.shp (2)
-					</p>
-					<ul>
-						<li>
-							The output from Add XY Coordinates
-						</li>
-					</ul>
-					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture2\outputs\era40cells.shp
-					</p>
-				</section>
-
-				<section id="spatial_join2" data-transition="slide-out fade-in" style="text-align: left;">
-					<h3>
-						Spatial Join (cont.)
-					</h3>
-					<p>
-						<strong>Join Operation</strong>: JOIN_ONE_TO_ONE
-					</p>
-					<ul>
-						<li>
-							We match each cell polygon with one centroid point
-						</li>
-					</ul>
-					<p>
-						Check "<strong>Keep All Target Features</strong>"
-					</p>
-					<ul>
-						<li>
-							If unchecked, those not matched will be dropped
-						</li>
-					</ul>
-					<p>
-						<strong>Field Map of Join Features</strong>: leave as it is
-					</p>
-					<ul>
-						<li>
-							We will learn about this option in Lecture 3
-						</li>
-					</ul>
-					<p>
-						<strong>Match Option</strong>: INTERSECT
-					</p>
-					<ul>
-						<li>
-							Each cell polygon should match with the centroid that intersects it
-						</li>
-					</ul>
-				</section>
-				<section id="ex1g" style="text-align: left;">
-					<h4>
-					Exercise #1 (it's over, finally)
-					</h4>
-					<p>
-						Now <em>save and</em> run the Model.
-					</p>
-					<p>
-						Browse the output and its attribute table.
-					</p>
-					<p>
-						Is everything as expected?
-					</p>
-				</section>
 
 				<section id="ex2a" style="text-align: left;">
 					<h4>
