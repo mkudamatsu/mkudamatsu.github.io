@@ -1731,7 +1731,7 @@ export delimited lon lat using filename.csv, replace
 						Saves the way you overlay / color-code / symbolize different spatial datasets
 					</p>
 					<p>
-						File extension: .mxd
+						File extension: <code>.mxd</code>
 					</p>
 					<p>
 						DOES NOT contain spatial data. It just has links to them
@@ -1801,99 +1801,99 @@ export delimited lon lat using filename.csv, replace
 
 			</section>
 
-				<section id="catalogue1" style="text-align: left;">
-					<h4>
-					One more thing before we conclude
-					</h4>
-					<p>
-						Browse the spatial data in Windows Explore
-					</p>
-					<p>
-						You'll see many, many files for one dataset
-					</p>
+			<section id="catalogue1" style="text-align: left;">
+				<h4>
+				One more thing before we conclude
+				</h4>
+				<p>
+					Browse the spatial data in Windows Explore
+				</p>
+				<p>
+					You'll see many, many files for one dataset
+				</p>
+				<ul>
+					<li>
+						Shapefile = <code>.shp</code> + <code>.shx</code> + <code>.dbf</code> + <code>.prj</code> + ...
+					</li>
+					<li>
+						TIFF Raster = <code>.tif</code> + <code>.tfw</code> + <code>.ovr</code> + <code>.aux</code> + <code>.prj</code>
+					</li>
+				</ul>
+				<table border="0" width="100%">
+					<tr>
+						<td style="text-align: right"><code>.dbf</code></td>
+						<td>Attribute table</td>
+					</tr>
+					<tr>
+						<td style="text-align: right"><code>.prj</code></td>
+						<td>Projection file</td>
+					</tr>
+				</table>
+				<p>
+					$\Rightarrow$ Use Catalogue Window in ArcMap, not Windows Explore, to move / copy / delete spatial data
+				</p>
+			</section>
+
+			<section id="lessons" style="text-align: left;">
+				<h3>
+					What we've learned on ArcGIS
+				</h3>
+				<ol>
+					<li>
+						Convert data format
+					</li>
 					<ul>
 						<li>
-							Shapefile = .shp + .sbx + .sbn + .shx + .dbf + .prj
+							XY data
 						</li>
 						<li>
-							TIFF Raster = .tif + .tfw + .ovr + .aux + .prj
+							ASCII raster
 						</li>
 					</ul>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: right">.dbf</td>
-							<td>Attribute table</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">.prj</td>
-							<td>Projection file</td>
-						</tr>
-					</table>
+					<li>
+					Assign / Change the coordinate system
+					</li>
+				</ol>
+				<p>
+					Do you remember which geo-processing tools you used for each of these tasks?
+				</p>
+			</section>
+
+			<section id="references" style="text-align: left;">
+				<h3>
+					Useful references for GIS
+				</h3>
 					<p>
-						$\Rightarrow$ Use Catalogue Window in ArcMap, not Windows Explore, to move / copy / delete spatial data
+						<a href="http://guides.library.yale.edu/GIS/gisworkshoparchive" target="_blank">Yale University Library: GIS Workshop Archive</a>
 					</p>
-				</section>
-
-				<section id="lessons" style="text-align: left;">
-					<h3>
-						What we've learned on ArcGIS
-					</h3>
-					<ol>
-						<li>
-							Convert data format
-						</li>
-						<ul>
-							<li>
-								XY data
-							</li>
-							<li>
-								ASCII raster
-							</li>
-						</ul>
-						<li>
-						Assign / Change the coordinate system
-						</li>
-					</ol>
 					<p>
-						Do you remember which geo-processing tools you used for each of these tasks?
+						<a href="http://scholar.harvard.edu/dell/classes/gis-applied-economists-lecture-notes-only" target="_blank">Melissa Dell (2009) "GIS for Applied Economists"</a>
 					</p>
-				</section>
+					<p>
+						<a href="http://gisgeography.com" target="_blank">GIS Geography</a>
+					</p>
+			</section>
 
-				<section id="references" style="text-align: left;">
-					<h3>
-						Useful references for GIS
-					</h3>
-						<p>
-							<a href="http://guides.library.yale.edu/GIS/gisworkshoparchive" target="_blank">Yale University Library: GIS Workshop Archive</a>
-						</p>
-						<p>
-							<a href="http://scholar.harvard.edu/dell/classes/gis-applied-economists-lecture-notes-only" target="_blank">Melissa Dell (2009) "GIS for Applied Economists"</a>
-						</p>
-						<p>
-							<a href="http://gisgeography.com" target="_blank">GIS Geography</a>
-						</p>
-				</section>
-
-				<section id="datasources" style="text-align: left;">
-					<h3>
-						Where to find spatial data
-					</h3>
-						<p>
-							<a href="http://www.fao.org/geonetwork" target="_blank">FAO Geonetwork</a>
-						</p>
-						<p>
-							<a href="http://geocommons.com" target="_blank">Geocommons</a>
-						</p>
-						<p>
-							<a href="http://earthexplorer.usgs.gov" target="_blank">Earth Explorer</a>
-						</p>
-						<p>
-							<a href="http://devecondata.blogspot.com/search/label/GIS" target="_blank">Devecondata</a>
-						</p>
-						<p>
-							Keep an eye on the publication of papers using spatial data
-						</p>
-				</section>
+			<section id="datasources" style="text-align: left;">
+				<h3>
+					Where to find spatial data
+				</h3>
+					<p>
+						<a href="http://www.fao.org/geonetwork" target="_blank">FAO Geonetwork</a>
+					</p>
+					<p>
+						<a href="http://geocommons.com" target="_blank">Geocommons</a>
+					</p>
+					<p>
+						<a href="http://earthexplorer.usgs.gov" target="_blank">Earth Explorer</a>
+					</p>
+					<p>
+						<a href="http://devecondata.blogspot.com/search/label/GIS" target="_blank">Devecondata</a>
+					</p>
+					<p>
+						Keep an eye on the publication of papers using spatial data
+					</p>
+			</section>
 
 			</div>
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
