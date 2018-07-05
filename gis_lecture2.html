@@ -1807,34 +1807,28 @@ arcpy.env.workspace = "D:/temp" # NEVER USE single backslash (\).
 ############################## Geoprocessing ##########################
 try:
     # Process: Create Fishnet
-    arcpy.CreateFishnet_management(fishnet_shp, "-20.625 -40.625", "-20.625 -10.625", "1.25", "1.25", "65", "65", "", "NO_LABELS", "DEFAULT", "POLYGON")
+    arcpy.CreateFishnet_management(fishnet_shp, "-21 -41", "-21 -10", "2", "2", "41", "41", "", "NO_LABELS", "DEFAULT", "POLYGON")
 
     # Process: Make XY Event Layer
-    arcpy.MakeXYEventLayer_management(dhs_txt, "longnum", "latnum", dhs_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+    arcpy.MakeXYEventLayer_management(tribalmap_shp, "lon", "lat", tribalmap_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
 
     # Process: Copy Features
-    arcpy.CopyFeatures_management(dhs_Layer, dhs_shp, "", "0", "0", "0")
+    arcpy.CopyFeatures_management(tribalmap_Layer, ethno_centroids_shp, "", "0", "0", "0")
 
     # Process: Define Projection
     arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
 
-    # Process: Feature To Point
-    arcpy.FeatureToPoint_management(fishnet_shp__2_, centroids_shp, "CENTROID")
-
-    # Process: Add XY Coordinates
-    arcpy.AddXY_management(centroids_shp)
+    # Process: Add Geometry Attributes
+    arcpy.AddGeometryAttributes_management(fishnet_shp__2_, "CENTROID", "", "", "")
 
     # Process: Spatial Join
-    arcpy.SpatialJoin_analysis(fishnet_shp__2_, centroids_shp__2_, era40cells_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\fishnet.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,Id,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
-
-    # Process: Spatial Join (2)
-    arcpy.SpatialJoin_analysis(dhs_shp, era40cells_shp, dhs_era40_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "latnum \"latnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,latnum,-1,-1;longnum \"longnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,longnum,-1,-1;clusterid \"clusterid\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,clusterid,-1,-1;Join_Count \"Join_Count\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Join_Count,-1,-1;TARGET_FID \"TARGET_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,TARGET_FID,-1,-1;Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id_1,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp__4_, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "CENTROID_X \"CENTROID_X\" true true false 53 Double 840472724 844058660 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_X,-1,-1;CENTROID_Y \"CENTROID_Y\" true true false 0 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Y,-1,-1;CENTROID_Z \"CENTROID_Z\" true true false 6029365 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Z,-1,-1;CENTROID_M \"CENTROID_M\" true true false 6029365 Double 114 6619136 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_M,-1,-1;NAME \"NAME\" true true false 50 Text 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,NAME,-1,-1;TRIBE_CODE \"TRIBE_CODE\" true true false 9 Long 0 9 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,TRIBE_CODE,-1,-1;LAT \"LAT\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LAT,-1,-1;LON \"LON\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LON,-1,-1;tribelat \"tribelat\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelat,-1,-1;tribelon \"tribelon\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelon,-1,-1", "INTERSECT", "", "")
 
     # Process: Table To Excel
-    arcpy.TableToExcel_conversion(dhs_era40_shp, dhs_era40_xls, "NAME", "CODE")
+    arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
 
     # Process: Export Feature Attribute to ASCII
-    arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
+    arcpy.ExportXYv_stats(ethno_centroid_with_20cr_shp, "CENTROID_X;CENTROID_Y;NAME;TRIBE_CODE", "SPACE", ethno_centroid_with_20cr_txt, "ADD_FIELD_NAMES")
 
 # Return geoprocessing specific errors
 except arcpy.ExecuteError:
@@ -1935,13 +1929,14 @@ except arcpy.ExecuteError:
 					Exercise #7 (cont.)
 					</h4>
 					<p>
-						You should now notice the variable <code>fishnet_shp__2_</code> contains the same file name as <code>fishnet_shp</code>
+						Now notice
 					</p>
+						<code data-trim>
+fishnet_shp__2_ = fishnet_shp
+fishnet_shp__4_ = fishnet_shp__2_
+						</code>
 					<p>
-						Same for <code>centroids_shp__2_</code>
-					</p>
-					<p>
-						This happens when we use overwriting geoprocessing tools (Define Projection, Add XY Coordinates)
+						This happens when we use overwriting geoprocessing tools (Define Projection, Add Geometry Attributes)
 					</p>
 					<p>
 						It's confusing. So:
@@ -1954,7 +1949,7 @@ except arcpy.ExecuteError:
 							 <code>fishnet_shp__2_</code> with <code>fishnet_shp</code>
 						</li>
 						<li>
-							 <code>centroids_shp__2_</code> with <code>centroids_shp</code>
+							 <code>fishnet_shp__4_</code> with <code>fishnet_shp</code>
 						</li>
 					</ul>
 					<p>
@@ -1974,20 +1969,18 @@ import arcpy
 # Allow the overwriting of the output files
 arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
 # Set the working directory.
-arcpy.env.workspace = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs" # NEVER USE single backslash (\).
+arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2" # NEVER USE single backslash (\).
 
 ### Local variables ###
-dhs_txt = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\dhs.txt"
+tribalmap_shp = "input\\tribalmap.shp"
 
-fishnet_shp = "fishnet.shp"
-centroids_shp = "centroids.shp"
-dhs_Layer = "dhs_Layer"
+tribalmap_Layer = "tribalmap_Layer"
+ethno_centroids_shp = "output\\ethno_centroids.shp"
+fishnet_shp = "output\\fishnet.shp"
 
-dhs_shp = "dhs.shp"
-era40cells_shp = "era40cells.shp"
-dhs_era40_shp = "dhs_era40.shp"
-dhs_era40_xls = "dhs_era40.xls"
-dhs_era40_csv = "dhs_era40.csv"
+ethno_centroid_with_20cr_shp = "output\\ethno_centroid_with_20cr.shp"
+ethno_centroid_with_20cr_xls = "output\\ethno_centroid_with_20cr.xls"
+ethno_centroid_with_20cr_txt = "output\\ethno_centroid_with_20cr.txt"
 
 ############################## Geoprocessing ##########################
 try:
@@ -2070,33 +2063,28 @@ try:
 					<pre>
 						<code data-trim contenteditable>
 ############################## Preamble #################################
-### Read the ArcGIS object ###
 print "Launch ArcGIS"
 import arcpy
 
 ### Set environment ###
-# Allow the overwriting of the output files
 print "Enable the overwriting"
 arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
-# Set the working directory.
-print "Set the directory where outputs are saved"
-arcpy.env.workspace = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs" # NEVER USE single backslash (\).
+print "Set the working directory"
+arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2" # NEVER USE single backslash (\).
 
 ### Local variables ###
-print "Define input files"
-dhs_txt = "C:\\Users\\MA.4193\\Downloads\\Lecture2\\dhs.txt"
+print "Input file names being set"
+tribalmap_shp = "input\\tribalmap.shp"
 
-print "Define intermediate files"
-fishnet_shp = "fishnet.shp"
-centroids_shp = "centroids.shp"
-dhs_Layer = "dhs_Layer"
+print "Intermediate file names being set"
+tribalmap_Layer = "tribalmap_Layer"
+ethno_centroids_shp = "output\\ethno_centroids.shp"
+fishnet_shp = "output\\fishnet.shp"
 
-print "Define output files"
-dhs_shp = "dhs.shp"
-era40cells_shp = "era40cells.shp"
-dhs_era40_shp = "dhs_era40.shp"
-dhs_era40_xls = "dhs_era40.xls"
-dhs_era40_csv = "dhs_era40.csv"
+print "Output files being set"
+ethno_centroid_with_20cr_shp = "output\\ethno_centroid_with_20cr.shp"
+ethno_centroid_with_20cr_xls = "output\\ethno_centroid_with_20cr.xls"
+ethno_centroid_with_20cr_txt = "output\\ethno_centroid_with_20cr.txt"
 						</code>
 					</pre>
 				</section>
@@ -2108,47 +2096,32 @@ dhs_era40_csv = "dhs_era40.csv"
 						<code data-trim contenteditable>
 ############################## Geoprocessing ##########################
 try:
-    # Process: Make XY Event Layer
-    print "Create DHS cluster point features 1/2"
-    arcpy.MakeXYEventLayer_management(dhs_txt, "longnum", "latnum", dhs_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+    print "Create 20th Century Reanalysis data cell polygons step 1/3"
+    arcpy.CreateFishnet_management(fishnet_shp, "-21 -41", "-21 -10", "2", "2", "41", "41", "", "NO_LABELS", "DEFAULT", "POLYGON")
 
-    # Process: Copy Features
-    print "Create DHS cluster point features 2/2"
-    arcpy.CopyFeatures_management(dhs_Layer, dhs_shp, "", "0", "0", "0")
-
-    # Process: Create Fishnet
-    print "Create ERA-40 cell polygons step 1/5: Create Fishnet"
-    arcpy.CreateFishnet_management(fishnet_shp, "-20.625 -40.625", "-20.625 -10.625", "1.25", "1.25", "65", "65", "", "NO_LABELS", "DEFAULT", "POLYGON")
-
-    # Process: Define Projection
-    print "Create ERA-40 cell polygons step 2/5: Define Projection"
+    print "Create 20th Century Reanalysis data cell polygons step 2/3"
     arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
 
-    # Process: Feature To Point
-    print "Create ERA-40 cell polygons step 3/5: Feature To Point"
-    arcpy.FeatureToPoint_management(fishnet_shp, centroids_shp, "CENTROID")
+    print "Create 20th Century Reanalysis data cell polygons step 3/3"
+    arcpy.AddGeometryAttributes_management(fishnet_shp, "CENTROID", "", "", "")
 
-    # Process: Add XY Coordinates
-    print "Create ERA-40 cell polygons step 4/5: Add XY Coordinates"
-    arcpy.AddXY_management(centroids_shp)
+    arcpy.MakeXYEventLayer_management(tribalmap_shp, "lon", "lat", tribalmap_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+    print "Create ethnic group centroids step 1/2"
 
-    # Process: Spatial Join
-    print "Create ERA-40 cell polygons step 5/5: Spatial Join"
-    arcpy.SpatialJoin_analysis(fishnet_shp, centroids_shp, era40cells_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\fishnet.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,Id,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+    print "Create ethnic group centroids step 2/2"
+    arcpy.CopyFeatures_management(tribalmap_Layer, ethno_centroids_shp, "", "0", "0", "0")
 
-    # Process: Spatial Join (2)
-    print "Merge DHS clusters with ERA-40 cell polygons"
-    arcpy.SpatialJoin_analysis(dhs_shp, era40cells_shp, dhs_era40_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "latnum \"latnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,latnum,-1,-1;longnum \"longnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,longnum,-1,-1;clusterid \"clusterid\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,clusterid,-1,-1;Join_Count \"Join_Count\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Join_Count,-1,-1;TARGET_FID \"TARGET_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,TARGET_FID,-1,-1;Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id_1,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
+    print "Match Ethnographic Atlas ethnic groups with 20th Century Reanalysis data cells"
+    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "CENTROID_X \"CENTROID_X\" true true false 53 Double 840472724 844058660 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_X,-1,-1;CENTROID_Y \"CENTROID_Y\" true true false 0 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Y,-1,-1;CENTROID_Z \"CENTROID_Z\" true true false 6029365 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Z,-1,-1;CENTROID_M \"CENTROID_M\" true true false 6029365 Double 114 6619136 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_M,-1,-1;NAME \"NAME\" true true false 50 Text 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,NAME,-1,-1;TRIBE_CODE \"TRIBE_CODE\" true true false 9 Long 0 9 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,TRIBE_CODE,-1,-1;LAT \"LAT\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LAT,-1,-1;LON \"LON\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LON,-1,-1;tribelat \"tribelat\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelat,-1,-1;tribelon \"tribelon\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelon,-1,-1", "INTERSECT", "", "")
 
-    # Process: Table To Excel
-    print "Export Excel file"
-    arcpy.TableToExcel_conversion(dhs_era40_shp, dhs_era40_xls, "NAME", "CODE")
+    print "Export output data as Excel sheet"
+    arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
 
-    # Process: Export Feature Attribute to ASCII
-    print "Export CSV file"
-    arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
+    print "Export output data as csv file"
+    arcpy.ExportXYv_stats(ethno_centroid_with_20cr_shp, "CENTROID_X;CENTROID_Y;NAME;TRIBE_CODE", "SPACE", ethno_centroid_with_20cr_txt, "ADD_FIELD_NAMES")
 
 # Return geoprocessing specific errors
+except arcpy.ExecuteError:
 						</code>
 					</pre>
 				</section>
@@ -2199,7 +2172,7 @@ try:
 						Skip command lines temporarily
 					</h3>
 					<p>
-						Suppose you're not sure if this script will properly create DHS cluster point features.
+						Suppose you're not sure if this script will properly create ethnic group centroids.
 					</p>
 					<p>
 						So you want to skip the other parts of the script for the time being.
@@ -2229,50 +2202,34 @@ try:
 					</h4>
 					<pre>
 						<code data-trim contenteditable>
+############################## Geoprocessing ##########################
 try:
-    # Process: Make XY Event Layer
-    print "Create DHS cluster point features 1/2"
-    arcpy.MakeXYEventLayer_management(dhs_txt, "longnum", "latnum", dhs_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
-
-    # Process: Copy Features
-    print "Create DHS cluster point features 2/2"
-    arcpy.CopyFeatures_management(dhs_Layer, dhs_shp, "", "0", "0", "0")
-
-##    # Process: Create Fishnet
-##    print "Create ERA-40 cell polygons step 1/5: Create Fishnet"
-##    arcpy.CreateFishnet_management(fishnet_shp, "-20.625 -40.625", "-20.625 -10.625", "1.25", "1.25", "65", "65", "", "NO_LABELS", "DEFAULT", "POLYGON")
+##    print "Create 20th Century Reanalysis data cell polygons step 1/3"
+##    arcpy.CreateFishnet_management(fishnet_shp, "-21 -41", "-21 -10", "2", "2", "41", "41", "", "NO_LABELS", "DEFAULT", "POLYGON")
 ##
-##    # Process: Define Projection
-##    print "Create ERA-40 cell polygons step 2/5: Define Projection"
+##    print "Create 20th Century Reanalysis data cell polygons step 2/3"
 ##    arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
 ##
-##    # Process: Feature To Point
-##    print "Create ERA-40 cell polygons step 3/5: Feature To Point"
-##    arcpy.FeatureToPoint_management(fishnet_shp, centroids_shp, "CENTROID")
+##    print "Create 20th Century Reanalysis data cell polygons step 3/3"
+##    arcpy.AddGeometryAttributes_management(fishnet_shp, "CENTROID", "", "", "")
+
+    arcpy.MakeXYEventLayer_management(tribalmap_shp, "lon", "lat", tribalmap_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
+    print "Create ethnic group centroids step 1/2"
+
+    print "Create ethnic group centroids step 2/2"
+    arcpy.CopyFeatures_management(tribalmap_Layer, ethno_centroids_shp, "", "0", "0", "0")
+
+##    print "Match Ethnographic Atlas ethnic groups with 20th Century Reanalysis data cells"
+##    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "CENTROID_X \"CENTROID_X\" true true false 53 Double 840472724 844058660 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_X,-1,-1;CENTROID_Y \"CENTROID_Y\" true true false 0 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Y,-1,-1;CENTROID_Z \"CENTROID_Z\" true true false 6029365 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Z,-1,-1;CENTROID_M \"CENTROID_M\" true true false 6029365 Double 114 6619136 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_M,-1,-1;NAME \"NAME\" true true false 50 Text 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,NAME,-1,-1;TRIBE_CODE \"TRIBE_CODE\" true true false 9 Long 0 9 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,TRIBE_CODE,-1,-1;LAT \"LAT\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LAT,-1,-1;LON \"LON\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LON,-1,-1;tribelat \"tribelat\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelat,-1,-1;tribelon \"tribelon\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelon,-1,-1", "INTERSECT", "", "")
 ##
-##    # Process: Add XY Coordinates
-##    print "Create ERA-40 cell polygons step 4/5: Add XY Coordinates"
-##    arcpy.AddXY_management(centroids_shp)
+##    print "Export output data as Excel sheet"
+##    arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
 ##
-##    # Process: Spatial Join
-##    print "Create ERA-40 cell polygons step 5/5: Spatial Join"
-##    arcpy.SpatialJoin_analysis(fishnet_shp, centroids_shp, era40cells_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\fishnet.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,Id,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\centroids.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
-##
-##    # Process: Spatial Join (2)
-##    print "Merge DHS clusters with ERA-40 cell polygons"
-##    arcpy.SpatialJoin_analysis(dhs_shp, era40cells_shp, dhs_era40_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "latnum \"latnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,latnum,-1,-1;longnum \"longnum\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,longnum,-1,-1;clusterid \"clusterid\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\dhs.shp,clusterid,-1,-1;Join_Count \"Join_Count\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Join_Count,-1,-1;TARGET_FID \"TARGET_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,TARGET_FID,-1,-1;Id \"Id\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id,-1,-1;Id_1 \"Id_1\" true true false 6 Long 0 6 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,Id_1,-1,-1;ORIG_FID \"ORIG_FID\" true true false 10 Long 0 10 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,ORIG_FID,-1,-1;POINT_X \"POINT_X\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 19 Double 0 0 ,First,#,C:\\Users\\MA.4193\\Downloads\\Lecture2\\outputs\\era40cells.shp,POINT_Y,-1,-1", "INTERSECT", "", "")
-##
-##    # Process: Table To Excel
-##    print "Export Excel file"
-##    arcpy.TableToExcel_conversion(dhs_era40_shp, dhs_era40_xls, "NAME", "CODE")
-##
-##    # Process: Export Feature Attribute to ASCII
-##    print "Export CSV file"
-##    arcpy.ExportXYv_stats(dhs_era40_shp, "clusterid;POINT_X;POINT_Y", "COMMA", dhs_era40_csv, "ADD_FIELD_NAMES")
+##    print "Export output data as csv file"
+##    arcpy.ExportXYv_stats(ethno_centroid_with_20cr_shp, "CENTROID_X;CENTROID_Y;NAME;TRIBE_CODE", "SPACE", ethno_centroid_with_20cr_txt, "ADD_FIELD_NAMES")
 
 # Return geoprocessing specific errors
 except arcpy.ExecuteError:
-    print arcpy.GetMessages()
 						</code>
 					</pre>
 				</section>
@@ -2289,8 +2246,13 @@ except arcpy.ExecuteError:
 						4. Cross your fingers :)
 					</p>
 					<p>
-						5. Check if DHS cluster point features are created properly.
+						5. Check if <code>ethno_centroids.shp</code> is created properly.
 					</p>
+					<ul>
+						<li>
+							Don't forget Refresh if you don't see it
+						</li>
+					</ul>
 					<p>
 						6. If so, uncomment those skipped commands
 					</p>
