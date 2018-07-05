@@ -1427,13 +1427,8 @@
 						Export Python script from Model Builder
 					</h3>
 					<p>
-						1. Right-click the model and click "Edit" in Catalogue Window
+						1. If the model is not opened yet, right-click the model in Catalogue Window and click "Edit"
 					</p>
-					<ul>
-						<li>
-							If the model was saved before and is not opened yet
-						</li>
-					</ul>
 					<p>
 						2. Click in the menu bar "Model > Export > To Python Script"
 					</p>
@@ -1628,13 +1623,16 @@
 					</p>
 					<ul>
 						<li>
-							Python is case-sensitive
+							Note: Python is case-sensitive
 						</li>
 					</ul>
 				</section>
 
 				<section id="directory_name" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>Directory Name in Python</h4>
+					<p style="text-align: center;">
+						<code>arcpy.env.workspace = "D:/temp"</code>
+					</p>
 					<p>
 						Never use \
 					</p>
@@ -1662,7 +1660,7 @@
 						Method
 					</h3>
 					<p>
-						is a function (i.e. process inputs to create outputs)
+						is a function (i.e. transform inputs into outputs)
 					</p>
 					<p>
 						To use a method, type:
@@ -1688,10 +1686,10 @@
 						The <code>arcpy</code> method names mix uppercase and lowercase letters as well as underscores
 					</p>
 					<p>
-						Arguments for these methods are often very long with lots of [ ] " ' ; ,
+						Arguments for these methods are often very long with lots of <code>[ ] " ' ; ,</code> etc.
 					</p>
 					<p>
-						$\Rightarrow$ Better to first use Model Builder to export the draft script
+						$\Rightarrow$ Better to first use Model Builder to export the draft script (until you get used to Python programming)
 
 					</p>
 				</section>
@@ -1706,6 +1704,11 @@
 					<ul>
 						<li>
 							There's a built-in help, too, but the web version is more often updated
+						</li>
+					</ul>
+					<ul>
+						<li>
+							Once we're used to Python, we will learn how to read this help document
 						</li>
 					</ul>
 				</section>
@@ -2277,7 +2280,10 @@ except arcpy.ExecuteError:
 					Exercise #9 (cont.)
 					</h4>
 					<p>
-						Most likely, you get an error message "ERROR 000464: Cannot get exclusive schema lock."
+						Most likely, you get an error message:
+					</p>
+					<p>
+						<code>ERROR 000464: Cannot get exclusive schema lock. Either being edited or in use by another application.</code>
 					</p>
 					<p>
 						This error occurs when the script is trying to overwrite the output that's been shown in ArcMap
@@ -2324,8 +2330,12 @@ except arcpy.ExecuteError:
 					Model Python Script for Lecture 2
 					</h3>
 					<p>
-						Look at "solutions4exercises/lec2script.py" in the downloaded data folder for Lecture 2
+						Look at
 					</p>
+					<p>
+						<code>solutions4exercises/lec2script.py</code>
+					</p>
+					<p>in the downloaded data folder for Lecture 2</p>
 				</section>
 			</section>
 
