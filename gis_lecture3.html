@@ -1040,45 +1040,32 @@
 					</table>
 				</section>
 
-				<section id="aim2" data-transition="slide-out fade-in" style="text-align: left">
-					<h4>
-						Data we want to construct (cont.)
-					</h4>
+				<section id="aim2" data-transition="fade-in slide-out" style="text-align: left">
+					<h3 style="color:red">
+						Data we want to construct
+					</h3>
 					<p>
-						Output table's columns:
+						Conley and Udry (2010) construct the growing condition variable as
+					</p>
+					<p>
+						\begin{align*}
+							\Gamma_{it} \equiv x_{it}^{close} - x_{it_p}
+						\end{align*}
 					</p>
 					<table border="0" width="100%">
 						<tr>
-							<td style="text-align: center">$i$</td>
-							<td>Plot ID</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$t$</td>
-							<td>Planting period for plot $i$</td>
+							<td style="text-align: center">$x_{it}^{close}$</td>
+							<td>Average of $x_{ks}$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$k$</td>
-							<td>$i$'s neighboring plot ID</td>
+							<td style="color: red">Plots within 1km from plot $i$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$s$</td>
-							<td>Planting period for plot $k$</td>
+							<td>$\in \{t-3, t-2, t-1, t \}$</td>
 						</tr>
 					</table>
-					<p>
-						Then in Stata:
-					</p>
-					<ol style="margin-left: 80px;">
-						<li>
-							Keep observations if $t-3 \leq s \leq t$
-						</li>
-						<li>
-							Merge fertilizer input data for $(k,s)$
-						</li>
-						<li>
-							Collapse by $(i,t)$ to obtain average
-						</li>
-					</ol>
 				</section>
 
 				<section id="input" data-transition="slide-in slide-out" style="text-align: left;">
@@ -1095,9 +1082,6 @@
 						</ul>
 						<p>
 							<strong>village hh plot</strong>: plot identifier
-						</p>
-						<p>
-							<strong>startnd</strong>: planting period
 						</p>
 						<p>
 							<strong>Xcoord Ycoord</strong>: plot coordinate in meters
