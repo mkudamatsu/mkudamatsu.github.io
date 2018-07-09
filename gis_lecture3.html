@@ -1351,20 +1351,19 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output
+						Browse the output and its attribute table
 					</p>
-					<p>
-						Select one plot neighborhood polygon
-					</p>
-					<p>
-						Browse the attribute table
-					</p>
-					<p>
-						Count # of matched plots for this selected plot
-					</p>
-					<p>
-						See if the same # of plot points are located within the polygon
-					</p>
+					<ul>
+						<li>
+							You may find that none of the join feature fields is included
+						</li>
+						<li>
+							This seems to be a Model Builder's bug
+						</li>
+						<li>
+							We will fix this when we use Python
+						</li>
+					</ul>
 				</section>
 
 				<section id="ex3" data-transition="slide-in fade-out" style="text-align: left;">
@@ -1413,7 +1412,7 @@
 						<strong>Input Feature Class</strong>: <code>plot_neighbors.shp</code>
 					</p>
 					<p>
-						<strong>Value Field</strong>: village, hhn, plot, startrnd, village_1, hhn_1, plot_1, startrnd_1
+						<strong>Value Field</strong>: see next slide
 					</p>
 					<p>
 						<strong>Delimiter</strong>: SPACE
@@ -1430,6 +1429,28 @@
 					</p>
 				</section>
 
+				<section id="ex3c" data-transition="fade-in slide-out" style="text-align: left;">
+				<h4>
+					Exercise #3 (cont.)
+				</h4>
+				<h3>
+					Value Fields
+				</h3>
+					<p>
+						From target features: village, hhn, plot, startrnd
+					</p>
+					<p>
+						From join features: village_1, hhn_1, plot_1, startrnd_1
+					</p>
+					<ul>
+						<li>
+							These are not shown if Spatial Join fails to include them.
+						</li>
+						<li>
+							We will fix this when we use Python
+						</li>
+					</ul>
+					</section>
 
 				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
@@ -1452,7 +1473,69 @@
 					</p>
 
 					<p>
-						Then edit the script by using the template (Lecture3\template4L3.py)
+						The last three commands should look like this:
+					</p>
+					<pre>
+						<code data-trim>
+# Process: Spatial Join
+arcpy.SpatialJoin_analysis(buffer1km_shp, plots_shp, plot_neighbors_shp, "JOIN_ONE_TO_MANY", "KEEP_ALL", "", "INTERSECT", "", "")
+
+# Process: Table To Excel
+arcpy.TableToExcel_conversion(plot_neighbors_shp, plot_neighbors_xls, "NAME", "CODE")
+
+# Process: Export Feature Attribute to ASCII
+arcpy.ExportXYv_stats(plot_neighbors_shp, "village;hhn;plot", "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
+						</code>
+					</pre>
+				</section>
+
+				<section id="ex4b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4
+					</h4>
+					<h3>
+						Write a Python script
+					</h3>
+					<p>
+						Export the model as a Python script (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
+					</p>
+
+					<p>
+						The last three commands should look like this:
+					</p>
+					<pre>
+						<code data-trim data-noescape>
+# Process: Spatial Join
+arcpy.SpatialJoin_analysis(buffer1km_shp, plots_shp, plot_neighbors_shp, "JOIN_ONE_TO_MANY", "KEEP_ALL", "", "INTERSECT", "", "")
+
+# Process: Table To Excel
+arcpy.TableToExcel_conversion(plot_neighbors_shp, plot_neighbors_xls, "NAME", "CODE")
+
+# Process: Export Feature Attribute to ASCII
+arcpy.ExportXYv_stats(plot_neighbors_shp, <mark>"village;hhn;plot"</mark>, "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
+						</code>
+					</pre>
+					<p>
+						This is where you specify fields to keep
+					</p>
+					<ul>
+						<li>
+							Each field name is delimited with semi-colon (;)
+						</li>
+					</ul>
+					<p>
+						Change this to <code>"village;hhn;plot;village_1;hhn_1;plot_1"</code>
+					</p>
+				</section>
+
+
+
+				<section id="ex4c" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4 (cont.)
+					</h4>
+					<p>
+						Then edit the script by using the template (<code>Lecture3\code\template4L3.py</code>)
 					</p>
 					<ol style="margin-left: 72px;">
 						<li>
@@ -1475,6 +1558,28 @@
 						<a href="http://mkudamatsu.github.io/gis_lecture2.html#/error_handling" target="_blank">Handle errors (from Lecture 2)</a>
 					</p>
 				</section>
+
+				<section id="ex4d" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4 (cont.)
+					</h4>
+					<p>
+						Browse the output
+					</p>
+					<p>
+						Select one plot neighborhood polygon
+					</p>
+					<p>
+						Browse the attribute table
+					</p>
+					<p>
+						Count # of matched plots for this selected plot
+					</p>
+					<p>
+						See if the same # of plot points are located within the polygon
+					</p>
+				</section>
+
 
 
 			</section>
