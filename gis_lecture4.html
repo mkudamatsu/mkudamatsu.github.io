@@ -727,28 +727,69 @@
 						From polygons
 					</h3>
 						<p>
-							Examples: countries, provinces, districts, etc.
+							We have two cases
+						</p>
+						<ol>
+							<li>
+								From the edge of a polygon
+							</li>
+							<li>
+								From the centroid of a polygon
+							</li>
+						</ol>
+				</section>
+
+				<section id="distance3a" data-transition="fade" style="text-align: left;">
+					<h4>
+						Distance calculation #3.1
+					</h4>
+					<h3>
+						From the edge of a polygon
+					</h3>
+						<p>
+							We can just use the Near tool
+						</p>
+						<img src="gis_lecture4/distance_from_polygon.png" style="border: none; background: none; box-shadow:none; width: 500px;">
+				</section>
+
+				<section id="distance3b" data-transition="fade" style="text-align: left;">
+					<h4>
+						Distance calculation #3.2
+					</h4>
+					<h3>
+						From the centroid of a polygon
+					</h3>
+						<p>
+							If the average distance from any point within a polygon matters
 						</p>
 						<p>
-							Obtain the coordinate of polygon centroid
+							To calculate the distance <span style="color:red;">to a point</span>:
 						</p>
-						<p>
-							Can be implemented by:
-						</p>
+						<ol>
+							<li>
+								Obtain the coordinate of a polygon centroid by:
+							</li>
 						<ul>
 							<li>
-								Stata ado <a href="http://http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
+									Stata ado <a href="http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
 							</li>
 							<li>
-								Feature To Point + Add XY Coordinates in ArcGIS (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Steps 3-4</a>)
+									Add Geometry Attributes in ArcGIS (cf. <a href="../gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Step 3</a>)
 							</li>
 						</ul>
+							<li>
+								Use the Great Circle Distance formula
+							</li>
+							<ul>
+								<li>Stata ado <code>globdist</code></li>
+							</ul>
+						</ol>
 						<p>
 							Application: Campante & Do (2014)
 						</p>
 				</section>
 
-				<section id="campante-do" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="campante-do" data-transition="fade" style="text-align: left;">
 					<h4>
 						Detour: <a href="http://dx.doi.org/10.1257/aer.104.8.2456" target="_blank">Campante & Do (2014)</a>
 					</h4>
@@ -779,6 +820,36 @@
 					</ul>
 				</section>
 
+				<section id="distance3c" data-transition="fade" style="text-align: left;">
+					<h4>
+						Distance calculation #3.2 (cont.)
+					</h4>
+					<h3>
+						From the centroid of a polygon
+					</h3>
+						<p>
+							To calculate the distance <span style="color:red;">to a polyline/polygon</span>:
+						</p>
+						<ol>
+							<li>
+								Create centroid point features in ArcGIS
+							</li>
+							<ul>
+								<li>
+									Feature To Point
+								</li>
+								<li>
+									Add XY Coordinates
+								</li>
+							</ul>
+							<li>
+								Use the Near tool
+							</li>
+						</ol>
+						<p>
+							Application: Nunn (2008)
+						</p>
+				</section>
 
 				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
