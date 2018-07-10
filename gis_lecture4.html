@@ -1428,7 +1428,7 @@
 							</li>
 						</ul>
 					<p>
-						3. Add Field + Calculate Field
+						3. Add Geometry Attributes
 					</p>
 						<ul style="margin-left: 72px;">
 							<li>
@@ -1667,152 +1667,89 @@
 					</ul>
 				</section>
 
-				<section id="area_calculation2" data-transition="slide-in fade-out" style="text-align: left;">
-					<h4>
-					Exercise #2 (cont.)
-					</h4>
-					<h3>
-						Add a new field to attribute table
-					</h3>
-						<p>
-							ArcGIS requires a two-step procedure:
-						</p>
-						<ul>
-							<li>
-								Create a blank field (Add Field)
-							</li>
-							<li>
-								Enter the values to the field (Calculate Field)
-							</li>
-						</ul>
-				</section>
-
-				<section id="add_field" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2addgeo1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #2: Step 3
 					</h4>
 					<h3>
-						Add Field
+						Add Geometry Attributes
 					</h3>
+						<p>
+						This tool can be used for surface area calculation
+						</p>
 					<p>
-						<strong>Input Table</strong>: intersect_sinusoidal.shp
+						<strong>Input Features</strong>: intersect_sinusoidal.shp
 					</p>
 					<ul>
 						<li>
-							Output from Project
+							The output from Project
 						</li>
 					</ul>
 					<p>
-						<strong>Field Name</strong>: area
+						<strong>Geometry Properties</strong>: check AREA
+					</p>
+					<p>
+						<strong>Area Unit</strong>: SQUARE_KILOMETERS
 					</p>
 					<ul>
 						<li>
-							Or whatever you prefer (not exceeding 10 characters)
+							If not specified, it'll be square meters
 						</li>
 					</ul>
 					<p>
-						<strong>Field Type</strong>: FLOAT
-					</p>
-					<ul>
-						<li>
-							Surface area: takes decimal values
-						</li>
-					</ul>
-					<p>
-						NOTE: This tool overwrites the input data.
+						Note: this tool overwrites the input file
 					</p>
 				</section>
 
-				<section id="ex2d" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2addgeo2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2: Step 3 (cont.)
 					</h4>
 					<p>
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output attribute table.
+						Browse the output and its attribute table.
 					</p>
 					<p>
-						You should see a field whose value is all zero
-					</p>
-						<p>
-							<small>Don't ask me why we cannot enter values to a new field directly...</small>
+						Is everything as expected?
 						</p>
 				</section>
 
-				<section id="calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2addgeo3" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #2: Step 4
-					</h4>
-					<h3>
-						Calculate Field
-					</h3>
-					<p>
-						<strong>Input Table</strong>: intersect_sinusoidal.shp (2)
-					</p>
-					<ul>
-						<li>
-							Output from Add Field
-						</li>
-					</ul>
-					<p>
-						<strong>Field Name</strong>: area
-					</p>
-					<ul>
-						<li>
-							Or the same as what you specified in Add Field
-						</li>
-					</ul>
-				</section>
-
-				<section id="calculate_field2" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calculate Field (cont.)
-					</h3>
-					<p>
-						<strong>Expression</strong>: <span style="font-size: 2em">float(!SHAPE.AREA!)</span>
-					</p>
-					<ul>
-						<li>
-							SHAPE.AREA: (hidden) field name for surface area
-						</li>
-						<li>
-							! ! tells Python what's enclosed is a field name
-						</li>
-						<li>
-							float(): avoid rounding-off to integer
-						</li>
-					</ul>
-					<p style="margin-left: 40px;">
-						cf. ArcGIS Help on <a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/calculate-field-examples.htm" target="_blank">Calculate Field examples</a>
-					</p>
-					<p>
-						<strong>Expression Type</strong>: PYTHON_9.3
-					</p>
-					<p>
-						NOTE: This tool overwrites the input data.
-					</p>
-				</section>
-
-				<section id="ex2e" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-					Exercise #2 Step 4 (cont.)
+					An alternative to Exercise #2 Steps 2-3
 					</h4>
 					<p>
-						Now <em>save and</em> run the Model.
+						You can directly use Add Geometry Attributes
 					</p>
 					<p>
-						Browse the output attribute table.
+						<strong>Input Features</strong>: intersect.shp
+					</p>
+					<ul>
+						<li>
+							The output from Intersect
+						</li>
+					</ul>
+					<p>
+						<strong>Geometry Properties</strong>: check AREA_GEODESIC
 					</p>
 					<p>
-						You should now see a field whose value is surface area in $m^2$
+						<strong>Area Unit</strong>: SQUARE_KILOMETERS
 					</p>
+					<p>
+						<strong>Coordinate System</strong>: Africa_Sinusoidal
+					</p>
+					<ul>
+						<li>
+							If unspecified, the area is calculated based on WGS 1984 (i.e. rubbish)
+						</li>
+					</ul>
 				</section>
 
 				<section id="ex2export1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2 Step 5
+					Exercise #2 Step 4
 					</h4>
 					<h3>
 						Export Attribute Table
@@ -1824,7 +1761,7 @@
 
 				<section id="ex2export2" data-transition="fade-in fade-out" style="text-align: left;">
 				<h4>
-					Exercise #2 Step 5 (cont.)
+					Exercise #2 Step 4 (cont.)
 				</h4>
 				<h3>
 					Table To Excel
