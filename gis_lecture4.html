@@ -650,11 +650,14 @@
 							</li>
 						</ul>
 						<p>
-							3. Type: <code>globdist newvar, lat0(lat_i) lon0(lon_i)</code>
+							3. Type:
+								<code style="display:block;">
+									globdist newvar, lat0(lat_i) lon0(lon_i)
+								</code>
 						</p>
 						<ul>
 							<li>
-								newvar: distance to location $i$
+								<code>newvar</code>: distance to location $i$
 							</li>
 							<li>
 								use latvar(), lonvar(), to specify coordinate variables if not named lat / lon
@@ -1662,7 +1665,7 @@
 							Projected Coordinate System > Continental > Africa
 						</li>
 						<li>
-							Central meridian is set at 15&degE (middle of Africa)
+							Notice: central meridian is set at 15&degE (middle of Africa)
 						</li>
 					</ul>
 				</section>
@@ -1927,7 +1930,7 @@ arcpy.Intersect_analysis("C:\\Users\\xkudma\\Downloads\\Lecture4\\borders_tribes
 
 				<section id="list4arcgis1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						Python List for ArcGIS
+						When to use Python List for ArcGIS
 					</h3>
 					<p>
 						1. Loop over files (cf. <a href="http://mkudamatsu.github.io/gis_lecture3.html#/loop_over_list" target="_blank">Lec 3</a>)
@@ -2011,16 +2014,16 @@ arcpy.Intersect_analysis("C:\\Users\\xkudma\\Downloads\\Lecture4\\borders_tribes
 					</h3>
 					<ol>
 						<li>
-							Centroid coordinates
+							Create polygon centroid point features
 						</li>
 						<li>
-							Nearest points on polyline features
+							Calculate distance to polyline features
 						</li>
 						<li>
-							Intersections of polygons/polylines
+							Intersect polygons/polylines
 						</li>
 						<li>
-							Surface area of polygons
+							Calculate surface area of polygons
 						</li>
 					</ol>
 					<p>
