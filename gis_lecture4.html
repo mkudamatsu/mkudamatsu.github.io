@@ -951,9 +951,41 @@
 					</ul>
 				</section>
 
+				<section id="ex1ftp2" data-transition="fade-in fade-out" style="text-align: left;">
+          <h4>
+          Exercise #1: Step 1 (cont.)
+          </h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the output. When overlayed over <code>african-countries.shp</code>, you should see something like this:
+					</p>
+					<img src="gis_lecture4/feature-to-point-result.png" style="border: 1px solid grey; background: none; box-shadow:none; width: 500px;">
+					<p>
+						Browse the attritube table...
+					</p>
+          <p>
+            Feature To Point doesn't add coordinates to the attribute table of the output. So...
+          </p>
+        </section>
 
+				<section id="ex1ftp3" data-transition="fade-in fade-out" style="text-align: left;">
+          <h4>
+          Exercise #1: Step 1 (cont.)
+          </h4>
+					<p>
+						Browse the attritube table.
+					</p>
+          <p>
+            Notice that Feature To Point doesn't add coordinates to the attribute table of the output.
+          </p>
+					<p>
+						So...
+					</p>
+        </section>
 
-				<section id="ex1addxy" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="ex1addxy" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 1 (cont.)
 					</h4>
@@ -973,7 +1005,18 @@
 					</p>
 				</section>
 
-
+				<section id="ex1addxy2" data-transition="fade-in slide-out" style="text-align: left;">
+          <h4>
+          Exercise #1: Step 1 (cont.)
+          </h4>
+					<p>
+						Now <em>save and</em> run the Model.
+					</p>
+					<p>
+						Browse the attribute table. Now you should see two new fields POINT_X and POINT_Y.
+					</p>
+					<img src="gis_lecture4/add-xy-coordinate-result.png" style="border: none; background: none; box-shadow:none; width: 700px;">
+        </section>
 
 				<section id="ex1coast" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1065,7 +1108,31 @@
 					</p>
 				</section>
 
-				<section id="ex1step3a" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="ex1near3" data-transition="fade-in slide-out" style="text-align: left;">
+          <h4>
+          Exercise #1: Step 2 (cont.)
+          </h4>
+					<p>
+						Now <em>save and</em> run the Model. Browse the attribute table. Now you should see four new fields:
+					</p>
+					<ul>
+						<li>
+							NEAR_FID: FID of coastline segment
+						</li>
+						<li>
+							NEAR_DIST: Distance to coast in meters
+						</li>
+						<li>
+							NEAR_X: Longitude of the nearest point on coast
+						</li>
+						<li>
+							NEAR_Y: Latitude of the nearest point on coast
+						</li>
+					</ul>
+					<img src="gis_lecture4/near-result.png" style="border: none; background: none; box-shadow:none; width: 700px;">
+        </section>
+
+				<section id="ex1step3a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1: Step3
 					</h4>
