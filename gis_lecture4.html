@@ -772,14 +772,14 @@
 							<li>
 								Obtain the coordinate of a polygon centroid by:
 							</li>
-						<ul>
-							<li>
+							<ul>
+								<li>
 									Stata ado <a href="http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
-							</li>
-							<li>
+								</li>
+								<li>
 									Add Geometry Attributes in ArcGIS (cf. <a href="../gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Step 3</a>)
-							</li>
-						</ul>
+								</li>
+							</ul>
 							<li>
 								Use the Great Circle Distance formula
 							</li>
@@ -892,7 +892,7 @@
 								Trade center coordinates: use online gazetteer (cf. <a href="../gis_lecture1.html#/xydata2b" target="_blank">Lecture 1</a>)
 							</li>
 						</ul>
-				</section>
+					</section>
 
 				<section id="ex1centroids" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1680,9 +1680,9 @@
 					<h3>
 						Add Geometry Attributes
 					</h3>
-						<p>
+					<p>
 						This tool can be used for surface area calculation
-						</p>
+					</p>
 					<p>
 						<strong>Input Features</strong>: intersect_sinusoidal.shp
 					</p>
@@ -1719,7 +1719,7 @@
 					</p>
 					<p>
 						Is everything as expected?
-						</p>
+					</p>
 				</section>
 
 				<section id="ex2addgeo3" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1831,8 +1831,12 @@
 					</p>
 					<pre>
 						<code data-trim>
+# Local variables:
+borders_tribes_shp = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\borders_tribes.shp"
+african_countries_shp = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\african_countries.shp"
+
 # Process: Intersect
-arcpy.Intersect_analysis("C:\\Users\\xkudma\\Downloads\\Lecture4\\borders_tribes.shp #;C:\\Users\\xkudma\\Downloads\\Lecture4\\african_countries.shp #", intersect_shp, "ALL", "", "INPUT")
+arcpy.Intersect_analysis("'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\borders_tribes.shp' #;'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\african_countries.shp' #", intersect_shp, "ALL", "", "INPUT")
 						</code>
 					</pre>
 					<p>
@@ -1999,6 +2003,31 @@ arcpy.Intersect_analysis("C:\\Users\\xkudma\\Downloads\\Lecture4\\borders_tribes
 						4. Run the script
 					</p>
 				</section>
+
+				<section id="ex2last2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #2 (cont.)
+					</h4>
+					<p>
+						The Python script relevant for using the Intersect tool should now look like:
+					</p>
+					<pre>
+						<code data-trim>
+# Set the working directory.
+arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4" # NEVER USE single backslash (\).
+
+# Local variables:
+borders_tribes_shp = "input\\borders_tribes.shp"
+african_countries_shp = "input\\african_countries.shp"
+intersect_shp = "output\\intersect.shp"
+
+# Process: Intersect
+inFeatures = [borders_tribes_shp, african_countries_shp]
+arcpy.Intersect_analysis(inFeatures, intersect_shp, "ALL", "", "INPUT")
+						</code>
+					</pre>
+				</section>
+
 
 				<section id="model_script" data-transition="slide-out fade-in" style="text-align: left;">
 					<h3>
