@@ -1039,10 +1039,10 @@
 					</p>
 					<ul>
 						<li>
-						FID: unique integer identifier starting from 0
+						<code>FID</code>: unique integer identifier starting from 0
 						</li>
 						<li>
-						Id: all values are 0...
+						<code>Id</code>: all values are 0...
 						</li>
 					</ul>
 				</section>
@@ -1681,7 +1681,7 @@
 					</p>
 					<ul>
 					<li>
-						<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/analysis-toolbox/union.htm" target="_blank">Union</a>: same as Intersect except for keeping unmatched features (as multipart features)
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/union.htm" target="_blank">Union</a>: same as Intersect except for keeping unmatched features (as multipart features)
 					</li>
 					<li>
 						If unmatched, FID_GREG = -1
@@ -1810,7 +1810,7 @@
 						0.5&deg x 0.5&deg cell data
 					</h3>
 					<p>
-						1. Create cell polygons (cf. Exercise 1)
+						1. Create cell polygons (cf. <a href="#ex1a" target="_blank">Exercise 1</a>)
 					</p>
 					<p>
 						2. Extract language spoken
@@ -1953,7 +1953,7 @@
 							Total # of cells: 216,000
 						</li>
 						<li>
-							SHORT takes up to 32,767
+							SHORT cannot handle values larger than 32,767
 						</li>
 					</ul>
 				</section>
@@ -2364,7 +2364,10 @@
 						<strong>Expression</strong>: "OID" >= 65000 AND "OID" < 130000
 					</p>
 					<p>
-						And so on until all rows are covered.å
+						And so on until all rows are covered.
+					</p>
+					<p>
+						Then finally...
 					</p>
 				</section>
 
