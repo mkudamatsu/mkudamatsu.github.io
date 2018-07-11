@@ -811,10 +811,10 @@
 						Copy Raster
 					</h3>
 					<p>
-						<strong>Input Raster</strong>: ...\Lecture5\suit\suit
+						<strong>Input Raster</strong>: <code>...\Lecture5\input\suit\suit</code>
 					</p>
 					<p>
-						<strong>Output Raster Dataset</strong>: ...\Lecture5\outputs\landquality.tif
+						<strong>Output Raster Dataset</strong>: <code>...\Lecture5\output\landquality.tif</code>
 					</p>
 					<ul>
 						<li>
@@ -871,6 +871,9 @@
 					<p>
 						<strong>Regressor</strong>: Standard deviation of land quality
 					</p>
+					<p>
+						We're going to create a model called <code>exercises1-3</code>
+					</p>
 				</section>
 
 				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
@@ -909,7 +912,7 @@
 						Create Fishnet
 					</h3>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\fishnet25.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\fishnet25.shp</code>
 					</p>
 					<p>
 						<strong>Template Extent</strong> (see p. 1522)
@@ -1052,7 +1055,7 @@
 						We need virtual country ID for merging data in Stata
 					</p>
 					<p>
-						Field name FID is used for every shapefile...
+						Field name <code>FID</code> is used for every shapefile...
 					</p>
 					<p class="fragment" data-fragment-index="1">
 						$\Rightarrow$ Create your own ID for virtual countries
@@ -1227,19 +1230,19 @@
 						Intersect (Analysis)
 					</h3>
 					<p>
-						<strong>Input Features</strong>: GREG.shp, fishnet25.shp (4)
+						<strong>Input Features</strong>:
 					</p>
 					<ul>
 						<li>
-							Click the <span style="color:red;">directory icon</span> to choose data outside the Model
+							<code>...\Lecture5\input\GREG.shp</code>
 						</li>
 						<li>
-							If using the drop-down menu, data file name won't properly be exported in a Python script.
+							fishnet25.shp (4)
 						</li>
 					</ul>
 
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\intersect.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\intersect.shp</code>
 					</p>
 					<p>
 						<strong>Join Attributes</strong>: ALL
@@ -1821,7 +1824,7 @@
 						Create Fishnet
 					</h3>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\fishnet05.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\fishnet05.shp</code>
 					</p>
 					<p>
 						<strong>Template Extent</strong>
@@ -2041,10 +2044,10 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Join Features</strong>: GREG.shp
+						<strong>Join Features</strong>: <code>...\Lecture5\input\GREG.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\cell05.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\cell05.shp</code>
 					</p>
 					<p>
 						<strong>Join Operation</strong>: JOIN_ONE_TO_MANY
@@ -2118,7 +2121,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\cell05centroids.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\cell05centroids.shp</code>
 					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
@@ -2193,7 +2196,7 @@
 							Not COMMA, to avoid confusing with <a href="https://en.wikipedia.org/wiki/Decimal_mark#Countries_using_Arabic_numerals_with_decimal_comma" target="_blank">decimal mark</a>					</li>
 					</ul>
 							<p>
-								<strong>Output ASCII File</strong>: ...\Lecture5\outputs\cell05.txt
+								<strong>Output ASCII File</strong>: <code>...\Lecture5\output\cell05.txt</code>
 							</p>
 							<p>
 								Check "<strong>Add Field Name to Output</strong>"
@@ -2260,7 +2263,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors.dbf
+						<strong>Output Table</strong>: <code>...\Lecture5\outputs\cell_neighbors.dbf</code>
 					</p>
 					<p>
 						<strong>Report By Field(s)</strong>: check cell05_id
@@ -2328,7 +2331,7 @@
 						<strong>Input Table</strong>: cell_neighbors.dbf
 					</p>
 					<p>
-						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors1.dbf
+						<strong>Output Table</strong>: <code>...\Lecture5\output\cell_neighbors1.dbf</code>
 					</p>
 					<p>
 						<strong>Expression</strong>: "OID" < 65000
@@ -2351,7 +2354,7 @@
 						<strong>Input Table</strong>: cell_neighbors.dbf
 					</p>
 					<p>
-						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors2.dbf
+						<strong>Output Table</strong>: <code>...\Lecture5\output\cell_neighbors2.dbf</code>
 					</p>
 					<p>
 						<strong>Expression</strong>: "OID" >= 65000 AND "OID" < 130000
@@ -2372,7 +2375,7 @@
 						<strong>Input Table</strong>: cell_neighbors1.dbf
 					</p>
 					<p>
-						<strong>Output Excel File</strong>: ...\Lecture5\outputs\cell_neighbors1.xls
+						<strong>Output Excel File</strong>: <code>...\Lecture5\output\cell_neighbors1.xls</code>
 					</p>
 					<p>
 						And so on, and append them in Stata
