@@ -811,10 +811,10 @@
 						Copy Raster
 					</h3>
 					<p>
-						<strong>Input Raster</strong>: ...\Lecture5\suit\suit
+						<strong>Input Raster</strong>: <code>...\Lecture5\input\suit\suit</code>
 					</p>
 					<p>
-						<strong>Output Raster Dataset</strong>: ...\Lecture5\outputs\landquality.tif
+						<strong>Output Raster Dataset</strong>: <code>...\Lecture5\output\landquality.tif</code>
 					</p>
 					<ul>
 						<li>
@@ -871,6 +871,9 @@
 					<p>
 						<strong>Regressor</strong>: Standard deviation of land quality
 					</p>
+					<p>
+						We're going to create a model called <code>exercises1-3</code>
+					</p>
 				</section>
 
 				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
@@ -884,7 +887,7 @@
 						Geo-processing tools:
 					</p>
 					<p>
-						1. Create Fishnet + Define Projection (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex1a" target="_blank">Lecture 2</a>)
+						1. Create Fishnet + Define Projection (cf. <a href="../gis_lecture2.html#/ex1a" target="_blank">Lecture 2</a>)
 					</p>
 						<ul style="margin-left: 72px;">
 							<li>
@@ -909,7 +912,7 @@
 						Create Fishnet
 					</h3>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\fishnet25.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\fishnet25.shp</code>
 					</p>
 					<p>
 						<strong>Template Extent</strong> (see p. 1522)
@@ -991,7 +994,7 @@
 						</p>
 						<ul class="fragment" data-fragment-index="3">
 							<li>
-								How? Review <a href="http://mkudamatsu.github.io/gis_lecture1.html#/check_cs" target="_blank">Lecture 1</a>
+								How? Review <a href="../gis_lecture1.html#/check_cs" target="_blank">Lecture 1</a>
 						</ul>
 				</section>
 
@@ -1036,10 +1039,10 @@
 					</p>
 					<ul>
 						<li>
-						FID: unique integer identifier starting from 0
+						<code>FID</code>: unique integer identifier starting from 0
 						</li>
 						<li>
-						Id: all values are 0...
+						<code>Id</code>: all values are 0...
 						</li>
 					</ul>
 				</section>
@@ -1052,14 +1055,18 @@
 						We need virtual country ID for merging data in Stata
 					</p>
 					<p>
-						Field name FID is used for every shapefile...
+						Field name <code>FID</code> is used for every shapefile...
 					</p>
 					<p class="fragment" data-fragment-index="1">
 						$\Rightarrow$ Create your own ID for virtual countries
 					</p>
 					<p class="fragment" data-fragment-index="2">
-						To create a new field, which tools can we use? (cf. <a href="http://mkudamatsu.github.io/gis_lecture4.html#/area_calculation2" target="_blank">Lec 4 Ex 2</a>)
+						To create a new field, we need two tools:
 					</p>
+					<ul class="fragment" data-fragment-index="3">
+						<li>Add Field</li>
+						<li>Calculate Field</li>
+					</ul>
 				</section>
 
 				<section id="add_field" data-transition="fade-in fade-out" style="text-align: left;">
@@ -1227,19 +1234,19 @@
 						Intersect (Analysis)
 					</h3>
 					<p>
-						<strong>Input Features</strong>: GREG.shp, fishnet25.shp (4)
+						<strong>Input Features</strong>:
 					</p>
 					<ul>
 						<li>
-							Click the <span style="color:red;">directory icon</span> to choose data outside the Model
+							<code>...\Lecture5\input\GREG.shp</code>
 						</li>
 						<li>
-							If using the drop-down menu, data file name won't properly be exported in a Python script.
+							fishnet25.shp (4)
 						</li>
 					</ul>
 
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\intersect.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\intersect.shp</code>
 					</p>
 					<p>
 						<strong>Join Attributes</strong>: ALL
@@ -1674,7 +1681,7 @@
 					</p>
 					<ul>
 					<li>
-						<a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/analysis-toolbox/union.htm" target="_blank">Union</a>: same as Intersect except for keeping unmatched features (as multipart features)
+						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/union.htm" target="_blank">Union</a>: same as Intersect except for keeping unmatched features (as multipart features)
 					</li>
 					<li>
 						If unmatched, FID_GREG = -1
@@ -1746,7 +1753,7 @@
 						1. Absolute latitude
 					</p>
 					<p>
-						2. Migratory distance from East Africa (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/distance1" target="_blank">hint</a>)
+						2. Migratory distance from East Africa (<a href="../gis_lecture4.html#/distance1" target="_blank">hint</a>)
 					</p>
 					<ul>
 						<li>
@@ -1754,13 +1761,13 @@
 						</li>
 					</ul>
 					<p>
-						3. Surface area (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/area_calculation1" target="_blank">hint</a>)
+						3. Surface area (<a href="../gis_lecture4.html#/area_calculation1" target="_blank">hint</a>)
 					</p>
 					<p>
-						4. Sea distance (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/distance2" target="_blank">hint</a>)
+						4. Sea distance (<a href="../gis_lecture4.html#/distance2" target="_blank">hint</a>)
 					</p>
 					<p>
-						5. Water area (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/ex2tools" target="_blank">hint</a>)
+						5. Water area (<a href="../gis_lecture4.html#/ex2tools" target="_blank">hint</a>)
 					</p>
 					<ul>
 						<li>
@@ -1803,7 +1810,7 @@
 						0.5&deg x 0.5&deg cell data
 					</h3>
 					<p>
-						1. Create cell polygons (cf. Exercise 1)
+						1. Create cell polygons (cf. <a href="#ex1a" target="_blank">Exercise 1</a>)
 					</p>
 					<p>
 						2. Extract language spoken
@@ -1821,7 +1828,7 @@
 						Create Fishnet
 					</h3>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\fishnet05.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\fishnet05.shp</code>
 					</p>
 					<p>
 						<strong>Template Extent</strong>
@@ -1946,7 +1953,7 @@
 							Total # of cells: 216,000
 						</li>
 						<li>
-							SHORT takes up to 32,767
+							SHORT cannot handle values larger than 32,767
 						</li>
 					</ul>
 				</section>
@@ -2041,10 +2048,10 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Join Features</strong>: GREG.shp
+						<strong>Join Features</strong>: <code>...\Lecture5\input\GREG.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\cell05.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\cell05.shp</code>
 					</p>
 					<p>
 						<strong>Join Operation</strong>: JOIN_ONE_TO_MANY
@@ -2118,7 +2125,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture5\outputs\cell05centroids.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture5\output\cell05centroids.shp</code>
 					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
@@ -2193,7 +2200,7 @@
 							Not COMMA, to avoid confusing with <a href="https://en.wikipedia.org/wiki/Decimal_mark#Countries_using_Arabic_numerals_with_decimal_comma" target="_blank">decimal mark</a>					</li>
 					</ul>
 							<p>
-								<strong>Output ASCII File</strong>: ...\Lecture5\outputs\cell05.txt
+								<strong>Output ASCII File</strong>: <code>...\Lecture5\output\cell05.txt</code>
 							</p>
 							<p>
 								Check "<strong>Add Field Name to Output</strong>"
@@ -2260,7 +2267,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors.dbf
+						<strong>Output Table</strong>: <code>...\Lecture5\outputs\cell_neighbors.dbf</code>
 					</p>
 					<p>
 						<strong>Report By Field(s)</strong>: check cell05_id
@@ -2328,7 +2335,7 @@
 						<strong>Input Table</strong>: cell_neighbors.dbf
 					</p>
 					<p>
-						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors1.dbf
+						<strong>Output Table</strong>: <code>...\Lecture5\output\cell_neighbors1.dbf</code>
 					</p>
 					<p>
 						<strong>Expression</strong>: "OID" < 65000
@@ -2351,13 +2358,16 @@
 						<strong>Input Table</strong>: cell_neighbors.dbf
 					</p>
 					<p>
-						<strong>Output Table</strong>: ...\Lecture5\outputs\cell_neighbors2.dbf
+						<strong>Output Table</strong>: <code>...\Lecture5\output\cell_neighbors2.dbf</code>
 					</p>
 					<p>
 						<strong>Expression</strong>: "OID" >= 65000 AND "OID" < 130000
 					</p>
 					<p>
-						And so on until all rows are covered.å
+						And so on until all rows are covered.
+					</p>
+					<p>
+						Then finally...
 					</p>
 				</section>
 
@@ -2372,7 +2382,7 @@
 						<strong>Input Table</strong>: cell_neighbors1.dbf
 					</p>
 					<p>
-						<strong>Output Excel File</strong>: ...\Lecture5\outputs\cell_neighbors1.xls
+						<strong>Output Excel File</strong>: <code>...\Lecture5\output\cell_neighbors1.xls</code>
 					</p>
 					<p>
 						And so on, and append them in Stata
