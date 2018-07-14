@@ -2141,7 +2141,7 @@
 					</p>
 					<ul>
 						<li>
-							Select, Project, Add Field, Calculate Field, Table To Excel
+							Select, Project, Add Geometry Attributes, Table To Excel
 						</li>
 					</ul>
 					<p>
@@ -2252,7 +2252,7 @@ for zone in zoneList:
 							 above <code>arcpy.Select_analysis...</code>
 						</p>
 						<p>
-							2. Indent the following five geo-processing commands
+							2. Indent the following geo-processing commands
 						</p>
 					<pre>
 						<code data-trim>
@@ -2261,10 +2261,8 @@ for zone in range(43,48):
     arcpy.Select_analysis(...)
     # Process: Project
     arcpy.Project_management(...)
-    # Process: Add Field
-    arcpy.AddField_management(...)
-    # Process: Calculate Field
-    arcpy.CalculateField_management(...)
+  # Process: Add Geometry Attributes
+  arcpy.AddGeometryAttributes_management(...)
     # Process: Table To Excel
     arcpy.TableToExcel_conversion(...)
 						</code>
