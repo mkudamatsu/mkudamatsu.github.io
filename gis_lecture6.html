@@ -998,7 +998,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Reclass field</strong>: Value
+						<strong>Reclass field</strong>: VALUE
 					</p>
 					<p>
 						<strong>Reclassification</strong>: see next slide
@@ -1132,7 +1132,8 @@
 					</p>
 						<ul style="margin-left: 72px;">
 							<li>
-								Turn all river polylines within a district into one 							</li>
+								Turn all river polylines within a district into one feature
+							</li>
 						</ul>
 				</section>
 
@@ -1150,14 +1151,14 @@
 						<code>IND_adm2.shp</code>
 					</p>
 					<p>
-						ne_10m_rivers_lake_centerlines.shp
+						<code>ne_10m_rivers_lake_centerlines.shp</code>
 					</p>
 					<ul>
 						<li>
-							Click the <span style="color:red;">directory icon</span> to choose data outside the Model
+							Click the <span style="color:red;">directory icon</span> to choose input data
 						</li>
 						<li>
-							If using the drop-down menu, data file name won't properly be exported in a Python script.
+							If the data is shown in ArcMap, it appears in the drop-down menu. But then the data file name won't properly be exported in a Python script.
 						</li>
 					</ul>
 					<p>
@@ -1465,7 +1466,7 @@
 
 				<section id="ex4step1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1
+					Exercise #4.1: Overview
 					</h4>
 					<h3>
 						Assign UTM zone number
@@ -1481,7 +1482,13 @@
 					</p>
 					<ul>
 						<li>
-							Create Folder Connection to: C:\Program Files (x86)\ArcGIS\Desktop10.3\Reference Systems
+							The file is located in <span style="background-color: Gainsboro">C:\Program Files (x86)\ArcGIS\Desktop10.5\Reference Systems</span>
+						</li>
+						<li>
+							The version number may differ from <span style="background-color: Gainsboro">10.5</span>
+						</li>
+						<li>
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span> to access to this directory
 						</li>
 					</ul>
 				</section>
@@ -1489,13 +1496,13 @@
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1: Overview (cont.)
 					</h4>
 					<p>
 						Geo-processing tools:
 					</p>
 					<p>
-						1. Feature To Point
+						1. Feature To Point (cf. <a href="../gis_lecture4.html#ex1centroids" target="_blank">Lecture 4</a>)
 					</p>
 					<ul>
 						<li>
@@ -1531,10 +1538,10 @@
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1: Overview (cont.)
 					</h4>
 					<p>
-						There is a tool called "Calculate UTM Zone"
+						There is a tool called "<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/cartography-toolbox/calculate-utm-zone.htm" target="_blank">Calculate UTM Zone</a>"
 					</p>
 					<p>
 						But it's not useful at all.
@@ -1568,7 +1575,7 @@
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1
+					Exercise #4.1
 					</h4>
 					<h3>
 						Feature To Point
@@ -1591,13 +1598,13 @@
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1 (cont.)
 					</h4>
 					<h3>
 						Spatial Join
 					</h3>
 					<p>
-						<strong>Target Features</strong>: rivercentroids.shp
+						<strong>Target Features</strong>: river_centroids.shp
 					</p>
 					<ul>
 						<li>
@@ -1611,7 +1618,7 @@
 						<strong>Output Feature Class</strong>: <code>...\Lecture6\temp\utm_zones.shp</code>
 					</p>
 				</section>
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Spatial Join (cont.)
 					</h4>
@@ -1634,9 +1641,9 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1 (cont.)
 					</h4>
 					<h3>
 						Copy Features
@@ -1654,7 +1661,7 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Join Field
 					</h3>
@@ -1671,15 +1678,15 @@
 						</p>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1 (cont.)
 					</h4>
 					<h3>
 						Join Field
 					</h3>
 					<p>
-						<strong>Input Table</strong>: rivers_utm.shp
+						<strong>Input Table</strong>: river_utm.shp
 					</p>
 					<ul>
 						<li>
@@ -1751,7 +1758,7 @@
 						</ul>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Add variables to district polygons
 					</h3>
@@ -1777,7 +1784,7 @@
 						</p>
 				</section>
 
-				<section id="assignment2" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="assignment2" data-transition="fade-in slide-out" style="text-align: left;">
 					<img src="gis_lecture6/damsF4.png" style="border:none; background:none; box-shadow:none; width:600px; float:right;">
 					<h4>
 					Assignment #2
@@ -1788,17 +1795,20 @@
 					<p>
 						Replicate Figure IV of Duflo & Pande (2007)
 					</p>
+					<p>
+						Try both Join Field and Spatial Join approaches
+					</p>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 2
+					Exercise #4.2: Overview
 					</h4>
 					<h3>
 						Extract rivers by UTM zone
 					</h3>
 					<p>
-						Geo-processing tool: Select
+						Geo-processing tool: Select (Analysis)
 					</p>
 					<p>
 						This tool keeps features whose field values satisfy the conditions you specify
@@ -1818,13 +1828,13 @@
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 2 (cont.)
+					Exercise #4.2
 					</h4>
 					<h3>
-						Select
+						Select (Analysis)
 					</h3>
 					<p>
-						<strong>Input Features</strong>: rivers_utm.shp (2)
+						<strong>Input Features</strong>: river_utm.shp (2)
 					</p>
 					<ul>
 						<li>
@@ -1832,7 +1842,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\rivers43.shp
+						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\river43.shp
 					</p>
 					<p>
 						<strong>Expression</strong>: <span style="font-size: 1.5em">"ZONE" = 43</span>
@@ -1849,7 +1859,7 @@
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 3
+					Exercise #4.3
 					</h4>
 					<h3>
 						Project to UTM
@@ -1861,13 +1871,13 @@
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 3 (cont.)
+					Exercise #4.3 (cont.)
 					</h4>
 					<h3>
 						Project
 					</h3>
 					<p>
-						<strong>Input Dataset or Feature Class</strong>: rivers43.shp
+						<strong>Input Dataset or Feature Class</strong>: river43.shp
 					</p>
 					<ul>
 						<li>
@@ -1880,16 +1890,11 @@
 					<p>
 						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_43N
 					</p>
-					<ul>
-						<li>
-							We will change this in Python later
-						</li>
-					</ul>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 4
+					Exercise #4.4
 					</h4>
 					<h3>
 						Calculate river length
