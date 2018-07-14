@@ -531,7 +531,10 @@
 						</li>
 					</ul>
 					<p>
-						5. Unzip <strong>10m-rivers-lake-centerlines.zip</strong> in the same way
+						In the <code>input</code> folder:
+					</p>
+					<p>
+						5. Right-click <code>10m-rivers-lake-centerlines.zip</code> and select <span style="background-color: Gainsboro">7-Zip > Extract to Here</span>
 					</p>
 				</section>
 
@@ -565,14 +568,14 @@
 						</li>
 					</ul>
 					<p>
-						8. Prepare the Model Builder
+						7. Create two empty models in the <code>models.tbx</code>
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a>
+								<code>exercises1-3</code>
 							</li>
 							<li>
-								<a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/exercises1-3</strong>" inside the <code>code</code> folder
+								<code>exercise4</code>
 							</li>
 					</ul>
 				</section>
@@ -821,7 +824,7 @@
 						Indicator raster for each gradient category
 					</h3>
 					<p>
-						Input: elevation data (E060N40.DEM)
+						Input: elevation data (<code>E060N40.DEM</code>)
 					</p>
 					<p>
 						Geo-processing tools:
@@ -891,10 +894,10 @@
 						SLOPE
 					</h3>
 					<p>
-						<strong>Input raster</strong>: E060N40.DEM
+						<strong>Input raster</strong>: <code>...\Lecture6\input\E060N40.DEM</code>
 					</p>
 					<p>
-						<strong>Output raster</strong>: ...\Lecture6\outputs\slope.tif
+						<strong>Output raster</strong>: <code>...\Lecture6\temp\slope.tif</code>
 					</p>
 					<p>
 						<strong>Output Measurement</strong>: PERCENT_RISE
@@ -972,7 +975,7 @@
 						<strong>Reclassification</strong>: see next slide
 					</p>
 					<p>
-						<strong>Output raster</strong>: ...\Lecture6\outputs\gradient1530.tif
+						<strong>Output raster</strong>: <code>...\Lecture6\temp\gradient3060.tif</code>
 					</p>
 					<p>
 						Uncheck "<strong>Change missing values to NoData</strong>"
@@ -1112,10 +1115,10 @@
 						Intersect (Analysis)
 					</h3>
 					<p>
-						<strong>Input Features</strong>:
+						<strong>Input Features</strong> (both in <code>...\Lecture6\input\</code>):
 					</p>
 					<p>
-						IND_adm2.shp
+						<code>IND_adm2.shp</code>
 					</p>
 					<p>
 						ne_10m_rivers_lake_centerlines.shp
@@ -1129,7 +1132,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\intersect.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temp\intersect.shp</code>
 					</p>
 				</section>
 
@@ -1149,7 +1152,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\river_by_district.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temp\river_by_district.shp</code>
 					</p>
 					<p>
 						<strong>Dissolve_Field(s)</strong>: ID_2
@@ -1262,7 +1265,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Table</strong>: river_gradient3060.dbf
+						<strong>Output Table</strong>: <code>...\Lecture6\temp\river_gradient3060.dbf</code>
 					</p>
 					<p>
 						Check "<strong>Ignore NoData in calculation</strong>"
@@ -1283,7 +1286,7 @@
 							<strong>Input Table</strong>: river_gradient3060.dbf
 						</p>
 						<p>
-							<strong>Output Excel File</strong>: ...\Lecture6\outputs\river_gradient3060.xls
+							<strong>Output Excel File</strong>: <code>...\Lecture6\output\river_gradient3060.xls</code>
 						</p>
 				</section>
 
@@ -1442,10 +1445,10 @@
 						Inputs:
 					</p>
 					<p>
-						river_by_district.shp
+						<code>river_by_district.shp</code>
 					</p>
 					<p>
-						utm.shp: UTM zone polygons, provided by ArcGIS
+						<code>utm.shp</code>: UTM zone polygons, provided by ArcGIS
 					</p>
 					<ul>
 						<li>
@@ -1529,7 +1532,7 @@
 						<strong>Input Features</strong>: river_by_district.shp
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\rivercentroids.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temp\river_centroids.shp</code>
 					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
@@ -1557,10 +1560,10 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Join Features</strong>: utm.shp
+						<strong>Join Features</strong>: <code>utm.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\utmzones.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temp\utm_zones.shp</code>
 					</p>
 				</section>
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
@@ -1602,7 +1605,7 @@
 						<strong>Input Features</strong>: river_by_district.shp
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\rivers_utm.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temp\river_utm.shp</code>
 					</p>
 				</section>
 
@@ -1827,7 +1830,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Dataset or Feature Class</strong>: ...\Lecture6\outputs\rivers43_pj.shp
+						<strong>Output Dataset or Feature Class</strong>: <code>...\Lecture6\temp\rivers43_projected.shp</code>
 					</p>
 					<p>
 						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_43N
@@ -1901,7 +1904,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Field Name</strong>: length
+						<strong>Output Excel File</strong>: <code>...\Lecture6\output\river_length43.xls</code>
 					</p>
 					<ul>
 						<li>
@@ -1965,13 +1968,13 @@
 					"Model" model for Exercise #4
 					</h3>
 					<p>
-						See "solutions4exercises\models.tbx\exercise4"
+						Now export the model <code>exercise4</code> as a Python script
 					</p>
 					<p>
 						Now we export a Python script and construct the loop over UTM zones
+						Open both the exported script and the template script (<code>code/template4L6.py</code>) with Atom
 					</p>
 					<p>
-						Open both the exported script and the template script (template4L6.py) with IDLE
 					</p>
 					<p>
 						We first review what we have learned (cf <a href=" http://mkudamatsu.github.io/gis_lecture2.html#/section6" target="_blank">Lecture 2</a>)
@@ -2021,10 +2024,10 @@
 					</p>
 					<ul>
 						<li>
-							Inputs: river_by_district_shp, utm_shp
+							Inputs: <code>temp\\river_by_district.shp</code>, <code>...\\utm.shp</code>
 						</li>
 						<li>
-							Outputs: river_length43_xls
+							Outputs: <code>output\\river_length43.xls</code>
 						</li>
 					</ul>
 				</section>
