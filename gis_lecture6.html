@@ -676,7 +676,7 @@
 					</h1>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="data2construct1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Data we want to construct
 					</h3>
@@ -709,23 +709,15 @@
 
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="data2construct2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
 						<p>
-							Each river segment is of equal size if:
+						In this lecture, we assume:
 						</p>
 						<p>
-							1. Raster resolution is very fine
-						</p>
-						<ul>
-							<li>
-								SRTM30: 30x30 arc-second (roughly 1km x 1km)
-							</li>
-						</ul>
-						<p>
-							2. Raster cells are of equal size
+						Each river segment is <strong>of equal size</strong> within the same district
 						</p>
 						<ul>
 							<li>
@@ -745,19 +737,41 @@
 								1&deg in longitude at 30&deg = 96.486km
 							</li>
 							</ul>
-						</ul>
+					<p style="text-align: center;">
+					$\frac{107551-96486}{120}*\frac{3}{30-15} \approx 18$
+					<p>
 				</section>
 
-				<!-- Standard text slide -->
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="data2construct3" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
 					<p>
-						Each river segment is of equal size
+						If each raster cell is not of equal size within a district
+					</p>
+					<ul>
+						<li>
+							Each cell is large
+						</li>
+						<li>
+							The district stretches a lot along the north-south direction
+						</li>
+						</ul>
+					<p>
+					  $\Rightarrow$ Need to project the raster data (cf. Lecture 7)
+					<p>
+				</section>
+
+				<!-- Standard text slide -->
+				<section id="data2construct4" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<p>
+						If each river segment is of equal size,
 					</p>
 					<p>
-						$\Rightarrow$ Use Zonal Statitics with two inputs:
+						$\Rightarrow$ We can use Zonal Statitics to calculate % of each type of segments, with two inputs:
 					</p>
 					<ol style="margin-left: 85px;">
 						<li>
@@ -776,7 +790,7 @@
 						</ul>
 					</ol>
 					<br>
-					<table>
+					<table style="margin-top: 50px;">
 						<tr class="fragment" data-fragment-index="1">
 							<td style="text-align: center; border: 1px solid black;">Mean cell value among river cells</td>
 							<td style="text-align: center;">=</td>
@@ -800,7 +814,7 @@
 				</section>
 
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="data2construct5" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
@@ -822,8 +836,13 @@
 							2. River polylines intersected & dissolved by district
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							$\Rightarrow$ Use Zonal Statistics with 1 and 2 as inputs
+							3. % of river segments in each gradient category
 						</p>
+						<ul class="fragment" data-fragment-index="1">
+						  <li>
+								Use Zonal Statistics with 1 and 2 as inputs
+							</li>
+						</ul>
 				</section>
 
 				<section id="ex1a" data-transition="slide-in slide-out" style="text-align: left;">
