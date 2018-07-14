@@ -1895,22 +1895,22 @@
 						Calculate river length
 					</h3>
 					<p>
-						Geo-processing tools: Add Field + Calculate Field + Table To Excel
+						Geo-processing tools: Add Geometry Attributes
 					</p>
 					<p>
-						cf. Surface area calculation (<a href="../gis_lecture4.html#/area_calculation2" target="_blank">Lecture 4</a>)
+						cf. Surface area calculation (<a href="../gis_lecture4.html#/ex2addgeo1" target="_blank">Lecture 4</a>)
 					</p>
 				</section>
 
-				<section id="ex4add_field" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex4add_geo" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 4 (cont.)
+					Exercise #4.4 (cont.)
 					</h4>
 					<h3>
-						Add Field
+						Add Geometry Attributes
 					</h3>
 					<p>
-						<strong>Input Table</strong>: river43_pj.shp
+						<strong>Input Features</strong>: river43_projected.shp
 					</p>
 					<ul>
 						<li>
@@ -1918,111 +1918,82 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Field Name</strong>: length
+						<strong>Geometry Property</strong>: LENGTH
 					</p>
-					<ul>
-						<li>
-							Or whatever you prefer (not exceeding 10 characters)
-						</li>
-					</ul>
 					<p>
-						<strong>Field Type</strong>: FLOAT
+						<strong>Length Unit</strong>: METERS
 					</p>
 					<p>
 						NOTE: This tool overwrites the input data.
 					</p>
 				</section>
 
-				<section id="ex4calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex4table2excel" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 4 (cont.)
-					</h4>
-					<h3>
-						Calculate Field
-					</h3>
-					<p>
-						<strong>Input Table</strong>: river43_pj.shp (2)
-					</p>
-					<ul>
-						<li>
-							Output from Add Field
-						</li>
-					</ul>
-					<p>
-						<strong>Output Excel File</strong>: <code>...\Lecture6\output\river_length43.xls</code>
-					</p>
-					<ul>
-						<li>
-							Or the same as what you specified in Add Field
-						</li>
-					</ul>
-				</section>
-				<section id="ex4calculate_field2" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calculate Field (cont.)
-					</h3>
-					<p>
-						<strong>Expression</strong>: <span style="font-size: 2em">float(!shape.length@kilometers!)</span>
-					</p>
-					<ul>
-						<li>
-							float() ensures decimals won't be rounded up
-						</li>
-						<li>
-							! ! tells Python what's enclosed is a field name
-						</li>
-						<li>
-								@ specifies the output unit
-								<ul>
-									<li>
-										(see  <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/calculate-field-examples.htm#ESRI_SECTION1_F885F6AD331240ACB2DBDDA70151146D" target="_blank">ArcGIS Help</a> for more detail)
-									</li>
-								</ul>
-						</li>
-					</ul>
-					<p>
-						<strong>Expression Type</strong>: PYTHON_9.3
-					</p>
-					<p>
-						NOTE: This tool overwrites the input data.
-					</p>
-				</section>
-				<section id="ex4table2excel" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-					Exercise #4: Step 4 (cont.)
+					Exercise #4.5
 					</h4>
 					<h3>
 						Table To Excel
 					</h3>
 					<p>
-						<strong>Input Table</strong>: river43_pj.shp (3)
+						<strong>Input Table</strong>: river43_projected.shp (2)
 					</p>
 					<ul>
 						<li>
-							Output from Calculate Field
+							Output from Add Geometry Attributes
 						</li>
 					</ul>
 					<p>
-						<strong>Output Excel File</strong>: ...\Lecture6\outputs\river_length43.xls
+						<strong>Output Excel File</strong>: <code>...\Lecture6\output\river_length43.xls</code>
 					</p>
 				</section>
 
+				<section id="ex4addgeo2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					An alternative to Exercise #4.3 and #4.4
+					</h4>
+					<p>
+						You can directly use Add Geometry Attributes (cf. <a href="../gis_lecture4.html#/ex2addgeo3" target="_blank">Lecture 4</a>)
+					</p>
+					<p>
+						<strong>Input Features</strong>: river43.shp
+					</p>
+					<ul>
+						<li>
+							Output from Select
+						</li>
+					</ul>
+					<p>
+						<strong>Geometry Properties</strong>: LENGTH_GEODESIC
+					</p>
+					<p>
+						<strong>Area Unit</strong>: METERS
+					</p>
+					<p>
+						<strong>Coordinate System</strong>: WGS_1984_UTM_Zone_43N
+					</p>
+					<ul>
+						<li>
+							If unspecified, the area is calculated based on WGS 1984 (i.e. rubbish)
+						</li>
+					</ul>
+				</section>
 
 				<section id="ex4model_model" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-					"Model" model for Exercise #4
+						Get ready for Python coding
 					</h3>
 					<p>
 						Now export the model <code>exercise4</code> as a Python script
 					</p>
 					<p>
-						Now we export a Python script and construct the loop over UTM zones
 						Open both the exported script and the template script (<code>code/template4L6.py</code>) with Atom
 					</p>
 					<p>
+						We first review what we have learned (cf <a href=" ../gis_lecture2.html#/section6" target="_blank">Lecture 2</a>)
 					</p>
 					<p>
-						We first review what we have learned (cf <a href=" http://mkudamatsu.github.io/gis_lecture2.html#/section6" target="_blank">Lecture 2</a>)
+						Then we create a loop over UTM zones
 					</p>
 				</section>
 
