@@ -713,30 +713,30 @@
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
-						<p>
+					<p>
 						In this lecture, we assume:
-						</p>
-						<p>
+					</p>
+					<p>
 						Each river segment is <strong>of equal size</strong> within the same district
-						</p>
+					</p>
+					<ul>
+						<li>
+							Districts in India are at most 3&deg wide in latitude
+						</li>
+						<li>
+							30 seconds in longitude can differ up to <strong>only 18m</strong>
+						</li>
 						<ul>
-							<li>
-								Districts in India are at most 3&deg wide in latitude
-							</li>
-							<li>
-								30 seconds in longitude can differ up to <strong>only 18m</strong>
-							</li>
-							<ul>
-							<li>
-								India is located from 8&deg to 37&deg North
-							</li>
-							<li>
-								1&deg in longitude at 15&deg = 107.551km
-							</li>
-							<li>
-								1&deg in longitude at 30&deg = 96.486km
-							</li>
-							</ul>
+						<li>
+							India is located from 8&deg to 37&deg North
+						</li>
+						<li>
+							1&deg in longitude at 15&deg = 107.551km
+						</li>
+						<li>
+							1&deg in longitude at 30&deg = 96.486km
+						</li>
+					</ul>
 					<p style="text-align: center;">
 					$\frac{107551-96486}{120}*\frac{3}{30-15} \approx 18$
 					<p>
@@ -756,7 +756,7 @@
 						<li>
 							The district stretches a lot along the north-south direction
 						</li>
-						</ul>
+					</ul>
 					<p>
 					  $\Rightarrow$ Need to project the raster data (cf. Lecture 7)
 					<p>
@@ -2060,20 +2060,20 @@
 					<p>
 						4. Specify output directory
 					</p>
-					<p style="text-align: center;">
-						<code>arcpy.env.workspace = "C:\\Users\\..."</code>
+					<p style="text-align: left;">
+						<code>arcpy.env.workspace = "C:\\Users\\<em>yourname</em>\\Desktop\\Lecture6"</code>
 					</p>
 					<p>
 						5. Remove directory path from intermediate/output file names
 					</p>
 					<p style="text-align: center;">
-						<code>utmzones_shp = "C:\\...\\utmzones.shp"</code>
+						<code>utm_zones_shp = "C:\\...\\utm_zones.shp"</code>
 					</p>
 					<p style="text-align: center;">
 						$\Downarrow$
 					</p>
 					<p style="text-align: center;">
-						<code>utmzones_shp = "utmzones.shp"</code>
+						<code>utm_zones_shp = "temp\\utm_zones.shp"</code>
 					</p>
 
 				</section>
@@ -2094,13 +2094,16 @@
 						</li>
 					</ul>
 						<p>
-							<code>rivers_utm_shp___2_</code> $\rightarrow$ <code>rivers_utm_shp</code>
+							<code>rivers_utm_shp___2_</code>
 						</p>
 						<p>
-							<code>rivers43_pj_shp___2_ </code> $\rightarrow$ <code>rivers43_pj_shp</code>
+							$\rightarrow$ <code>rivers_utm_shp</code>
 						</p>
 						<p>
-							<code>rivers43_pj_shp___3_</code> $\rightarrow$ <code>rivers43_pj_shp</code>
+							<code>river43_projected_shp___2_ </code>
+						</p>
+						<p>
+							$\rightarrow$ <code>river43_projected_shp</code>
 						</p>
 				</section>
 
@@ -2129,9 +2132,9 @@
 					</h1>
 				</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5
+						Exercise #4.6: Overview
 					</h4>
 					<h3>
 						Loop over UTM zones
@@ -2151,7 +2154,7 @@
 						1. UTM zone number for Select
 					</p>
 					<p style="text-align: center;">
-					<code>"\"ZONE\" = 43</code>
+					<code>"\"ZONE\" = 43"</code>
 					</p>
 					<p>
 						2. UTM coordinate system for Project
@@ -2161,9 +2164,9 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (cont.)
+						Exercise #4.6: Overview (cont.)
 					</h4>
 					<p>
 						Create a loop over values from 43 to 47
@@ -2239,7 +2242,7 @@ for zone in zoneList:
 
 				<section id="ex4python3" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (1)
+						Exercise #4.6 (1)
 					</h4>
 					<h3>
 						Create a loop structure in script
@@ -2257,30 +2260,30 @@ for zone in zoneList:
 					<pre>
 						<code data-trim>
 for zone in range(43,48):
-    # Process: Select
-    arcpy.Select_analysis(...)
-    # Process: Project
-    arcpy.Project_management(...)
+  # Process: Select
+  arcpy.Select_analysis(...)
+  # Process: Project
+  arcpy.Project_management(...)
   # Process: Add Geometry Attributes
   arcpy.AddGeometryAttributes_management(...)
-    # Process: Table To Excel
-    arcpy.TableToExcel_conversion(...)
+  # Process: Table To Excel
+  arcpy.TableToExcel_conversion(...)
 						</code>
 					</pre>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (2)
+						Exercise #4.6 (2)
 					</h4>
 					<h3>
-						UTM zone number to be selected
+						Select a UTM zone number
 					</h3>
 						<p>
 							Let's first understand the syntax for Select tool
 						</p>
 						<p>
-							cf. <a href="https://pro.arcgis.com/en/pro-app/tool-reference/analysis/select.htm#GUID-7A36E319-BD9F-4A66-94BC-67297E2D6165" target="_blank">ArcGIS Help on Select</a>
+							cf. <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/select.htm" target="_blank">ArcGIS Help on Select</a>
 						</p>
 				</section>
 
@@ -2290,7 +2293,7 @@ for zone in range(43,48):
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Select_analysis(<mark>rivers_utm_shp</mark>, rivers43_shp, "\"ZONE\"=43")
+arcpy.Select_analysis(<mark>river_utm_shp</mark>, river43_shp, "\"ZONE\"=43")
 						</code>
 					</p>
 					<br>
@@ -2305,7 +2308,7 @@ arcpy.Select_analysis(<mark>rivers_utm_shp</mark>, rivers43_shp, "\"ZONE\"=43")
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Select_analysis(rivers_utm_shp, <mark>rivers43_shp</mark>, "\"ZONE\"=43")
+arcpy.Select_analysis(river_utm_shp, <mark>river43_shp</mark>, "\"ZONE\"=43")
 						</code>
 					</p>
 					<br>
@@ -2320,7 +2323,7 @@ arcpy.Select_analysis(rivers_utm_shp, <mark>rivers43_shp</mark>, "\"ZONE\"=43")
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
+arcpy.Select_analysis(river_utm_shp, river43_shp, <mark>"\"ZONE\"=43"</mark>)
 						</code>
 					</p>
 					<br>
@@ -2498,7 +2501,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Summary (4/4)
 					</h3>
@@ -2513,9 +2516,31 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					</p>
 				</section>
 
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Exercise #4.6 (2)
+					</h4>
+					<p>
+						Replace the 3rd argument for the Select tool
+					</p>
+					<p style="text-align: center; font-size:1.5em;">
+						<code data-trim>
+							"\"ZONE\"= 43"
+						</code>
+					</p>
+					<p>
+						with
+					</p>
+					<p style="text-align: center; font-size:1.5em;">
+						<code data-trim>
+							"\"ZONE\"="+str(zone)
+						</code>
+					</p>
+				</section>
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (3)
+						Exercise #4.6 (3)
 					</h4>
 					<h3>
 						Specify UTM projection
@@ -2534,7 +2559,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Project_management(<mark>rivers43_shp</mark>, rivers43_pj_shp, "PROJCS[...
+arcpy.Project_management(<mark>river43_shp</mark>, river43_projected_shp, "PROJCS[...
 						</code>
 					</p>
 					<br>
@@ -2549,7 +2574,7 @@ arcpy.Project_management(<mark>rivers43_shp</mark>, rivers43_pj_shp, "PROJCS[...
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Project_management(rivers43_shp, <mark>rivers43_pj_shp</mark>, "PROJCS[...
+arcpy.Project_management(river43_shp, <mark>river43_projected_shp</mark>, "PROJCS[...
 						</code>
 					</p>
 					<br>
@@ -2564,7 +2589,7 @@ arcpy.Project_management(rivers43_shp, <mark>rivers43_pj_shp</mark>, "PROJCS[...
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
+arcpy.Project_management(river43_shp, river43_projected_shp, <mark>"PROJCS[...</mark>
 						</code>
 					</p>
 					<br>
@@ -2614,7 +2639,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
@@ -2633,7 +2658,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = arcpy.SpatialReference<mark>(factorycode)</mark></code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
@@ -2652,7 +2677,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = <mark>arcpy.SpatialReference(factorycode)</mark></code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
@@ -2671,7 +2696,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code><mark>cs = </mark>arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
@@ -2690,7 +2715,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>cs</mark>)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, <mark>cs</mark>)</code>
 					</p>
 					<br>
 					<p>
@@ -2698,7 +2723,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						SpatialReference method in loop
 					</h3>
@@ -2712,7 +2737,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>    cs = arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>    arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
@@ -2723,9 +2748,34 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 							Factory code must be number, not string
 						</li>
 						<li>
-							Don't use <code>str(zone)</code>
+							So don't use <code>str(zone)</code>
 						</li>
 					</ul>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Exercise #4.6 (3)
+					</h4>
+					<p>
+						Modify the script as follows (marked in yellow)
+					</p>
+					<p style="font-size:0.6em;">
+						<code>for zone in range(43,48):</code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    arcpy.Select_analysis(river_utm_shp, river43_shp, "\"ZONE\" = " + str(zone))
+</code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    <mark>factorycode = 32600 + zone</mark></code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    <mark>cs = arcpy.SpatialReference(factorycode)</mark></code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    arcpy.Project_management(river43_shp, river43_projected_shp, <mark>cs</mark>)</code>
+					</p>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
@@ -2745,10 +2795,10 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>for zone in range(43,48):</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    <mark>rivers43_shp = "rivers43.shp"</mark></code>
+						<code>    <mark>river43_shp = "river43.shp"</mark></code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    <mark>rivers43_pj_shp = "rivers43_pj.shp"</mark></code>
+						<code>    <mark>river43_projected_shp = "river43_projected.shp"</mark></code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
 						<code>    <mark>river_length43_xls =  "river_length43.xls"</mark></code>
@@ -2774,10 +2824,10 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>for zone in range(43,48):</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    rivers43_shp = "rivers<mark>"+str(zone)+"</mark>.shp"</code>
+						<code>    river43_shp = "rivers<mark>"+str(zone)+"</mark>.shp"</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    rivers43_pj_shp = "rivers_pj<mark>"+str(zone)+"</mark>.shp"</code>
+						<code>    river43_projected_shp = "rivers_pj<mark>"+str(zone)+"</mark>.shp"</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
 						<code>    river_length43_xls = "river_length<mark>"+str(zone)+"</mark>.xls"</code>
