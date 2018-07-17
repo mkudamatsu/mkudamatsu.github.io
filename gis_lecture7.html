@@ -1184,11 +1184,21 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 							For multiple points, we can use loop over values in Python (cf. <a href="../gis_lecture6.html#/section5" target="_blank">Lecture 6</a>)
 						</li>
 					</ul>
+				</section>
 
+				<section id="positionAlongLine3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						An alternative for calculating midpoint coordinates
+					</h3>
 					<p>
+						Use the <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/add-geometry-attributes.htm">Add Geometry Attributes</a> tool
 					</p>
 					<ul>
 						<li>
+							For Geometry Properties, choose LINE_START_MID_END
+						</li>
+						<li>
+							Then use the fields named MID_X and MID_Y for next step
 						</li>
 					</ul>
 				</section>
