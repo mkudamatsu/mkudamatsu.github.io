@@ -539,7 +539,7 @@
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								These four files are SRTM30 data for the area around Peru (cf. <a href="../gis_lecture6.html#elevation-data2">Lecture 6</a>)
+								These four files are SRTM30 data for the area around Peru (cf. <a href="../gis_lecture6.html#elevation-data2" target="_blank">Lecture 6</a>)
 							</li>
 					</ul>
 				</section>
@@ -1536,7 +1536,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Add Surface Information (cont.)
 					</h4>
 					<p>
-						Tool is part of <strong>3D Analyst</strong> extension
+						This tool is part of <strong>3D Analyst</strong> extension
 					</p>
 					<p>
 						Click "Tool > Extensions" to activate the extension in ArcMap
@@ -1549,9 +1549,9 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</p>
 				</section>
 
-				<section id="ex4tools" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex4tools1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4
+					Exercise #4: Overview
 					</h4>
 					<h3>
 						Road length by district
@@ -1564,7 +1564,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</p>
 					<ul>
 						<li>
-							Projected to WGS 1984 UTM 18S
+							Coordinate system: UTM 18S
 						</li>
 					</ul>
 					<p>
@@ -1577,9 +1577,9 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</ul>
 				</section>
 
-				<section id="ex4tools" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="ex4tools2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4 (cont.)
+					Exercise #4: Overview (cont.)
 					</h4>
 					<p>
 						Geo-processing tools:
@@ -1618,7 +1618,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Codebook for road data
 					</h3>
 					<p style="font-size:0.5em;">
-						(according to <code>maketable8.do</code> in the replication files)
+						(according to <code>maketable8.do</code> in the Dell (2010) replication files)
 					</p>
 					<p>
 						<strong>RUTA</strong>: type of road
@@ -1711,7 +1711,9 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p>
 						"RUTA" = 'Vecinal' AND "SUPERFICIE" >= 1 AND "SUPERFICIE" <=4
 					</p>
-					<p></p>
+					<p>
+						Now run the model and see how the output looks like
+					</p>
 				</section>
 
 				<section id="ex4intersect" data-transition="slide-in fade-out" style="text-align: left;">
@@ -1722,8 +1724,16 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Intersect
 					</h3>
 					<p>
-						<strong>Input Features</strong>: StudyDistricts, roads_paved.shp
+						<strong>Input Features</strong>:
 					</p>
+					<ul>
+						<li>
+							roads_paved.shp
+						</li>
+						<li>
+							<code>...\Lecture7\input\StudyDistricts.shp</code>
+						</li>
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: ...\Lecture7\output\intersect_paved.shp
 					</p>
@@ -1750,6 +1760,9 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</p>
 					<p>
 						Check "<strong>multipart features</strong>"
+					</p>
+					<p>
+						Now run the model and see how the output looks like
 					</p>
 				</section>
 
@@ -1840,7 +1853,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Add Surface Information
 					</h3>
 					<p>
-						<strong>Input Feature Class</strong>: district_roads_paved.shp
+						<strong>Input Feature Class</strong>: district_road_paved.shp
 					</p>
 					<ul>
 						<li>
@@ -1850,6 +1863,11 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					<p>
 						<strong>Input Surface</strong>: elevation_prj.tif
 					</p>
+					<ul>
+						<li>
+							Output from Project Raster
+						</li>
+					</ul>
 					<p>
 						<strong>Output Property</strong>: SURFACE_LENGTH
 					</p>
@@ -1866,7 +1884,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Table To Excel
 					</h3>
 					<p>
-						<strong>Input Table</strong>: district_roads_paved.shp (2)
+						<strong>Input Table</strong>: district_road_paved.shp (2)
 					</p>
 					<ul>
 						<li>
@@ -1920,7 +1938,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					"Model" model for Excercise 4
 					</h3>
 					<p>
-						Look at "Lecture7\lec7models.tbx\exercise4"
+						<code>Lecture7\code\lec7models.tbx\exercise4</code>
 					</p>
 					<br>
 					<h3>
