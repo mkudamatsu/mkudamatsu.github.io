@@ -715,7 +715,7 @@
 					</p>
 					<ul>
 						<li>
-							Do not use districts.shp, because its attribute table will have the same file name as the output from Table to Table
+							Its attribute table will have the same file name as the output from Table to Table
 						</li>
 					</ul>
 				</section>
@@ -741,6 +741,11 @@
 					<p>
 						<strong>Join Table</strong>: districts.dbf
 					</p>
+					<ul>
+						<li>
+							Output from Table To Table
+						</li>
+					</ul>
 					<p>
 						<strong>Output Join Field</strong>: dist_id
 					</p>
@@ -836,6 +841,9 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					<p>
 						Check "<strong>Create multipart features</strong>"
 					</p>
+					<p>
+						Now run the model and see how the output looks like
+					</p>
 				</section>
 
 				<section id="ex2polygon2line" data-transition="fade-in fade-out" style="text-align: left;">
@@ -864,9 +872,12 @@ ArcGIS Help on Polygon To Line</a>) </small>
 							If unchecked, each polygon becomes one polyline
 						</li>
 					</ul>
+					<p>
+						Now run the model and see how the output looks like
+					</p>
 				</section>
 
-				<section id="ex2select" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="ex2select" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #2: Step 3
 					</h4>
@@ -876,6 +887,11 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					<p>
 						<strong>Input Features</strong>: polygon2line.shp
 					</p>
+					<ul>
+						<li>
+							Output from Polyline To Line
+						</li>
+					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\boundary.shp</code>
 					</p>
@@ -890,9 +906,12 @@ ArcGIS Help on Polygon To Line</a>) </small>
 							<> means not equal to
 						</li>
 					</ul>
+					<p>
+						Now run the model and see how the output looks like
+					</p>
 				</section>
 
-				<section id="ex2alternative" data-transition="slide-in slide-out" style="text-align: left">
+				<section id="ex2alternative" data-transition="fade-in slide-out" style="text-align: left">
 					<h4>
 						Exercise #2 (cont.)
 					</h4>
@@ -928,7 +947,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					</ul>
 				</section>
 
-				<section id="distance2boundary" data-transition="slide-out fade-in" style="text-align: left">
+				<section id="distance2boundary" data-transition="fade-out slide-in" style="text-align: left">
 					<h3>
 						Distance to boundary
 					</h3>
@@ -937,23 +956,21 @@ ArcGIS Help on Polygon To Line</a>) </small>
 					</p>
 					<ul>
 						<li>
-							cf. <a href="../gis_lecture4.html#/ex1step3b" target="_blank">Lecture 4 Exercise 1 Step 3</a>
+							cf. <a href="../gis_lecture4.html#/ex1near1" target="_blank">Lecture 4 Exercise 1 Step 2</a>
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						But we also need "boundary segment fixed effects that denote
 which of <span style="color:red;">four equal length segments of the boundary</span> is the closest to the observation’s district capital" (Dell 2010, p. 1870)
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						$\Rightarrow$ Split each boundary line by half
 					</p>
 				</section>
 
-
-
 				<section id="ex3tools" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #3
+					Exercise #3: Overview
 					</h4>
 					<h3>
 						Bounday segment fixed effects
@@ -973,7 +990,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 							</li>
 						</ul>
 					<p>
-						2. Add Field + Calculate Field
+						2. Add Field + Calculate Field (cf. <a href="../gis_lecture5.html#unique_id2" target="_blank">Lecture 5</a>)
 					</p>
 						<ul style="margin-left: 72px;">
 							<li>
@@ -984,7 +1001,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 
 				<section id="ex3tools2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #3 (cont.)
+					Exercise #3: Overview (cont.)
 					</h4>
 					<p>
 						3. Make XY Event Layer + Copy Features
@@ -1032,6 +1049,9 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\boundary_unsplit.shp</code>
+					</p>
+					<p>
+						Now run the model and see how the output looks like
 					</p>
 				</section>
 
@@ -1117,12 +1137,39 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</p>
 				</section>
 
-				<section id="positionAlongLine" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="positionAlongLine1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						position Along Line method
 					</h3>
 					<p>
+						For midpoint_X:
+					</p>
+					<p>
+						<code style="font-size: 0.8em">!shape!.positionAlongLine(0.5,True).firstPoint.X</code>
+					</p>
+					<p>
+						For midpoint_Y:
+					</p>
+					<p>
+						<code style="font-size: 0.8em">!shape!.positionAlongLine(0.5,True).firstPoint.Y</code>
+					</p>
+				</section>
+
+				<section id="positionAlongLine2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						position Along Line method
+					</h3>
+					<p>
+						For midpoint_X:
+					</p>
+					<p>
 						<code style="font-size: 0.8em">!shape!.positionAlongLine(<mark>0.5</mark>,True).firstPoint.X</code>
+					</p>
+					<p>
+						For midpoint_Y:
+					</p>
+					<p>
+						<code style="font-size: 0.8em">!shape!.positionAlongLine(<mark>0.5</mark>,True).firstPoint.Y</code>
 					</p>
 					<p>
 						0.5 for mid points
@@ -1132,12 +1179,16 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 							Change this fraction for other points on polyline
 						</li>
 					</ul>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							For multiple points, we can use loop over values in Python (cf. <a href="../gis_lecture6.html#/section5" target="_blank">Lecture 6</a>)
+						</li>
+					</ul>
+
 					<p>
-						$\Rightarrow$ Multiple boundary points for heterogeneous treatment effects estimation
 					</p>
 					<ul>
 						<li>
-							Use loop over values in Python (cf. <a href="../gis_lecture6.html#/section5" target="_blank">Lecture 6</a>)
 						</li>
 					</ul>
 				</section>
@@ -1186,6 +1237,9 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					<p>
 						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\midpoints.shp</code>
 					</p>
+					<p>
+						Now run the model and see how the output looks like
+					</p>
 				</section>
 
 				<section id="ex3split_line" data-transition="slide-in slide-out" style="text-align: left;">
@@ -1198,6 +1252,11 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					<p>
 						<strong>Input Features</strong>: boundary_unsplit.shp (5)
 					</p>
+					<ul>
+						<li>
+							Output from Calculate Field (2)
+						</li>
+					</ul>
 					<p>
 						<strong>Point Features</strong>: midpoints.shp
 					</p>
@@ -1208,6 +1267,12 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</ul>
 					<p>
 						<strong>Output Feature Class</strong>: <code>...\Lecture7\output\boundary_segments.shp</code>
+					</p>
+					<p>
+						Now run the model and see how the output looks like
+					</p>
+					<p>
+						We're now ready to calculate the distance to the boundary
 					</p>
 				</section>
 
@@ -1239,7 +1304,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						Near
 					</h3>
 					<p>
-						<strong>Input Features</strong>: district_capitals_near.shp
+						<strong>Input Features</strong>: distance2border.shp
 					</p>
 					<p>
 						<strong>Near Features</strong>: boundary_segments.shp
@@ -1257,7 +1322,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					</p>
 					<ul>
 						<li>
-							We are using UTM projection, not WGS 1984
+							Because we're using UTM projection, not WGS 1984
 						</li>
 					</ul>
 				</section>
@@ -1281,22 +1346,9 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						</li>
 					</ul>
 					<p>
-						NEAR_DIST: Distance to boundary
+						NEAR_DIST: Distance to boundary (in meters)
 					</p>
 				</section>
-
-				<section id="ex3extra" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
-					For boundary RD
-					</h3>
-					<p>
-						Use multiple boundary points as near features for the Near tool
-					</p>
-					<p>
-						$\Rightarrow$ NEAR_FID indicates nearest boundary points, to create neighborhood fixed effects
-					</p>
-				</section>
-
 
 				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
