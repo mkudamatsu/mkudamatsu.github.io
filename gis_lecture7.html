@@ -1896,43 +1896,95 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					</p>
 				</section>
 
-				<section id="script_example" data-transition="slide-out slide-in" style="text-align: left;">
+				<section id="script1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						Loop over road types in Python
 					</h3>
 					<p>
-						Use list loop to change file names
+						We need to repeat
 					</p>
 					<ul>
-						<li>
-							<code>typeList = ["paved","regional","local"]</code>
-						</li>
-						<li>
-							<code>for type in typeList:</code>
-						</li>
+						<li>Select</li>
+						<li>Intersect</li>
+						<li>Dissolve</li>
+						<li>Add Surface Information</li>
+						<li>Table To Excel</li>
 					</ul>
 					<p>
-						For Select, use <a href="http://www.tutorialspoint.com/python/python_if_else.htm" target="_blank">if/elif/else statements</a>
+						for each road type
 					</p>
-					<ul>
-						<li>
-							<code>
-								if type == "paved":
-						</code>
-						</li>
-						<li>
-							<code>
-								elif type == "regional":
-						</code>
-						</li>
-						<li>
-							<code>
-								else:
-						</code>
-						</li>
-					</ul>
-
+					<p>
+						We can use Python's list loop (cf. <a href="../gis_lecture6.html#other_types_of_loop" target="_blank">Lecture 6</a>)
+					</p>
 				</section>
+
+				<section id="script2" data-transition="fade" style="text-align: left;">
+					<h4>
+						Loop over road types in Python (cont.)
+					</h4>
+					<p>
+						1. Create the list of road type names
+					</p>
+					<pre style="font-size: 1.4rem">
+						<code data-trim>
+							road_types = ["paved","regional","local"]
+						</code>
+					</pre>
+					<p>
+						2. Start the loop over road types
+					</p>
+					<pre style="font-size: 1.4rem">
+						<code data-trim>
+							for road_type in road_types:
+						</code>
+					</pre>
+				</section>
+
+				<section id="script3" data-transition="fade" style="text-align: left;">
+					<h4>
+						Loop over road types in Python (cont.)
+					</h4>
+					<p>
+						3. Change the output file name by string concatenation
+					</p>
+					<pre style="font-size: 1.4rem">
+						<code data-trim>
+road_types = ["paved","regional","local"]
+for road_type in road_types:
+  ...
+  ...
+  district_road_shp = "temp\\district_road_" +road_type+ ".shp"
+  arcpy.Dissolve_management(intersect_shp, district_road_shp, ...)
+  ...
+  ...
+						</code>
+					</pre>
+				</section>
+
+				<section id="script4" data-transition="fade" style="text-align: left;">
+					<h4>
+						Loop over road types in Python (cont.)
+					</h4>
+					<p>
+						4. For Select, use <a href="http://www.tutorialspoint.com/python/python_if_else.htm" target="_blank">if/elif/else statements</a>
+					</p>
+					<pre style="font-size: 0.95rem">
+						<code data-trim data-noescape>
+<mark>if</mark> road_type == "paved":
+  selection_criteria = "\"RUTA\" = 'Departamental' AND ( \"SUPERFICIE\" = 1 OR \"SUPERFICIE\" = 2 )"
+
+<mark>elif</mark> road_type == "regional":
+  selection_criteria = "\"RUTA\" = 'Departamental' AND ( \"SUPERFICIE\" >= 1 OR \"SUPERFICIE\" <= 4 )"
+
+<mark>else</mark>:
+  selection_criteria = "\"RUTA\" = 'Vecinal' AND ( \"SUPERFICIE\" >= 1 OR \"SUPERFICIE\" <= 4 )"
+
+roads_by_type_shp = "temp\\roads_" +road_type+ ".shp"
+arcpy.Select_analysis(roads_prj_shp, roads_by_type_shp, selection_criteria)
+						</code>
+					</pre>
+				</section>
+
 				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
 					"Model" model for Excercise 4
@@ -1945,7 +1997,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 					Model Python Script for Lecture 7
 					</h3>
 					<p>
-						To be uploaded...
+						<code>Lecture7\code\exercise4.py</code>
 					</p>
 				</section>
 			</section>
