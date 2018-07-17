@@ -1671,10 +1671,10 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Select
 					</h3>
 					<p>
-						<strong>Input Features</strong>: roads_prj
+						<strong>Input Features</strong>: <code>...\Lecture7\input\roads_prj.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture7\output\roads_paved.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\roads_paved.shp</code>
 					</p>
 					<p>
 						<strong>Expression</strong>:
@@ -1743,7 +1743,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<strong>Input Features</strong>: intersect_paved.shp
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture7\output\district_roads_paved.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\district_road_paved.shp</code>
 					</p>
 					<p>
 						<strong>Dissolve_Field(s)</strong>: dist_id
@@ -1802,10 +1802,10 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						Project Raster
 					</h3>
 					<p>
-						<strong>Input Raster</strong>: \data4exercises\W100S10.DEM
+						<strong>Input Raster</strong>: <code>...\Lecture7\input\W100S10.DEM</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture7\output\elevation_prj.tif
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\elevation_prj.tif</code>
 					</p>
 					<p>
 						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_18S
@@ -1874,7 +1874,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						</li>
 					</ul>
 					<p>
-						<strong>Output Excel File</strong>: ...\Lecture7\output\district_roads_paved.xls
+						<strong>Output Excel File</strong>: <code>...\Lecture7\output\district_road_paved.xls</code>
 					</p>
 				</section>
 
@@ -1900,17 +1900,17 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<li>
 							<code>
 								if type == "paved":
-							</code>
+						</code>
 						</li>
 						<li>
 							<code>
 								elif type == "regional":
-							</code>
+						</code>
 						</li>
 						<li>
 							<code>
 								else:
-							</code>
+						</code>
 						</li>
 					</ul>
 
