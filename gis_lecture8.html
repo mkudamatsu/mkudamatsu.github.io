@@ -818,7 +818,7 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 						Calorie conversion for maize
 					</h3>
 					<p>
-						Input: .../Lecture8/inputs/GAEZ/maize.tif
+						Input: .../Lecture8/input/GAEZ/maize.tif
 					</p>
 					<p>
 						Conversion factor: 36.5
@@ -834,7 +834,7 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 					</h4>
 					<pre style="font-size:0.7em;">
 						<code data-trim data-noescape>
-input_raster = ".../Lecture8/inputs/GAEZ/maize.tif"
+input_raster = ".../Lecture8/input/GAEZ/maize.tif"
 output_raster = "/Lecture8/output/calorie_maize.tif"
 
 try:
@@ -1280,7 +1280,7 @@ crops = calorie.keys()
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = ".../input/GAEZ"
    <mark>crop_yield = Raster(crop+".tif")</mark>
 						</code>
 					</pre>
@@ -1297,7 +1297,7 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = ".../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * <mark>calorie[crop]</mark>
 						</code>
@@ -1315,7 +1315,7 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = ".../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    <mark>calorie_yield = crop_yield * calorie[crop]</mark>
 						</code>
@@ -1333,7 +1333,7 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = ".../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * calorie[crop]
    arcpy.env.workspace = ".../output"
@@ -1594,7 +1594,7 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 					<pre style="font-size: 0.45em;">
 						<code data-trim data-noescape>
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = ".../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * calorie[crop]
    arcpy.env.workspace = ".../output"
@@ -1707,7 +1707,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 						Obtain average caloric difference within 20-mile radius of each society
 					</p>
 					<p>
-						INPUTS: /Lecture8/inputs/ethnographic_atlas.shp
+						INPUTS: /Lecture8/input/ethnographic_atlas.shp
 					</p>
 					<p>
 						Which geo-processing tools should we use?
