@@ -73,68 +73,59 @@
 					</p>
 				</section>
 
-				<section id="what_is_spatial_join" style="text-align: left;">
+				<section id="what_is_spatial_join" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						What is Spatial Join?
 					</h3>
 						<p>
 							Match <strong>features</strong> from two vector datasets by location
 						</p>
-						<p>
-							Examples:
-						</p>
 						<ul>
 							<li>
-								Zip-code zones + Air pollution monitors
+								No need of common keys (e.g. district code) to match data
 							</li>
 							<li>
-								Ethnic homelands + Weather data grid points
-							</li>
-							<li>
-								Islands + Wind data grid points
-							</li>
-							<li>
-								Surveyed villages + Weather data grid points
+								Allow you to match administrative data with <strong>natural environment data</strong>
 							</li>
 						</ul>
 				</section>
 
-				<section id="benefits" style="text-align: left;">
-					<h3>
-						Benefits of Spatial Join
-					</h3>
+				<section id="biome" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Example: <a href="https://www.worldwildlife.org/publications/terrestrial-ecoregions-of-the-world">Terrestrial Ecoregions</a>
+					</h4>
+						<img src="gis_lecture2/biome.png"  style="border: none; background: none; box-shadow:none; width: 600px;">
 						<p>
-							More feasible research design
+							<a href="http://doi.org/10.1093/qje/qjx030">Henderson et al. (2018)</a> find these ecoregions predict where economic activities take place
 						</p>
-						<ul>
-							<li>
-								Weather data: often available at grid points
-							</li>
-							<li>
-								Since weather is exogenous, causality can be established
-							</li>
-						</ul>
 						<p>
-							Control for location fixed effects at very disaggregated level
+							But we cannot easily match this data to administrative areas without spatial join
 						</p>
 				</section>
 
-				<section id="road_map" style="text-align: left;">
+				<section id="benefits" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
+						Spatial Join and Weather Data
 					</h3>
 					<p>
+						Weather data: increasingly popular among economists
 					</p>
 					<ul>
 						<li>
+							Interest in climate change (<a href="http://doi.org/10.1257/jel.52.3.740" target="_blank">Dell et al. (2014)</a> for a survey)
 						</li>
 						<li>
+							Since weather is exogenous, causality can be established
 						</li>
 					</ul>
 					<p>
+						But <strong>grid cells</strong> are the units of observation in weather data
 					</p>
 					<p>
+						How can we match weather with socio-economic units?
 					</p>
 					<p>
+						$\Rightarrow$ Spatial Join helps
 					</p>
 				</section>
 
