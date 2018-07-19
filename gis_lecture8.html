@@ -1685,13 +1685,13 @@ max_calorie = CellStatistics(<mark>[max_cereal, max_tuber]</mark>, "MAXIMUM", "D
 max_cereal = CellStatistics(input_cereals, "MAXIMUM", "DATA")
 max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 caloric_diff = max_cereal - max_tuber
-max_all = CellStatistics([max_cereal, max_tuber], "MAXIMUM", "DATA")
+max_calorie = CellStatistics([max_cereal, max_tuber], "MAXIMUM", "DATA")
 
 arcpy.env.workspace = "../output"
 max_cereal<mark>.save("max_calorie_cereal.tif")</mark>
 max_tuber<mark>.save("max_calorie_tuber.tif")</mark>
 caloric_diff<mark>.save("max_calorie_diff.tif")</mark>
-max_all<mark>.save("max_calorie_all.tif")</mark>
+max_calorie<mark>.save("max_calorie_all.tif")</mark>
 						</code>
 					</pre>
 					<p>
