@@ -818,14 +818,24 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 						Calorie conversion for maize
 					</h3>
 					<p>
-						Input: .../Lecture8/input/GAEZ/maize.tif
+						Inputs
 					</p>
+					<ul>
+						<li>
+							GAEZ data: <code>../input/GAEZ/maize.tif</code>
+						</li>
+						<li>
+							Conversion factor: 36.5
+						</li>
+					</ul>
 					<p>
-						Conversion factor: 36.5
+						Output
 					</p>
-					<p>
-						Output: .../Lecture8/output/maize_calorie.tif
-					</p>
+					<ul>
+						<li>
+							<code>../output/maize_calorie.tif</code>
+						</li>
+					</ul>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
@@ -834,8 +844,10 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 					</h4>
 					<pre style="font-size:0.7em;">
 						<code data-trim data-noescape>
-input_raster = ".../Lecture8/input/GAEZ/maize.tif"
-output_raster = "/Lecture8/output/calorie_maize.tif"
+input_raster = "../input/GAEZ/maize.tif"
+conversion_factor = 36.5
+
+output_raster = "../output/calorie_maize.tif"
 
 try:
     maize_yield = Raster(input_raster)
@@ -1280,7 +1292,7 @@ crops = calorie.keys()
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../input/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    <mark>crop_yield = Raster(crop+".tif")</mark>
 						</code>
 					</pre>
@@ -1297,7 +1309,7 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../input/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * <mark>calorie[crop]</mark>
 						</code>
@@ -1315,7 +1327,7 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../input/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    <mark>calorie_yield = crop_yield * calorie[crop]</mark>
 						</code>
@@ -1333,10 +1345,10 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../input/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * calorie[crop]
-   arcpy.env.workspace = ".../output"
+   arcpy.env.workspace = "../output"
    <mark>calorie_yield.save("calorie_"+crop+".tif")</mark>
 					</code>
 					</pre>
@@ -1526,7 +1538,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					</p>
 					<pre style="font-size:0.65em;">
 						<code data-trim data-noescape>
-arcpy.env.workspace = "C:/.../Lecture8/output"
+arcpy.env.workspace = "../output"
 input_rasters = <mark>arcpy.ListRasters("calorie_*", "TIF")</mark>
 max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 						</code>
@@ -1545,7 +1557,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					</h4>
 					<pre style="font-size:0.65em;">
 						<code data-trim data-noescape>
-arcpy.env.workspace = "C:/.../Lecture8/output"
+arcpy.env.workspace = "../output"
 input_rasters = arcpy.ListRasters("calorie_*", "TIF")
 max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 						</code>
@@ -1567,7 +1579,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					</p>
 					<pre style="font-size: 0.6em;">
 						<code data-trim data-noescape>
-arcpy.env.workspace = "C:/.../Lecture8/output"
+arcpy.env.workspace = "../output"
 
 input_cereals = arcpy.ListRasters("calorie_<mark>cereal_</mark>*", "TIF")
 max_cereal = CellStatistics(input_cereals, "MAXIMUM", "DATA")
@@ -1594,10 +1606,10 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 					<pre style="font-size: 0.45em;">
 						<code data-trim data-noescape>
 for crop in crops:
-   arcpy.env.workspace = ".../input/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * calorie[crop]
-   arcpy.env.workspace = ".../output"
+   arcpy.env.workspace = "../output"
    <mark>if crop == "cassava" or crop == "sweetpotato" or crop == "whitepotato" or crop == "yams":</mark>
       calorie_yield.save("calorie_<mark>tuber_</mark>"+crop+".tif")
    <mark>else:</mark>
@@ -1675,7 +1687,7 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 caloric_diff = max_cereal - max_tuber
 max_all = CellStatistics([max_cereal, max_tuber], "MAXIMUM", "DATA")
 
-arcpy.env.workspace = ".../output"
+arcpy.env.workspace = "../output"
 max_cereal<mark>.save("max_calorie_cereal.tif")</mark>
 max_tuber<mark>.save("max_calorie_tuber.tif")</mark>
 caloric_diff<mark>.save("max_calorie_diff.tif")</mark>
