@@ -1532,11 +1532,6 @@
 					</h4>
 					<pre>
 						<code data-trim>
-arcpy.env.workspace = "D:/temp" # NEVER USE single backslash (\).
-
-### Local variables ###
-////PASTE HERE//// # local variables from the exported script
-
 ############################## Geoprocessing ##########################
 try:
     # Process: Create Fishnet
@@ -1555,7 +1550,7 @@ try:
     arcpy.AddGeometryAttributes_management(fishnet_shp__2_, "CENTROID", "", "", "")
 
     # Process: Spatial Join
-    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp__4_, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "CENTROID_X \"CENTROID_X\" true true false 53 Double 840472724 844058660 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_X,-1,-1;CENTROID_Y \"CENTROID_Y\" true true false 0 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Y,-1,-1;CENTROID_Z \"CENTROID_Z\" true true false 6029365 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Z,-1,-1;CENTROID_M \"CENTROID_M\" true true false 6029365 Double 114 6619136 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_M,-1,-1;NAME \"NAME\" true true false 50 Text 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,NAME,-1,-1;TRIBE_CODE \"TRIBE_CODE\" true true false 9 Long 0 9 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,TRIBE_CODE,-1,-1;LAT \"LAT\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LAT,-1,-1;LON \"LON\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LON,-1,-1;tribelat \"tribelat\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelat,-1,-1;tribelon \"tribelon\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelon,-1,-1", "INTERSECT", "", "")
+    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp__4_, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "", "INTERSECT", "", "")
 
     # Process: Table To Excel
     arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
@@ -1566,8 +1561,6 @@ try:
 # Return geoprocessing specific errors
 except arcpy.ExecuteError:
     print arcpy.GetMessages()
-
-# Return any other type of error
 						</code>
 					</pre>
 				</section>
@@ -1838,14 +1831,14 @@ try:
     print "Create 20th Century Reanalysis data cell polygons step 3/3"
     arcpy.AddGeometryAttributes_management(fishnet_shp, "CENTROID", "", "", "")
 
-    arcpy.MakeXYEventLayer_management(tribalmap_shp, "lon", "lat", tribalmap_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
     print "Create ethnic group centroids step 1/2"
+    arcpy.MakeXYEventLayer_management(tribalmap_shp, "lon", "lat", tribalmap_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
 
     print "Create ethnic group centroids step 2/2"
     arcpy.CopyFeatures_management(tribalmap_Layer, ethno_centroids_shp, "", "0", "0", "0")
 
     print "Match Ethnographic Atlas ethnic groups with 20th Century Reanalysis data cells"
-    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "CENTROID_X \"CENTROID_X\" true true false 53 Double 840472724 844058660 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_X,-1,-1;CENTROID_Y \"CENTROID_Y\" true true false 0 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Y,-1,-1;CENTROID_Z \"CENTROID_Z\" true true false 6029365 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Z,-1,-1;CENTROID_M \"CENTROID_M\" true true false 6029365 Double 114 6619136 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_M,-1,-1;NAME \"NAME\" true true false 50 Text 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,NAME,-1,-1;TRIBE_CODE \"TRIBE_CODE\" true true false 9 Long 0 9 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,TRIBE_CODE,-1,-1;LAT \"LAT\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LAT,-1,-1;LON \"LON\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LON,-1,-1;tribelat \"tribelat\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelat,-1,-1;tribelon \"tribelon\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelon,-1,-1", "INTERSECT", "", "")
+    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "", "INTERSECT", "", "")
 
     print "Export output data as Excel sheet"
     arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
@@ -1953,7 +1946,7 @@ try:
     arcpy.CopyFeatures_management(tribalmap_Layer, ethno_centroids_shp, "", "0", "0", "0")
 
 ##    print "Match Ethnographic Atlas ethnic groups with 20th Century Reanalysis data cells"
-##    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "CENTROID_X \"CENTROID_X\" true true false 53 Double 840472724 844058660 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_X,-1,-1;CENTROID_Y \"CENTROID_Y\" true true false 0 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Y,-1,-1;CENTROID_Z \"CENTROID_Z\" true true false 6029365 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_Z,-1,-1;CENTROID_M \"CENTROID_M\" true true false 6029365 Double 114 6619136 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\fishnet.shp,CENTROID_M,-1,-1;NAME \"NAME\" true true false 50 Text 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,NAME,-1,-1;TRIBE_CODE \"TRIBE_CODE\" true true false 9 Long 0 9 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,TRIBE_CODE,-1,-1;LAT \"LAT\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LAT,-1,-1;LON \"LON\" true true false 13 Double 11 12 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,LON,-1,-1;tribelat \"tribelat\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelat,-1,-1;tribelon \"tribelon\" true true false 19 Double 0 0 ,First,#,C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2\\output\\ethno_centroids.shp,tribelon,-1,-1", "INTERSECT", "", "")
+##    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "", "INTERSECT", "", "")
 ##
 ##    print "Export output data as Excel sheet"
 ##    arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
