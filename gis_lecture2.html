@@ -121,189 +121,43 @@
 
 				<section id="road_map" style="text-align: left;">
 					<h3>
+					</h3>
+					<p>
+					</p>
+					<ul>
+						<li>
+						</li>
+						<li>
+						</li>
+					</ul>
+					<p>
+					</p>
+					<p>
+					</p>
+					<p>
+					</p>
+				</section>
+
+				<section id="road_map" style="text-align: left;">
+					<h3>
 						Today's road map
 					</h3>
 						<p>
-							1. Currie & Neidell (2005)
+							1. Alsan (2015)
 						</p>
 						<p>
-							2. Alsan (2015)
+							2. Replicate Alsan (2015)
 						</p>
 						<p>
-							3. Feyrer & Sacerdote (2009)
-						</p>
-						<p>
-							4. Kudamatsu et al. (2012)
-						</p>
-						<p>
-							5. Replicate Kudamatsu et al. (2012)
-						</p>
-						<p>
-							6. Introduction to Python for ArcGIS
+							3. Introduction to Python for ArcGIS
 						</p>
 				</section>
-
-			<!-- SECTION 1 -->
-			<section>
-				<section id="section1">
-					<h1>
-						1. <a href="http://dx.doi.org/10.1093/qje/120.3.1003" target="_blank">Currie & Neidell (2005)</a>
-					</h1>
-				</section>
-
-				<section id="rq1" style="text-align: left;">
-					<h3>Research Question</h3>
-					<p>
-						Does air pollution cause infant mortality?
-					</p>
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							Air quality regulations: costly
-						</li>
-						<li>
-							Benefits need to be understood
-						</li>
-						<li>
-							Insufficient evidence for impact on infant mortality
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							Look at 1990s California (low level of air pollution)
-						</li>
-						<li>
-							Look at three pollutants (CO, PM10, O3) altogether
-						</li>
-						<li>
-							Weekly data at individal level
-						</li>
-					</ul>
-					<p>
-						Feasible?
-					</p>
-				</section>
-
-				<section id="data1a" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>Data</h3>
-					<p>
-						Infant mortality: individual-level with zip-code of mothers' residency
-					</p>
-					<p>
-						Air pollution: monitor-level (geo-referenced)
-					</p>
-				</section>
-
-				<section id="map1" data-transition="fade-out fade-in">
-					<h4>
-						Monitor locations & zip-code polygons
-					</h4>
-					<img src="gis_lecture2/zipcodes.png" style="border: none; background: none; box-shadow:none; width: 600px;">
-					<p>
-						<small>(taken from <a href="http://dx.doi.org/10.1016/j.jhealeco.2004.05.002" target="_blank">Neidell 2004</a>)</small>
-					</p>
-				</section>
-
-				<section id="data1b" data-transition="slide-out fade-in" style="text-align: left;">
-					<p>
-						Zip-code level pollution is obtained by:
-					</p>
-					<p>
-						1. Pick monitors w/i 20-mile radius of zip-code centroids
-					</p>
-						<ul>
-							<li>
-							Centroids: we will learn later
-							</li>
-							<li>
-							20-mile radius: Lecture 3
-							</li>
-							<li>
-							Spatial Join: match the radius with monitors
-							</li>
-						</ul>
-					<p>
-						2. Weighted-average pollution at these monitors by inverse of distance from zip-code centroid
-					</p>
-						<ul>
-							<li>
-								Distance between points: Lecture 4
-							</li>
-						</ul>
-				</section>
-
-				<section id="equation1" style="text-align: left">
-					<h3>
-						Empirical specification
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						P_{izt} =
-						  \boldsymbol{x}'_{zt}\boldsymbol{\beta} + \boldsymbol{z}'_i\boldsymbol{\gamma} + \boldsymbol{w}'_{zt}\boldsymbol{\delta} + \psi_{zt} + Y_{zt} + \alpha(t) + \varepsilon_{izt}
-						\end{align*}
-					</p>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: right">$P_{izt}$</td>
-							<td>Death indicator for baby $i$ in zipcode $z$ in week $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\boldsymbol{x}_{zt}$</td>
-							<td>Pollution levels of CO, O3, PM10</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\boldsymbol{z}_i$</td>
-							<td>Individual controls (birthweight, etc.)</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\boldsymbol{w}_{zt}$</td>
-							<td>Weather variables</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\psi_{zt}$</td>
-							<td>Zipcode-by-month fixed effects</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$Y_{zt}$</td>
-							<td>Zipcode-by-year fixed effects</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\alpha(t)$</td>
-							<td>Linear spline in weeks since birth (kinks at 1, 2, 4, 8, 12, 20, 32)</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="result1a"  data-transition="slide-in fade-out">
-					<h4>
-						Main results
-					</h4>
-					<img src="gis_lecture2/table3a.png" style="border: none; background: none; box-shadow:none; width: 800px;">
-					<p>
-						<small>(Table III of Currie & Neidell 2005)</small>
-					</p>
-				</section>
-
-				<section id="result1b"  data-transition="slide-out fade-in">
-					<img src="gis_lecture2/table3b.png" style="border: none; background: none; box-shadow:none; width: 800px;">
-					<p>
-						<small>(Table III of Currie & Neidell 2005)</small>
-					</p>
-				</section>
-
-			</section>
 
 			<!-- SECTION 2 -->
 			<section>
 				<section id="section2">
 					<h1>
-						2. <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>
+						1. <a href="http://dx.doi.org/10.1257/aer.20130604" target="_blank">Alsan (2015)</a>
 					</h1>
 					<img src="gis_lecture2/Tsetsefly.jpg" style="border: none; background: none; box-shadow:none; width: 400px;">
 				</section>
@@ -528,147 +382,6 @@
 
 			</section>
 
-			<section>
-				<section id="section4">
-					<h1>
-						4. <a href="http://www.cepr.org/active/publications/discussion_papers/dp.php?dpno=9222" target="_blank">Kudamatsu et al. (2012)</a>
-					</h1>
-				</section>
-
-				<section id="rq4" style="text-align: left;">
-					<h3>Research Question</h3>
-					<p>
-						How do annual weather fluctuations kill infants in Africa?
-					</p>
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							Infant death: still a big issue in Africa
-						</li>
-						<li>
-							Impliations for climate change impacts
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							Continent-wide data to observe many rare weather events
-						</li>
-						<li>
-							RCTs on combatting infant death: no statistical power to detect impact
-						</li>
-					</ul>
-					<p>
-						Feasible?
-					</p>
-				</section>
-
-				<section id="data4a" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>Data</h3>
-					<p>
-						Infant mortality: Demographic and Health Surveys (DHS)
-					</p>
-					<ul>
-						<li>
-							Surveyed clusters (villages & town districts): geo-referenced by GPS receiver
-						</li>
-					</ul>
-					<p>
-						Weather 1957-2002: ERA-40 reanalysis at 1.25&deg x 1.25&deg
-					</p>
-					<ul>
-						<li>
-							Monthly rainfall & temperature fed into a model to predict malaria transmission suitability
-						</li>
-						<li>
-							Total rainfall during growing season
-						</li>
-					</ul>
-					<p>
-						Clusters: matched with 1.25&deg x 1.25&deg cell polygons
-					</p>
-				</section>
-
-				<section id="data4b" data-transition="slide-out fade-in" >
-					<h4>
-						DHS clusters & ERA-40 cells
-					</h4>
-					<img src="gis_lecture2/KPS2012f1.png" style="border: none; background: none; box-shadow:none; width: 500px;">
-					<p>
-						<small>(source: Figure 1 of Kudamatsu et al. 2012)</small>
-					</p>
-				</section>
-
-				<section id="equation4" style="text-align: left">
-					<h3>
-						Empirical specification
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						y_{i,c,s,y} * 1000 =
-						& \ \boldsymbol{M}'_{g,s,y}\boldsymbol{\alpha} + \boldsymbol{R}'_{g,s,y}\boldsymbol{\beta}  \\
-						& + \boldsymbol{W}'_{g,s,y}\boldsymbol{\gamma} + \mu_{c,s} + \eta_{x,y} + \delta^g T_{s,y} + \varepsilon_{i,c,s,y}
-						\end{align*}
-					</p>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: right">$y_{i,c,s,y}$</td>
-							<td>Death indicator for baby $i$ born in cluster $c$ in month $s$ of year $y$</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\boldsymbol{M}_{g,s,y}$</td>
-							<td>Malarious weather variables in cell $g$</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\boldsymbol{R}_{g,s,y}$</td>
-							<td>Growing-season rainfall variables in cell $g$</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\boldsymbol{W}_{g,s,y}$</td>
-							<td>Monthly rainfall and Temperature variables</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\mu_{c,s}$</td>
-							<td>Cluster-by-month fixed effects </td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\eta_{x,y}$</td>
-							<td>Country-by-year fixed effects</td>
-						</tr>
-						<tr>
-							<td style="text-align: right">$\delta^g T_{s,y}$</td>
-							<td>Linear trend specific to cell $g$</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="results4a" data-transition="slide-in fade-out">
-					<h4>
-						Results on malarious weather
-					</h4>
-					<img src="gis_lecture2/KPS2012t3.png" style="border: none; background: none; box-shadow:none; width: 900px;">
-					<p>
-						<small>(source: Table 3 of Kudamatsu et al. 2012)</small>
-					</p>
-				</section>
-
-				<section id="results4b" data-transition="slide-out fade-in">
-					<h4>
-						Results on growing-season rainfall
-					</h4>
-					<img src="gis_lecture2/KPS2012t6.png" style="border: none; background: none; box-shadow:none; width: 900px;">
-					<p>
-						<small>(source: Table 6 of Kudamatsu et al. 2012)</small>
-					</p>
-				</section>
-
-			</section>
-
 				<section id="preparation1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						Prepare for the rest of this lecture
@@ -721,7 +434,7 @@
 			<section>
 				<section id="section5">
 					<h1>
-						5. Replicate Alsan (2015)
+						2. Replicate Alsan (2015)
 					</h1>
 				</section>
 
@@ -1413,7 +1126,7 @@
 			<section>
 				<section id="section6">
 					<h1>
-						6. Introduction to Python for ArcGIS
+						3. Introduction to Python for ArcGIS
 					</h1>
 				</section>
 
