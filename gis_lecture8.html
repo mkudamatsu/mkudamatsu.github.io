@@ -535,13 +535,16 @@
 						Data we want to construct
 					</h3>
 					<p>
-						Caloric yields by crop at each 5'x5' cell across the world
+						Caloric yields by crop at each 5-minute cell across the world
+					</p>
+					<ul>
+						<li>GAEZ provides each crop's potential yield <strong>in tons per hectare</strong></li>
+					</ul>
+					<p>
+
 					</p>
 					<p>
-						Inputs: each crop's potential yield in tons per hectare
-					</p>
-					<p>
-						$\Rightarrow$ Multiply w/ crop-specific conversion factor
+						$\Rightarrow$ Multiply it w/ crop-specific conversion factor
 					</p>
 				</section>
 
@@ -558,7 +561,7 @@
 						Data we want to construct (cont.)
 					</h4>
 						<p>
-							So we need to edit each 5'x5' cell of GAEZ
+							So we need to edit each 5-minute cell of GAEZ
 						</p>
 						<p>
 							$\Rightarrow$ Use Map Algebra
@@ -582,6 +585,11 @@ from arcpy.sa import *
 arcpy.CheckOutExtension("spatial")
 						</code>
 					</pre>
+					<ul>
+						<li>
+							I provide these lines in <code>.../Lecture8/code/template4L8ex*.py</code>
+						</li>
+					</ul>
 				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
@@ -606,7 +614,7 @@ arcpy.CheckOutExtension("spatial")
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Map Algebra basics #1
 					</h4>
@@ -838,20 +846,22 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 					</ul>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Exercise #1 (cont.)
 					</h4>
 					<pre style="font-size:0.7em;">
 						<code data-trim data-noescape>
+print "Inputs being set..."
 input_raster = "../input/GAEZ/maize.tif"
 conversion_factor = 36.5
 
+print "Outputs being set..."
 output_raster = "../output/calorie_maize.tif"
 
 try:
     maize_yield = Raster(input_raster)
-    maize_calorie = maize_yield * 36.5
+    maize_calorie = maize_yield * conversion_factor
     maize_calorie.save(output_raster)
 
 except arcpy.ExecuteError:
@@ -863,7 +873,7 @@ except arcpy.ExecuteError:
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						Work on multiple inputs
+						How to repeat for 15 crops
 					</h3>
 					<p>
 						How do we repeat this for other 14 crops?
@@ -904,9 +914,9 @@ except arcpy.ExecuteError:
 				</section>
 
 				<section id="" data-transition="fade-in slide-in" style="text-align: left">
-					<h4>
-						Work on multiple inputs (cont.)
-					</h4>
+					<h3>
+						detour: defensive programming
+					</h3>
 					<p>
 						If tempted to copy-and-paste during programming
 					</p>
@@ -920,9 +930,9 @@ except arcpy.ExecuteError:
 
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left">
-					<h3>
-						detour: defensive programming
-					</h3>
+					<h4>
+						detour: defensive programming (cont.)
+					</h4>
 					<p>
 						"Computer scientists <em>assume</em> programmers will make mistakes, and instead of chiding people to “just be careful,” they have developed a battery of practices to address the problem." (<a href="https://github.com/nickeubank/DefensiveProgramming/blob/master/Eubank_DefensiveProgramming.pdf" target="_blank">Nick Eubank</a>)
 					</p>
@@ -933,9 +943,9 @@ except arcpy.ExecuteError:
 
 
 				<section id="" data-transition="slide-out slide-in" style="text-align: left">
-					<h3>
-						Loop over pairs
-					</h3>
+					<h4>
+						How to repeat for 15 crops (cont.)
+					</h4>
 					<p>
 						We need a loop over crop names
 					</p>
@@ -950,7 +960,7 @@ except arcpy.ExecuteError:
 					</p>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left">
+				<section id="dictionary1" data-transition="slide-in fade-out" style="text-align: left">
 					<h3>
 						Dictionary in Python
 					</h3>
@@ -966,21 +976,21 @@ except arcpy.ExecuteError:
 						It's a set of pairs
 					</p>
 					<p>
-						Just like a Swedish-English dictionary
+						Just like a Norwegian-English dictionary
 					</p>
 					<ul>
 						<li>
-							Each pair: Swedish word and its translation in English
+							Each pair: Norwegian word and its translation in English
 						</li>
 					</ul>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary2a" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
 					<h3>
-						Basic way to define a dictionary
+						Syntax to define a dictionary
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
@@ -990,14 +1000,39 @@ dict = <mark>{</mark>'jeg':'I', 'du':'you', 'vi':'we'<mark>}</mark>
 					<p>
 						Enclose the whole by { }
 					</p>
+				</section>
+
+				<section id="dictionary2b" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Dictionary in Python (cont.)
+					</h4>
+					<h3>
+						Syntax to define a dictionary
+					</h3>
+					<pre style="font-size:1em;">
+						<code data-trim data-noescape>
+dict = {'jeg':'I'<mark>,</mark> 'du':'you'<mark>,</mark> 'vi':'we'}
+						</code>
+					</pre>
 					<p>
-						Each pair is separated by ,
+						Each pair is separated by , (comma)
 					</p>
+				</section>
+
+				<section id="dictionary2c" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Dictionary in Python (cont.)
+					</h4>
+					<h3>
+						Syntax to define a dictionary
+					</h3>
+					<pre style="font-size:1em;">
+						<code data-trim data-noescape>
+dict = {'jeg'<mark>:</mark>'I', 'du'<mark>:</mark>'you', 'vi'<mark>:</mark>'we'}
+						</code>
+					</pre>
 					<p>
-						Each element within a pair is separated by :
-					</p>
-					<p>
-						You can use number as well
+						Each element within a pair is separated by : (colon)
 					</p>
 				</section>
 
@@ -1006,7 +1041,7 @@ dict = <mark>{</mark>'jeg':'I', 'du':'you', 'vi':'we'<mark>}</mark>
 						Dictionary in Python (cont.)
 					</h4>
 					<h3>
-						Basic way to define a dictionary
+						Syntax to define a dictionary
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
@@ -1018,7 +1053,7 @@ dict = <mark>{</mark>'jeg':'I', 'du':'you', 'vi':'we'<mark>}</mark>
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary3a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1035,7 +1070,7 @@ dict = {<mark>'jeg'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary3b" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1052,7 +1087,7 @@ dict = {'jeg':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary3c" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1073,7 +1108,7 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 						<code>dict['jeg']</code>
 						</td>
 						<td>
-							contains
+							returns
 						</td>
 						<td><code>'I'</code>
 						</td>
@@ -1083,7 +1118,7 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 						<code>dict['du']</code>
 						</td>
 						<td>
-							contains
+							returns
 						</td>
 						<td>
 							<code>'you'</code>
@@ -1094,7 +1129,7 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 						<code>dict['vi']</code>
 						</td>
 						<td>
-							contains
+							returns
 						</td>
 						<td>
 							<code>'we'</code>
@@ -1103,7 +1138,7 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 					</table>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1123,7 +1158,7 @@ dict['vi'] = 'we'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4b" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1143,7 +1178,7 @@ dict['vi'] = 'we'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4c" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1163,7 +1198,7 @@ dict['vi'] = 'we'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4d" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1185,7 +1220,7 @@ dict['engelsk'] = 'English'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left">
+				<section id="dictionary5" data-transition="slide-in slide-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1209,7 +1244,7 @@ dict['engelsk'] = 'English'
 						</p>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Exercise #2
 					</h4>
@@ -1224,7 +1259,7 @@ dict['engelsk'] = 'English'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="ex2-1" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Exercise #2 Step 1: Calorie conversion factors
 					</h4>
@@ -1250,7 +1285,10 @@ calorie['yams'] = 11.8
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-2a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 2
+					</h4>
 					<h3>
 						Loop over crop names
 					</h3>
@@ -1265,7 +1303,10 @@ for crop in crops:
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-2b" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 2 (cont.)
+					</h4>
 					<h3>
 						Loop over crop names
 					</h3>
@@ -1281,7 +1322,10 @@ crops = calorie.keys()
 				</section>
 
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-3a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3
+					</h4>
 					<h3>
 						Calorie conversion
 					</h3>
@@ -1298,10 +1342,10 @@ for crop in crops:
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calorie conversion
-					</h3>
+				<section id="ex2-3b" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3: Calorie conversion (cont.)
+					</h4>
 					<p>
 						Retrieve conversion factor as dictionary value for key <code>crop</code>
 					</p>
@@ -1316,10 +1360,10 @@ for crop in crops:
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calorie conversion
-					</h3>
+				<section id="ex2-3c" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3: Calorie conversion (cont.)
+					</h4>
 					<p>
 						Convert yield into calorie by Map Algebra
 					</p>
@@ -1334,13 +1378,13 @@ for crop in crops:
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-4" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 4
+					</h4>
 					<h3>
-						Calorie conversion
+						Save the output raster file
 					</h3>
-					<p>
-						Save the output
-					</p>
 					<pre style="font-size:0.7em;">
 						<code data-trim data-noescape>
 crops = calorie.keys()
@@ -1354,9 +1398,9 @@ for crop in crops:
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="output_file_name" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
-						Naming output files
+						Tips for output file names
 					</h3>
 					<p>
 						Use the same name as the script that creates the output
@@ -1374,15 +1418,15 @@ for crop in crops:
 					</p>
 					<ul>
 						<li>
-							calorie.py $\rightarrow$ calorie_maize.tif, calorie_cassava.tif, etc.
+							<code>calorie.py</code> $\rightarrow$ <code>calorie_maize.tif</code>, <code>calorie_cassava.tif</code>, etc.
 						</li>
 					</ul>
 					<p  class="fragment" data-fragment-index="1">
-						So save the script as calorie.py
+						So save the script as <code>calorie.py</code>
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="trouble-shooting" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Trouble shooting
 					</h3>
@@ -1422,7 +1466,7 @@ for crop in crops:
 							Difference of these two (main regressor)
 						</p>
 						<p>
-							Maximum caloric yiled among all crops (control)
+							Maximum caloric yield among all crops (control)
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							$\Rightarrow$ Cell Statistics tool can handle these
@@ -1459,32 +1503,34 @@ for crop in crops:
 						Cell Statistics (cont.)
 					</h4>
 					<p>
+						1st argument: input raster list
+					</p>
+					<p>
 						If <code>input_rasters</code> is a Python list of calorie rasters, we can write:
 					<pre style="font-size:0.65em;">
 						<code data-trim data-noescape>
 max_calorie = CellStatistics(<mark>input_rasters</mark>,"MAXIMUM","DATA")
 						</code>
 					</pre>
-					<p>
-						1st argument: input raster list
-					</p>
+				</p>
+
 				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Cell Statistics (cont.)
 					</h4>
-					<pre style="font-size:0.65em;">
-						<code data-trim data-noescape>
-max_calorie = CellStatistics(input_rasters,<mark>"MAXIMUM"</mark>,"DATA")
-						</code>
-					</pre>
 					<p>
 						2nd argument: statistics to be calculated
 					</p>
 					<p>
 						Don't forget to enclose it with " "
 					</p>
+					<pre style="font-size:0.65em;">
+						<code data-trim data-noescape>
+max_calorie = CellStatistics(input_rasters,<mark>"MAXIMUM"</mark>,"DATA")
+						</code>
+					</pre>
 					<p>
 					See <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/cell-statistics.htm#GUID-AD6F5E1C-5BEC-41E0-BC1B-ED1F882E6620" target="_blank">ArcGIS Help</a> for other statistics
 					</p>
@@ -1508,7 +1554,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM",<mark>"DATA"</mark>)
 					<img src="gis_lecture8/cell_stats_nodata.png" style="border:none; background:none; box-shadow:none; width:600px;">
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="list-rasters1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Input raster list
 					</h3>
@@ -1529,7 +1575,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="list-rasters2a" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Input raster list (cont.)
 					</h4>
@@ -1546,12 +1592,28 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					<p>
 						Collect all TIFF files with "calorie_" as prefix
 					</p>
+				</section>
+
+				<section id="list-rasters2b" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Input raster list (cont.)
+					</h4>
 					<p>
-						cf. ListFeatureClasses method (<a href="../gis_lecture3.html#/list_feature_classes" target="_blank">Lecture 3</a>)
+						ListRasters method helps
+					</p>
+					<pre style="font-size:0.65em;">
+						<code data-trim data-noescape>
+<mark>arcpy.env.workspace = "../output"</mark>
+input_rasters = arcpy.ListRasters("calorie_*", "TIF")
+max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
+						</code>
+					</pre>
+					<p>
+						Raster data folder is specified by <code>arcpy.env.workspace</code>
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="list-rasters3" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Input raster list (cont.)
 					</h4>
@@ -1563,14 +1625,14 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 						</code>
 					</pre>
 					<p>
-						Would be fine if we only needed maximum among all crops
+						This code is fine if we need maximum among all crops
 					</p>
 					<p>
 						To obtain maximum for cereals and for tubers separately...
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="list-rasters4" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Input raster list (cont.)
 					</h4>
