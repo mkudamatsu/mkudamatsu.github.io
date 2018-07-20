@@ -115,7 +115,7 @@
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3 style="text-align: left;">
-						Approach 1: Scalar RD
+						Spatial RD specification
 					</h3>
 					<br>
 					<p style="text-align: left;">
@@ -136,7 +136,7 @@
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4 style="text-align: left;">
-						Approach 1: Scalar RD (cont.)
+						Spatial RD specification (cont.)
 					</h4>
 					<br>
 					<p style="text-align: left;">
@@ -157,10 +157,10 @@
 
 				<section id="" data-transition="fade-in slide-out" >
 					<h4 style="text-align: left;">
-						Approach 1: Scalar RD (cont.)
+						Why boundary segment fixed effects?
 					</h4>
 					<p style="text-align: left;">
-						w/o boundary segment FE, you compare point $i$ to $k$ in diagram below
+						Without it, you would compare point $i$ to $k$ in diagram below
 					</p>
 					<img src="gis_lecture7/Keele-Titiunik2014f3.png" style="border: none; background: none; box-shadow:none; width: 500px">
 
@@ -170,125 +170,12 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
-						Limitations of Scalar RD
-					</h3>
-						<p>
-							RD polynomials may not be zero across all boundary points
-						</p>
-						<p style="text-align: left;">
-							\begin{align*}
-							y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i}
-							\end{align*}
-						</p>
-						<br>
-						<p class="fragment" data-fragment-index="1">
-							$\Rightarrow$ Cannot estimate heterogeneous treatment effects at various boundary points
-						</p>
-						<img src="gis_lecture7/Keele-Titiunik2014f6.png" style="border: none; background: none; box-shadow:none; width: 450px" class="fragment" data-fragment-index="1">
-						<p style="text-align: right;" class="fragment" data-fragment-index="1">
-						<small>(Figure 6 of <a href="http://dx.doi.org/10.1093/pan/mpu014" target="_blank">Keele & Titiunik 2014</a>)</small>
-						</p>
-				</section>
-
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>
-						Approach 2: Boundary RD
-					</h3>
-						<br>
-						<p style="text-align: left;">
-							\begin{align*}
-							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i}
-							\end{align*}
-						</p>
-						<br>
-						<p>
-							Use coordinates ($\boldsymbol{x}_i$) for RD polynomials
-						</p>
-						<ul>
-							<li>
-								Not zero at boundary
-							</li>
-						</ul>
-				</section>
-
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h4>
-						Approach 2: Boundary RD (cont.)
-					</h4>
-						<br>
-						<p style="text-align: left;">
-							\begin{align*}
-							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i}
-							\end{align*}
-						</p>
-						<br>
-						<p>
-							Pick (equally-spaced) points on boundary (denoted by $n$)
-						</p>
-						<p>
-							Assign each observation to its nearest boundary point, to define $\mu_n$
-						</p>
-				</section>
-
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Approach 2: Boundary RD (cont.)
-					</h4>
-						<br>
-						<p style="text-align: left;">
-							\begin{align*}
-							y_{i} = \beta T_{i} + \boldsymbol{x}'_i\boldsymbol{\gamma} + T_{i}\boldsymbol{x}'_i\boldsymbol{\delta} + \mu_n + \varepsilon_{i}
-							\end{align*}
-						</p>
-						<br>
-						<p>
-							Treatment effect at boundary point $n$: given by
-						</p>
-						<p>
-							\begin{align*}
-							\beta + \boldsymbol{x}'_n\boldsymbol{\delta}
-							\end{align*}
-						</p>
-						<br>
-						<p>
-							<small>See Chapter 2 of <a href="http://nrs.harvard.edu/urn-3:HUL.InstRepos:9368030" target="_blank">Zajonc (2012)</a> (commonly cited as Imbens and Zajonc 2011) for more detail</small>
-
-						</p>
-				</section>
-
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
-						Limitations to Boundary RD
-					</h3>
-						<p>
-							Require lots of observations along the boundary
-						</p>
-						<ul>
-							<li>
-								Infeasible with sub-national district level data
-							</li>
-						</ul>
-						<p>
-							Average treatment effect estimates: similar to scalar RD estimates anyway
-						</p>
-						<p>
-							Data compilation: cumbersome
-						</p>
-						<ul>
-							<li>
-								ArcGIS helps a lot, though
-							</li>
-						</ul>
-				</section>
-
 				<section id="treatment_bundle" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
-						Treatment boundary
+						Threats to identification
 					</h3>
 					<p>
-						Tends to overlap with other boundaries
+						Treatment boundary tends to overlap with other boundaries
 					</p>
 					<ul>
 						<li>
@@ -305,123 +192,6 @@
 					</p>
 
 				</section>
-			</section>
-
-			<section>
-				<section id="section2">
-					<h1>
-						2. Spatial RD Examples
-					</h1>
-				</section>
-
-				<section id="dell1" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
-						<a href="http://dx.doi.org/10.3982/ECTA8121" target="_blank">Dell (2010)</a>
-					</h3>
-						<p>
-							Does forced labor system during Spanish colonial rule affect todya's living standards in Peru? If so, why?
-						</p>
-						<p>
-							Interesting?
-						</p>
-						<ul>
-							<li>
-								Yes, if why question is answered
-							</li>
-							<li>
-								Lots of "history matters" papers already out there
-							</li>
-						</ul>
-						<p>
-							Original?
-						</p>
-						<ul>
-							<li>
-								Focus on mechanism of long-run effect of history
-							</li>
-							<li>
-								Pioneer in spatial RD design
-							</li>
-							<li>
-								Findings go against well-known Engerman-Sokoloff hypothesis
-							</li>
-						</ul>
-				</section>
-
-				<section id="dell2" data-transition="slide-in slide-out" style="text-align: left;">
-					<h4>Dell (2010) (cont.)
-					</h4>
-					<h3>
-						Mita
-					</h3>
-						<p>
-							1573-1812: Spanish colonial rule forced 1/7 of adult male population in parts of Peru & Bolivia to work in the Potosi silver & Huancavelica mercury mines
-						</p>
-					<img src="gis_lecture7/figure1.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
-						<p>
-							Communities subject to mita: clearly defined geographically
-						</p>
-				</section>
-
-				<section id="dell3" data-transition="slide-in slide-out" style="text-align: left;">
-					<h4>Dell (2010) (cont.)
-					</h4>
-					<h3>
-						Data for outcomes
-					</h3>
-						<p>
-							Household consumption in 2001
-						</p>
-						<p>
-							Heights of 6-9 years old students
-						</p>
-						<p>
-							Road lengths by districts
-						</p>
-						<ul>
-							<li>
-								We will calculate this later
-							</li>
-						</ul>
-				</section>
-
-				<section id="dell3" data-transition="slide-in slide-out" style="text-align: left;">
-					<h4>Dell (2010) (cont.)
-					</h4>
-					<h3>
-						Data for intermediate outcomes
-					</h3>
-						<p>
-							% rural population in hacienda (large land-holding) in 1689, 1845, 1940
-						</p>
-						<p>
-							Education in 1876, 1940, 2001
-						</p>
-						<p>
-							$\Rightarrow$ Allows to identify mechanisms
-						</p>
-				</section>
-
-				<section id="dell4" data-transition="slide-in slide-out" style="text-align: left;">
-					<h4>Dell (2010) (cont.)
-					</h4>
-					<h3>
-						Results
-					</h3>
-						<p>
-							Mita areas: worse-off today
-						</p>
-						<p>
-							Historically, less educated & <strong>less unequal in land holding</strong>
-						</p>
-						<p>
-							$\Rightarrow$ Against Engerman Sokoloff hypothesis (e.g. <a href="http://dx.doi.org/10.1257/jep.14.3.217" target="_blank">Sokoloff & Engerman 2000</a>)
-						</p>
-				</section>
-
-
-
-
 
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
@@ -462,8 +232,124 @@
 						</p>
 						<img src="gis_lecture7/BFST2016f1.png" style="border:none; background:none; box-shadow:none; width:600px;">
 				</section>
+			</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+			<section>
+				<section id="section2">
+					<h1>
+						2. <a href="http://dx.doi.org/10.3982/ECTA8121" target="_blank">Dell (2010)</a>
+					</h1>
+				</section>
+
+				<section id="dell1" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Research question
+					</h3>
+						<p>
+							Does forced labor system during Spanish colonial rule affect todya's living standards in Peru? If so, why?
+						</p>
+						<p>
+							Interesting?
+						</p>
+						<ul>
+							<li>
+								Yes, if why question is answered
+							</li>
+							<li>
+								Lots of "history matters" papers already out there
+							</li>
+						</ul>
+						<p>
+							Original?
+						</p>
+						<ul>
+							<li>
+								Focus on mechanism of long-run effect of history
+							</li>
+							<li>
+								Pioneer in spatial RD design
+							</li>
+							<li>
+								Findings go against well-known Engerman-Sokoloff hypothesis
+							</li>
+						</ul>
+				</section>
+
+				<section id="dell2" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Mita
+					</h3>
+						<p>
+							1573-1812: Spanish colonial rule forced 1/7 of adult male population in parts of Peru & Bolivia to work in the Potosi silver & Huancavelica mercury mines
+						</p>
+					<img src="gis_lecture7/figure1.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
+						<p>
+							Communities subject to mita: clearly defined geographically
+						</p>
+				</section>
+
+				<section id="dell3a" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Data for outcomes
+					</h3>
+						<p>
+							Household consumption in 2001
+						</p>
+						<p>
+							Heights of 6-9 years old students
+						</p>
+						<p>
+							Road lengths by districts
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>
+								We will learn how to calculate this with elevation taken into consideration
+							</li>
+						</ul>
+				</section>
+
+				<section id="dell3b" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						Data for intermediate outcomes
+					</h3>
+						<p>
+							% rural population in hacienda (large land-holding) in 1689, 1845, 1940
+						</p>
+						<p>
+							Education in 1876, 1940, 2001
+						</p>
+						<p>
+							$\Rightarrow$ Allows to identify mechanisms
+						</p>
+				</section>
+
+				<section id="dell4a" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Results
+					</h3>
+						<p>
+							Mita areas: worse-off today
+						</p>
+						<img src="gis_lecture7/figure2.png" style="border:none; background:none; box-shadow:none; width:800px;">
+						<p><small>Figure 2 of Dell (2010)</small></p>
+				</section>
+
+				<section id="dell4b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Results (cont.)
+					</h4>
+						<p>
+							Mita areas: worse-off today
+						</p>
+						<p>
+							Historically, less educated & <strong>more equal in land holding</strong>
+						</p>
+						<p>
+							$\Rightarrow$ Against the Engerman-Sokoloff hypothesis (see <a href="http://dx.doi.org/10.1257/jep.14.3.217" target="_blank">Sokoloff & Engerman 2000</a>)
+						</p>
+				</section>
+
+				<!-- <section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						<a href="https://sites.google.com/site/rgonzalezarregoitia/job-market-paper" target="_blank">Gonzalez (2015)</a>
 					</h3>
@@ -477,7 +363,7 @@
 							$\Rightarrow$ Boundary RD approach: feasible
 						</p>
 						<img src="gis_lecture7/Gonzalez2015f6.png" style="border:none; background:none; box-shadow:none; width:500px;">
-				</section>
+				</section> -->
 
 			</section>
 
