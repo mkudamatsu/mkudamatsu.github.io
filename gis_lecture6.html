@@ -322,6 +322,9 @@
 							<td>(2 for 1.5-3%; 3 for 3-6%, 4 for over 6%)</td>
 						</tr>
 					</table>
+					<p class="fragment"  data-fragment-index="1">
+						We will learn how to calculate $RGr_{ki}$ in ArcGIS
+					</p>
 				</section>
 
 				<section id="empirical_strategy3" data-transition="fade-in fade-out" style="text-align: left;">
@@ -383,7 +386,7 @@
 					</p>
 				</section>
 
-				<section id="empirical_strategy4" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="empirical_strategy5" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						1st stage (cont.)
 					</h4>
@@ -391,12 +394,26 @@
 						\begin{align*}
 			D_{ist}
 			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st})
-			+ \beta (\mathbf{M}_i \ast \bar{D}_{st}) \\
+			+ (\mathbf{M}'_i \ast \bar{D}_{st})\boldsymbol{\beta} \\
 			 & + \sum_{k=2}^4 \gamma_k (RGr_{ki} \ast l_{t}) + \nu_i + \mu_{st} + \omega_{ist}
 						\end{align*}
 					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$\mathbf{M}_i$</td>
+							<td>Controls: river length, fraction of district areas with each gradient cateogry, etc.</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$l_{t}$</td>
+							<td>Year dummies</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$\nu_i,\mu_{st}$</td>
+							<td>District and state-year FEs</td>
+						</tr>
+					</table>
 					<p>
-						We will replicate $RGr_{ki}$ and river length in $\mathbf{M}_i$
+						We will learn how to obtain river length in $\mathbf{M}_i$
 					</p>
 				</section>
 
