@@ -168,7 +168,7 @@
 					</p>
 					<ul>
 						<li>
-							Previous studies focused on agriculture in generale
+							Previous studies focused on agriculture in general
 						</li>
 						<li>
 							This study: focus on crop type (cereal vs tuber/root)
@@ -194,7 +194,7 @@
 							Perishable upon harvest
 						</p>
 						<p>
-							Harvesting is non-seasonal
+							Harvesting is non-seasonal, not visible
 						</p>
 						<p>
 							$\Rightarrow$ No incentive to steal / confiscate
@@ -213,14 +213,14 @@
 							Storable
 						</p>
 						<p>
-							Harvest within a short period of time
+							Harvest within a short period of time, clearly visible
 						</p>
 						<p>
 							$\Rightarrow$ Incentive to steal / confiscate
 						</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Theory (cont.)
 					</h4>
@@ -243,7 +243,7 @@
 							</li>
 						</ul>
 						<p>
-							cf. Coltan vs gold in DR Congo (<a href="http://dx.doi.org/10.2139/ssrn.2358701" target="_blank">Sanchez de la Sierra (2014)</a>)
+							cf. Coltan vs gold in DR Congo (<a href="http://dx.doi.org/10.2139/ssrn.2358701" target="_blank">Sanchez de la Sierra (2017)</a>)
 						</p>
 				</section>
 
@@ -262,6 +262,20 @@
 								<a href="http://dx.doi.org/10.2139/ssrn.2464285" target="_blank">Borcan et al. (2014)</a> for panel cross-country regression
 							</li>
 						</ul>
+				</section>
+
+				<section id="data2" data-transition="fade-out fade-in">
+					<h4>
+						Jurisdictional Hierarchy
+					</h4>
+					<img src="gis_lecture8/MMNP2015F4.png" style="border: none; background: none; box-shadow:none;">
+					<p>
+						<small>(Figure 4 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
+					</p>
+				</section>
+
+				<section id="data3" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>Data (cont.)</h4>
 					<p>
 						Suitability for agriculture <strong>by crop</strong>
 					</p>
@@ -272,7 +286,7 @@
 						</ul>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="data4" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data (cont.)
 					</h4>
@@ -298,17 +312,7 @@
 						</ul>
 				</section>
 
-				<section id="" data-transition="fade-out fade-in">
-					<h4>
-						Jurisdictional Hierarchy
-					</h4>
-					<img src="gis_lecture8/MMNP2015F4.png" style="border: none; background: none; box-shadow:none;">
-					<p>
-						<small>(Figure 4 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
-					</p>
-				</section>
-
-				<section id="" data-transition="fade-out fade-in">
+				<section id="" data-transition="slide-out fade-in">
 					<h4>
 						Cereal's relative productivity to tuber/root
 					</h4>
@@ -318,7 +322,7 @@
 					</p>
 				</section>
 
-				<section id="equation1" data-transition="slide-out fade-in" style="text-align: left">
+				<section id="equation1" data-transition="slide-out slide-in" style="text-align: left">
 					<h3>
 						Empirical specification: cross-section
 					</h3>
@@ -351,10 +355,13 @@
 							<td>Continent fixed effects</td>
 						</tr>
 					</table>
+					<p class="fragment" data-fragment-index="1">
+						We will learn how to calculate $CAL\_DIF_i$ and $MAX\_CAL_i$ from GAEZ data
+					</p>
 				</section>
 
 
-				<section id="result1"  data-transition="fade-in slide-out">
+				<section id="result1"  data-transition="slide-in slide-out">
 					<h4>
 						Main results (cross-section)
 					</h4>
@@ -503,9 +510,9 @@
 				  <h3>
 						No Model Builder today
 					</h3>
-					<p>
+						<p>
 							We directly write a Python script to use Map Algebra
-					</p>
+						</p>
 						<ul>
 							<li>
 								Raster Calculator tool does the same job in Model Builder
