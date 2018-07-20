@@ -112,7 +112,7 @@
 					</table>
 				</section>
 
-				<section id="buffer2" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="buffer2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Buffer tool in ArcGIS (cont.)
 					</h4>
@@ -127,39 +127,73 @@
 					</p>
 				</section>
 
-				<section id="buffer3" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Buffer tool in ArcGIS (cont.)
-					</h4>
-					<p>
-						Useful for economists because:
-					</p>
+				<section id="buffer4economics1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Buffer tool for economics research
+					</h3>
 					<p>
 						1. Generate a treatment variable
 					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							<a href="http://dx.doi.org/10.1257/aer.20140079" target="_blank">Muehlenbachs et al. (2015)</a>
-						</li>
-					</ul>
+					<div style="display: flex;">
+						<figure style="width: 40%;">
+							<img src="gis_lecture3/shale-gas-extraction.jpg" style="border: none; background: none; box-shadow:none; width: 350px; display: block;">
+							<small>(<a href="http://www.veteranstoday.com/2014/09/15/neo-china-shale-gas-strategy-a-fiasco/" target="_blank" >image source</a>)</small>
+						</figure>
+						<div style="width: 60%;">
+							<p>
+								<a href="http://dx.doi.org/10.1257/aer.20140079" target="_blank">Muehlenbachs et al. (2015)</a>
+							</p>
+							<p>
+								Estimate the impact of <strong>shale gas wells</strong> on <strong>house prices</strong> in their neighborhood
+							</p>
+							<ul style="margin-left: 72px;">
+								<li>
+									Houses within 2km of wells: treated
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+				<section id="buffer4economics2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Buffer tool for economics research (cont.)
+					</h4>
 					<p>
-						2. Restrict the sample to comparable areas
+						2. Estimate spillover effects of treatment
 					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							Muehlenbachs et al. (2015)
-						</li>
-					</ul>
+					<div style="display: flex;">
+						<figure style="width: 40%;">
+							<img src="gis_lecture3/MK2004buffer2.png" style="border: none; background: none; box-shadow:none; width: 600px;">
+							<small>
+								(<a href="http://www.slideshare.net/povertyaction/ipa-kenya-maseno-conference" target="_blank">Image source</a>)
+							</small>
+						</figure>
+						<div style="width: 60%;">
+							<p>
+								<a href="http://dx.doi.org/10.1111/j.1468-0262.2004.00481.x" target="_blank">Miguel & Kremer (2004)</a>
+							</p>
+							<p>
+								RCT on deworming school children
+							</p>
+							<p>
+								# of treated schools within 6km can be identified by Buffer tool
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section id="buffer4economics3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Buffer tool for economics research (cont.)
+					</h4>
 					<p>
-						3. Estimate spillover effects of treatment
-					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							<a href="http://dx.doi.org/10.1111/j.1468-0262.2004.00481.x" target="_blank">Miguel & Kremer (2004)</a>, <a href="http://dx.doi.org/10.1162/qjec.2008.123.4.1329" target="_blank">de Mel et al. (2008)</a>
-						</li>
-					</ul>
-					<p>
-						4. Mitigate omitted variable bias in peer effect estimation
+						3. Mitigate omitted variable bias in peer effect estimation
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
@@ -173,396 +207,23 @@
 						Today's road map
 					</h3>
 						<p>
-							1. Muehlenbachs et al. (2015)
+							1. Conley & Udry (2010)
 						</p>
 						<p>
-							2. Miguel & Kremer (2004)
+							2. UTM projections
 						</p>
 						<p>
-							3. Conley & Udry (2010)
+							3. Replicate Conley & Udry (2010)
 						</p>
 						<p>
-							4. UTM projections
-						</p>
-						<p>
-							5. Replicate Conley & Udry (2010)
-						</p>
-						<p>
-							6. Loop over files in Python
+							4. Loop over files in Python
 						</p>
 				</section>
-
-			<section>
-				<section id="section1">
-					<h3>
-						1. Muehlenbachs et al. (2015)
-					</h3>
-					<img src="gis_lecture3/shale-gas-extraction.jpg" style="border: none; background: none; box-shadow:none; width: 350px;">
-					<p>
-						<small>(<a href="http://www.veteranstoday.com/2014/09/15/neo-china-shale-gas-strategy-a-fiasco/" target="_blank">image source</a>)</small>
-					</p>
-				</section>
-
-				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Research Question</h3>
-					<p>
-						Does shale gas development affect house prices?
-					</p>
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							Shale gas: hailed as new energy source
-						</li>
-						<li>
-							Concern on its environmental impacts
-						</li>
-						<li>
-							What's the net benefit?
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							Causal evidence: unavailable
-						</li>
-					</ul>
-					<p>
-						Feasible?
-					</p>
-				</section>
-
-				<section id="data1a" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Data</h3>
-					<p>
-						House transactions in Pennsylvania, 1995-2012
-					</p>
-						<ul>
-							<li>
-								Prices / Locations
-							</li>
-						</ul>
-					<p>
-						Shale gas wells
-					</p>
-						<ul>
-							<li>
-								When drilled / Locations
-							</li>
-						</ul>
-					<p>
-						Map of public water service areas
-					</p>
-					<img src="gis_lecture3/muehlenbachs2015f3.png" style="border: none; background: none; box-shadow:none; width: 300px;">
-					<p>
-						<small>(Figure 3 of Muelenbachs et al. 2015)</small>
-					</p>
-				</section>
-
-				<section id="equation1a" data-transition="fade-out slide-in" style="text-align: left">
-					<h3>
-						Empirical specification
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						\ln p_{it} =
-							& \ \alpha_1 W20_{it} + \alpha_2 GW_i * W20_{it} \\
-						  	& + \alpha_3 W2_{it} + \alpha_4 GW_i * W2_{it} \\
-						    & + \mu_i + \nu_{it} + q_t + \varepsilon_{it}
-						\end{align*}
-					</p>
-					<br>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$p_{it}$</td>
-							<td>Price of house $i$ in year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$W20_{it}$</td>
-							<td># of wells within 20km from $i$ drilled by year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$W2_{it}$</td>
-							<td># of wells within 2km from $i$ drilled by year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$GW_i$</td>
-							<td>House dependent on groundwater</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\mu_i$</td>
-							<td>House fixed effect</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\nu_{it}$</td>
-							<td>Census-tract by year fixed effect</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$q_t$</td>
-							<td>Quarter fixed effect</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="equation1b" data-transition="slide-out fade-in" >
-					<h3 style="text-align: left">
-						Empirical specification (cont.)
-					</h3>
-					<p style="text-align: left">
-						<!-- Case by Case -->
-						\begin{align*}
-						\ln p_{it} =
-							& \ \alpha_1 W20_{it} + \alpha_2 GW_i * W20_{it} \\
-						  	& + \alpha_3 W2_{it} + \alpha_4 GW_i * W2_{it} \\
-						    & + \mu_i + \nu_{it} + q_t + \varepsilon_{it}
-						\end{align*}
-					</p>
-					<img src="gis_lecture3/muehlenbachs2015f1.png" style="border: none; background: none; box-shadow:none; width: 700px;">
-					<p>
-						<small>(Figure 1 of Muelenbachs et al. 2015)</small>
-					</p>
-				</section>
-
-				<section id="data1b" data-transition="fade-out slide-in"  style="text-align: left">
-					<h3>
-						Buffer tool helps:
-					</h3>
-					<p>
-						1. Identify # of wells within 2km / 20km of each house
-					</p>
-					<p>
-						2. Restrict the sample to the border of public water service area
-					</p>
-					<ul>
-						<li>
-							1000m inside
-						</li>
-						<li>
-							300-1000m outside
-						</li>
-					</ul>
-				</section>
-
-				<section id="data1c" data-transition="slide-out fade-in">
-					<h4>Buffer tool in action</h4>
-				<img src="gis_lecture3/muehlenbachs2015f6.png" style="border: none; background: none; box-shadow:none; width: 350px;">
-				<p>
-					<small>(Figure 6 of Muelenbachs et al. 2015)</small>
-				</p>
-				</section>
-
-				<section id="result1"  data-transition="slide-in slide-out">
-					<h4>
-						Main results
-					</h4>
-					<img src="gis_lecture3/muehlenbachs2015t2a.png" style="border: none; background: none; box-shadow:none; width: 800px;">
-					<img src="gis_lecture3/muehlenbachs2015t2b.png" style="border: none; background: none; box-shadow:none; width: 800px;">
-					<p>
-						<small>(Table 2 of Muelenbachs et al. 2015)</small>
-					</p>
-				</section>
-
-			</section>
-
-			<section>
-				<section id="section2">
-					<h1>
-						2. Miguel & Kremer (2004)
-					</h1>
-				</section>
-
-				<section id="rq2a" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Research Question</h3>
-					<p>
-						Does deworming school children reduce <em>untreated</em> children's infection?
-					</p>
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							If yes, cost-benefit analysis changes
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							No experimental evidence on the spill-over effects
-						</li>
-					</ul>
-					<p>
-						Feasible?
-					</p>
-					<ul>
-						<li>
-							Need to identify the surrounding area of treated schools
-						</li>
-						<li>
-							Buffer tool helps
-						</li>
-					</ul>
-				</section>
-
-				<section id="rq2b" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Research Question (cont.)</h3>
-					<p>
-						Does deworming school children increase their <em>school attendance</em>?
-					</p>
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							If yes, very cost-effective intervention to increase attendance (USD3.50 per 1 more year of schooling)
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							No experimental evidence on health-education relationship
-						</li>
-					</ul>
-					<p>
-						Feasible?
-					</p>
-					<ul>
-						<li>
-							Health interventions took place at schools
-						</li>
-					</ul>
-				</section>
-
-				<section id="experiment2" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Experimental design</h3>
-					<p>
-						Sample: 75 primary schools in western Kenya
-					</p>
-						<ul>
-							<li>
-								Nearly all schools in the area
-							</li>
-							<li>
-								Over 30,000 pupils aged 6 to 18
-							</li>
-						</ul>
-					<p>
-						Randomly assigned to 3 groups
-					</p>
-						<ul>
-							<li>
-								Group 1: Treated since 1998
-							</li>
-							<li>
-								Group 2: Treated since 1999
-							</li>
-							<li>
-								Group 3: Control (treated since 2001)
-							</li>
-						</ul>
-				</section>
-
-				<section id="equation2a" data-transition="fade-out slide-in" style="text-align: left">
-					<h3>
-						Empirical specification
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						Y_{ijt} =
-						& \ \alpha + \beta T_{it} + \mathbf{X}^{'}_{ijt}\mathbf{\delta} \\
-						& + \sum_d (\gamma_d N^T_{dit} + \phi_d N_{dit}) + u_i + e_{ijt}
-						\end{align*}
-					</p>
-					<br>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$Y_{ijt}$</td>
-							<td>Outcome for pupil $j$ in school $i$ in year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$T_{it}$</td>
-							<td>Treatment dummy</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\beta$</td>
-							<td>Direct effect</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="equation2b" data-transition="fade-out fade-in" style="text-align: left">
-					<h3>
-						Empirical specification (cont.)
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						Y_{ijt} =
-						& \ \alpha + \beta T_{it} + \mathbf{X}^{'}_{ijt}\mathbf{\delta} \\
-						& + \sum_d (\gamma_d N^T_{dit} + \phi_d N_{dit}) + u_i + e_{ijt}
-						\end{align*}
-					</p>
-					<br>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$N^T_{dit}$</td>
-							<td># of pupils in <em>treated</em> schools within distance $d$ from school $i$ in year $t$ ($d$: 0-3km, 3-6km)</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$N_{dit}$</td>
-							<td># of pupils in <em>all</em> schools within distance $d$ from school $i$ in year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\gamma_d$</td>
-							<td>Spillover effect</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="image2" data-transition="slide-out fade-in">
-					<h4>
-						Source of identification for spillover effect
-					</h4>
-					<img src="gis_lecture3/MK2004buffer2.png" style="border: none; background: none; box-shadow:none; width: 600px;">
-					<small>
-						(<a href="http://www.slideshare.net/povertyaction/ipa-kenya-maseno-conference" target="_blank">Image source</a>)
-					</small>
-				</section>
-
-				<section id="result2a"  data-transition="slide-in fade-out">
-					<h4>
-						Result on infection
-					</h4>
-					<img src="gis_lecture3/MK2004T7.png" style="border: none; background: none; box-shadow:none; width: 800px;">
-					<p>
-						<small>(Table VII Column (1) of Miguel and Kremer 2004)</small>
-					</p>
-				</section>
-
-				<section id="result2b"  data-transition="fade-in slide-out">
-					<h4>
-						Result on school attendance
-					</h4>
-					<img src="gis_lecture3/MK2004T9.png" style="border: none; background: none; box-shadow:none; width: 600px;">
-					<p>
-						<small>(Table IX Columns (1)-(3) of Miguel and Kremer 2004)</small>
-					</p>
-				</section>
-
-			</section>
 
 			<section>
 				<section id="section3">
 					<h1>
-						3. Conley & Udry (2010)
+						1. Conley & Udry (2010)
 					</h1>
 				</section>
 
@@ -610,7 +271,7 @@
 								Whom they turn for advice on farming
 							</li>
 							<li>
-								Plot location (collected by GPS receiver)
+								Plot location, collected by GPS receiver (cf. <a href="../gis_lecture1.html#/xydata2" target="_blank">Lecture 1</a>)
 							</li>
 						</ul>
 				</section>
@@ -638,7 +299,7 @@
 					<table border="0" width="100%">
 						<tr>
 							<td style="text-align: center">$GoodNews(x_{j,s-5})$</td>
-							<td>Higher-than-expected profit for farmer $j$ ($i$'s friend) from using fertilizer by $x_{j,s-5}$, observed by $i$ in period $s \in [t_p,t]$</td>
+							<td>Higher-than-expected profit for farmer $j$ ($i$'s friend) from using $x_{j,s-5}$ units of fertilizer, observed by $i$ in period $s \in [t_p,t]$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$x_{i,t_p}$</td>
@@ -661,7 +322,6 @@
 						\Delta x_{i,t} = \beta_1 M_{i,t} + \beta_2 \Gamma_{i,t} + \boldsymbol{z}'_{i,t}\boldsymbol{\beta_3} + \nu_{it}
 						\end{align*}
 					</p>
-					<br>
 					<table border="0" width="100%">
 						<tr>
 							<td style="text-align: center">$\Delta x_{i,t}$</td>
@@ -681,7 +341,10 @@
 						\begin{align*}
 						\Gamma_{i,t} \equiv x_{i,t}^{close} - x_{i,t_p}
 						\end{align*}
-						where $x_{i,t}^{close}$ averages fertilizer use over <em>plots within 1km from $i$</em> during previous 3 periods
+						where $x_{i,t}^{close}$ averages fertilizer use over <strong>plots within 1km from $i$</strong> during previous 3 periods
+					</p>
+					<p class="fragment"  data-fragment-index="1">
+						We will learn how to identify <strong>plots within 1km from $i$</strong>
 					</p>
 				</section>
 
@@ -693,7 +356,7 @@
 					<p>
 						<small>(Figure 4 of Conley & Udery 2010)</small>
 					</p>
-					</section>
+				</section>
 
 				<section id="conley_se1" data-transition="fade-out fade-in" style="text-align: left">
 					<h4>
@@ -705,7 +368,7 @@
 						\end{align*}
 					</p>
 					<p>
-						Standard errors: calculated by Conley (1999)
+						Standard errors: calculated by <a href="http://doi.org/10.1016/S0304-4076(98)00084-0" target="_blank">Conley (1999)</a>
 					</p>
 					<p>
 						Which is now the standard procedure for cross-sectional regression with spatial data
@@ -781,9 +444,9 @@
 				</section>
 
 				<section id="conley_se4"  data-transition="fade-in fade-out" style="text-align: left">
-					<h3>
+					<h4>
 						Conley (1999) standard error (cont.)
-					</h3>
+					</h4>
 					<p>
 						<a href="http://economics.uwo.ca/people/faculty/conley.html" target="_blank">Tim Conley's website</a> offers Stata ado files for implementing Conley (1999) for OLS, GMM, and Logit
 					</p>
@@ -791,14 +454,14 @@
 						In this ado program, $x_{ij},y_{ij}$ is calculated from the coordinates of $i$ and $j$
 					</p>
 					<p>
-						Important to have coordinates in meters, not in degrees
+						Make sure to use a projected coordinate system (cf. <a href="../gis_lecture1.html#/projected_cs1" target="_blank">Lecture 1</a>)
 					</p>
 				</section>
 
 				<section id="conley_se5"  data-transition="fade-in slide-out" style="text-align: left">
-					<h3>
+					<h4>
 						Conley (1999) standard error (cont.)
-					</h3>
+					</h4>
 					<p>
 						Conley's (1999) Stata ado cannot be used for <em>panel regressions</em>...
 					</p>
@@ -813,15 +476,15 @@
 							Allows you to use uniform kernel ($K_{ij}=1$ within cutoff)
 						</li>
 						<li>
-							Compatible with geographic coordinates
+							Compatible with geographic coordinate systems (cf. <a href="../gis_lecture1.html#/geographc_cs1" target="_blank">Lecture 1</a>)
 						</li>
 					</ul>
 				</section>
 
 				<section id="result3"  data-transition="slide-in slide-out">
-					<h4>
+					<h3>
 						Main results
-					</h4>
+					</h3>
 					<img src="gis_lecture3/CU2010T5.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(Table 5 of Conley & Udry 2010)</small>
@@ -896,7 +559,7 @@
 			<section>
 				<section id="section4">
 					<h1>
-						4. UTM projections
+						2. UTM projections
 					</h1>
 				</section>
 
@@ -999,7 +662,7 @@
 			<section>
 				<section id="section5">
 					<h1>
-						5. Replicate Conley & Udry (2010)
+						3. Replicate Conley & Udry (2010)
 					</h1>
 				</section>
 
@@ -1579,7 +1242,7 @@ arcpy.ExportXYv_stats(plot_neighbors_shp, <mark>"village;hhn;plot"</mark>, "SPAC
 			<section>
 				<section id="section6">
 					<h1>
-						6. Loop over files in Python
+						4. Loop over files in Python
 					</h1>
 				</section>
 
