@@ -115,7 +115,7 @@
 						</ul>
 				</section>
 
-				<section id="what_is_zonal_stat1" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="what_is_zonal_stat2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						What is Zonal Statistics? (cont.)
 					</h4>
@@ -268,7 +268,7 @@
 					</p>
 						<ul>
 							<li>
-								World Lanugage Mapping System
+								Source: <a href="http://worldgeodatasets.com/language/index.html" target="_blank">World Lanugage Mapping System</a>
 							</li>
 							<li>
 								Polygons of linguistic groups' homelands, 1990-95
@@ -395,7 +395,8 @@
 						\begin{align*}
 						ln(\#Languages_i) =
 							& \ \beta_0 + \beta_1 Latitude_i \\
-						 	& + \beta_2 sd(Elevation)_i + \beta_3 sd(LandQuality)_i \\
+						 	& + \beta_2 sd(Elevation)_i \\
+							& + \beta_3 sd(LandQuality)_i \\
 							& + \boldsymbol{x}'_{i}\boldsymbol{\beta_4} + \varepsilon_{i}
 						\end{align*}
 					</p>
@@ -410,6 +411,9 @@
 							<td>Can include country FE</td>
 						</tr>
 					</table>
+					<p class="fragment"  data-fragment-index="1">
+						We will learn how to calculate $sd(LandQuality)_i$
+					</p>
 				</section>
 
 				<section id="standard_errors" data-transition="slide-in slide-out" style="text-align: left;">
@@ -420,11 +424,11 @@
 							Clustered at country level
 						</p>
 						<p>
-							Conley's (1999) method can also be used (cf. <a href="../gis_lecture3.html#/conley_se5" target="_blank">Lec 3</a>)
+							Conley's (1999) method can also be used (cf. <a href="../gis_lecture3.html#/conley_se1" target="_blank">Lec 3</a>)
 						</p>
 						<ul>
 							<li>
-								With <a href="http://www.fight-entropy.com/2010/06/standard-error-adjustment-ols-for.html" target="_blank">Hsiang's (2011) Stata code</a>, geographic coordinates can now be used
+								With <a href="http://www.fight-entropy.com/2010/06/standard-error-adjustment-ols-for.html" target="_blank">Hsiang's (2010) Stata code</a>, geographic coordinates can now be used
 							</li>
 						</ul>
 				</section>
