@@ -497,53 +497,53 @@
 
 			<section>
 				<section id="setup-windows10a" data-transition="slide-in fade-out" style="text-align: left;">
-				<h3>
+					<h3>
 						Set up Windows 10 environment <br> for this course
-				</h3>
-				<p>
-					1. Show file extensions (<code>.shp</code> etc) in File Explorer
-				</p>
-				<ul>
-					<li>
+					</h3>
+					<p>
+						1. Show file extensions (<code>.shp</code> etc) in File Explorer
+					</p>
+					<ul>
+						<li>
 							Click <img style="border:none; vertical-align: middle; width: 50px;" src="gis_lecture1/file-explore-icon.png" alt="">on the task bar at the bottom
-					</li>
-					<li>
-						In the menu bar, click <span style="background-color: Gainsboro">View</span>
-					</li>
-					<li>
+						</li>
+						<li>
+							In the menu bar, click <span style="background-color: Gainsboro">View</span>
+						</li>
+						<li>
 							Check "File name extensions" in the <span style="background-color: Gainsboro">Show/hide</span> pane
-					</li>
-				</ul>
+						</li>
+					</ul>
 				</section>
 				<section id="setup-windows10b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Set up Windows 10 environment <br> for this course (cont.)
 					</h4>
-				<p>
-					2. Install <a href="https://7-zip.org/" target="_blank">7-Zip</a> for 64-bit Windows
-				</p>
-				<ul>
-					<li>
+					<p>
+						2. Install <a href="https://7-zip.org/" target="_blank">7-Zip</a> for 64-bit Windows
+					</p>
+					<ul>
+						<li>
 							For uncompressing <code>.tar</code> files
-					</li>
-				</ul>
+						</li>
+					</ul>
 				</section>
 				<section id="setup-windows10c" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Set up Windows 10 environment <br> for this course (cont.)
 					</h4>
-				<p>
-					3. Install <a href="https://atom.io/" target="_blank">Atom editor</a> and its <a href="https://atom.io/packages/script" target="_blank">Script</a> package
-				</p>
-				<ul style="margin-left: 72px;">
-					<li>
-						 For writing and running Python scripts from Lecture 2
-					</li>
-					<li>
+					<p>
+						3. Install <a href="https://atom.io/" target="_blank">Atom editor</a> and its <a href="https://atom.io/packages/script" target="_blank">Script</a> package
+					</p>
+					<ul style="margin-left: 72px;">
+						<li>
+							 For writing and running Python scripts from Lecture 2
+						</li>
+						<li>
 							 To install Script, click <span style="background-color: Gainsboro">File > Settings > Install</span>, and then search for "Script"
-					</li>
-				</ul>
-			</section>
+						</li>
+					</ul>
+				</section>
 			</section>
 
 
@@ -623,10 +623,10 @@
 								<code>10m-rivers-lake-centerlines.zip</code>
 							</li>
 							<li>
-								<code>g2009_1990_2.zip</code>
-							</li>
-							<li>
-								<code>g2009_2008_0.zip</code>
+								<code>gadm36.zip</code>
+								<ul>
+									<li style="color: grey;">country/district polygons</li>
+								</ul>
 							</li>
 							<li>
 								<code>gl_gpwfe_pdens_05_ascii_half.zip</code>
@@ -705,14 +705,14 @@
 						Browse polygon features
 					</h3>
 					<p>
-						Data to be read: Global Administrative Unit Layers (GAUL)
+						Data to be read: <a href="https://gadm.org/" target="_blank">GADM</a> (widely used by economists)
 					</p>
 						<ul>
 							<li>
-								National boundaries for 2008 (<code>g2009_2008_0/g2008_0.shp</code>)
+								<code>gadm36/gadm36_0.shp</code> (countries)
 							</li>
 							<li>
-								Sub-national boundaries for 1990 (<code>g2009_1990_2/g1990_2.shp</code>)
+								<code>gadm36/gadm36_2.shp</code> (subnational districts)
 							</li>
 						</ul>
 					<p>
@@ -731,7 +731,6 @@
 						</ul>
 				</section>
 
-
 				<section id="ex1a_extra" data-transition="fade-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
@@ -747,19 +746,6 @@
 					</p>
 					<p>
 						$\Rightarrow$ Right-click "<strong>Folder Connections</strong>" and click "<strong>Connect To Folder...</strong>"
-					</p>
-				</section>
-
-
-				<section id="ex1b" data-transition="slide-out fade-in" style="text-align: left;">
-					<h4>
-					Exercise #1 (cont.)
-					</h4>
-					<p>
-						Ignore the alert message "Unknown Spatial Reference" for the moment, by clicking OK.
-					</p>
-					<p>
-						We'll come back to this issue later in this lecture.
 					</p>
 				</section>
 
@@ -1733,13 +1719,16 @@ export delimited lon lat using filename.csv, replace
 					Exercise #6
 					</h4>
 					<h3>
-						Assign the projection to GAUL district boundary data
+						Assign the projection to Population raster
 					</h3>
+					<p>
+						Remember <a href="#/ex5b" target="_blank">the alert message "Spatial reference is undefined" in Exercise #5</a>?
+					</p>
 					<p>
 						Spatial data usually comes with a meta data that specify the coordinate system used when the data is created
 					</p>
 					<p>
-						<a href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" target="_blank">GAUL's meta data</a> says it's WGS 1984
+						<a href="http://sedac.ciesin.columbia.edu/data/set/gpw-v3-population-density/metadata" target="_blank">GPW's meta data</a> says it's WGS 1984
 					</p>
 				</section>
 
@@ -1751,28 +1740,7 @@ export delimited lon lat using filename.csv, replace
 						Use Define Projection to assign WGS 1984 (cf. <a href="#/makexy1" target="_blank">Exercise #3</a>)
 					</p>
 					<p>
-						This geo-processing tool <em>overwrites</em> the input file.
-					</p>
-					<p>
-						Essential to preserve the original input files for Python programming
-					</p>
-					<p>
-						$\Rightarrow$ Use Copy Features to create a copy which will be the input for Define Projection
-					</p>
-				</section>
-
-				<section id="ex6c" data-transition="slide-out fade-in" style="text-align: left;">
-					<h4>
-					Exercise #6 (optional)
-					</h4>
-					<p>
-						Remember <a href="#/ex5b" target="_blank">the alert message "Spatial reference is undefined" in Exercise #5</a>?
-					</p>
-					<p>
-						The readme file (that comes with the downloaded ASCII raster data) says the coordinate system is WGS 1984
-					</p>
-					<p>
-						Use Define Projection to assign WGS 1984 just as we did
+						Note that this geo-processing tool <em>overwrites</em> the input file.
 					</p>
 				</section>
 
@@ -1896,7 +1864,7 @@ export delimited lon lat using filename.csv, replace
 							Open a new Map Document
 						</li>
 						<li>
-							Drag the GAUL data in Sinusoidal projection from Catalogue Window
+							Drag the GADM data in Sinusoidal projection from Catalogue Window
 						</li>
 					</ol>
 				</section>
