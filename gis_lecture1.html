@@ -685,7 +685,7 @@
 					</p>
 				</section>
 
-				<section id="polygon" style="text-align: left;">
+				<section id="polygon" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Vector data #1
 					</h4>
@@ -696,14 +696,15 @@
 						Represent geographic zones
 					</p>
 						<ul>
-							<li>Countries (Lecture 4 & 5)</li>
+							<li>Countries (Lectures 4 & 5)</li>
 							<li>Sub-national districts (Lecture 6)</li>
-							<li>Ethnic homelands (Lecture 4 & 5)</li>
+							<li>Ethnic homelands (Lectures 4 & 5)</li>
 							<li>Lakes, Islands, etc.</li>
+							<li>Grid cells (Lectures 2 & 5)</li>
 						</ul>
 				</section>
 
-				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex1a" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1
 					</h4>
@@ -737,7 +738,7 @@
 						</ul>
 				</section>
 
-				<section id="ex1a_extra" data-transition="fade-out fade-in" style="text-align: left;">
+				<section id="ex1a_extra" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #1 (cont.)
 					</h4>
@@ -755,7 +756,7 @@
 					</p>
 				</section>
 
-				<section id="polyline" style="text-align: left;">
+				<section id="polyline" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Vector data #2
 					</h4>
@@ -772,7 +773,7 @@
 						</ul>
 				</section>
 
-				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex2a" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #2
 					</h4>
@@ -780,7 +781,7 @@
 						Browse polyline features
 					</h3>
 					<p>
-						Data to be read: Natural Earth's Rivers and Lake Centerlines data (<code>10m_rivers_lake_centerlines.shp</code>)
+						Data to be read: <a href="https://www.naturalearthdata.com/" target="_blank">Natural Earth</a>'s <a href="https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-rivers-lake-centerlines/" target="_blank">Rivers and Lake Centerlines</a> data (<code>10m_rivers_lake_centerlines.shp</code>)
 					</p>
 					<p>
 						Browse this data (cf. <a href="#ex1a">Exercise 1</a>)
@@ -845,9 +846,9 @@
 					</p>
 						<ul>
 							<li>Plots (Lecture 3)</li>
-							<li>Schools (Lecture 3)</li>
+							<li>Schools</li>
 							<li>Cities (Exercise #3 below)</li>
-							<li>Centroid of polygon (Lecture 4 & 6)</li>
+							<li>Centroid of polygon (Lecture 4)</li>
 						</ul>
 					<p>
 						Can easily be created from <strong>XY data</strong>
@@ -896,9 +897,9 @@
 				</section>
 
 				<section id="xydata2b" data-transition="fade" style="text-align: left;">
-					<h3>
+					<h4>
 						How to obtain longitude & latitude? (cont.)
-					</h3>
+					</h4>
 					<p>
 						<strong>Online gazetteer</strong>
 					</p>
@@ -969,9 +970,9 @@ export delimited lon lat using filename.csv, replace
 			</section>
 
 			<section id="xydata4" data-transition="slide-out fade-in" style="text-align: left;">
-				<h3>
+				<h4>
 					To import XY data to ArcGIS (cont.)
-				</h3>
+				</h4>
 				<p>
 					To convert XY data into a point feature class, use:
 				</p>
@@ -996,7 +997,7 @@ export delimited lon lat using filename.csv, replace
 						Convert XY data into point features
 					</h3>
 					<p>
-						Data to be read: CEPII Distances Database (geo_cepii.xls)
+						Data to be read: <a href="http://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=6" target="_blank">CEPII GeoDist Database</a> (<code>geo_cepii.xls</code>)
 					</p>
 					<p>
 						Browse the data in Excel
@@ -1051,7 +1052,7 @@ export delimited lon lat using filename.csv, replace
 					<h3>
 						Make XY Event Layer
 					</h3>
-					<p><strong>XY Table</strong>: <code>geo_cepii.xls/geo_cepii$</code></p>
+					<p><strong>XY Table</strong>: <code>input/geo_cepii.xls/geo_cepii$</code></p>
 					<ul style="margin-left: 60px;">
 						<li>
 							For an Excel file, double click it to choose a worksheet inside
@@ -1098,10 +1099,10 @@ export delimited lon lat using filename.csv, replace
 					<h3>
 						Make XY Event Layer (cont.)
 					</h3>
-					<p>This tool creates a temporary <strong>layer</strong> out of XY data</p>
+					<p>This tool creates a temporary <strong>layer</strong></p>
 					<p>But the layer often doesn't properly work with other tools
 					<p>We also want to save the point feature class in the disk</p>
-					<p>$\Rightarrow$ Always use the Copy Features tool next to convert the layer into a shapefile data
+					<p>$\Rightarrow$ Always use the Copy Features tool to convert the layer into a shapefile data
 				</section>
 
 				<section id="copyfeatures1" data-transition="fade" style="text-align: left;">
@@ -1136,11 +1137,14 @@ export delimited lon lat using filename.csv, replace
 						Copy Features (cont.)
 					</h3>
 					<p>
-						This tool is also useful if you want to keep the original data intact (Exercise #6 below)
+						Also useful if you want to keep the original data intact
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
 							Some geo-processing tools overwrite the input data...
+						</li>
+						<li>
+							We will see such an example throughout the course
 						</li>
 					</ul>
 				</section>
@@ -1160,19 +1164,19 @@ export delimited lon lat using filename.csv, replace
 							Click the save icon
 						</li>
 						<li>
-							Navigate to the directory in which you will save the model
+							Navigate to the directory in which you will save the model (e.g. <code>code/</code>)
 						</li>
 						<li>
-							Click the toolbox icon (red box at top-right)
+							Click the toolbox icon (the red box at top-right)
 						</li>
 						<li>
-							Create a new toolbox (name it, say, lec1.tbx)
+							Create a new toolbox (name it, say, <code>lec1.tbx</code>)
 						</li>
 						<li>
 							Click this toolbox
 						</li>
 						<li>
-							Type the file name for the model
+							Type the file name for the model (e.g. <code>exercise3</code>)
 						</li>
 					</ol>
 					<p>
@@ -1216,7 +1220,7 @@ export delimited lon lat using filename.csv, replace
 					Exercise #3 (cont.)
 					</h4>
 					<p>
-						Now run the Model by cliking the triangle icon at top right
+						Now run the Model by clicking the triangle icon at top right
 					</p>
 					<p>
 						Browse the output point feature shapefile
@@ -1298,15 +1302,15 @@ export delimited lon lat using filename.csv, replace
 				</section>
 
 				<section id="raster2" data-transition="fade-in slide-out" style="text-align: left;">
-					<h3>
+					<h4>
 						Raster data (cont.)
-					</h3>
+					</h4>
 					<p>
 						Most file formats can be browsed in ArcMap
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							TIFF (.tif)
+							TIFF (<code>.tif</code>)
 						</li>
 						<li>
 							ESRI Grid (no extension)
@@ -1316,15 +1320,15 @@ export delimited lon lat using filename.csv, replace
 								File name cannot be longer than 13 characters
 							</li>
 							<li>
-								File structure is very complicated when browsed in Windows Explore
+								File structure is very complicated when browsed in Windows's File Explorer
 							</li>
 						</ul>
 					</ul>
 					<p>
 						$\Rightarrow$ I recommend using TIFF format
 					</p>
-					<p>
-						For the ASCII format (.asc), you need to convert (Excercise #5 below)
+					<p class="fragment" data-fragment-index="1">
+						For the ASCII format (<code>.asc</code>), you need to convert it into TIFF (Excercise #5 below)
 					</p>
 				</section>
 
@@ -1347,18 +1351,18 @@ export delimited lon lat using filename.csv, replace
 								Right-click it and select <span style="background-color: Gainsboro">7-Zip > Extract Here</span>
 							</li>
 							<li>
-								This creates three .gz files and three .tfw files.
+								This creates 3 pairs of <code>.gz</code> and <code>.tfw</code> files.
 							</li>
 						</ul>
 						<li>
-						Extract .gz files to <strong>the same folder as .tfw files are located</strong>
+						Extract <code>.gz</code> files to <strong>the same folder as <code>.tfw</code> files</strong>
 						</li>
 						<ul>
 							<li>
 								Right-click them and select <span style="background-color: Gainsboro">7-Zip > Extract Here</span>
 							</li>
 							<li>
-								The .tfw file allows ArcMap to read a TIFF image of the same file name as geo-referenced <span style="font-size: 0.75em">(see <a href="http://gis.ess.washington.edu/data/raster/drg/tfw.html" target="_blank">Greenberg 2003</a> for detail)</span>
+								The <code>.tfw</code> file allows ArcMap to read a TIFF image of the same file name as geo-referenced <span style="font-size: 0.75em">(see <a href="http://gis.ess.washington.edu/data/raster/drg/tfw.html" target="_blank">Greenberg 2003</a> for detail)</span>
 							</li>
 						</ul>
 					</ol>
@@ -1381,7 +1385,9 @@ export delimited lon lat using filename.csv, replace
 							</li>
 						</ul>
 					</ol>
-				<img src="gis_lecture1/pyramids.png" style="border:none; background:none; box-shadow:none; width:600px;">
+					<div style="text-align: center;">
+						<img src="gis_lecture1/pyramids.png" style="border:none; background:none; box-shadow:none; width:600px; ">
+					</div>
 				</section>
 
 				<section id="ex5a" data-transition="slide-in fade-out" style="text-align: left;">
@@ -1396,7 +1402,7 @@ export delimited lon lat using filename.csv, replace
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Source: <a href="http://sedac.ciesin.columbia.edu/data/collection/gpw-v3" target="_blank">Gridded Population of the World (version 3)</a>
+							Source: <a href="http://sedac.ciesin.columbia.edu/data/set/gpw-v3-population-density" target="_blank">Gridded Population of the World (version 3)</a>
 						</li>
 					</ul>
 					<p>
@@ -1416,6 +1422,9 @@ export delimited lon lat using filename.csv, replace
 							<li>
 								Population density can be decimal
 							</li>
+							<li>
+								By default, it sets INTEGER, which will distort data
+							</li>
 						</ul>
 					</ul>
 				</section>
@@ -1425,7 +1434,7 @@ export delimited lon lat using filename.csv, replace
 					Exercise #5 (cont.)
 					</h4>
 					<p>
-						When you read the converted population raster data, you may get an error message saying, "Spatial reference is undefined."
+						When you read the converted population density raster, you'll get a pop-up alert message: "Unknown Spatial Reference"
 					</p>
 					<p>
 						We'll come back to this issue shortly.
@@ -1443,7 +1452,7 @@ export delimited lon lat using filename.csv, replace
 						Each cell becomes one row in Stata
 					</p>
 					<p>
-						To export raster as the ASCII format, use <strong>Raster to ASCII</strong>
+						To export raster as the ASCII format, use the <strong>Raster to ASCII</strong> tool in ArcGIS
 					</p>
 				</section>
 
@@ -1452,17 +1461,17 @@ export delimited lon lat using filename.csv, replace
 					One more raster format: NetCDF
 					</h3>
 					<p>
-						Widely used for time-series raster data
+						NetCDF files: Widely used for time-series raster data
 					</p>
 					<ul>
-						<li>Example: <a href="https://www.atmos.illinois.edu/~meiyapp2/datasets.htm">Landcover change over 200 years</a></li>
+						<li>Example: <a href="https://www.atmos.illinois.edu/~meiyapp2/datasets.htm" target="_blank">Landcover change over 200 years</a></li>
 					</ul>
 					<p>
-						To save a raster data at each point in time, use:
+						To browse NetCDF data at each point in time, use:
 					</p>
 					<ul>
 						<li>Make NetCDF Raster Layer</li>
-						<li>Copy Raster</li>
+						<li>and then, Copy Raster</li>
 					</ul>
 				</section>
 
@@ -1751,7 +1760,7 @@ export delimited lon lat using filename.csv, replace
 					</p>
 				</section>
 
-				<section id="ex6b" data-transition="fade-out fade-in" style="text-align: left;">
+				<section id="ex6b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #6 (cont.)
 					</h4>
@@ -1786,7 +1795,7 @@ export delimited lon lat using filename.csv, replace
 						Sinusoidal projection allows you to calculate surface area properly
 					</p>
 					<p>
-						Use Project to change the coordinate system from WGS 1984
+						Use the <strong>Project</strong> tool to change the coordinate system from WGS 1984
 					</p>
 					<p>
 						Sinusoidal projection is found at:
@@ -1796,7 +1805,7 @@ export delimited lon lat using filename.csv, replace
 					</p>
 				</section>
 
-				<section id="ex7b" data-transition="fade-out fade-in" style="text-align: left;">
+				<section id="ex7b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #7 (cont.)
 					</h4>
@@ -1806,7 +1815,7 @@ export delimited lon lat using filename.csv, replace
 					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">
 				</section>
 
-				<section id="ex7c" data-transition="slide-out fade-in" style="text-align: left;">
+				<section id="ex7c" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 					Browse data in a different projection
 					</h3>
@@ -1814,14 +1823,14 @@ export delimited lon lat using filename.csv, replace
 						You cannot overlay data with different coordinate systems
 					</p>
 					<p>
-						ArcMap displays data in the coordinate system of the first data
+						ArcMap displays data in the coordinate system of the data read first
 					</p>
 					<p>
 						To browse a data with a different coordinate system, open a new <strong>map document</strong>
 					</p>
 				</section>
 
-				<section id="mxd1" style="text-align: left;">
+				<section id="mxd1" data-transition="fade" style="text-align: left;">
 					<h3>
 					What is map document?
 				</h3>
@@ -1839,7 +1848,7 @@ export delimited lon lat using filename.csv, replace
 					</p>
 				</section>
 
-				<section id="ex8a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex8a" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #8
 					</h4>
@@ -1848,7 +1857,7 @@ export delimited lon lat using filename.csv, replace
 					</h3>
 					<ol>
 						<li>
-						Set relative paths as the default
+						Set relative paths as the default (only needed to do once)
 						</li>
 						<ul>
 							<li>
@@ -1874,13 +1883,13 @@ export delimited lon lat using filename.csv, replace
 						</li>
 						<ul>
 							<li>
-								best to save in the parent folder for spatial data files
+								e.g. the <code>code/</code> folder
 							</li>
 						</ul>
 					</ol>
 				</section>
 
-				<section id="ex8b" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="ex8b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #8 (cont.)
 					</h4>
@@ -1892,10 +1901,21 @@ export delimited lon lat using filename.csv, replace
 							Open a new Map Document
 						</li>
 						<li>
-							Drag the GADM data in Sinusoidal projection from Catalogue Window
+							Drag the GADM data in Sinusoidal projection (the output from Exercise #7) from Catalogue Window
 						</li>
 					</ol>
 				</section>
+
+				<section id="ex8b" data-transition="slide-out fade-in" style="text-align: left;">
+					<h4>
+					Exercise #8 (cont.)
+					</h4>
+					<p>
+						Now you should see something like this:
+					</p>
+					<img src="gis_lecture1/sinusoid.jpg" style="border: none; background: none; box-shadow:none">
+				</section>
+
 
 			</section>
 
@@ -1904,7 +1924,7 @@ export delimited lon lat using filename.csv, replace
 				One more thing before we conclude
 				</h4>
 				<p>
-					Browse the spatial data in Windows Explore
+					Browse the spatial data in Windows's File Explore
 				</p>
 				<p>
 					You'll see many, many files for one dataset
@@ -1928,7 +1948,7 @@ export delimited lon lat using filename.csv, replace
 					</tr>
 				</table>
 				<p>
-					$\Rightarrow$ Use Catalogue Window in ArcMap, not Windows Explore, to move / copy / delete spatial data
+					$\Rightarrow$ Use Catalogue Window in ArcMap, not File Explore, to move / copy / delete spatial data
 				</p>
 			</section>
 
@@ -1938,7 +1958,7 @@ export delimited lon lat using filename.csv, replace
 				</h3>
 				<ol>
 					<li>
-						Convert data format
+						Convert data format from:
 					</li>
 					<ul>
 						<li>
