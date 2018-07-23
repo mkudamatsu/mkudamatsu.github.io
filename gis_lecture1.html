@@ -629,7 +629,10 @@
 								</ul>
 							</li>
 							<li>
-								<code>gl_gpwfe_pdens_05_ascii_half.zip</code>
+								<code>glds90ag.zip</code>
+								<ul>
+									<li style="color: grey;">population density raster</li>
+								</ul>
 							</li>
 						</ul>
 					<p>
@@ -1376,7 +1379,7 @@ export delimited lon lat using filename.csv, replace
 						Browse ASCII raster
 					</h3>
 					<p>
-						Data to be read: population density in 2005 (<code>gl_gpwfe_pdens_05_ascii_half/glds05ag30.asc</code>)
+						Data to be read: population density in 1990 (<code>input/glds90ag.asc</code>)
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
@@ -1388,7 +1391,10 @@ export delimited lon lat using filename.csv, replace
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-						<strong>Output raster</strong>: add ".tif" to save in the TIFF format
+						<strong>Output raster</strong>: <code>output/popden90.tif</code>
+						<ul>
+							<li>Add "<code>.tif</code>" to save in the TIFF format</li>
+						</ul>
 						</li>
 						<li>
 						<strong>Data type</strong>: FLOAT
@@ -1737,8 +1743,17 @@ export delimited lon lat using filename.csv, replace
 					Exercise #6 (cont.)
 					</h4>
 					<p>
-						Use Define Projection to assign WGS 1984 (cf. <a href="#/makexy1" target="_blank">Exercise #3</a>)
+						Use <strong>Define Projection</strong> to assign WGS 1984 (cf. <a href="#/makexy1" target="_blank">Exercise #3</a>)
 					</p>
+					<ul>
+						<li>Input Dataset or Feature Class: popden90.tif</li>
+						<ul>
+							<li>The output from ASCII to Raster</li>
+						</ul>
+						<li>
+							Coordinate System: "Geographic Coordinate Systems > World > WGS 1984"
+						</li>
+					</ul>
 					<p>
 						Note that this geo-processing tool <em>overwrites</em> the input file.
 					</p>
