@@ -1104,9 +1104,9 @@
 					</ul>
 				</section>
 
-				<section id="ex5" data-transition="slide-out fade-in" style="text-align: left;">
+				<section id="ex5-1" data-transition="fade" style="text-align: left;">
 					<h4>
-					Exercise #5
+					Exercise #5.1
 					</h4>
 					<h3>
 						Use Python IDLE
@@ -1167,7 +1167,7 @@
 						</li>
 					</ul>
 					<p>
-						For this lecture, I prepare the template (Lecture2/template4L2.py) for you
+						For this lecture, I've prepared the template script (<code>.../Lecture2/code/template4L2.py</code>)
 					</p>
 				</section>
 
@@ -1191,7 +1191,7 @@
 					</ul>
 				</section>
 
-				<section id="python_essentials_1" style="text-align: left;">
+				<section id="python_essentials_1" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
 					</h3>
@@ -1212,7 +1212,7 @@
 					</p>
 				</section>
 
-				<section id="object1" data-transition="fade-out slide-in" style="text-align: left;">
+				<section id="object1" data-transition="fade" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.1</h4>
 					<h3>
 						Object
@@ -1309,22 +1309,22 @@
 						<code>arcpy.env.workspace = "D:/temp"</code>
 					</p>
 					<p>
-						Never use \
+						Never use <code>\</code>
 					</p>
 					<ul>
 						<li>
-							In Python, \ is used for line continuation
+							In Python, <code>\</code> is used for line continuation
 						</li>
 						<li>
-							In Windows, \ is used for directory path
+							In Windows, <code>\</code> is used for directory path
 						</li>
 					</ul>
 					<p>
-						Use / or \\
+						Use <code>/</code> or <code>\\</code>
 					</p>
 					<ul>
 						<li>
-							The script exported from Model Builder uses \\
+							The script exported from Model Builder uses <code>\\</code>
 						</li>
 					</ul>
 				</section>
@@ -1388,7 +1388,7 @@
 					</ul>
 				</section>
 
-				<section id="python_essentials_2" style="text-align: left;">
+				<section id="python_essentials_2" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
 					</h3>
@@ -1409,7 +1409,7 @@
 					</p>
 				</section>
 
-				<section id="try-except1" data-transition="fade-out slide-in" style="text-align: left;">
+				<section id="try-except1" data-transition="fade" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #2</h4>
 					<h3>
 						Try-Except statement
@@ -1422,7 +1422,7 @@
 					</p>
 				</section>
 
-				<section id="try-except2" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="try-except2" data-transition="fade" style="text-align: left;">
 					<h3>
 						Try-Except statement (cont.)
 					</h3>
@@ -1432,20 +1432,20 @@
 						If there is no error:
 					</p>
 					<p style="margin-left: 30px;">
-						Pythoh skip all the indented commands after <code>except:</code>
+						Python skips all the indented commands after <code>except:</code>
 					</p>
 					<p>
 						If there is an error:
 					</p>
 					<p style="margin-left: 30px;">
-						Python execute the indented commands below <code>except:</code>
+						Python executes the indented commands below <code>except:</code>
 					</p>
 					<p>
 						$\Rightarrow$ Write commands for error messages after <code>except:</code>
 					</p>
 				</section>
 
-				<section id="ex6a" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="ex6a" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #6
 					</h4>
@@ -1505,7 +1505,7 @@ except arcpy.ExecuteError:
 					</pre>
 				</section>
 
-				<section id="python_essentials_3" style="text-align: left;">
+				<section id="python_essentials_3" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
 					</h3>
@@ -1526,13 +1526,13 @@ except arcpy.ExecuteError:
 					</p>
 				</section>
 
-				<section id="strings1" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="strings1" data-transition="fade" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #3</h4>
 					<h3>
 						String variables
 					</h3>
 					<p>
-						It's a Python's equivalent of local macro in Stata
+						It's similar to local macro in Stata
 					</p>
 					<p>
 						Recommended to assign a string variable to each data file name in the Python script
@@ -1547,7 +1547,7 @@ except arcpy.ExecuteError:
 					</ul>
 				</section>
 
-				<section id="strings2" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="strings2" data-transition="fade" style="text-align: left;">
 					<h3>
 						String variables (cont.)
 					</h3>
@@ -1565,7 +1565,7 @@ except arcpy.ExecuteError:
 
 				</section>
 
-				<section id="ex7a" data-transition="fade-out slide-in" style="text-align: left;">
+				<section id="ex7a" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #7
 					</h4>
@@ -1635,7 +1635,7 @@ import arcpy
 # Allow the overwriting of the output files
 arcpy.env.overwriteOutput = True # This command is CASE-SENSITIVE
 # Set the working directory.
-arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2" # NEVER USE single backslash (\).
+arcpy.env.workspace = "C:\\Users\\your_username\\Desktop\\Lecture2" # NEVER USE single backslash (\).
 
 ### Local variables ###
 tribalmap_shp = "input\\tribalmap.shp"
@@ -1655,7 +1655,7 @@ try:
 					</pre>
 				</section>
 
-				<section id="python_essentials_4" style="text-align: left;">
+				<section id="python_essentials_4" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
 					</h3>
@@ -1676,7 +1676,7 @@ try:
 					</p>
 				</section>
 
-				<section id="print1" data-transition="fade-out slide-in" style="text-align: left;">
+				<section id="print1" data-transition="fade" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #4</h4>
 					<h3>
 						Print
@@ -1792,7 +1792,7 @@ except arcpy.ExecuteError:
 					</pre>
 				</section>
 
-				<section id="python_essentials_5" style="text-align: left;">
+				<section id="python_essentials_5" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Python Essentials for ArcGIS
 					</h3>
@@ -1814,10 +1814,10 @@ except arcpy.ExecuteError:
 				</section>
 
 
-				<section id="comment1" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="comment1" data-transition="fade" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #5</h4>
 					<h3>
-						Comment
+						Comments
 					</h3>
 					<p>
 						To insert comments, type <code>#</code> at the beginning of a comment
@@ -1841,17 +1841,14 @@ except arcpy.ExecuteError:
 						Suppose you're not sure if this script will properly create ethnic group centroids.
 					</p>
 					<p>
-						So you want to skip the other parts of the script for the time being.
+						So you want to temporarily skip the other parts of the script
 					</p>
 					<p>
 						1. Select command lines to be skipped
 					</p>
 					<ul>
 						<li>
-							Don't skip the <code>except:</code> part
-						</li>
-						<li>
-							You want to show the error message
+							Don't select the <code>except:</code> part
 						</li>
 					</ul>
 					<p>
@@ -1922,7 +1919,7 @@ except arcpy.ExecuteError:
 						</li>
 					</ul>
 					<p>
-						4. Cross your fingers :)
+						4. Cross your fingers :-)
 					</p>
 					<p>
 						5. Check if <code>ethno_centroids.shp</code> is created properly.
@@ -1932,8 +1929,15 @@ except arcpy.ExecuteError:
 							Don't forget Refresh if you don't see it
 						</li>
 					</ul>
+				</section>
+
+
+				<section id="ex9d" data-transition="fade" style="text-align: left;">
+					<h4>
+					Exercise #9 (cont.)
+					</h4>
 					<p>
-						6. If so, uncomment those skipped commands
+						6. Now uncomment those skipped commands
 					</p>
 					<ul>
 						<li>
@@ -1947,7 +1951,7 @@ except arcpy.ExecuteError:
 						7. <em>Save and</em> run the entire script (ctrl+shift+b )
 					</p>
 					<p>
-						8. Cross your fingers :)
+						8. Cross your fingers :-)
 					</p>
 					<p>
 						9. Check if everything is as expected
