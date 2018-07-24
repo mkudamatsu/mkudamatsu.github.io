@@ -643,24 +643,64 @@
 					</p>
 				</section>
 
-
-				<section id="ex2a" style="text-align: left;">
+				<section id="ex2a1" data-transition="slide-in fade-out"  style="text-align: left;">
 					<h4>
 					Exercise #2: Overview
 					</h4>
 					<h3>
-						Merge Ethnographic Atlas locations with 20th Century Reanalysis cells
+						Merge ethnic homelands <br>with 20th Century Reanalysis cells
 					</h3>
 					<p>
-						1. Create point features of Ethnographic Atlas locations
+						Ethnic homelands: polygons
+					</p>
+					<p>
+						How to match polygons with polygons?
+					</p>
+					<ul>
+						<li>
+							One polygon can overlap with several polygons
+						</li>
+						<li>
+							Which one to pick? How to aggregate them?
+						</li>
+					</ul>
+					<p>
+						One way to go: match <strong>polygon centroids</strong> with polygons
+					</p>
+				</section>
+
+				<section id="centroid"  data-transition="fade" style="text-align: left;">
+					<h4>
+					Exercise #2: Overview (cont.)
+					</h4>
+					<h3>
+						Polygon centroid
+					</h3>
+					<p>
+						Mean position of all points on the polygon boundary
+					</p>
+					<img style="border: none;"src="gis_lecture2/centroids.png" alt="">
+					<p>
+						<small>(<a href="https://en.wikipedia.org/wiki/Centroid" target="_blank">Image source</a>)</small>
+					</p>
+					<p>
+						$\Rightarrow$ Can be matched with a single weather data grid cell
+					</p>
+				</section>
+
+				<section id="ex2a2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #2: Overview (cont.)
+					</h4>
+					<p>
+						1. Create ethnic homeland centroid point features
 					</p>
 						<ul>
 							<li>
-								We have XY data of Ethnographic Atlas locations
+								We have XY data in the attribute table of the ethnic homeland polygon (<code>.../input/tribalmap.shp</code>)
 							</li>
-							<ul>
-								<li>Browse the attribute table of <code>.../Lecture2/input/tribalmap.shp</code></li>
-							</ul>
+						</ul>
+						<ul>
 							<li>
 								Which geo-processing tools should we use?
 							</li>
@@ -669,7 +709,7 @@
 							</ul>
 						</ul>
 					<p>
-						2. Use Spatial Join to spatially merge Ethnographic Atlas locations with 20th Century Reanalysis grid cells
+						2. Use Spatial Join to match ethnic homeland centroids with 20th Century Reanalysis grid cells
 					</p>
 					<p>
 						We add these processes to the Model for Excercise 1
