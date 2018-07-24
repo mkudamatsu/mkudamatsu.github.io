@@ -308,7 +308,7 @@
 					</h1>
 				</section>
 
-				<section id="what_we_learn" style="text-align: left;">
+				<section id="what_we_learn" data-transition="fade-out slide-in" style="text-align: left;">
 					<h3>
 						we will learn how to:
 					</h3>
@@ -327,7 +327,7 @@
 					</div>
 				</section>
 
-				<section id="graticule" style="text-align: left;">
+				<section id="graticule" data-transition="fade-out fade-in" style="text-align: left;">
 					<h3>
 						Why grid cell polygons?
 					</h3>
@@ -368,15 +368,15 @@
 					</p>
 				</section>
 
-				<section id="ex1a" style="text-align: left;">
+				<section id="ex1a" data-transition="fade-out fade-in" style="text-align: left;">
 					<h4>
-					Exercise #1
+					Exercise #1: Overview
 					</h4>
 					<h3>
 						Create 20th-century Reanalysis data grid cell polygons
 					</h3>
 					<p>
-						Geo-processing tools to be used for this exercise:
+						We will use 3 geo-processing tools for this exercise:
 					</p>
 						<ol>
 							<li>
@@ -397,14 +397,14 @@
 								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a>
 							</li>
 							<li>
-								<a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "lecture2.tbx/exercise1" in "Lecture 2"
+								<a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as <code>code/lecture2.tbx/exercises1-3</code>
 							</li>
 						</ol>
 				</section>
 
-				<section id="ex1b" style="text-align: left;">
+				<section id="ex1b" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1: Overview (cont.)
 					</h4>
 					<h3>
 						20th-century Reanalysis data
@@ -646,24 +646,30 @@
 
 				<section id="ex2a" style="text-align: left;">
 					<h4>
-					Exercise #2
+					Exercise #2: Overview
 					</h4>
 					<h3>
 						Merge Ethnographic Atlas locations with 20th Century Reanalysis cells
 					</h3>
 					<p>
-						1. Create a point feature class of Ethnographic Atlas locations
+						1. Create point features of Ethnographic Atlas locations
 					</p>
 						<ul>
 							<li>
-								We have XY data of Ethnographic Atlas locations (<code>Lecture2/ethnographic_atlas.csv</code>)
+								We have XY data of Ethnographic Atlas locations
 							</li>
+							<ul>
+								<li>Browse the attribute table of <code>.../Lecture2/input/tribalmap.shp</code></li>
+							</ul>
 							<li>
-								Which geo-processing tools should we use? (hint: <a href="../gis_lecture1.html#/ex3a" target="_blank">Lecture 1 Exercise 3</a>)
+								Which geo-processing tools should we use?
 							</li>
+							<ul>
+								<li>hint: <a href="../gis_lecture1.html#/ex3a" target="_blank">Lecture 1 Exercise 3</a></li>
+							</ul>
 						</ul>
 					<p>
-						2. Spatially merge Ethnographic Atlas locations with 20th Century Reanalysis cells by Spatial Join
+						2. Use Spatial Join to spatially merge Ethnographic Atlas locations with 20th Century Reanalysis grid cells
 					</p>
 					<p>
 						We add these processes to the Model for Excercise 1
@@ -690,7 +696,7 @@
 						<strong>Y Field</strong>: <code>tribelat</code>
 					</p>
 					<ul>
-						<li>These two variables were most likely to be created with the Add Geometry Attributes tool (cf. <a href="#f2p">Exercise 1 Step 3</a>)</li>
+						<li>These two variables were most likely to be created with the Add Geometry Attributes tool (cf. <a href="../gis_lecture2.html#ex1d" target="_blank">Exercise 1 Step 3</a>)</li>
 					</ul>
 					<p>
 						<strong>Spatial Reference</strong>: GCS_WGS_1984
@@ -700,7 +706,7 @@
 					</p>
 				</section>
 
-				<section id="ex2c" data-transition="slide-out fade-in" style="text-align: left;">
+				<section id="ex2c" data-transition="fade" style="text-align: left;">
 					<h4>
 					Exercise #2: Step 1 (cont.)
 					</h4>
@@ -723,7 +729,7 @@
 					</p>
 				</section>
 
-				<section id="ex2d"  style="text-align: left;">
+				<section id="ex2d" data-transition="slide-out fade-in" style="text-align: left;">
 					<h4>
 					Exercise #2 (cont.)
 					</h4>
@@ -882,7 +888,7 @@
 						Converts the attribute table into an Excel file
 					</p>
 					<p>
-						Then use <code>import excel</code> in Stata
+						Then use <a href="https://www.stata.com/manuals/dimportexcel.pdf" target="_blank">import excel</a> in Stata
 					</p>
 					<p>
 						But Excel cannot handle more than 65535 rows...
@@ -900,10 +906,13 @@
 						Converts the attribute table into an ASCII text file
 					</p>
 					<p>
-						Then use <code>import delimited</code> in Stata
+						Then use <a href="https://www.stata.com/manuals/dimportdelimited.pdf" target="_blank">import delimited</a> in Stata
 					</p>
 					<p>
 						This tool will automatically add centroid coordinates to the output ASCII file
+					</p>
+					<p>
+						Unlike Table To Excel, must specify which fields to export
 					</p>
 				</section>
 
@@ -912,7 +921,7 @@
 					Export to Stata (cont.)
 					</h4>
 					<h3>
-					shp2dta
+					<a href="http://fmwww.bc.edu/RePEc/bocode/s/shp2dta.html" target="_blank">shp2dta</a>
 					</h3>
 					<p>
 						This Stata ado directly reads a shapefile's attribute table
@@ -1070,6 +1079,11 @@
 					<p>
 						3. Save as ***.py
 					</p>
+					<ul>
+						<li>
+							Today, let's name it <code>lecture2.py</code> and save it in <code>.../Desktop/Lecture2/code/</code>
+						</li>
+					</ul>
 				</section>
 
 				<section id="editors" data-transition="slide-in fade-out" style="text-align: left;">
