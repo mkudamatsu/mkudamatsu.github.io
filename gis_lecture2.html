@@ -314,28 +314,57 @@
 					</h3>
 					<p>1. Use the Spatial Join tool (Exercise 2)</p>
 					<p>2. Export attribute tables to Stata (Exercise 3)</p>
-					<p>3. Create a <strong>graticule</strong> shapefile (Exercise 1)</p>
-					<img src="gis_lecture2/graticule.png" style="border: none; background: none; box-shadow:none; width: 300px;">
-					<p><small>(Image taken from ArcGIS Help "What are grids and graticules?")</small></p>
+					<p>3. Create <strong>grid cell polygons</strong> (Exercise 1)</p>
+					<div style="display: flex; align-items: flex-start; justify-content: space-between;">
+						<img src="gis_lecture2/gridcells.png" style="border: none; background: none; box-shadow:none; width: 300px;">
+						<div style="margin-left: 10px;">
+							<p>
+								Evenly spaced meridians and parallels divide the earth into <strong>grid cells</strong>
+							</p>
+							<p><small>(Image source: ArcGIS Help "<a href="http://desktop.arcgis.com/en/arcmap/latest/map/page-layouts/what-are-grids-and-graticules-.htm" target="_blank">What are grids and graticules?</a>")</small></p>
+
+						</div>
+					</div>
 				</section>
 
 				<section id="graticule" style="text-align: left;">
 					<h3>
-						Why graticule shapefile?
+						Why grid cell polygons?
 					</h3>
 					<p>
-						In some datasets (weather data in particular), the unit of observations is a grid point (latitude and longitude at equal intervals).
+						In natural science data (e.g. weather data), <br>the unit of observations is often a grid cell.
+						<ul>
+							<li>
+								Partly because they derive data from satellite images
+							</li>
+						</ul>
 					</p>
 					<p>
-						Examples other than what we have already seen:
+						Examples:
 					</p>
 						<ul style="margin-left: 60px;">
-							<li>WorldClim (<a href="http://dx.doi.org/10.1257/aer.99.2.198" target="_blank">Dell, Jones, & Olken 2009</a>)</li>
-							<li>GCPC (<a href="http://www.jstor.org/stable/10.1086/421174" target="_blank">Miguel et al. 2004</a>)</li>
-							<li>TOMS air pollution index (<a href="http://dx.doi.org/10.3368/jhr.44.4.916" target="_blank">Jayachandran 2009</a>)</li>
+							<li>
+								<a href="https://www.esrl.noaa.gov/psd/data/gridded/data.gpcp.html" target="_blank">GCPC</a>: time-series of precipitation (2.5-deg)
+								<ul>
+									<li>used by <a href="http://www.jstor.org/stable/10.1086/421174" target="_blank">Miguel et al. (2004)</a></li>
+								</ul>
+						  </li>
+							<li>
+								<a href="http://www.worldclim.org/" target="_blank">WorldClim</a>: cross-section of monthly weather (30-sec)
+								<ul>
+									<li>used by <a href="http://dx.doi.org/10.1257/aer.99.2.198" target="_blank">Dell, Jones, & Olken (2009)</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="http://cersat.ifremer.fr/" target="_blank">CERSAT</a>: wind speed and direction in oceans (1-deg)
+								<ul>
+									<li>used by <a href="http://dx.doi.org/10.1257/aer.20140832" target="_blank">Pascali (2017)</a></li>
+								</ul>
+							</li>
+
 						</ul>
 					<p>
-						A graticule shapefile allows you to spatially merge such data with other data
+						Grid cell polygons help merge these data with other data
 					</p>
 				</section>
 
