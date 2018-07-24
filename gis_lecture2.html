@@ -432,11 +432,11 @@
 						Create Fishnet
 					</h3>
 					<p>
-						<strong>Output Feature Class</strong>: <code>\Lecture2\output\fishnet.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture2\temporary\fishnet.shp</code>
 					</p>
 					<ul>
 						<li>
-							Always good idea to save outputs in a different directory (<code>Lecture2/output</code>, in this case)
+							Save all intermediate outputs in the <code>temporary/</code> folder
 						</li>
 					</ul>
 					<p>
@@ -725,7 +725,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\output\ethno_centroids.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\temporary\ethno_centroids.shp</code>
 					</p>
 				</section>
 
@@ -768,7 +768,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\output\ethno_centroids_with_20cr2.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\temporary\ethno_centroids_with_20cr2.shp</code>
 					</p>
 				</section>
 
@@ -1620,10 +1620,10 @@ arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture2" # NEVER
 tribalmap_shp = "input\\tribalmap.shp"
 
 tribalmap_Layer = "tribalmap_Layer"
-ethno_centroids_shp = "output\\ethno_centroids.shp"
-fishnet_shp = "output\\fishnet.shp"
+ethno_centroids_shp = "temporary\\ethno_centroids.shp"
+fishnet_shp = "temporary\\fishnet.shp"
+ethno_centroid_with_20cr_shp = "temporary\\ethno_centroid_with_20cr.shp"
 
-ethno_centroid_with_20cr_shp = "output\\ethno_centroid_with_20cr.shp"
 ethno_centroid_with_20cr_xls = "output\\ethno_centroid_with_20cr.xls"
 ethno_centroid_with_20cr_txt = "output\\ethno_centroid_with_20cr.txt"
 
@@ -1723,11 +1723,11 @@ tribalmap_shp = "input\\tribalmap.shp"
 
 print "Intermediate file names being set"
 tribalmap_Layer = "tribalmap_Layer"
-ethno_centroids_shp = "output\\ethno_centroids.shp"
-fishnet_shp = "output\\fishnet.shp"
+ethno_centroids_shp = "temporary\\ethno_centroids.shp"
+fishnet_shp = "temporary\\fishnet.shp"
+ethno_centroid_with_20cr_shp = "temporary\\ethno_centroid_with_20cr.shp"
 
 print "Output files being set"
-ethno_centroid_with_20cr_shp = "output\\ethno_centroid_with_20cr.shp"
 ethno_centroid_with_20cr_xls = "output\\ethno_centroid_with_20cr.xls"
 ethno_centroid_with_20cr_txt = "output\\ethno_centroid_with_20cr.txt"
 						</code>
