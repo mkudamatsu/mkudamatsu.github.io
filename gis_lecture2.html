@@ -1115,10 +1115,36 @@
 						1. Click the Windows icon at the bottom-left
 					</p>
 					<p>
-						2. Click "All programs > ArcGIS > Python 2.7 > IDLE (Python GUI)"
+						2. Click <span style="background-color: Gainsboro">ArcGIS > IDLE (Python GUI)</span>
 					</p>
 					<p>
-						3. Click "File > Open" to read a script
+						3. Click <span style="background-color: Gainsboro">File > Open</span> to read a script
+					</p>
+				</section>
+
+				<section id="ex5-2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #5.2
+					</h4>
+					<h3>
+						Use Atom
+					</h3>
+					<p>
+						1. Click the Atom icon (either on Desktop or Taskbar)
+					</p>
+					<p>
+						2. Click <span style="background-color: Gainsboro">File > Add Project Folder...</span> and choose <code>...Desktop\Lecture2</code>
+					</p>
+					<ul>
+						<li>
+							This shows sub-directories inside the <code>Lecture2/</code> folder
+						</li>
+						<li>
+							No need to go back and forth with File Explorer
+						</li>
+					</ul>
+					<p>
+						3. Click <span style="background-color: Gainsboro">code > lecture2.py</span> to read a script
 					</p>
 				</section>
 
@@ -1436,13 +1462,8 @@
 						3. Select commands to be indented
 					</p>
 					<p>
-						4. Click "Format > Indent Region"
+						4. Click the tab key (Atom) or <span style="background-color: Gainsboro">Format > Indent Region</span> (IDLE)
 					</p>
-					<ul style="margin-left: 75px;">
-						<li>
-							Best avoid using the tab key to indent commands
-						</li>
-					</ul>
 				</section>
 
 				<section id="ex6b" data-transition="slide-out fade-in" style="text-align: left;">
@@ -1587,7 +1608,7 @@ fishnet_shp__4_ = fishnet_shp__2_
 						It's confusing. So:
 					</p>
 					<p>
-						6. Use "Edit > Replace" to replace:
+						6. Press ctrl + f (or click <span style="background-color: Gainsboro">Edit > Replace</span> for IDLE) to replace:
 					</p>
 					<ul>
 						<li>
@@ -1834,10 +1855,15 @@ except arcpy.ExecuteError:
 						</li>
 					</ul>
 					<p>
-						2. Click "Format > Comment Out Region"
+						2. Press ctrl + /
 					</p>
+					<ul>
+						<li>
+							for IDLE, click <span style="background-color: Gainsboro">Format > Comment Out Region</span>
+						</li>
+					</ul>
 					<p>
-						$\Rightarrow$ <code>##</code> will appear at the beginning of selected commands
+						$\Rightarrow$ <code>#</code> will appear at the beginning of selected commands
 					</p>
 				</section>
 
@@ -1849,14 +1875,14 @@ except arcpy.ExecuteError:
 						<code data-trim contenteditable>
 ############################## Geoprocessing ##########################
 try:
-##    print "Create 20th Century Reanalysis data cell polygons step 1/3"
-##    arcpy.CreateFishnet_management(fishnet_shp, "-21 -41", "-21 -10", "2", "2", "41", "41", "", "NO_LABELS", "DEFAULT", "POLYGON")
-##
-##    print "Create 20th Century Reanalysis data cell polygons step 2/3"
-##    arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
-##
-##    print "Create 20th Century Reanalysis data cell polygons step 3/3"
-##    arcpy.AddGeometryAttributes_management(fishnet_shp, "CENTROID", "", "", "")
+#    print "Create 20th Century Reanalysis data cell polygons step 1/3"
+#    arcpy.CreateFishnet_management(fishnet_shp, "-21 -41", "-21 -10", "2", "2", "41", "41", "", "NO_LABELS", "DEFAULT", "POLYGON")
+#
+#    print "Create 20th Century Reanalysis data cell polygons step 2/3"
+#    arcpy.DefineProjection_management(fishnet_shp, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]")
+#
+#    print "Create 20th Century Reanalysis data cell polygons step 3/3"
+#    arcpy.AddGeometryAttributes_management(fishnet_shp, "CENTROID", "", "", "")
 
     arcpy.MakeXYEventLayer_management(tribalmap_shp, "lon", "lat", tribalmap_Layer, "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119522E-09;0.001;0.001;IsHighPrecision", "")
     print "Create ethnic group centroids step 1/2"
@@ -1864,14 +1890,14 @@ try:
     print "Create ethnic group centroids step 2/2"
     arcpy.CopyFeatures_management(tribalmap_Layer, ethno_centroids_shp, "", "0", "0", "0")
 
-##    print "Match Ethnographic Atlas ethnic groups with 20th Century Reanalysis data cells"
-##    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "", "INTERSECT", "", "")
-##
-##    print "Export output data as Excel sheet"
-##    arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
-##
-##    print "Export output data as csv file"
-##    arcpy.ExportXYv_stats(ethno_centroid_with_20cr_shp, "CENTROID_X;CENTROID_Y;NAME;TRIBE_CODE", "SPACE", ethno_centroid_with_20cr_txt, "ADD_FIELD_NAMES")
+#    print "Match Ethnographic Atlas ethnic groups with 20th Century Reanalysis data cells"
+#    arcpy.SpatialJoin_analysis(ethno_centroids_shp, fishnet_shp, ethno_centroid_with_20cr_shp, "JOIN_ONE_TO_ONE", "KEEP_ALL", "", "INTERSECT", "", "")
+#
+#    print "Export output data as Excel sheet"
+#    arcpy.TableToExcel_conversion(ethno_centroid_with_20cr_shp, ethno_centroid_with_20cr_xls, "NAME", "CODE")
+#
+#    print "Export output data as csv file"
+#    arcpy.ExportXYv_stats(ethno_centroid_with_20cr_shp, "CENTROID_X;CENTROID_Y;NAME;TRIBE_CODE", "SPACE", ethno_centroid_with_20cr_txt, "ADD_FIELD_NAMES")
 
 # Return geoprocessing specific errors
 except arcpy.ExecuteError:
@@ -1885,8 +1911,16 @@ except arcpy.ExecuteError:
 					Exercise #9 (cont.)
 					</h4>
 					<p>
-						3. <em>Save and</em> run the script (press F5)
+						3. <em>Save and</em> run the script
 					</p>
+					<ul>
+						<li>
+							The Script package of Atom lets you run the script by pressing ctrl + shift + b
+						</li>
+						<li>
+							For IDLE, press F5
+						</li>
+					</ul>
 					<p>
 						4. Cross your fingers :)
 					</p>
@@ -1903,11 +1937,14 @@ except arcpy.ExecuteError:
 					</p>
 					<ul>
 						<li>
-							Click "Format > Uncomment Region" in IDLE menu bar
+							Select the commented-out lines and press ctrl + /
+						</li>
+						<li>
+							For IDLE, click <span style="background-color: Gainsboro">Format > Uncomment Region</span>
 						</li>
 					</ul>
 					<p>
-						7. <em>Save and</em> run the script (press F5)
+						7. <em>Save and</em> run the entire script (ctrl+shift+b )
 					</p>
 					<p>
 						8. Cross your fingers :)
