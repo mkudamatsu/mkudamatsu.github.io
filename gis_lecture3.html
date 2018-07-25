@@ -216,7 +216,7 @@
 							3. Replicate Conley & Udry (2010)
 						</p>
 						<p>
-							4. Loop over files in Python
+							4. Set relative file paths in Python
 						</p>
 				</section>
 
@@ -1235,7 +1235,144 @@ arcpy.ExportXYv_stats(plot_neighbors_shp, <mark>"village;hhn;plot"</mark>, "SPAC
 					</p>
 				</section>
 
+			</section>
 
+			<section>
+				<section id="relative-file-path">
+					<h1>
+						4. Set relative file paths in Python
+					</h1>
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Problems with absolute file path
+					</h3>
+						<p>
+							Currently we set an absolute file path
+						</p>
+						<pre>
+							<code style="font-size: 1.4rem;" data-trim data-noescape>
+arcpy.env.workspace = "C:\\Users\\your_username\\Desktop\\Lecture3"
+							</code>
+						</pre>
+						<p class="fragment" data-fragment-index="1">
+							This code will break when
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>
+								Someone else runs the code in their computer
+							</li>
+							<li>
+								You buy a new computer
+							</li>
+							<li>
+								You reorganize the directory structure
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="2">
+							Super-tedious to change this line of code if
+						</p>
+						<ul class="fragment" data-fragment-index="2">
+							<li>
+								There are many Python scripts
+							</li>
+							<li>
+								You're collaborating with someone else
+							</li>
+						</ul>
+				</section>
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Solution: use relative file path
+					</h3>
+						<pre>
+							<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+							</code>
+						</pre>
+						<p class="fragment" data-fragment-index="1">
+							These 3 lines of Python code sets the folder where the current script is saved (e.g. <code>.../Lecture3/code/</code>) <br>as the working directory
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							We can then set its parent directory (e.g. <code>Lecture3/</code>) as the working directory for ArcGIS by
+						</p>
+						<pre class="fragment" data-fragment-index="2">
+							<code style="font-size: 1.4rem;" data-trim data-noescape>
+arcpy.env.workspace = "../"
+							</code>
+						</pre>
+						<p class="fragment" data-fragment-index="3">
+							cf. In Stata, <code>cd ..</code> moves up one directory
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<p>
+						Now the code will run successfully <strong>as long as</strong> you <br>move the <strong>entire</strong> project directory (e.g. <code>Lecture3/</code>) <br>to another computer
+					</p>
+				</section>
+
+				<section id="ex5a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5
+					</h4>
+					<h3>
+						Set the relative file path
+					</h3>
+					<p>
+						1. Open <code>code/template4exercise5.py</code>
+					</p>
+					<ul>
+						<li>
+							This file contains the three lines of code:
+							<pre>
+								<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+								</code>
+							</pre>
+						</li>
+					</ul>
+					<p>
+						2. Copy and paste the whole Exercise 4 code below these three lines
+					</p>
+					<p>
+						3. Replace the line for <code>arcpy.env.workspace</code> with
+						<pre>
+							<code style="font-size: 1.4rem;" data-trim data-noescape>
+arcpy.env.workspace = "../"
+							</code>
+						</pre>
+					</p>
+				</section>
+
+				<section id="ex5b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #5 (cont.)
+					</h4>
+					<p>
+						4. Delete all the files in <code>temporary/</code> and <code>output/</code>
+					</p>
+					<p>
+						5. Run the code. Check if every file is created in the expected folders
+					</p>
+					<p>
+						6. Now delete all the temporary and output files again.
+					</p>
+					<p>
+						7. <strong>Move</strong> the entire <code>Lecture3/</code> folder to somewhere else (say, <code>Documents/</code>)
+					</p>
+					<p>
+						8. Open the Python script in this new location, and run it.
+					</p>
+					<p>
+						9. Also run the Exercise 4 script and see how it returns an error
+					</p>
+				</section>
 
 			</section>
 
