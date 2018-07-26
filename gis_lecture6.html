@@ -1090,7 +1090,7 @@
 						</li>
 					</ul>
 					<p>
-						Indian district polygons (IND_adm2.shp)
+						Indian district polygons (<code>gadm36_IND_2.shp</code>)
 					</p>
 					<ul>
 						<li>
@@ -1135,7 +1135,7 @@
 						<strong>Input Features</strong> (both in <code>...\Lecture6\input\</code>):
 					</p>
 					<p>
-						<code>IND_adm2.shp</code>
+						<code>gadm36_IND_2.shp</code>
 					</p>
 					<p>
 						<code>ne_10m_rivers_lake_centerlines.shp</code>
@@ -1172,7 +1172,7 @@
 						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\river_by_district.shp</code>
 					</p>
 					<p>
-						<strong>Dissolve_Field(s)</strong>: ID_2
+						<strong>Dissolve_Field(s)</strong>: GID_2
 					</p>
 					<ul>
 						<li>
@@ -1229,10 +1229,10 @@
 							Select a district with multiple rivers by cursor
 						</li>
 						<li>
-							See attribute table of india_districts.shp for ID_2 of the selected district
+							See attribute table of india_districts.shp for GID_2 of the selected district
 						</li>
 						<li>
-							See attribute table of river_by_district.shp and select the row for this ID_2
+							See attribute table of river_by_district.shp and select the row for this GID_2
 						</li>
 					</ul>
 				</section>
@@ -1271,7 +1271,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Zone field</strong>: ID_2
+						<strong>Zone field</strong>: GID_2
 					</p>
 					<p>
 						<strong>Input value raster</strong>: gradient3060.tif
@@ -1681,7 +1681,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Input Join Field</strong>: ID_2
+						<strong>Input Join Field</strong>: GID_2
 					</p>
 						<li>
 							Name of field in Input Table, to be used for joining
@@ -1700,7 +1700,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Join Field</strong>: ID_2
+						<strong>Output Join Field</strong>: GID_2
 					</p>
 					<ul>
 						<li>
@@ -2103,7 +2103,7 @@
 						</p>
 						<ul>
 							<li>
-								Otherwise, field ID_2 becomes all 0 for some reason...
+								Otherwise, field GID_2 becomes all 0 for some reason...
 							</li>
 						</ul>
 						<p>
