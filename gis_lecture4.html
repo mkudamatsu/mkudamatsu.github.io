@@ -1495,7 +1495,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture4\output\intersect.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture4\temporary\intersect.shp</code>
 					</p>
 					<p>
 						<strong>Join Attributes</strong>: ALL
@@ -1688,7 +1688,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Dataset or Feature Class</strong>: ...\Lecture4\output\intersect_sinusoidal.shp
+						<strong>Output Dataset or Feature Class</strong>: <code>...\temporary\intersect_sinusoidal.shp</code>
 					</p>
 					<p>
 						<strong>Output Coordinate System</strong>: Africa_Sinusoidal
@@ -2049,7 +2049,7 @@ arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4" # NEVER
 # Local variables:
 borders_tribes_shp = "input\\borders_tribes.shp"
 african_countries_shp = "input\\african_countries.shp"
-intersect_shp = "output\\intersect.shp"
+intersect_shp = "temporary\\intersect.shp"
 
 # Process: Intersect
 inFeatures = [borders_tribes_shp, african_countries_shp]
