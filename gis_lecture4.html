@@ -932,17 +932,11 @@
 						Obtain country centroids
 					</h3>
 					<p>
-						Input: african_countries.shp
+						Input: Country polygons for Africa
 					</p>
 						<ul style="margin-left: 72px;">
 							<li>
-								Created by the lecturer from <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/" target="_blank">Natural Earth 1:10m Cultural Vector "Admin 0 - Countries"</a>
-							</li>
-							<li>
-								Better than GAUL for obtaining centroids
-							</li>
-							<li>
-								GAUL: each island in the same country is a separate polygon...
+								Created by the lecturer from GADM (cf. <a href="http://127.0.0.1:3000/gis_lecture1.html#/ex1a" target="_blank">Lec 1 Ex 1</a>)
 							</li>
 						</ul>
 					<p>
@@ -966,7 +960,7 @@
 						Feature To Point
 					</h3>
 					<p>
-						<strong>Input Features</strong>: <code>...\Lecture4\input\african_countries.shp</code>
+						<strong>Input Features</strong>: <code>...\Lecture4\input\gadm36_africa.shp</code>
 					</p>
 					<ul>
 						<li>
@@ -994,15 +988,12 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output. When overlayed over <code>african-countries.shp</code>, you should see something like this:
+						Overlay the output over <code>gadm36_africa.shp</code>.
 					</p>
-					<img src="gis_lecture4/feature-to-point-result.png" style="border: 1px solid grey; background: none; box-shadow:none; width: 500px;">
 					<p>
-						Browse the attritube table...
-					</p>
-          <p>
-            Feature To Point doesn't add coordinates to the attribute table of the output. So...
+						You should see something like this:
           </p>
+					<img src="gis_lecture4/feature-to-point-result.png" style="border: 1px solid grey; background: none; box-shadow:none; width: 500px;">
         </section>
 
 				<section id="ex1ftp3" data-transition="fade-in fade-out" style="text-align: left;">
