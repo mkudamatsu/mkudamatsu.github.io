@@ -1326,7 +1326,7 @@
 							Each ethnic group's share in the total # of slaves exported from Africa
 						</li>
 						<li>
-							Ethnic homeland map (cf. <a href="../gis_lecture1.html#/oldmap2b" target="_blank">Lecture 1</a>)
+							<a href="../gis_lecture1.html#/oldmap2b" target="_blank">Ethnic homeland map</a> (cf. <a href="../gis_lecture2.html#/ex2a1" target="_blank">Lecture 2</a>)
 						</li>
 					</ul>
 				</section>
@@ -1419,7 +1419,7 @@
 
 				<section id="ex2inputs" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2
+					Exercise #2: Overview
 					</h4>
 					<h3>
 						Surface area of intersection polygons
@@ -1442,12 +1442,12 @@
 
 				<section id="ex2tools" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2: Overview (cont.)
 					</h4>
 					<p>
 						Geo-processing tools:
 					</p>
-					<p>
+					<p style="font-weight:bold;">
 						1. Intersect (Analysis)
 					</p>
 						<ul style="margin-left: 72px;">
@@ -1455,7 +1455,7 @@
 								 Match ethnic homelands with countries
 							</li>
 						</ul>
-					<p>
+					<p style="font-weight:bold;">
 						2. Project (Data Management)
 					</p>
 						<ul style="margin-left: 72px;">
@@ -1463,7 +1463,7 @@
 								Choose coordinate system for surface area calculation
 							</li>
 						</ul>
-					<p>
+					<p style="font-weight:bold;">
 						3. Add Geometry Attributes
 					</p>
 						<ul style="margin-left: 72px;">
@@ -1525,23 +1525,26 @@
 						Intersect vs Spatial Join
 					</h3>
 						<p>
+							You might wonder why we don't use Spatial Join...
+						</p>
+						<p class="fragment" data-fragment-index="1">
 							If only to know which ethnic group lives in which country
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							$\Rightarrow$ <strong>Spatial Join</strong> (with JOIN_ONE_TO_MANY option)
 						</p>
-						<ul style="margin-left: 85px;">
+						<ul style="margin-left: 85px;" class="fragment" data-fragment-index="1">
 							<li>
 								Output features: target features
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							To obtain data at the intersection level
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							$\Rightarrow$ <strong>Intersect</strong>
 						</p>
-						<ul style="margin-left: 85px;">
+						<ul class="fragment" data-fragment-index="2" style="margin-left: 85px;">
 							<li>
 								Output features: intersection polygons
 							</li>
@@ -1563,13 +1566,13 @@
 
 				<section id="area_calculation1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2 Steps 2-3
 					</h4>
 					<h3>
 						Surface area calculation
 					</h3>
 						<p>
-							Use equal area projections
+							Use equal area projections (cf. <a href="../gis_lecture1.html#/equal_area1" target="_blank">Lecture 1</a>)
 						</p>
 						<ul>
 							<li>
@@ -1580,7 +1583,7 @@
 							</li>
 						</ul>
 						<p>
-							Sinusoidal: often used for the entire world or continents
+							Sinusoidal (<a href="../gis_lecture1.html#/ex7a" target="_blank">Lec 1 Ex 8</a>): often used for the entire world or continents
 						</p>
 				</section>
 
@@ -1594,22 +1597,22 @@
 					<p>
 						Length of 360&deg in latitude: same across all longitudes
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Length of 360&deg in longitude:
 					</p>
 					<table border="0" width="100%">
-						<tr>
+						<tr class="fragment" data-fragment-index="1">
 							<td>at latitude 0&deg (equator)</td>
 							<td>$\Rightarrow$</td>
 							<td>$2\pi$ x Earth's radius</td>
 						</tr>
-						<tr>
+						<tr  class="fragment" data-fragment-index="2">
 							<td>at latitude $\theta$&deg</td>
 							<td>$\Rightarrow$</td>
 							<td>$2\pi$ x Earth's radius x $\cos(\theta)$</td>
 						</tr>
 					</table>
-					<p>
+					<p  class="fragment" data-fragment-index="2">
 					<img src="gis_lecture4/cosine.gif" style="border: none; background: none; box-shadow:none; width: 250px; float: left;">
 						<br>
 						<br>
@@ -1711,7 +1714,7 @@
 						Add Geometry Attributes
 					</h3>
 					<p>
-						This tool can be used for surface area calculation
+						This tool can be used for surface area calculation, too
 					</p>
 					<p>
 						<strong>Input Features</strong>: intersect_sinusoidal.shp
@@ -1804,8 +1807,13 @@
 				</h3>
 					<ul>
 						<li>
-							<strong>Input Table</strong>: intersect_sinusoidal.shp (3)
+							<strong>Input Table</strong>: intersect_sinusoidal.shp (2)
 						</li>
+						<ul>
+							<li>
+								The output from Add Geometry Attributes
+							</li>
+						</ul>
 						<li>
 							<strong>Output Excel File</strong>: <code>...\output\intersect_sinusoidal.xls</code>
 						</li>
@@ -1819,7 +1827,7 @@
 							Advantage of Export Feature Attribute to ASCII: choose which fields to keep
 						</li>
 						<li>
-							Various country codes to choose from
+							There are both country codes and names
 						</li>
 						<li>
 							Which one works best with your country data is unknown
@@ -1836,7 +1844,7 @@
 					"Model" model for Exercise 2
 					</h3>
 					<p>
-						Look at "lecture4\solutions4exercises\models.tbx\exercise2"
+						Look at <code>solutions4exercises\models.tbx\exercise2</code>
 					</p>
 				</section>
 			</section>
@@ -1967,14 +1975,8 @@ arcpy.Intersect_analysis("'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\inp
 
 				<section id="list4arcgis1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						When to use Python List for ArcGIS
+						Which geo-processing tools take a list as input?
 					</h3>
-					<p>
-						1. Loop over files (cf. <a href="../gis_lecture3.html#/loop_over_list" target="_blank">Lec 3</a>)
-					</p>
-					<p>
-						2. Specify multiple input file names for a geo-processing tool
-					</p>
 						<ul>
 							<li>
 								Intersect
@@ -2010,7 +2012,7 @@ arcpy.Intersect_analysis("'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\inp
 						Edit the exported Python script
 					</h3>
 					<p>
-						1. Use the template (Lecture4\template4L4.py)
+						1. Use the template (<code>code/template4L4.py</code>)
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
@@ -2043,9 +2045,6 @@ arcpy.Intersect_analysis("'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\inp
 					</p>
 					<pre>
 						<code data-trim>
-# Set the working directory.
-arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4" # NEVER USE single backslash (\).
-
 # Local variables:
 borders_tribes_shp = "input\\borders_tribes.shp"
 gadm36_africa_shp = "input\\gadm36_africa.shp"
