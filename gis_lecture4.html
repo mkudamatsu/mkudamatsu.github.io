@@ -1436,7 +1436,7 @@
 							</li>
 						</ul>
 					<p>
-						2. Country polygons (<code>african_countries.shp</code>)
+						2. Country polygons (<code>gadm36_africa.shp</code>)
 					</p>
 				</section>
 
@@ -1863,14 +1863,14 @@
 						<code data-trim>
 # Local variables:
 borders_tribes_shp = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\borders_tribes.shp"
-african_countries_shp = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\african_countries.shp"
+gadm36_africa_shp = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\gadm36_africa.shp"
 
 # Process: Intersect
-arcpy.Intersect_analysis("'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\borders_tribes.shp' #;'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\african_countries.shp' #", intersect_shp, "ALL", "", "INPUT")
+arcpy.Intersect_analysis("'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\borders_tribes.shp' #;'C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4\\input\\gadm36_africa.shp' #", intersect_shp, "ALL", "", "INPUT")
 						</code>
 					</pre>
 					<p>
-						For geo-processing tools that take multiple inputs, Model Builder fails to use local variables for input file names
+						For geo-processing tools that take multiple inputs, <br>Model Builder fails to use local variables for input file names
 					</p>
 					<p>
 						We ourselves need to use local variables
@@ -2048,11 +2048,11 @@ arcpy.env.workspace = "C:\\Users\\Masayuki Kudamatsu\\Desktop\\Lecture4" # NEVER
 
 # Local variables:
 borders_tribes_shp = "input\\borders_tribes.shp"
-african_countries_shp = "input\\african_countries.shp"
+gadm36_africa_shp = "input\\gadm36_africa.shp"
 intersect_shp = "temporary\\intersect.shp"
 
 # Process: Intersect
-inFeatures = [borders_tribes_shp, african_countries_shp]
+inFeatures = [borders_tribes_shp, gadm36_africa_shp]
 arcpy.Intersect_analysis(inFeatures, intersect_shp, "ALL", "", "INPUT")
 						</code>
 					</pre>
