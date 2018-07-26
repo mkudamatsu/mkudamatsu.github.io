@@ -755,7 +755,7 @@
 						Model: <code>solutions4exercises/models.tbx/cleanGREG</code>
 					</p>
 					<p>
-						Python script: <code>solutions4exercises/L5cleanGREG.py</code>
+						Python script: <code>solutions4exercises/cleanGREG.py</code>
 					</p>
 				</section>
 
@@ -836,7 +836,7 @@
 						Without running the model, export and edit a Python script. Then run the script.
 					</p>
 					<p>
-						Model Python script: <code>solutions4exercise/L5cleandata.py</code>
+						Model Python script: <code>solutions4exercise/cleandata.py</code>
 					</p>
 				</section>
 			</section>
@@ -868,13 +868,13 @@
 						<strong>Regressor</strong>: Standard deviation of land quality
 					</p>
 					<p>
-						We're going to create a model called <code>exercises1-3</code>
+						We now create these data by editing <code>exercises1-3</code>
 					</p>
 				</section>
 
 				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1
+					Exercise #1: Overview
 					</h4>
 					<h3>
 						Virtual country polygons
@@ -977,7 +977,7 @@
 
 				<section id="coordinate_system_choice" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #1 (cont.)
+						Exercise #1: Step 1 (cont.)
 					</h4>
 						<p>
 							What coordinate system should we assign to the fishnet?
@@ -996,7 +996,7 @@
 
 				<section id="define_projection" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1: Step 2
+					Exercise #1: Step 1 (cont.)
 					</h4>
 					<h3>
 						Define Projection (Data Management)
@@ -1022,13 +1022,13 @@
 
 				<section id="unique_id1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1 Step 1 (cont.)
 					</h4>
 					<p>
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the attribute table of fishnet25.shp.
+						Browse the attribute table of <code>fishnet25.shp</code>.
 					</p>
 					<p>
 						Fields created:
@@ -1045,7 +1045,7 @@
 
 				<section id="unique_id2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1 Step 2
 					</h4>
 					<p>
 						We need virtual country ID for merging data in Stata
@@ -1067,7 +1067,7 @@
 
 				<section id="add_field" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1: Step 3
+					Exercise #1: Step 2 (cont.)
 					</h4>
 					<h3>
 						Add Field
@@ -1106,7 +1106,7 @@
 
 				<section id="calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1: Step 4
+					Exercise #1: Step 2 (cont.)
 					</h4>
 					<h3>
 						Calculate Field
@@ -1157,7 +1157,7 @@
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1 Step 2 (cont.)
 					</h4>
 					<p>
 						Now <em>save and</em> run the Model.
@@ -1172,7 +1172,7 @@
 
 				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2
+					Exercise #2: Overview
 					</h4>
 					<h3>
 						# of languages spoken
@@ -1195,7 +1195,7 @@
 
 				<section id="ex2b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2: Overview (cont.)
 					</h4>
 					<h3>
 						# of languages spoken
@@ -1296,7 +1296,7 @@
 					</p>
 					<ul>
 						<li>
-							Browse <strong>fishnet25.shp</strong> (make polygon color unfilled)
+							Browse <strong><code>fishnet25.shp</code></strong> (make polygon color unfilled)
 						</li>
 						<li>
 							Select (say) <strong>cell_id 1340</strong> in attribute table
@@ -1311,7 +1311,7 @@
 							$\Rightarrow$ It's 4
 						</p>
 						<li>
-							Browse attribute table of <strong>vcountry.shp</strong>
+							Browse attribute table of <strong><code>vcountry.shp</code></strong>
 						</li>
 						<li>
 							For cell_id 1340, COUNT_FID has a value of 4?
@@ -1324,11 +1324,11 @@
 					Exercise #2 (cont.)
 					</h4>
 					<p>
-						Polygons in GREG.shp are slightly overlapping over each other
+						Polygons in <code>GREG.shp</code> are slightly overlapping over each other
 					</p>
 					<ul>
 						<li>
-							Zoom in a lot to the boundaries of GREG.shp
+							Zoom in a lot to the boundaries of <code>GREG.shp</code>
 						</li>
 					</ul>
 					<p>
@@ -1389,9 +1389,9 @@
 					</p>
 				</section>
 
-				<section id="intersect_dissolve1" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="intersect_dissolve1" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
-					Application of Intersect + Dissolve #1
+					Application of Intersect + Dissolve
 					</h4>
 					<h3>
 						<a href="http://dx.doi.org/10.1257/aer.90.5.1209" target="_blank">Hoxby (2000)</a>
@@ -1415,32 +1415,9 @@
 					</p>
 				</section>
 
-				<section id="intersect_dissolve2" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-					Application of Intersect + Dissolve #2
-					</h4>
-					<h3>
-						<a href="http://www.nber.org/papers/w17620" target="_blank">Michalopoulos & Papaioannou (2015)</a>
-					</h3>
-					<p>
-						Split ethnic groups in Africa
-					</p>
-					<p>
-						$\Rightarrow$ More violence, discriminattion, less access to education and public goods
-					</p>
-					<ul>
-						<li>
-							Intersect ethnic homeland polygons with country polygons
-						</li>
-						<li>
-							Dissolve by ethnic homeland
-						</li>
-					</ul>
-				</section>
-
 				<section id="ex3a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #3
+					Exercise #3: Overview
 					</h4>
 					<h3>
 						Standard deviation of land quality
@@ -1516,17 +1493,17 @@
 						By default, you're not allowed to use it.
 					</p>
 					<p>
-						To activate, click in the menu bar "Customize > Extensions..." and check "Spatial Analyst"
+						To activate, click in the menu bar <span style="background-color: Gainsboro">Customize > Extensions...</span> and check <span style="background-color: Gainsboro">Spatial Analyst</span>
 					</p>
 					<ul>
 						<li>
-							Same holds for other extensions
+							Same for other extensions
 						</li>
 					</ul>
 				</section>
 
 
-				<section id="zonal_stat1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="zonal_stat1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #3: Step 1
 					</h4>
@@ -1545,7 +1522,7 @@
 						<strong>Zone field</strong>: cell25_id
 					</p>
 					<p>
-						<strong>Input value raster</strong>: landquality.tif
+						<strong>Input value raster</strong>: <code>output/landquality.tif</code>
 					</p>
 					<ul>
 						<li>
@@ -1605,7 +1582,7 @@
 							<strong>Input Table</strong>: landquality25.dbf
 						</li>
 						<li>
-							<strong>Output Excel File</strong>: ...\Lecture5\output\landquality25.xls
+							<strong>Output Excel File</strong>: <code>...\Lecture5\output\landquality25.xls</code>
 						</li>
 					</ul>
 				<br>
@@ -1696,7 +1673,7 @@
 					"Model" model for Exercises 1-3
 					</h3>
 					<p>
-						Look at "solutions4exercises\models.tbx\lec5ex1-3"
+						See <code>models.tbx\exercises1-3</code> <br>in the <code>solutions4exercises\</code> folder
 					</p>
 				</section>
 
@@ -1800,7 +1777,7 @@
 
 				<section id="ex4a" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4
+					Exercise #4: Overview
 					</h4>
 					<h3>
 						0.5&deg x 0.5&deg cell data
@@ -2283,7 +2260,7 @@
 
 				<section id="ex5toomanyrows1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #5 (cont.)
+					Exercise #5 Step 2
 					</h4>
 					<h3>
 						Export table with many rows
@@ -2322,7 +2299,7 @@
 
 				<section id="ex5table_select1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #5 Step 2
+					Exercise #5 Step 2 (1)
 					</h4>
 					<h3>
 						Table Select
@@ -2343,9 +2320,9 @@
 					</ul>
 				</section>
 
-				<section id="ex5table_select1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex5table_select2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #5 Step 2 (cont.)
+					Exercise #5 Step 2 (2)
 					</h4>
 					<h3>
 						Table Select
@@ -2392,7 +2369,7 @@
 					"Model" model for Exercises 4-5
 					</h3>
 					<p>
-						Look at "solutions4exercises\models.tbx\lec5ex4-5"
+						Look at <code>models.tbx\exercises4-5</code> <br>in the <code>solutions4exercises\</code> folder
 					</p>
 				</section>
 			</section>
@@ -2429,11 +2406,12 @@
 					Model Python Script for Lecture 5
 					</h3>
 					<p>
-						Exercises 1-3: "solutions4exercises/L5ex1-3.py"
+						In the <code>solutions4exercises/</code> folder, see
 					</p>
-					<p>
-						Exercises 4-5: "solutions4exercises/L5ex4-5.py"
-					</p>
+					<ul>
+						<li><code>exercises1-3.py</code> </li>
+						<li><code>exercises4-5.py</code> </li>
+					</ul>
 				</section>
 			</section>
 
