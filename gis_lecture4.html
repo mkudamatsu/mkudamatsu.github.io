@@ -579,14 +579,14 @@
 						Prepare for the rest of this lecture (cont.)
 					</h4>
 					<p>
-						5. Right-click the following zipped data and choose "<strong>7-Zip > Extract Here</strong>"
+						5. Right-click the following zipped data and choose <span style="background-color: Gainsboro">7-Zip > Extract Here</span>
 					</p>
 					<ul>
 						<li>
-							10m-coastline.zip (coastline polylines)
+							<code>10m-coastline.zip</code> (coastlines)
 						</li>
 						<li>
-							Murdock_shapefile.zip (ethnic homeland polygons)
+							<code>Murdock_shapefile.zip</code> (ethnic homelands)
 						</li>
 					</ul>
 				</section>
@@ -603,14 +603,14 @@
 						6. Establish connection to data folder
 					</p>
 					<ul style="margin-left: 72px;">
-						<li>
-							Right-click "<strong>Folder Connections</strong>"
+						<li style="margin-bottom: 5px;">
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							Select <span style="background-color: Gainsboro">Connect to Folder</span>
 						</li>
 						<li>
-							Select "<strong>Connect to Folder</strong>"
-						</li>
-						<li>
-							Choose "<strong>Desktop > lecture4</strong>"
+							Choose <span style="background-color: Gainsboro">Desktop > Lecture4</span>
 						</li>
 					</ul>
 					<p>
@@ -618,7 +618,7 @@
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> and <a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>exercise1</strong>" and "<strong>exercise2</strong>" inside <strong>lecture4/models.tbx</strong>
+								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> and <a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<code>exercise1</code>" and "<code>exercise2</code>" inside <code>code/models.tbx</code>
 							</li>
 					</ul>
 				</section>
@@ -628,6 +628,20 @@
 					<h1>
 						3. Distance calculation
 					</h1>
+					<p>
+						Depends on input feature types
+					</p>
+					<ol>
+						<li>
+							Point to point
+						</li>
+						<li>
+							Point to polyline
+						</li>
+						<li>
+							From polygon
+						</li>
+					</ol>
 				</section>
 
 				<section id="distance1" data-transition="slide-in fade-out" style="text-align: left;">
@@ -635,7 +649,7 @@
 						Distance calculation #1
 					</h4>
 					<h3>
-						Between Two Points
+						Point to point
 					</h3>
 						<p>
 							1. Obtain geographic coordinates
@@ -714,7 +728,7 @@
 						Distance calculation #2
 					</h4>
 					<h3>
-						Between points and polylines
+						Point to polyline
 					</h3>
 						<p>
 						    Examples: distance to roads, railway lines, rivers...
@@ -757,7 +771,7 @@
 						Distance calculation #3
 					</h4>
 					<h3>
-						From polygons
+						From polygon
 					</h3>
 						<p>
 							We have two cases
@@ -793,12 +807,12 @@
 						From the centroid of a polygon
 					</h3>
 						<p>
-							If the average distance from any point within a polygon matters
+							More appropriate when mean distance from any point within a polygon matters
 						</p>
 						<p>
 							To calculate the distance <span style="color:red;">to a point</span>:
 						</p>
-						<ol>
+						<ul>
 							<li>
 								Obtain the coordinate of a polygon centroid by:
 							</li>
@@ -811,12 +825,12 @@
 								</li>
 							</ul>
 							<li>
-								Use the Great Circle Distance formula
+								Then use the Great Circle Distance formula
 							</li>
 							<ul>
 								<li>Stata ado <code>globdist</code></li>
 							</ul>
-						</ol>
+						</ul>
 						<p>
 							Application: Campante & Do (2014)
 						</p>
@@ -886,7 +900,7 @@
 
 				<section id="ex1a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #1
+					Exercise #1: Overview
 					</h4>
 					<h3>
 						Replicate instruments in Nunn (2008): Distance to Slave trade centers
@@ -898,7 +912,7 @@
 
 				<section id="ex1b" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #1 (cont.)
+					Exercise #1: Overview (cont.)
 					</h4>
 					<p>
 					We proceed in three steps:
@@ -968,7 +982,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture4\output\country_centroids.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture4\temporary\centroids.shp</code>
 					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
@@ -992,7 +1006,7 @@
 					</p>
 					<p>
 						You should see something like this:
-          </p>
+					</p>
 					<img src="gis_lecture4/feature-to-point-result.png" style="border: 1px solid grey; background: none; box-shadow:none; width: 500px;">
         </section>
 
@@ -1001,7 +1015,7 @@
           Exercise #1: Step 1 (cont.)
           </h4>
 					<p>
-						Browse the attritube table.
+						Also browse the attritube table.
 					</p>
           <p>
             Notice that Feature To Point doesn't add coordinates to the attribute table of the output.
@@ -1019,7 +1033,7 @@
 						Add XY Coordinates (Data Management)
 					</h3>
 					<p>
-						<strong>Input Features</strong>: country_centroids.shp
+						<strong>Input Features</strong>: centroids.shp
 					</p>
 					<ul>
 						<li>
@@ -1029,8 +1043,8 @@
 					<p>
 						NOTE: This tool overwrites the input data.
 					</p>
-					<p>
-						cf. Add Geometry Attribute works only for polygons.
+					<p class="fragment"  data-fragment-index="1">
+						You might wonder if we can use Add Geometry Attribute, but it works only for polygons.
 					</p>
 				</section>
 
@@ -1044,7 +1058,7 @@
 					<p>
 						Browse the attribute table. Now you should see two new fields POINT_X and POINT_Y.
 					</p>
-					<img src="gis_lecture4/add-xy-coordinate-result.png" style="border: none; background: none; box-shadow:none; width: 700px;">
+					<img src="gis_lecture4/add-xy-coordinate-result.png" style="border: none; background: none; box-shadow:none; width: 550px;">
         </section>
 
 				<section id="ex1coast" data-transition="slide-in fade-out" style="text-align: left;">
@@ -1055,7 +1069,7 @@
 						Closest point on the coast
 					</h3>
 					<p>
-						Inputs: coastline polylines
+						Inputs: Coastline polylines
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
@@ -1070,7 +1084,7 @@
 							<strong>Generate Near Table</strong> tool does the same job
 						</li>
 						<li>
-							But it drops country names...
+							But it will drop country names...
 						</li>
 					</ul>
 				</section>
@@ -1111,7 +1125,7 @@
 					</section>
 				<section id="ex1near2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Near (cont.)
+					Exercise #1: Step 2 (cont.)
 					</h4>
 					<p>
 						Check "<strong>Location</strong>"
@@ -1129,7 +1143,7 @@
 							Calculates distance by Great Circle Distance Formula
 						</li>
 						<li>
-							If we use a projected coordinate system, choose PLANAR.
+							If we use data in UTM, choose PLANAR.
 						</li>
 					</ul>
 					<p>
@@ -1146,16 +1160,16 @@
 					</p>
 					<ul>
 						<li>
-							NEAR_FID: FID of coastline segment
+							<strong>NEAR_FID</strong>: FID of coastline segment
 						</li>
 						<li>
-							NEAR_DIST: Distance to coast in meters
+							<strong>NEAR_DIST</strong>: Distance to coast in meters
 						</li>
 						<li>
-							NEAR_X: Longitude of the nearest point on coast
+							<strong>NEAR_X</strong>: Longitude of the nearest point on coast
 						</li>
 						<li>
-							NEAR_Y: Latitude of the nearest point on coast
+							<strong>NEAR_Y</strong>: Latitude of the nearest point on coast
 						</li>
 					</ul>
 					<img src="gis_lecture4/near-result.png" style="border: none; background: none; box-shadow:none; width: 700px;">
@@ -1184,7 +1198,7 @@
 					</ol>
 				</section>
 
-				<section id="ex1step3b" data-transition="fade-in sli de-out" style="text-align: left;">
+				<section id="ex1step3b" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #1: Step3 (cont.)
 					</h4>
@@ -1215,13 +1229,8 @@
 					"Model" models for Exercise 1
 					</h3>
 					<p>
-						Approach1: <code>models.tbx\exercise1approach1</code>
-					</p>
-					<p>
-						Approach2: <code>models.tbx\exercise1approach2</code>
-					</p>
-					<p>
-						Both in the <code>Lecture4\solutions4exercises</code> folder
+						In the <code>Lecture4\solutions4exercises</code> folder, you can find
+						<code>models.tbx\exercise1</code>
 					</p>
 				</section>
 
@@ -1285,7 +1294,7 @@
 						Due to time constraint, we skip Python for Exercise 1
 					</p>
 					<p>
-						Model Python scripts: see "Lecture4\solutions4exercises\lec4ex1approach*.py"
+						Model Python scripts: see <code>Lecture4/solutions4exercises/exercise1.py</code>
 					</p>
 				</section>
 
