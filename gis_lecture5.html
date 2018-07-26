@@ -307,7 +307,7 @@
 						</p>
 						<ul>
 							<li>
-								Countries with centralized modern state may have homogenized both languages and land quality
+								Countries with centralized modern state may have both homogenized languages & conquered homogenous areas
 							</li>
 						</ul>
 						<p>
@@ -395,8 +395,8 @@
 						\begin{align*}
 						ln(\#Languages_i) =
 							& \ \beta_0 + \beta_1 Latitude_i \\
-						 	& + \beta_2 sd(Elevation)_i \\
-							& + \beta_3 sd(LandQuality)_i \\
+						 	& + \beta_2 SD(Elevation)_i \\
+							& + \beta_3 SD(LandQuality)_i \\
 							& + \boldsymbol{x}'_{i}\boldsymbol{\beta_4} + \varepsilon_{i}
 						\end{align*}
 					</p>
@@ -412,7 +412,7 @@
 						</tr>
 					</table>
 					<p class="fragment"  data-fragment-index="1">
-						We will learn how to calculate $sd(LandQuality)_i$
+						We will learn how to calculate $SD(LandQuality)_i$
 					</p>
 				</section>
 
@@ -513,14 +513,14 @@
 						\%CommonLanguages_{ij} =
 							& \ \gamma_0 + \gamma_1 \Delta(LandQuality)_{ij} \\
 						 	& + \gamma_2 \Delta(Elevation)_{ij} \\
-						    & + \boldsymbol{x}'_{ij}\boldsymbol{\gamma_3} + \xi_{ij}
+						    & + \boldsymbol{x}'_{ij}\boldsymbol{\gamma_3} + \mu_i + \nu_j + \xi_{ij}
 						\end{align*}
 					</p>
 					<br>
 					<table border="0" width="100%">
 						<tr>
-							<td style="text-align: center">$\boldsymbol{x}_i$</td>
-							<td>Can include cell FEs for $i$ and $j$</td>
+							<td style="text-align: center">$\mu_i, \nu_j$</td>
+							<td>Cell FEs for $i$ and $j$</td>
 						</tr>
 					</table>
 				</section>
