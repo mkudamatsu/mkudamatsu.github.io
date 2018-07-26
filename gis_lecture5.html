@@ -639,7 +639,10 @@
 						Prepare for the rest of this lecture (cont.)
 					</h4>
 					<p>
-						5a. Right-click suit.zip (agricultural suitability raster) and choose "<strong>7-Zip > Extract to "suit\"</strong>"
+						In the <code>input/</code> folder...
+					</p>
+					<p>
+						5a. Right-click <code>suit.zip</code> (agricultural suitability raster) and choose <span style="background-color: Gainsboro">7-Zip > Extract to "suit\"</span>
 					</p>
 					<ul>
 						<li>
@@ -649,19 +652,19 @@
 							The directory structure for grid raster is very complicated
 						</li>
 						<li>
-							Keep every file in one subfolder to avoid confusion when browsed in Windows Explorer
+							Keep every file in one subfolder to avoid confusion when browsed in File Explorer
 						</li>
 					</ul>
 
 					<p>
-						5b. Right-click the following zipped data and choose "<strong>7-Zip > Extract Here</strong>"
+						5b. Right-click the following zipped data and choose <span style="background-color: Gainsboro">7-Zip > Extract Here</span>
 					</p>
 					<ul>
 						<li>
-							10m-admin-0-countries.zip (country polygons)
+							<code>gadm36_0.zip</code> (country polygons)
 						</li>
 						<li>
-							GREG.zip (ethnolinguistic group polygons)
+							<code>GREG.zip</code> (ethnolinguistic group polygons)
 						</li>
 					</ul>
 
@@ -679,14 +682,14 @@
 						6. Establish connection to data folder
 					</p>
 					<ul style="margin-left: 72px;">
-						<li>
-							Right-click "<strong>Folder Connections</strong>"
+						<li style="margin-bottom: 5px;">
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							Select <span style="background-color: Gainsboro">Connect to Folder</span>
 						</li>
 						<li>
-							Select "<strong>Connect to Folder</strong>"
-						</li>
-						<li>
-							Choose "<strong>Desktop > Lecture5</strong>"
+							Choose <span style="background-color: Gainsboro">Desktop > Lecture5</span>
 						</li>
 					</ul>
 					<p>
@@ -694,8 +697,19 @@
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> and <a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/cleandata</strong>" inside <strong>Lecture5</strong>
+								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create</a> and <a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save</a> 3 models in <code>code/models.tbx</code>
 							</li>
+							<ul>
+								<li>
+									<code>cleandata</code>
+								</li>
+								<li>
+									<code>exercises1-3</code>
+								</li>
+								<li>
+									<code>exercises4-5</code>
+								</li>
+							</ul>
 					</ul>
 				</section>
 
@@ -704,7 +718,7 @@
 						Data Cleaning 1: GREG
 					</h4>
 					<p>
-						Browse GREG.shp (<a href="http://www.icr.ethz.ch/data/other/greg" target="_blank">Geo-referencing of Ethnic Groups data</a>)
+						Browse <code>GREG.shp</code> (<a href="http://www.icr.ethz.ch/data/other/greg" target="_blank">Geo-referencing of Ethnic Groups data</a>)
 					</p>
 					<ul>
 						<li>
@@ -738,10 +752,10 @@
 						For how to make each language has only one polygon, see:
 					</p>
 					<p>
-						Model: solutions4exercises/models.tbx/cleanGREG
+						Model: <code>solutions4exercises/models.tbx/cleanGREG</code>
 					</p>
 					<p>
-						Python script: solutions4exercises/L5cleanGREG.py
+						Python script: <code>solutions4exercises/L5cleanGREG.py</code>
 					</p>
 				</section>
 
@@ -789,13 +803,7 @@
 						For raster data, we use the Copy Raster tool
 					</p>
 					<p>
-						Create a model as "<strong>models.tbx/cleandata</strong>"
-					</p>
-					<p>
-						Without running the model, export and edit a Python script. Then run the script.
-					</p>
-					<p>
-						Model Python script: solutions4exercise/L5cleandata.py
+						So let's edit <code>models.tbx/cleandata</code>
 					</p>
 				</section>
 
@@ -820,24 +828,16 @@
 				</section>
 
 
-				<section id="data_cleaning2" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="data_cleaning2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data Cleaining 2: Suitability for Agriculture (cont.)
 					</h4>
-					<h3>
-						Define Projection (Data Management)
-					</h3>
 					<p>
-						<strong>Input Dataset or Feature Class</strong>: landquality.tif
+						Without running the model, export and edit a Python script. Then run the script.
 					</p>
 					<p>
-						<strong>Coordinate System</strong>: GCS_WGS_1984
+						Model Python script: <code>solutions4exercise/L5cleandata.py</code>
 					</p>
-					<ul style="margin-left: 60px;">
-						<li>
-							Geographic Coordinate Systems > World > WGS 1984
-						</li>
-					</ul>
 				</section>
 			</section>
 
