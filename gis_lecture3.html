@@ -16,7 +16,7 @@
 
 		<!-- Activate Reveal.js -->
 		<link rel="stylesheet" href="css/reveal.css">
-		
+
 		<!-- Define the theme -->
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
@@ -45,14 +45,17 @@
 
 			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
 			<div class="slides">
-				
+
 				<!-- Slide contents start here -->
-				
+
 				<!-- My own slide templates -->
 				<section id="title">
 					<h3 style="color:slategrey">
-						ArcGIS 10 for Economics Research
+						Causal Inference with Spatial Data
 					</h3>
+					<p style="color:slategrey">
+ 						(ArcGIS 10 for Economics Research)
+					</p>
 					<h3>
 						Lecture 3
 					</h3>
@@ -61,7 +64,7 @@
 					</h2>
 					<br>
 					<p>Masayuki Kudamatsu</p>
-					<p>10 May, 2016</p>
+					<p>28 August, 2018</p>
 					<br>
 					<p>
 						<small>Press SPACE to proceed. </small>
@@ -84,10 +87,10 @@
 							</td>
 							<td>
 
-								<img src="gis_lecture3/buffer2.png" style="border: none; background: none; box-shadow:none;">					
+								<img src="gis_lecture3/buffer2.png" style="border: none; background: none; box-shadow:none;">
 							</td>
 							<td>
-								<img src="gis_lecture3/buffer3.gif" style="border: none; background: none; box-shadow:none;">					
+								<img src="gis_lecture3/buffer3.gif" style="border: none; background: none; box-shadow:none;">
 							</td>
 						</tr>
 						<tr>
@@ -109,7 +112,7 @@
 					</table>
 				</section>
 
-				<section id="buffer2" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="buffer2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Buffer tool in ArcGIS (cont.)
 					</h4>
@@ -117,46 +120,80 @@
 						Buffer + Spatial Join $\Rightarrow$
 					</p>
 					<p>
-						1. Identify neighbors for each point
+						$\Rightarrow$ Identify neighbors for each point
 					</p>
 					<p>
-						2. Find observatioins near the border
+						This is useful for economics research for (at least) 3 reasons
 					</p>
 				</section>
 
-				<section id="buffer3" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Buffer tool in ArcGIS (cont.)
-					</h4>
-					<p>
-						Useful for economists because:
-					</p>
+				<section id="buffer4economics1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Buffer tool for economics research
+					</h3>
 					<p>
 						1. Generate a treatment variable
 					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							<a href="http://dx.doi.org/10.1257/aer.20140079" target="_blank">Muehlenbachs et al. (2015)</a>
-						</li>
-					</ul>
+					<div style="display: flex;">
+						<figure style="width: 40%;">
+							<img src="gis_lecture3/shale-gas-extraction.jpg" style="border: none; background: none; box-shadow:none; width: 350px; display: block;">
+							<small>(<a href="http://www.veteranstoday.com/2014/09/15/neo-china-shale-gas-strategy-a-fiasco/" target="_blank" >image source</a>)</small>
+						</figure>
+						<div style="width: 60%;">
+							<p>
+								<a href="http://dx.doi.org/10.1257/aer.20140079" target="_blank">Muehlenbachs et al. (2015)</a>
+							</p>
+							<p>
+								Estimate the impact of <strong>shale gas wells</strong> on <strong>house prices</strong> in their neighborhood
+							</p>
+							<ul style="margin-left: 72px;">
+								<li>
+									Houses within 2km of wells: treated
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+				<section id="buffer4economics2" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Buffer tool for economics research (cont.)
+					</h4>
 					<p>
-						2. Restrict the sample to comparable areas
+						2. Estimate spillover effects of treatment
 					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							Muehlenbachs et al. (2015)
-						</li>
-					</ul>
+					<div style="display: flex;">
+						<figure style="width: 40%;">
+							<img src="gis_lecture3/MK2004buffer2.png" style="border: none; background: none; box-shadow:none; width: 600px;">
+							<small>
+								(<a href="http://www.slideshare.net/povertyaction/ipa-kenya-maseno-conference" target="_blank">Image source</a>)
+							</small>
+						</figure>
+						<div style="width: 60%;">
+							<p>
+								<a href="http://dx.doi.org/10.1111/j.1468-0262.2004.00481.x" target="_blank">Miguel & Kremer (2004)</a>
+							</p>
+							<p>
+								RCT on deworming school children
+							</p>
+							<p>
+								# of treated schools within 6km can be identified by Buffer tool
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section id="buffer4economics3" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Buffer tool for economics research (cont.)
+					</h4>
 					<p>
-						3. Estimate spillover effects of treatment
-					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							<a href="http://dx.doi.org/10.1111/j.1468-0262.2004.00481.x" target="_blank">Miguel & Kremer (2004)</a>, <a href="http://dx.doi.org/10.1162/qjec.2008.123.4.1329" target="_blank">de Mel et al. (2008)</a>
-						</li>
-					</ul>
-					<p>
-						4. Mitigate omitted variable bias in peer effect estimation
+						3. Mitigate omitted variable bias in peer effect estimation
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
@@ -170,404 +207,31 @@
 						Today's road map
 					</h3>
 						<p>
-							1. Muehlenbachs et al. (2015)
+							1. Conley & Udry (2010)
 						</p>
 						<p>
-							2. Miguel & Kremer (2004)
+							2. UTM projections
 						</p>
 						<p>
-							3. Conley & Udry (2010)
+							3. Replicate Conley & Udry (2010)
 						</p>
 						<p>
-							4. UTM projections
+							4. Set relative file paths in Python
 						</p>
-						<p>
-							5. Replicate Conley & Udry (2010)
-						</p>
-						<p>
-							6. Loop over files in Python
-						</p>						
-				</section>	
-
-			<section>
-				<section id="section1">
-					<h3>
-						1. Muehlenbachs et al. (2015)
-					</h3>
-					<img src="gis_lecture3/shale-gas-extraction.jpg" style="border: none; background: none; box-shadow:none; width: 350px;">										
-					<p>
-						<small>(<a href="http://www.veteranstoday.com/2014/09/15/neo-china-shale-gas-strategy-a-fiasco/" target="_blank">image source</a>)</small>
-					</p>
 				</section>
-				
-				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Research Question</h3>
-					<p>
-						Does shale gas development affect house prices?
-					</p>					
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							Shale gas: hailed as new energy source
-						</li>
-						<li>
-							Concern on its environmental impacts
-						</li>
-						<li>
-							What's the net benefit?
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							Causal evidence: unavailable
-						</li>
-					</ul>					
-					<p>
-						Feasible?
-					</p>
-				</section>
-				
-				<section id="data1a" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Data</h3>
-					<p>
-						House transactions in Pennsylvania, 1995-2012
-					</p>					
-						<ul>
-							<li>
-								Prices / Locations
-							</li>
-						</ul>
-					<p>
-						Shale gas wells
-					</p>
-						<ul>
-							<li>
-								When drilled / Locations								
-							</li>
-						</ul>
-					<p>
-						Map of public water service areas	
-					</p>
-					<img src="gis_lecture3/muehlenbachs2015f3.png" style="border: none; background: none; box-shadow:none; width: 300px;">										
-					<p>
-						<small>(Figure 3 of Muelenbachs et al. 2015)</small>
-					</p>
-				</section>
-
-				<section id="equation1a" data-transition="fade-out slide-in" style="text-align: left">
-					<h3>
-						Empirical specification
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						\ln p_{it} = 
-							& \ \alpha_1 W20_{it} + \alpha_2 GW_i * W20_{it} \\
-						  	& + \alpha_3 W2_{it} + \alpha_4 GW_i * W2_{it} \\
-						    & + \mu_i + \nu_{it} + q_t + \varepsilon_{it} 
-						\end{align*}
-					</p>
-					<br>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$p_{it}$</td>
-							<td>Price of house $i$ in year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$W20_{it}$</td>
-							<td># of wells within 20km from $i$ drilled by year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$W2_{it}$</td>
-							<td># of wells within 2km from $i$ drilled by year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$GW_i$</td>
-							<td>House dependent on groundwater</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\mu_i$</td>
-							<td>House fixed effect</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\nu_{it}$</td>
-							<td>Census-tract by year fixed effect</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$q_t$</td>
-							<td>Quarter fixed effect</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="equation1b" data-transition="slide-out fade-in" >
-					<h3 style="text-align: left">
-						Empirical specification (cont.)
-					</h3>
-					<p style="text-align: left">
-						<!-- Case by Case -->
-						\begin{align*}
-						\ln p_{it} = 
-							& \ \alpha_1 W20_{it} + \alpha_2 GW_i * W20_{it} \\
-						  	& + \alpha_3 W2_{it} + \alpha_4 GW_i * W2_{it} \\
-						    & + \mu_i + \nu_{it} + q_t + \varepsilon_{it} 
-						\end{align*}
-					</p>
-					<img src="gis_lecture3/muehlenbachs2015f1.png" style="border: none; background: none; box-shadow:none; width: 700px;">										
-					<p>
-						<small>(Figure 1 of Muelenbachs et al. 2015)</small>
-					</p>
-				</section>
-
-				<section id="data1b" data-transition="fade-out slide-in"  style="text-align: left">
-					<h3>
-						Buffer tool helps:
-					</h3>
-					<p>
-						1. Identify # of wells within 2km / 20km of each house
-					</p>
-					<p>
-						2. Restrict the sample to the border of public water service area
-					</p>
-					<ul>
-						<li>
-							1000m inside
-						</li>
-						<li>
-							300-1000m outside
-						</li>
-					</ul>									
-				</section>
-
-				<section id="data1c" data-transition="slide-out fade-in">
-					<h4>Buffer tool in action</h4>
-				<img src="gis_lecture3/muehlenbachs2015f6.png" style="border: none; background: none; box-shadow:none; width: 350px;">
-				<p>
-					<small>(Figure 6 of Muelenbachs et al. 2015)</small>
-				</p>				
-				</section>
-
-				<section id="result1"  data-transition="slide-in slide-out">
-					<h4>
-						Main results
-					</h4>
-					<img src="gis_lecture3/muehlenbachs2015t2a.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
-					<img src="gis_lecture3/muehlenbachs2015t2b.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
-					<p>
-						<small>(Table 2 of Muelenbachs et al. 2015)</small>
-					</p>
-				</section>
-
-			</section>
-
-			<section>
-				<section id="section2">
-					<h1>
-						2. Miguel & Kremer (2004) 
-					</h1>
-				</section>
-				
-				<section id="rq2a" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Research Question</h3>
-					<p>
-						Does deworming school children reduce <em>untreated</em> children's infection? 
-					</p>					
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							If yes, cost-benefit analysis changes
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							No experimental evidence on the spill-over effects
-						</li>
-					</ul>					
-					<p>
-						Feasible?
-					</p>
-					<ul>
-						<li>
-							Need to identify the surrounding area of treated schools
-						</li>
-						<li>
-							Buffer tool helps
-						</li>
-					</ul>					
-				</section>
-
-				<section id="rq2b" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Research Question (cont.)</h3>
-					<p>
-						Does deworming school children increase their <em>school attendance</em>?
-					</p>					
-					<p>
-						Important?
-					</p>
-					<ul>
-						<li>
-							If yes, very cost-effective intervention to increase attendance (USD3.50 per 1 more year of schooling)
-						</li>
-					</ul>
-					<p>
-						Original?
-					</p>
-					<ul>
-						<li>
-							No experimental evidence on health-education relationship
-						</li>
-					</ul>					
-					<p>
-						Feasible?
-					</p>
-					<ul>
-						<li>
-							Health interventions took place at schools 
-						</li>
-					</ul>					
-				</section>
-								
-				<section id="experiment2" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>Experimental design</h3>
-					<p>
-						Sample: 75 primary schools in western Kenya
-					</p>					
-						<ul>
-							<li>
-								Nearly all schools in the area 
-							</li>
-							<li>
-								Over 30,000 pupils aged 6 to 18								
-							</li>
-						</ul>
-					<p>
-						Randomly assigned to 3 groups
-					</p>
-						<ul>
-							<li>
-								Group 1: Treated since 1998
-							</li>
-							<li>
-								Group 2: Treated since 1999								
-							</li>
-							<li>
-								Group 3: Control (treated since 2001)
-							</li>
-						</ul>
-				</section>
-
-				<section id="equation2a" data-transition="fade-out slide-in" style="text-align: left">
-					<h3>
-						Empirical specification
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						Y_{ijt} = 
-						& \ \alpha + \beta T_{it} + \mathbf{X}^{'}_{ijt}\mathbf{\delta} \\
-						& + \sum_d (\gamma_d N^T_{dit} + \phi_d N_{dit}) + u_i + e_{ijt}
-						\end{align*}
-					</p>
-					<br>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$Y_{ijt}$</td>
-							<td>Outcome for pupil $j$ in school $i$ in year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$T_{it}$</td>
-							<td>Treatment dummy</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\beta$</td>
-							<td>Direct effect</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="equation2b" data-transition="fade-out fade-in" style="text-align: left">
-					<h3>
-						Empirical specification (cont.)
-					</h3>
-					<p>
-						<!-- Case by Case -->
-						\begin{align*}
-						Y_{ijt} = 
-						& \ \alpha + \beta T_{it} + \mathbf{X}^{'}_{ijt}\mathbf{\delta} \\
-						& + \sum_d (\gamma_d N^T_{dit} + \phi_d N_{dit}) + u_i + e_{ijt}
-						\end{align*}
-					</p>
-					<br>
-					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$N^T_{dit}$</td>
-							<td># of pupils in <em>treated</em> schools within distance $d$ from school $i$ in year $t$ ($d$: 0-3km, 3-6km)</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$N_{dit}$</td>
-							<td># of pupils in <em>all</em> schools within distance $d$ from school $i$ in year $t$</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$\gamma_d$</td>
-							<td>Spillover effect</td>
-						</tr>
-					</table>
-				</section>
-
-				<section id="image2" data-transition="slide-out fade-in">
-					<h4>
-						Source of identification for spillover effect
-					</h4>
-					<img src="gis_lecture3/MK2004buffer2.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
-					<small>
-						(<a href="http://www.slideshare.net/povertyaction/ipa-kenya-maseno-conference" target="_blank">Image source</a>)
-					</small>
-				</section>
-				
-				<section id="result2a"  data-transition="slide-in fade-out">
-					<h4>
-						Result on infection
-					</h4>
-					<img src="gis_lecture3/MK2004T7.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
-					<p>
-						<small>(Table VII Column (1) of Miguel and Kremer 2004)</small>
-					</p>
-				</section>
-
-				<section id="result2b"  data-transition="fade-in slide-out">
-					<h4>
-						Result on school attendance
-					</h4>
-					<img src="gis_lecture3/MK2004T9.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
-					<p>
-						<small>(Table IX Columns (1)-(3) of Miguel and Kremer 2004)</small>
-					</p>
-				</section>
-
-			</section>
 
 			<section>
 				<section id="section3">
 					<h1>
-						3. Conley & Udry (2010) 
+						1. Conley & Udry (2010)
 					</h1>
 				</section>
-				
+
 				<section id="rq3" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>Research Question</h3>
 					<p>
 						Do farmers learn from their peers regarding input use (fertilizer) for new technology (pineapple)?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -581,9 +245,9 @@
 					</p>
 					<ul>
 						<li>
-							Overcome econometric issues of identifying the impact of peer behavior 
+							Overcome econometric issues of identifying the impact of peer behavior
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
@@ -593,12 +257,12 @@
 						</li>
 					</ul>
 				</section>
-				
+
 				<section id="data3a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						Panel household surveys (every 6 week in 1996-98) in 3 villages of southern Ghana
-					</p>					
+					</p>
 						<ul>
 							<li>
 								Amount of fertilizer used
@@ -607,7 +271,7 @@
 								Whom they turn for advice on farming
 							</li>
 							<li>
-								Plot location (collected by GPS receiver)
+								Plot location, collected by GPS receiver (cf. <a href="../gis_lecture1.html#/xydata2" target="_blank">Lecture 1</a>)
 							</li>
 						</ul>
 				</section>
@@ -615,7 +279,7 @@
 				<section id="data3b" data-transition="slide-out fade-in">
 					<h4>
 					</h4>
-					<img src="gis_lecture3/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<img src="gis_lecture3/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 					<p>
 				</section>
 
@@ -628,14 +292,14 @@
 						Define:
 						<!-- Case by Case -->
 						\begin{align*}
-						M_{i,t} \equiv \frac{GoodNews(x_{j,s-5}) \times (x_{j,s-5} - x_{i,t_p})}{Experience_{it}} 
+						M_{i,t} \equiv \frac{GoodNews(x_{j,s-5}) \times (x_{j,s-5} - x_{i,t_p})}{Experience_{it}}
 						\end{align*}
 					</p>
 					<br>
 					<table border="0" width="100%">
 						<tr>
 							<td style="text-align: center">$GoodNews(x_{j,s-5})$</td>
-							<td>Higher-than-expected profit for farmer $j$ ($i$'s friend) from using fertilizer by $x_{j,s-5}$, observed by $i$ in period $s \in [t_p,t]$</td>
+							<td>Higher-than-expected profit for farmer $j$ ($i$'s friend) from using $x_{j,s-5}$ units of fertilizer, observed by $i$ in period $s \in [t_p,t]$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$x_{i,t_p}$</td>
@@ -658,7 +322,6 @@
 						\Delta x_{i,t} = \beta_1 M_{i,t} + \beta_2 \Gamma_{i,t} + \boldsymbol{z}'_{i,t}\boldsymbol{\beta_3} + \nu_{it}
 						\end{align*}
 					</p>
-					<br>
 					<table border="0" width="100%">
 						<tr>
 							<td style="text-align: center">$\Delta x_{i,t}$</td>
@@ -678,7 +341,10 @@
 						\begin{align*}
 						\Gamma_{i,t} \equiv x_{i,t}^{close} - x_{i,t_p}
 						\end{align*}
-						where $x_{i,t}^{close}$ averages fertilizer use over <em>plots within 1km from $i$</em> during previous 3 periods
+						where $x_{i,t}^{close}$ averages fertilizer use over <strong>plots within 1km from $i$</strong> during previous 3 periods
+					</p>
+					<p class="fragment"  data-fragment-index="1">
+						We will learn how to identify <strong>plots within 1km from $i$</strong>
 					</p>
 				</section>
 
@@ -686,11 +352,11 @@
 					<p>
 						Source of identification: <strong>Friends outside 1km radius</strong>
 					</p>
-					<img src="gis_lecture3/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+					<img src="gis_lecture3/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 500px;">
 					<p>
 						<small>(Figure 4 of Conley & Udery 2010)</small>
-					</p>					
-					</section>
+					</p>
+				</section>
 
 				<section id="conley_se1" data-transition="fade-out fade-in" style="text-align: left">
 					<h4>
@@ -702,7 +368,7 @@
 						\end{align*}
 					</p>
 					<p>
-						Standard errors: calculated by Conley (1999)
+						Standard errors: calculated by <a href="http://doi.org/10.1016/S0304-4076(98)00084-0" target="_blank">Conley (1999)</a>
 					</p>
 					<p>
 						Which is now the standard procedure for cross-sectional regression with spatial data
@@ -734,7 +400,7 @@
 						</tr>
 					</table>
 				</section>
-				
+
 				<section id="conley_se3"  data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Conley (1999) standard error (cont.)
@@ -750,15 +416,15 @@
 					<p>
 						Conley (1999) imposes $\rho_{ij} = K_{ij}\hat{\varepsilon}_i\hat{\varepsilon}_j$ where
 					</p>
-					<p>	
+					<p>
 						\begin{align*}
-						K_{ij} \equiv 
+						K_{ij} \equiv
 	\left\{
 	\begin{array}{cl}
 	(1-\frac{x_{ij}}{\bar{x}})(1-\frac{y_{ij}}{\bar{y}}) & \mbox{if $x_{ij}<\bar{x}$ & $y_{ij} < \bar{y}$} \\
-	0 & \mbox{otherwise}	
+	0 & \mbox{otherwise}
 	\end{array}
-	\right. 
+	\right.
 						\end{align*}
 					</p>
 					<table border="0" width="100%">
@@ -775,12 +441,12 @@
 							<td>OLS residual for $i$</td>
 						</tr>
 					</table>
-				</section>				
+				</section>
 
 				<section id="conley_se4"  data-transition="fade-in fade-out" style="text-align: left">
-					<h3>
+					<h4>
 						Conley (1999) standard error (cont.)
-					</h3>
+					</h4>
 					<p>
 						<a href="http://economics.uwo.ca/people/faculty/conley.html" target="_blank">Tim Conley's website</a> offers Stata ado files for implementing Conley (1999) for OLS, GMM, and Logit
 					</p>
@@ -788,14 +454,14 @@
 						In this ado program, $x_{ij},y_{ij}$ is calculated from the coordinates of $i$ and $j$
 					</p>
 					<p>
-						Important to have coordinates in meters, not in degrees
+						Make sure to use a projected coordinate system (cf. <a href="../gis_lecture1.html#/projected_cs1" target="_blank">Lecture 1</a>)
 					</p>
-				</section>	
-				
+				</section>
+
 				<section id="conley_se5"  data-transition="fade-in slide-out" style="text-align: left">
-					<h3>
+					<h4>
 						Conley (1999) standard error (cont.)
-					</h3>
+					</h4>
 					<p>
 						Conley's (1999) Stata ado cannot be used for <em>panel regressions</em>...
 					</p>
@@ -810,23 +476,23 @@
 							Allows you to use uniform kernel ($K_{ij}=1$ within cutoff)
 						</li>
 						<li>
-							Compatible with geographic coordinates
+							Compatible with geographic coordinate systems (cf. <a href="../gis_lecture1.html#/geographc_cs1" target="_blank">Lecture 1</a>)
 						</li>
 					</ul>
-				</section>				
+				</section>
 
 				<section id="result3"  data-transition="slide-in slide-out">
-					<h4>
+					<h3>
 						Main results
-					</h4>
-					<img src="gis_lecture3/CU2010T5.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					</h3>
+					<img src="gis_lecture3/CU2010T5.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(Table 5 of Conley & Udry 2010)</small>
 					</p>
 				</section>
 
-			</section>		
-								
+			</section>
+
 				<!-- Preparation -->
 				<section id="preparation1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
@@ -836,24 +502,24 @@
 						1. Launch ArcMap 10 (it takes time)
 					</p>
 					<p>
-						2. <a href="https://www.dropbox.com/s/e7vllow3lthceqy/Lecture3.zip?dl=0" target="_blank">Download the zipped dataset for lecture 3</a> 
+						2. <a href="https://www.dropbox.com/s/akz0somx2qxonkt/Lecture3.zip?dl=1" target="_blank">Download the zipped dataset for lecture 3</a>
 					</p>
 					<p>
-						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
+						3. Save it to <strong>Desktop</strong> (<code>C:\\Users\\<em>yourname</em>\\Desktop</code>)
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
 							 Don't save in the remote server, which slows down ArcGIS
 						</li>
-					</ul>															
+					</ul>
 					<p>
-						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
+						4. Right-click it and choose <span style="background-color: Gainsboro">7-Zip > Extract to "Lecture3\"</span>
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
-							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture3</code>
+							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Desktop\\Lecture3</code>
 						</li>
-					</ul>															
+					</ul>
 				</section>
 
 				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
@@ -867,33 +533,25 @@
 						5. Establish connection to data folder
 					</p>
 					<ul style="margin-left: 72px;">
-						<li>
-							Right-click "<strong>Folder Connections</strong>"
+						<li style="margin-bottom: 5px;">
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							Select <span style="background-color: Gainsboro">Connect to Folder</span>
 						</li>
 						<li>
-							Select "<strong>Connect to Folder</strong>"
-						</li>
-						<li>
-							Choose "<strong>Downloads > Lecture3</strong>"
+							Choose <span style="background-color: Gainsboro">Desktop > Lecture3</span>
 						</li>
 					</ul>
 					<p>
-						6. Create a new folder <strong>outputs</strong> inside <strong>Lecture3</strong>
-					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							 We will create all new files in this folder
-						</li>
-					</ul>															
-					<p>
-						7. Prepare the Model Builder
+						6. Prepare the Model Builder
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a>
 							</li>
 							<li>
-								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/lecture3</strong>" inside <strong>Lecture3</strong>
+								<a href="../gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<code>code/models.tbx/lecture3</code>
 							</li>
 					</ul>
 				</section>
@@ -902,10 +560,10 @@
 			<section>
 				<section id="section4">
 					<h1>
-						4. UTM projections 
+						2. UTM projections
 					</h1>
 				</section>
-				
+
 				<section id="why_utm" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						Coordinate systems for Buffer tool
@@ -914,18 +572,21 @@
 							Buffer tool requires distance calculation
 						</p>
 						<p>
-							Geographic coordinate system works with <em>points</em> only
-							
+							How to calculate distance depends on which coordinate system is used, <strong>geographic</strong> or <strong>projected</strong>
 						</p>
-							<p style="margin-left: 60px;">
-								e.g., 500km buffer from several points on the earth							<img src="gis_lecture3/geodesicBuffer.png" style="border: none; background: none; box-shadow:none; width: 500px;">					
+						<p class="fragment" data-fragment-index="1">
+							This lecture uses UTM, a projected coordinate system
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>
+								In Lecture 4, we learn distance calculation with geographic coordinate systems
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="2">
+							So let's learn what UTM is.
+						</p>
+				</section>
 
-							</p>
-						<p>
-							Otherwise, use UTM projections
-						</p>
-				</section>						
-				
 				<section id="what_is_utm1" data-transition="slide-in fade-out" >
 					<h3 style="text-align: left;">
 						What is UTM?
@@ -940,7 +601,7 @@
 					<p style="text-align: left;">
 						Father away from standard meridian, more distortion
 					</p>
-				</section>				
+				</section>
 
 				<section id="what_is_utm2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -953,14 +614,14 @@
 						1. Divide Earth into 60 zones (6&deg wide in longitude)
 					</p>
 					<img src="gis_lecture3/utm.jpg" style="border: none; background: none; box-shadow:none; width: 800px;">
-				</section>				
+				</section>
 
 				<section id="what_is_utm3" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						What is UTM? (cont.)
 					</h3>
 					<p>
-						2. For each zone, set standard meridian in the middle	
+						2. For each zone, set standard meridian in the middle
 					</p>
 					<p>
 						3. Scale down distance along standard meridian by 0.9996 					</p>
@@ -970,9 +631,9 @@
 							<li>
 								0.9996 minimizes overall distortion w/i the 6&deg-wide zone
 							</li>
-						</ul>	
-				</section>	
-								
+						</ul>
+				</section>
+
 				<section id="utm_in_arcgis" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						UTM in ArcGIS
@@ -983,7 +644,7 @@
 						<ul>
 							<li>
 								Northern- and southern hemispheres for each of 60 Zones
-														
+
 							</li>
 						</ul>
 						<p>
@@ -994,18 +655,18 @@
 								 In Conley and Udry (2010), it should be UTM 30 North.
 							</li>
 							<li>
-								 In lecture 6, we use several UTM zones covering India
+								 In Lecture 6, we use several UTM zones covering India to calculate river length
 							</li>
 						</ul>
 				</section>
 
 			</section>
-				
+
 			<!-- SECTION for ArcMap -->
 			<section>
 				<section id="section5">
 					<h1>
-						5. Replicate Conley & Udry (2010)
+						3. Replicate Conley & Udry (2010)
 					</h1>
 				</section>
 
@@ -1037,45 +698,32 @@
 					</table>
 				</section>
 
-				<section id="aim2" data-transition="slide-out fade-in" style="text-align: left">
-					<h4>
-						Data we want to construct (cont.)
-					</h4>
+				<section id="aim2" data-transition="fade-in slide-out" style="text-align: left">
+					<h3 style="color:red">
+						Data we want to construct
+					</h3>
 					<p>
-						Output table's columns:
+						Conley and Udry (2010) construct the growing condition variable as
+					</p>
+					<p>
+						\begin{align*}
+							\Gamma_{it} \equiv x_{it}^{close} - x_{it_p}
+						\end{align*}
 					</p>
 					<table border="0" width="100%">
 						<tr>
-							<td style="text-align: center">$i$</td>
-							<td>Plot ID</td>
-						</tr>
-						<tr>
-							<td style="text-align: center">$t$</td>
-							<td>Planting period for plot $i$</td>
+							<td style="text-align: center">$x_{it}^{close}$</td>
+							<td>Average of $x_{ks}$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$k$</td>
-							<td>$i$'s neighboring plot ID</td>
+							<td style="color: red">Plots within 1km from plot $i$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$s$</td>
-							<td>Planting period for plot $k$</td>
+							<td>$\in \{t-3, t-2, t-1, t \}$</td>
 						</tr>
 					</table>
-					<p>
-						Then in Stata:
-					</p>
-					<ol style="margin-left: 80px;">
-						<li>
-							Keep observations if $t-3 \leq s \leq t$
-						</li>
-						<li>
-							Merge fertilizer input data for $(k,s)$
-						</li>
-						<li>
-							Collapse by $(i,t)$ to obtain average
-						</li>
-					</ol>
 				</section>
 
 				<section id="input" data-transition="slide-in slide-out" style="text-align: left;">
@@ -1083,9 +731,12 @@
 						Input data we have
 					</h3>
 						<p>
-							Browse the plot location data (<code>Lecture3/udry2010.txt</code>) with Notepad
+							Browse the plot location data (<code>Lecture3/input/udry2010.csv</code>) with Notepad
 						</p>
 						<ul>
+							<li>
+								This file was created from <a href="https://www.aeaweb.org/articles?id=10.1257/aer.100.1.35">the replication data file for Conley and Udry (2010)</a>
+							</li>
 							<li>
 								If you do a survey with GPS receiver, you will have a XY data like this one
 							</li>
@@ -1094,13 +745,10 @@
 							<strong>village hh plot</strong>: plot identifier
 						</p>
 						<p>
-							<strong>startnd</strong>: planting period
-						</p>
-						<p>
 							<strong>Xcoord Ycoord</strong>: plot coordinate in meters
 						</p>
 				</section>
-												
+
 				<section id="ex1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1
@@ -1109,8 +757,8 @@
 						Create plot point features
 					</h3>
 					<p>
-						Which geo-processing tool(s) do we need to use? (<a href="http://mkudamatsu.github.io/gis_lecture1.html#/xydata4" target="_blank">answer</a>)
-					</p>					
+						Which geo-processing tool(s) do we need to use? (<a href="../gis_lecture1.html#/xydata4" target="_blank">answer</a>)
+					</p>
 				</section>
 
 				<section id="ex1a" data-transition="fade-in fade-out" style="text-align: left;">
@@ -1121,7 +769,7 @@
 						Make XY Event Layer
 					</h3>
 					<p>
-						<strong>XY Table</strong>: ...\Lecture3\udry2010.txt
+						<strong>XY Table</strong>: <code>...\Lecture3\input\udry2010.csv</code>
 					</p>
 					<p>
 						<strong>X Field</strong>: Xcoord
@@ -1134,12 +782,12 @@
 					</p>
 					<ul style="margin-left: 60px;">
 						<li>
-							Click <img src="gis_lecture3/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">						
+							Click <img src="gis_lecture3/coordinate.png" style="border: none; background: none; box-shadow:none; width:40px; vertical-align: middle;">
 						</li>
 						<li>
 							Navigate to Projected Coordinate Systems > UTM > WGS 1984 > Northern Hemisphere
 						</li>
-					</ul>										
+					</ul>
 					<p>
 						Leave the other options as they are.
 					</p>
@@ -1159,9 +807,9 @@
 						<li>
 							The output from Make XY Event Layer
 						</li>
-					</ul>					
+					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture3\outputs\plots.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture3\temporary\plots.shp</code>
 					</p>
 				</section>
 
@@ -1170,15 +818,16 @@
 					Exercise #1 (cont.)
 					</h4>
 					<p>
-						Now <em>save and</em> run the Model. 
+						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output and its attribute table.
+						Browse the output. You should see something like this:
 					</p>
+					<img src="gis_lecture3/map-of-plots.png" style="border: 1px solid grey; background: none; box-shadow:none; width: 500px;">
 					<p>
-						Is everything as expected?
+						Browse the attritube table, too. Is everything as expected?
 					</p>
-				</section>		
+				</section>
 
 				<section id="ex2" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
@@ -1189,7 +838,7 @@
 					</h3>
 					<p>
 						Geo-processing tools to be used for this exercise:
-					</p>					
+					</p>
 					<p>
 						1. Buffer (Analysis)
 					</p>
@@ -1214,7 +863,7 @@
 					</h4>
 					<h3>
 						Buffer (Analysis)
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: plots.shp
 					</p>
@@ -1222,26 +871,26 @@
 						<li>
 							The output from Copy Features (in Exercise 1)
 						</li>
-					</ul>						
+					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture3\outputs\buffer1km.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture3\temporary\buffer1km.shp</code>
 					</p>
 					<p>
 						<strong>Distance</strong>: Linear unit / 1 / Kilometers
 					</p>
 					<ul>
 						<li>
-							Field for a buffer of different sizes across input features
+							Check "Field" if buffer size differs across features
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Dissolve Type</strong>: NONE
 					</p>
 					<ul>
 						<li>
-							ALL or LIST if overlapping buffers as one polygon
+							Select ALL or LIST to make overlapping buffers as one polygon
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="ex2buffer2" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1252,12 +901,13 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the attribute table of the output
+						Browse the output. You should see something like this:
 					</p>
+					<img src="gis_lecture3/map-of-buffer.png" style="border: 1px solid grey; background: none; box-shadow:none; width: 500px;">
 					<p>
-						Notice that field names are all the same as plots.shp
-					</p>		
-				</section>						
+						Browse the attribute table of the output. Notice that field names are all the same as <code>plots.shp</code>
+					</p>
+				</section>
 
 				<section id="spatialjoin1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1265,7 +915,7 @@
 					</h4>
 					<h3>
 						Spatial Join
-					</h3>					
+					</h3>
 					<p>
 						<strong>Target Feature Class</strong>: buffer1km.shp
 					</p>
@@ -1273,7 +923,7 @@
 						<li>
 							The output from Buffer
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Join Features</strong>: plots.shp
 					</p>
@@ -1281,9 +931,9 @@
 						<li>
 							The output from Copy Features (in Exercise 1)
 						</li>
-					</ul>					
+					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture3\outputs\plot_neighbor.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture3\temporary\plot_neighbors.shp</code>
 					</p>
 				</section>
 
@@ -1298,7 +948,7 @@
 						<li>
 							To match <em>all</em> plots within 1km radius
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Check "<strong>Keep All Target Features</strong>"
 					</p>
@@ -1306,7 +956,7 @@
 						<li>
 							We want to know which plots have no neighbor
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Field Map of Join Features</strong>: see next slide
 					</p>
@@ -1315,9 +965,9 @@
 					</p>
 				</section>
 
-				<section id="fieldmap1" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="fieldmap1" data-transition="fade" style="text-align: left;">
 					<h3>
-						Spatial Join's Field Map
+						Field Map for Spatial Join
 					</h3>
 					<p>
 						Supposed to allow you to control which fields to be kept
@@ -1329,19 +979,19 @@
 						<li>
 							All values become zero, for example
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Best solution: <em>delete everything</em>
 					</p>
 					<ul>
 						<li>
-							If Field Map is unspecified, it will keep all the fields					</li>
-					</ul>					
+							If Field Map is unspecified, it will (paradoxically) keep all the fields					</li>
+					</ul>
 				</section>
 
-				<section id="fieldmap2" data-transition="fade-out slide-in" style="text-align: left;">
+				<section id="fieldmap2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
-						Spatial Join output's field names
+						Field Map for Spatial Join (cont.)
 					</h3>
 					<p>
 						When target and join features have the same set of fields
@@ -1349,9 +999,9 @@
 					<p>
 						$\Rightarrow$ Fields from join features are <em>suffixed with "_1"</em>
 					</p>
-				</section>				
+				</section>
 
-				<section id="spatialjoin3" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="spatialjoin3" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #2: Step 2 (cont.)
 					</h4>
@@ -1359,21 +1009,20 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse the output
+						Browse the output and its attribute table
 					</p>
-					<p>
-						Select one plot neighborhood polygon
-					</p>		
-					<p>
-						Browse the attribute table
-					</p>
-					<p>
-						Count # of matched plots for this selected plot
-					</p>
-					<p>
-						See if the same # of plot points are located within the polygon
-					</p>
-				</section>						
+					<ul>
+						<li>
+							You may find that none of the join feature fields is included
+						</li>
+						<li>
+							This seems to be a Model Builder's bug
+						</li>
+						<li>
+							We will fix this when we use Python
+						</li>
+					</ul>
+				</section>
 
 				<section id="ex3" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1383,10 +1032,10 @@
 						Export attribute table
 					</h3>
 					<p>
-						Which geo-processing tool(s) do we use? (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex3a" target="_blank">Lec 2 Ex 3</a>)
+						Which geo-processing tool(s) do we use? (cf. <a href="../gis_lecture2.html#/ex3a" target="_blank">Lec 2 Ex 3</a>)
 					</p>
-				</section>					
-				
+				</section>
+
 				<section id="ex3a" data-transition="fade-in fade-out" style="text-align: left;">
 				<h4>
 					Exercise #3 (cont.)
@@ -1396,18 +1045,18 @@
 				</p>
 				<h3>
 					Table To Excel
-				</h3>					
+				</h3>
 					<ul>
 						<li>
-							<strong>Input Table</strong>: plot_neighbor.shp
+							<strong>Input Table</strong>: <code>plot_neighbors.shp</code>
 						</li>
 						<li>
-							<strong>Output Excel File</strong>: ...\Lecture3\outputs\plot_neighbor.xls
+							<strong>Output Excel File</strong>: <code>...\Lecture3\output\plot_neighbors.xls</code>
 						</li>
-					</ul>	
+					</ul>
 				</section>
 
-				<section id="ex3b" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="ex3b" data-transition="fade" style="text-align: left;">
 				<h4>
 					Exercise #3 (cont.)
 				</h4>
@@ -1416,12 +1065,12 @@
 				</p>
 				<h3>
 					Export Feature Attribute to ASCII
-				</h3>					
+				</h3>
 					<p>
-						<strong>Input Feature Class</strong>: plot_neighbor.shp
+						<strong>Input Feature Class</strong>: <code>plot_neighbors.shp</code>
 					</p>
 					<p>
-						<strong>Value Field</strong>: village, hhn, plot, startrnd, village_1, hhn_1, plot_1, startrnd_1
+						<strong>Value Field</strong>: see next slide
 					</p>
 					<p>
 						<strong>Delimiter</strong>: SPACE
@@ -1429,69 +1078,312 @@
 					<ul>
 						<li>
 							Not COMMA, to avoid confusing with <a href="https://en.wikipedia.org/wiki/Decimal_mark#Countries_using_Arabic_numerals_with_decimal_comma" target="_blank">decimal mark</a>					</li>
-					</ul>	
+					</ul>
 					<p>
-						<strong>Output ASCII File</strong>: ...\Lecture3\outputs\plot_neighbor.txt
+						<strong>Output ASCII File</strong>: <code>...\Lecture3\output\plot_neighbors.txt</code>
 					</p>
 					<p>
 						Check "<strong>Add Field Name to Output</strong>"
-					</p>							
+					</p>
 				</section>
 
-																
+				<section id="ex3c" data-transition="fade-in slide-out" style="text-align: left;">
+				<h4>
+					Exercise #3 (cont.)
+				</h4>
+				<h3>
+					Value Fields
+				</h3>
+					<p>
+						From target features: village, hhn, plot, startrnd
+					</p>
+					<p>
+						From join features: village_1, hhn_1, plot_1, startrnd_1
+					</p>
+					<ul>
+						<li>
+							These are not shown if Spatial Join fails to include them.
+						</li>
+						<li>
+							We will fix this when we use Python
+						</li>
+					</ul>
+					</section>
+
 				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 					"Model" model for Lecture 3
 					</h3>
 					<p>
-						Look at "Lecture3/solutions4exercises/models.tbx/lecture3"
+						Look at <code>models.tbx/exercises1-3</code> in the folder <code>solutions4exercises/</code>
 					</p>
-				</section>	
+				</section>
 
-				<section id="ex4" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="ex4" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #4
 					</h4>
 					<h3>
-						Write Python script
+						Write a Python script
 					</h3>
 					<p>
-						Export the model as a Python script (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
-					</p>					
+						Export the model as a Python script (cf. <a href="../gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
+					</p>
 
 					<p>
-						Then edit the script by using the template (Lecture3\template4L3.py)
+						The last three commands should look like this:
+					</p>
+					<pre>
+						<code data-trim>
+# Process: Spatial Join
+arcpy.SpatialJoin_analysis(buffer1km_shp, plots_shp, plot_neighbors_shp, "JOIN_ONE_TO_MANY", "KEEP_ALL", "", "INTERSECT", "", "")
+
+# Process: Table To Excel
+arcpy.TableToExcel_conversion(plot_neighbors_shp, plot_neighbors_xls, "NAME", "CODE")
+
+# Process: Export Feature Attribute to ASCII
+arcpy.ExportXYv_stats(plot_neighbors_shp, "village;hhn;plot", "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
+						</code>
+					</pre>
+				</section>
+
+				<section id="ex4b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4
+					</h4>
+					<h3>
+						Write a Python script
+					</h3>
+					<p>
+						Export the model as a Python script (cf. <a href="../gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
+					</p>
+
+					<p>
+						The last three commands should look like this:
+					</p>
+					<pre>
+						<code data-trim data-noescape>
+# Process: Spatial Join
+arcpy.SpatialJoin_analysis(buffer1km_shp, plots_shp, plot_neighbors_shp, "JOIN_ONE_TO_MANY", "KEEP_ALL", "", "INTERSECT", "", "")
+
+# Process: Table To Excel
+arcpy.TableToExcel_conversion(plot_neighbors_shp, plot_neighbors_xls, "NAME", "CODE")
+
+# Process: Export Feature Attribute to ASCII
+arcpy.ExportXYv_stats(plot_neighbors_shp, <mark>"village;hhn;plot"</mark>, "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
+						</code>
+					</pre>
+					<p>
+						This is where you specify fields to keep
+					</p>
+					<ul>
+						<li>
+							Each field name is delimited with semi-colon (;)
+						</li>
+					</ul>
+					<p>
+						Change this to <code>"village;hhn;plot;village_1;hhn_1;plot_1"</code>
+					</p>
+				</section>
+
+
+
+				<section id="ex4c" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4 (cont.)
+					</h4>
+					<p>
+						Then edit the script by using the template (<code>Lecture3\code\template4L3.py</code>)
 					</p>
 					<ol style="margin-left: 72px;">
 						<li>
-							Try-Except statement (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex6a" target="_blank">Lec 2 Ex 6</a>)
+							Try-Except statement (<a href="../gis_lecture2.html#/ex6a" target="_blank">Lec 2 Ex 6</a>)
 						</li>
 						<li>
-							String variables for file names (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex7a" target="_blank">Lec 2 Ex 7</a>)
+							String variables for file names (<a href="../gis_lecture2.html#/ex7a" target="_blank">Lec 2 Ex 7</a>)
 						</li>
 						<li>
-							Print commands (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex8a" target="_blank">Lec 2 Ex 8</a>)
+							Print commands (<a href="../gis_lecture2.html#/ex8a" target="_blank">Lec 2 Ex 8</a>)
 						</li>
 						<li>
-							Close any outputs in ArcMap or Excel (<a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex9e" target="_blank">Why?</a>)
+							Close any outputs in ArcMap or Excel (<a href="../gis_lecture2.html#/ex9e" target="_blank">Why?</a>)
 						</li>
 						<li>
 							Run the script
 						</li>
 					</ol>
 					<p>
-						<a href="http://mkudamatsu.github.io/gis_lecture2.html#/error_handling" target="_blank">Handle errors (from Lecture 2)</a>
+						<a href="../gis_lecture2.html#/error_handling" target="_blank">How to handle errors (from Lecture 2)</a>
 					</p>
 				</section>
-				
+
+				<section id="ex4d" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #4 (cont.)
+					</h4>
+					<p>
+						Browse the output
+					</p>
+					<p>
+						Select one plot neighborhood polygon
+					</p>
+					<p>
+						Browse the attribute table
+					</p>
+					<p>
+						Count # of matched plots for this selected plot
+					</p>
+					<p>
+						See if the same # of plot points are located within the polygon
+					</p>
+				</section>
+
+			</section>
+
+			<section>
+				<section id="relative-file-path">
+					<h1>
+						4. Set relative file paths in Python
+					</h1>
+				</section>
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Problems with absolute file path
+					</h3>
+						<p>
+							Currently we set an absolute file path
+						</p>
+						<pre>
+							<code style="font-size: 1.4rem;" data-trim data-noescape>
+arcpy.env.workspace = "C:\\Users\\your_username\\Desktop\\Lecture3"
+							</code>
+						</pre>
+						<p class="fragment" data-fragment-index="1">
+							This code will break when
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>
+								Someone else runs the code in their computer
+							</li>
+							<li>
+								You buy a new computer
+							</li>
+							<li>
+								You reorganize the directory structure
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="2">
+							Super-tedious to change this line of code if
+						</p>
+						<ul class="fragment" data-fragment-index="2">
+							<li>
+								There are many Python scripts
+							</li>
+							<li>
+								You're collaborating with someone else
+							</li>
+						</ul>
+				</section>
+				<section id="set_relative_path" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+						Solution: use relative file path
+					</h3>
+						<pre>
+							<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+							</code>
+						</pre>
+						<p class="fragment" data-fragment-index="1">
+							These 3 lines of Python code sets the folder where the current script is saved (e.g. <code>.../Lecture3/code/</code>) <br>as the working directory
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							We can then set its parent directory (e.g. <code>Lecture3/</code>) as the working directory for ArcGIS by
+						</p>
+						<pre class="fragment" data-fragment-index="2">
+							<code style="font-size: 1.4rem;" data-trim data-noescape>
+arcpy.env.workspace = "../"
+							</code>
+						</pre>
+						<p class="fragment" data-fragment-index="3">
+							cf. In Stata, <code>cd ..</code> moves up one directory
+						</p>
+				</section>
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<p>
+						Now the code will run successfully <strong>as long as</strong> you <br>move the <strong>entire</strong> project directory (e.g. <code>Lecture3/</code>) <br>to another computer
+					</p>
+				</section>
+
+				<section id="ex5a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+					Exercise #5
+					</h4>
+					<h3>
+						Set the relative file path
+					</h3>
+					<p>
+						1. Open <code>code/template4exercise5.py</code>
+					</p>
+					<ul>
+						<li>
+							This file contains the three lines of code:
+							<pre>
+								<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+								</code>
+							</pre>
+						</li>
+					</ul>
+					<p>
+						2. Copy and paste the whole Exercise 4 code below these three lines
+					</p>
+					<p>
+						3. Replace the line for <code>arcpy.env.workspace</code> with
+						<pre>
+							<code style="font-size: 1.4rem;" data-trim data-noescape>
+arcpy.env.workspace = "../"
+							</code>
+						</pre>
+					</p>
+				</section>
+
+				<section id="ex5b" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					Exercise #5 (cont.)
+					</h4>
+					<p>
+						4. Delete all the files in <code>temporary/</code> and <code>output/</code>
+					</p>
+					<p>
+						5. Run the code. Check if every file is created in the expected folders
+					</p>
+					<p>
+						6. Now delete all the temporary and output files again.
+					</p>
+					<p>
+						7. <strong>Move</strong> the entire <code>Lecture3/</code> folder to somewhere else (say, <code>Documents/</code>)
+					</p>
+					<p>
+						8. Open the Python script in this new location, and run it.
+					</p>
+					<p>
+						9. Also run the Exercise 4 script and see how it returns an error
+					</p>
+				</section>
 
 			</section>
 
 			<!-- SECTION for Python -->
-			<section>
+			<!-- <section>
 				<section id="section6">
 					<h1>
-						6. Loop over files in Python
+						4. Loop over files in Python
 					</h1>
 				</section>
 
@@ -1506,12 +1398,12 @@
 							Each tool creates its own output
 						</p>
 						<p>
-							We don't need these intermediate files 
+							We don't need these intermediate files
 						</p>
 						<p>
 							$\Rightarrow$ Loop over files allows you to delete all intermediate files automatically
 						</p>
-				</section>				
+				</section>
 
 				<section id="xx" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
@@ -1553,7 +1445,7 @@
 						</p>
 						<p>
 							<code>
-							for fc in fcList:	
+							for fc in fcList:
 							</code>
 						</p>
 						<p style="margin-left: 95px;">
@@ -1624,7 +1516,7 @@
 					</p>
 						<p>
 							<code>
-							<mark>for fc in fcList:</mark>	
+							<mark>for fc in fcList:</mark>
 							</code>
 						</p>
 						<p style="margin-left: 95px;">
@@ -1658,7 +1550,7 @@
 					</p>
 						<p>
 							<code>
-							for fc in fcList:	
+							for fc in fcList:
 							</code>
 						</p>
 						<p style="margin-left: 95px;">
@@ -1692,7 +1584,7 @@
 					</p>
 						<p>
 							<code>
-							for fc in fcList:	
+							for fc in fcList:
 							</code>
 						</p>
 						<p style="margin-left: 95px;">
@@ -1723,10 +1615,10 @@
 					</h3>
 					<p>
 						1. Rename intermediate shapefiles to "xx***.shp"
-					</p>					
+					</p>
 					<ul style="margin-left: 72px;">
 						<li>
-							We just need to change one line per file, thanks to  <a href="http://mkudamatsu.github.io/gis_lecture2.html#/strings1" target="_blank">using string variables</a> 
+							We just need to change one line per file, thanks to  <a href="../gis_lecture2.html#/strings1" target="_blank">using string variables</a>
 						</li>
 					</ul>
 					<p>
@@ -1734,14 +1626,14 @@
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
-							Review <a href="http://mkudamatsu.github.io/gis_lecture2.html#/ex9c" target="_blank">Lec 2 Ex 9</a> for how to uncomment command lines
+							Review <a href="../gis_lecture2.html#/ex9c" target="_blank">Lec 2 Ex 9</a> for how to uncomment command lines
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						3. Save and run the script (press F5)
 					</p>
 				</section>
-				
+
 
 
 				<section id="enumeration_methods" data-transition="slide-in slide-out" style="text-align: left;">
@@ -1774,7 +1666,7 @@
 						Numbers (Lecture 6)
 					</p>
 				</section>
-												
+
 				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
 					Model Python Script for Lecture 3
@@ -1782,24 +1674,24 @@
 					<p>
 						Look at "solutions4exercises/lec3script.py" in the downloaded data folder for Lecture 3
 					</p>
-				</section>	
-			</section>
+				</section>
+			</section> -->
 
 
 				<section id="lessons" style="text-align: left;">
 					<h3>
 						What we've learned on ArcGIS
 					</h3>
-					<ol>	
+					<ol>
 						<li>
 							Match each point w/ its neighboring points (i.e. w/i a radius of certain distance)
 						</li>
-						<li>
+						<!-- <li>
 							Loop over files
 						</li>
 						<li>
 							Delete a file
-						</li>
+						</li> -->
 					</ol>
 					<p>
 						Do you remember which geo-processing tools you used for each of these tasks?
@@ -1810,17 +1702,17 @@
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
 		</div>
-		<!-- To end the activation of the CSS framework of Reveal.js -->		
+		<!-- To end the activation of the CSS framework of Reveal.js -->
 
-		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
-		
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->
+
 		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
 		<script src="lib/js/head.min.js"></script>
 		<!-- Load reveal.js -->
 		<script src="js/reveal.js"></script>
 
 		<!-- Import MathJax, to use TeX for mathematic expressions -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 		<!-- Allow inline math expressions by using $ -->
 		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
 		<script type="text/x-mathjax-config">

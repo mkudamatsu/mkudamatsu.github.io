@@ -16,7 +16,7 @@
 
 		<!-- Activate Reveal.js -->
 		<link rel="stylesheet" href="css/reveal.css">
-		
+
 		<!-- Define the theme -->
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
@@ -45,14 +45,17 @@
 
 			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
 			<div class="slides">
-				
+
 				<!-- Slide contents start here -->
-				
+
 				<!-- My own slide templates -->
 				<section id="title">
 					<h3 style="color:slategrey">
-						ArcGIS 10 for Economics Research
+						Causal Inference with Spatial Data
 					</h3>
+					<p style="color:slategrey">
+ 						(ArcGIS 10 for Economics Research)
+					</p>
 					<h3>
 						Lecture 8
 					</h3>
@@ -61,7 +64,7 @@
 					</h2>
 					<br>
 					<p>Masayuki Kudamatsu</p>
-					<p>30 May, 2016</p>
+					<p>31 August, 2018</p>
 					<br>
 					<p>
 						<small>Press <span style="color:red;">SPACE</span> to proceed. </small>
@@ -106,27 +109,7 @@
 						</ul>
 				</section>
 
-				<section id="map_algebra_python" data-transition="slide-in slide-out" style="text-align: left;">
-					<h3>
-						Python for Map Algebra
-					</h3>
-						<p>
-							Write a Python script to use Map Algebra
-						</p>
-						<ul>
-							<li>
-								Raster Calculator tool does the same job in Model Builder
-							</li>
-							<li>
-								But it's not meant to be exported as a Python script
-							</li>
-						</ul>
-						<p>
-							We will learn how
-						</p>
-				</section>
 
-								
 				<!-- ROAD MAP -->
 				<section id="road_map" style="text-align: left;">
 					<h3>
@@ -157,7 +140,7 @@
 						<p>
 							5. Other geo-processing tools used in economics
 						</p>
-				</section>			
+				</section>
 
 			<!-- SECTION for paper -->
 			<section>
@@ -165,13 +148,16 @@
 					<h1>
 						1. <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>
 					</h1>
+					<p>
+						This study was featured in <a href="https://www.washingtonpost.com/news/wonk/wp/2016/04/25/the-secret-ancient-history-of-the-potato-that-could-change-the-story-of-civilization/">Washington Post</a>
+					</p>
 				</section>
-				
+
 				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>Research Question</h3>
 					<p>
 						What caused the formation of the state?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -185,7 +171,7 @@
 					</p>
 					<ul>
 						<li>
-							Previous studies focused on agriculture in generale
+							Previous studies focused on agriculture in general
 						</li>
 						<li>
 							This study: focus on crop type (cereal vs tuber/root)
@@ -193,7 +179,7 @@
 						<li>
 							Convincing causal evidence
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
@@ -211,7 +197,7 @@
 							Perishable upon harvest
 						</p>
 						<p>
-							Harvesting is non-seasonal
+							Harvesting is non-seasonal, not visible
 						</p>
 						<p>
 							$\Rightarrow$ No incentive to steal / confiscate
@@ -230,14 +216,14 @@
 							Storable
 						</p>
 						<p>
-							Harvest within a short period of time
+							Harvest within a short period of time, clearly visible
 						</p>
 						<p>
 							$\Rightarrow$ Incentive to steal / confiscate
 						</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Theory (cont.)
 					</h4>
@@ -260,25 +246,39 @@
 							</li>
 						</ul>
 						<p>
-							cf. Coltan vs gold in DR Congo (<a href="http://dx.doi.org/10.2139/ssrn.2358701" target="_blank">Sanchez de la Sierra (2014)</a>)
+							cf. Coltan vs gold in DR Congo (<a href="http://dx.doi.org/10.2139/ssrn.2358701" target="_blank">Sanchez de la Sierra (2017)</a>)
 						</p>
 				</section>
 
 
-				
+
 				<section id="data1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Data</h3>
 					<p>
 						State formation
-					</p>					
+					</p>
 						<ul>
 							<li>
 								Ethnographic Atlas for cross-sectional regression
 							</li>
 							<li>
-								<a href="http://dx.doi.org/10.2139/ssrn.2464285" target="_blank">Borcan et al. (2014)</a> for panel cross-country regression								
+								<a href="http://dx.doi.org/10.2139/ssrn.2464285" target="_blank">Borcan et al. (2014)</a> for panel cross-country regression
 							</li>
 						</ul>
+				</section>
+
+				<section id="data2" data-transition="fade-out fade-in">
+					<h4>
+						Jurisdictional Hierarchy
+					</h4>
+					<img src="gis_lecture8/MMNP2015F4.png" style="border: none; background: none; box-shadow:none;">
+					<p>
+						<small>(Figure 4 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
+					</p>
+				</section>
+
+				<section id="data3" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>Data (cont.)</h4>
 					<p>
 						Suitability for agriculture <strong>by crop</strong>
 					</p>
@@ -289,7 +289,7 @@
 						</ul>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="data4" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data (cont.)
 					</h4>
@@ -314,28 +314,18 @@
 							</li>
 						</ul>
 				</section>
-				
-				<section id="" data-transition="fade-out fade-in">
-					<h4>
-						Jurisdictional Hierarchy
-					</h4>
-					<img src="gis_lecture8/MMNP2015F4.png" style="border: none; background: none; box-shadow:none;">			
-					<p>
-						<small>(Figure 4 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
-					</p>
-				</section>
 
-				<section id="" data-transition="fade-out fade-in">
+				<section id="" data-transition="slide-out fade-in">
 					<h4>
 						Cereal's relative productivity to tuber/root
 					</h4>
-					<img src="gis_lecture8/MMNP2015F7.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture8/MMNP2015F7.png" style="border: none; background: none; box-shadow:none;">
 					<p>
 						<small>(Figure 7 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
 					</p>
 				</section>
 
-				<section id="equation1" data-transition="slide-out fade-in" style="text-align: left">
+				<section id="equation1" data-transition="slide-out slide-in" style="text-align: left">
 					<h3>
 						Empirical specification: cross-section
 					</h3>
@@ -346,7 +336,7 @@
 					<p>
 						<!-- Case by Case -->
 						\begin{align*}
-						y_{ic} = \alpha_c + \beta CAL\_DIF_i + \gamma MAX\_CAL_{i} + \varepsilon_{i} 
+						y_{ic} = \alpha_c + \beta CAL\_DIF_i + \gamma MAX\_CAL_{i} + \varepsilon_{i}
 						\end{align*}
 					</p>
 					<br>
@@ -366,16 +356,19 @@
 						<tr>
 							<td style="text-align: center">$\alpha_c$</td>
 							<td>Continent fixed effects</td>
-						</tr>						
+						</tr>
 					</table>
+					<p class="fragment" data-fragment-index="1">
+						We will learn how to calculate $CAL\_DIF_i$ and $MAX\_CAL_i$ from GAEZ data
+					</p>
 				</section>
 
 
-				<section id="result1"  data-transition="fade-in slide-out">
+				<section id="result1"  data-transition="slide-in slide-out">
 					<h4>
 						Main results (cross-section)
 					</h4>
-					<img src="gis_lecture8/MMNP2015T3.png" style="border: none; background: none; box-shadow:none; width: 800px;">					
+					<img src="gis_lecture8/MMNP2015T3.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(Table 3 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
 					</p>
@@ -389,7 +382,7 @@
 						Colombian exchange
 					</h3>
 					<p>
-						Until 1500: 
+						Until 1500:
 					</p>
 					<table border="0" width="100%">
 						<tr>
@@ -424,7 +417,7 @@
 					<p>
 						<!-- Case by Case -->
 						\begin{align*}
-						y_{ct} = \beta CAL\_DIF_{it} + \gamma MAX\_CAL_{it} + \mu_c + \eta_t*x_c + \varepsilon_{i} 
+						y_{ct} = \beta CAL\_DIF_{it} + \gamma MAX\_CAL_{it} + \mu_c + \eta_t*x_c + \varepsilon_{i}
 						\end{align*}
 					</p>
 					<br>
@@ -444,14 +437,14 @@
 					</table>
 
 				</section>
-				
-				
-				
+
+
+
 				<section id="result2"  data-transition="fade-in slide-out">
 					<h4>
 						Main results (panel)
 					</h4>
-					<img src="gis_lecture8/MMNP2015T6.png" style="border: none; background: none; box-shadow:none;">					
+					<img src="gis_lecture8/MMNP2015T6.png" style="border: none; background: none; box-shadow:none;">
 					<p>
 						<small>(Table 6 of <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>)</small>
 					</p>
@@ -470,24 +463,24 @@
 						1. Launch ArcMap 10 (it takes time)
 					</p>
 					<p>
-						2. <a href="https://www.dropbox.com/s/r4x8zyn3adjoztv/Lecture8.zip?dl=0" target="_blank">Download the zipped dataset for Lecture 8</a> 
+						2. <a href="https://www.dropbox.com/s/337ah1lv05muk8v/Lecture8.zip?dl=1" target="_blank">Download the zipped dataset for Lecture 8</a>
 					</p>
 					<p>
-						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
+						3. Save it to <strong>Desktop</strong> (<code>C:\\Users\\<em>yourname</em>\\Desktop</code>)
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
 							 Don't save in the remote server, which slows down ArcGIS
 						</li>
-					</ul>																
+					</ul>
 					<p>
-						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
+						4. Right-click it and choose <span style="background-color: Gainsboro">7-Zip > Extract to "Lecture8\"</span>
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
-							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture8</code>
+							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Desktop\\Lecture8</code>
 						</li>
-					</ul>															
+					</ul>
 				</section>
 
 				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
@@ -501,32 +494,40 @@
 						5. Establish connection to data folder
 					</p>
 					<ul style="margin-left: 72px;">
-						<li>
-							Right-click "<strong>Folder Connections</strong>"
+						<li style="margin-bottom: 5px;">
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							Select <span style="background-color: Gainsboro">Connect to Folder</span>
 						</li>
 						<li>
-							Select "<strong>Connect to Folder</strong>"
-						</li>
-						<li>
-							Choose "<strong>Downloads > Lecture8</strong>"
+							Choose <span style="background-color: Gainsboro">Desktop > Lecture8</span>
 						</li>
 					</ul>
-					<p>
-						6. Create a new folder <strong>outputs</strong> inside <strong>Lecture8</strong>
-					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							 We will create all new files in this folder
-						</li>
-					</ul>															
-					<p>
-						(We don't use Model Builder today)
-					</p>
 				</section>
-				
+
+				<section id="map_algebra_python" data-transition="slide-in slide-out" style="text-align: left;">
+					<h4>
+						Mentaly prepare for the rest of this lecture
+					</h4>
+				  <h3>
+						No Model Builder today
+					</h3>
+						<p>
+							We directly write a Python script to use Map Algebra
+						</p>
+						<ul>
+							<li>
+								Raster Calculator tool does the same job in Model Builder
+							</li>
+							<li>
+								But it's not meant to be exported as a Python script
+							</li>
+						</ul>
+				</section>
 
 			</section>
-				
+
 			<!-- SECTION for ArcMap -->
 			<section>
 				<section id="section2">
@@ -540,13 +541,16 @@
 						Data we want to construct
 					</h3>
 					<p>
-						Caloric yields by crop at each 5'x5' cell across the world
+						Caloric yields by crop at each 5-minute cell across the world
+					</p>
+					<ul>
+						<li>GAEZ provides each crop's potential yield <br> <strong>in tons per hectare</strong></li>
+					</ul>
+					<p>
+
 					</p>
 					<p>
-						Inputs: each crop's potential yield in tons per hectare
-					</p>
-					<p>
-						$\Rightarrow$ Multiply w/ crop-specific conversion factor
+						$\Rightarrow$ Multiply it w/ crop-specific conversion factor
 					</p>
 				</section>
 
@@ -555,15 +559,15 @@
 						Calorie conversion factors
 					</h4>
 					<img src="gis_lecture8/conversion_factors.png" style="border: none; background: none; box-shadow:none; width: 500px;">
-					<p style="vertical-align:text-bottom;"><small>(Table A.1 of <a href="http://www.nber.org/papers/w20438" target="_blank">Galor & Ozak 2014</a>)</small></p>
+					<p style="vertical-align:text-bottom;"><small>(Table A.1 of Online Appendix for <a href="https://dx.org/10.1257/aer.20150020" target="_blank">Galor & Ozak 2016</a>)</small></p>
 				</section>
-				
+
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
 						<p>
-							So we need to edit each 5'x5' cell of GAEZ
+							So we need to edit each 5-minute cell of GAEZ
 						</p>
 						<p>
 							$\Rightarrow$ Use Map Algebra
@@ -587,6 +591,11 @@ from arcpy.sa import *
 arcpy.CheckOutExtension("spatial")
 						</code>
 					</pre>
+					<ul>
+						<li>
+							I provide these lines in <code>.../Lecture8/code/template4L8ex*.py</code>
+						</li>
+					</ul>
 				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
@@ -611,7 +620,7 @@ arcpy.CheckOutExtension("spatial")
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Map Algebra basics #1
 					</h4>
@@ -635,7 +644,7 @@ from arcpy.sa import *
 						Without this, you cannot use it
 					</p>
 				</section>
-				
+
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -649,7 +658,7 @@ from arcpy.sa import *
 					</p>
 					<p>
 						cf. <a href="http://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/map-algebra/working-with-raster-objects.htm" target="_blank">ArgGIS Help on Raster Object</a>
-					</p> 
+					</p>
 				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
@@ -657,7 +666,7 @@ from arcpy.sa import *
 						Raster Object (cont.)
 					</h4>
 					<p>
-						To use arithmetic operators, first convert each raster data into a Raster object by <a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-classes/raster-object.htm" target="_blank">Raster method</a>: 
+						To use arithmetic operators, first convert each raster data into a Raster object by <a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-classes/raster-object.htm" target="_blank">Raster method</a>:
 					</p>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
@@ -700,7 +709,7 @@ maize_calorie <mark>= maize_yield * 36.5</mark>
 						Arithmetic operators for Map Algebra / Python
 					</h4>
 					<img src="gis_lecture8/
-map_algebra_operators.png" style="border: none; background: none; box-shadow:none; width: 300px;">					
+map_algebra_operators.png" style="border: none; background: none; box-shadow:none; width: 300px;">
 					<p>
 						<small>(taken from <a href="http://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/map-algebra/working-with-operators.htm" target="_blank">ArcGIS Help</a>)</small>
 					</p>
@@ -779,7 +788,7 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 						Within ( ), specify the output raster file name
 					</p>
 				</section>
-				
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Map Algebra basics #3
@@ -814,7 +823,53 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 						$\Rightarrow$ To save the output, use save method
 					</p>
 				</section>
-				
+
+				<section id="file_path1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Map Algebra basics #4
+					</h4>
+					<h3>
+						File path
+					</h3>
+					<p>
+						For some reason, the following way of specifying relative file paths (cf. <a href="../gis_lecture3.html#relative-file-path" target="_blank">Lecture 3</a>) does not work with Map Algebra
+					</p>
+					<pre>
+						<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+arcpy.env.workspace = "../"
+input_raster = "input/GAEZ/maize.tif"
+output_raster = "output/maize_calorie.tif"
+						</code>
+					</pre>
+				</section>
+
+				<section id="file_path2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						File path (cont.)
+					</h4>
+					<p>
+						The problem seems to be <code>arcpy.env.workspace</code>
+					</p>
+					<p>
+						So we directly specify the file paths:
+					</p>
+					<pre>
+						<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+input_raster = "<mark>../</mark>input/GAEZ/maize.tif"
+output_raster = "<mark>../</mark>output/maize_calorie.tif"
+						</code>
+					</pre>
+					<p>
+						We will later use <code>arcpy.env.workspace</code> <br>for another purpose
+					</p>
+				</section>
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Exercise #1
@@ -823,46 +878,63 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 						Calorie conversion for maize
 					</h3>
 					<p>
-						Input: .../Lecture8/inputs/GAEZ/maize.tif
+						Start with <code>code/template4L8ex1.py</code>
 					</p>
 					<p>
-						Conversion factor: 36.5
+						Inputs
 					</p>
+					<ul>
+						<li>
+							GAEZ data: <code>../input/GAEZ/maize.tif</code>
+						</li>
+						<li>
+							Conversion factor: 36.5
+						</li>
+					</ul>
 					<p>
-						Output: .../Lecture8/outputs/maize_calorie.tif
+						Output
 					</p>
+					<ul>
+						<li>
+							<code>../output/maize_calorie.tif</code>
+						</li>
+					</ul>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Exercise #1 (cont.)
 					</h4>
 					<pre style="font-size:0.7em;">
 						<code data-trim data-noescape>
-input_raster = ".../Lecture8/inputs/GAEZ/maize.tif"
-output_raster = "/Lecture8/outputs/calorie_maize.tif"
+print "Inputs being set..."
+input_raster = "../input/GAEZ/maize.tif"
+conversion_factor = 36.5
+
+print "Outputs being set..."
+output_raster = "../output/calorie_maize.tif"
 
 try:
     maize_yield = Raster(input_raster)
-    maize_calorie = maize_yield * 36.5
+    maize_calorie = maize_yield * conversion_factor
     maize_calorie.save(output_raster)
-	
+
 except arcpy.ExecuteError:
 ...
 						</code>
 					</pre>
-				</section>				
-				
-							
+				</section>
+
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						Work on multiple inputs
+						How to repeat for 15 crops
 					</h3>
 					<p>
 						How do we repeat this for other 14 crops?
 					</p>
 					<p class="fragment" data-fragment-index="1">
-						Naive approach by 1st-year PhD student: 
+						Naive approach by 1st-year PhD student:
 					</p>
 					<ul class="fragment" data-fragment-index="1">
 						<li>
@@ -897,9 +969,9 @@ except arcpy.ExecuteError:
 				</section>
 
 				<section id="" data-transition="fade-in slide-in" style="text-align: left">
-					<h4>
-						Work on multiple inputs (cont.)
-					</h4>
+					<h3>
+						detour: defensive programming
+					</h3>
 					<p>
 						If tempted to copy-and-paste during programming
 					</p>
@@ -910,25 +982,25 @@ except arcpy.ExecuteError:
 						One example of what's known as defensive programming
 					</p>
 				</section>
-				
+
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left">
-					<h3>
-						detour: defensive programming
-					</h3>
+					<h4>
+						detour: defensive programming (cont.)
+					</h4>
 					<p>
-						"Computer scientists <em>assume</em> programmers will make mistakes, and instead of chiding people to “just be careful,” they have developed a battery of practices to address the problem." (<a href="http://www.nickeubank.com/replication/" target="_blank">Nick Eubank</a>)
+						"Computer scientists <em>assume</em> programmers will make mistakes, and instead of chiding people to “just be careful,” they have developed a battery of practices to address the problem." (<a href="https://github.com/nickeubank/DefensiveProgramming/blob/master/Eubank_DefensiveProgramming.pdf" target="_blank">Nick Eubank</a>)
 					</p>
 					<p>
-						(Click the link to learn 5 such practices.)
+						(Click the link to learn more)
 					</p>
 				</section>
-				
+
 
 				<section id="" data-transition="slide-out slide-in" style="text-align: left">
-					<h3>
-						Loop over pairs
-					</h3>
+					<h4>
+						How to repeat for 15 crops (cont.)
+					</h4>
 					<p>
 						We need a loop over crop names
 					</p>
@@ -942,8 +1014,8 @@ except arcpy.ExecuteError:
 						$\Rightarrow$ Use <strong>dictionary</strong> in Python
 					</p>
 				</section>
-				
-				<section id="" data-transition="slide-in fade-out" style="text-align: left">
+
+				<section id="dictionary1" data-transition="slide-in fade-out" style="text-align: left">
 					<h3>
 						Dictionary in Python
 					</h3>
@@ -952,45 +1024,70 @@ except arcpy.ExecuteError:
 					</p>
 					<ul>
 						<li>
-							cf. <a href="http://mkudamatsu.github.io/gis_lecture4.html#/python101datatype" target="_blank">Lecture 4</a>
+							cf. <a href="../gis_lecture4.html#/python101datatype" target="_blank">Lecture 4</a>
 						</li>
 					</ul>
 					<p>
 						It's a set of pairs
 					</p>
 					<p>
-						Just like a Swedish-English dictionary
+						Just like a Norwegian-English dictionary
 					</p>
 					<ul>
 						<li>
-							Each pair: Swedish word and its translation in English
+							Each pair: Norwegian word and its translation in English
 						</li>
 					</ul>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary2a" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
 					<h3>
-						Basic way to define a dictionary
+						Syntax to define a dictionary
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = <mark>{</mark>'jag'<mark>:</mark>'I'<mark>,</mark> 'du'<mark>:</mark>'you'<mark>,</mark> 'vi'<mark>:</mark>'we'<mark>}</mark>
+dict = <mark>{</mark>'jeg':'I', 'du':'you', 'vi':'we'<mark>}</mark>
 						</code>
 					</pre>
 					<p>
 						Enclose the whole by { }
 					</p>
+				</section>
+
+				<section id="dictionary2b" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Dictionary in Python (cont.)
+					</h4>
+					<h3>
+						Syntax to define a dictionary
+					</h3>
+					<pre style="font-size:1em;">
+						<code data-trim data-noescape>
+dict = {'jeg':'I'<mark>,</mark> 'du':'you'<mark>,</mark> 'vi':'we'}
+						</code>
+					</pre>
 					<p>
-						Each pair is separated by ,
+						Each pair is separated by , (comma)
 					</p>
+				</section>
+
+				<section id="dictionary2c" data-transition="fade-in fade-out" style="text-align: left">
+					<h4>
+						Dictionary in Python (cont.)
+					</h4>
+					<h3>
+						Syntax to define a dictionary
+					</h3>
+					<pre style="font-size:1em;">
+						<code data-trim data-noescape>
+dict = {'jeg'<mark>:</mark>'I', 'du'<mark>:</mark>'you', 'vi'<mark>:</mark>'we'}
+						</code>
+					</pre>
 					<p>
-						Each element within a pair is separated by :
-					</p>
-					<p>
-						You can use number as well
+						Each element within a pair is separated by : (colon)
 					</p>
 				</section>
 
@@ -999,19 +1096,19 @@ dict = <mark>{</mark>'jag'<mark>:</mark>'I'<mark>,</mark> 'du'<mark>:</mark>'you
 						Dictionary in Python (cont.)
 					</h4>
 					<h3>
-						Basic way to define a dictionary
+						Syntax to define a dictionary
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-<mark>dict</mark> = {'jag':'I', 'du':'you', 'vi':'we'}
+<mark>dict</mark> = {'jeg':'I', 'du':'you', 'vi':'we'}
 						</code>
 					</pre>
 					<p>
 						can be replaced with any other variable name of your choice
 					</p>
 				</section>
-								
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+
+				<section id="dictionary3a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1020,7 +1117,7 @@ dict = <mark>{</mark>'jag'<mark>:</mark>'I'<mark>,</mark> 'du'<mark>:</mark>'you
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {<mark>'jag'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
+dict = {<mark>'jeg'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
 						</code>
 					</pre>
 					<p>
@@ -1028,7 +1125,7 @@ dict = {<mark>'jag'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary3b" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1037,7 +1134,7 @@ dict = {<mark>'jag'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {'jag':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
+dict = {'jeg':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
 						</code>
 					</pre>
 					<p>
@@ -1045,7 +1142,7 @@ dict = {'jag':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary3c" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1054,7 +1151,7 @@ dict = {'jag':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {'jag':'I', 'du':'you', 'vi':'we'}
+dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 						</code>
 					</pre>
 					<p>
@@ -1063,21 +1160,21 @@ dict = {'jag':'I', 'du':'you', 'vi':'we'}
 					<table>
 					<tr>
 						<td>
-						<code>dict['jag']</code>
-						</td> 
+						<code>dict['jeg']</code>
+						</td>
 						<td>
-							contains
-						</td> 
+							returns
+						</td>
 						<td><code>'I'</code>
 						</td>
 					</tr>
 					<tr>
 						<td>
 						<code>dict['du']</code>
-						</td> 
+						</td>
 						<td>
-							contains
-						</td> 
+							returns
+						</td>
 						<td>
 							<code>'you'</code>
 						</td>
@@ -1085,10 +1182,10 @@ dict = {'jag':'I', 'du':'you', 'vi':'we'}
 					<tr>
 						<td>
 						<code>dict['vi']</code>
-						</td> 
+						</td>
 						<td>
-							contains
-						</td> 
+							returns
+						</td>
 						<td>
 							<code>'we'</code>
 						</td>
@@ -1096,7 +1193,7 @@ dict = {'jag':'I', 'du':'you', 'vi':'we'}
 					</table>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4a" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1106,7 +1203,7 @@ dict = {'jag':'I', 'du':'you', 'vi':'we'}
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 <mark>dict = {}</mark>
-dict['jag'] = 'I'
+dict['jeg'] = 'I'
 dict['du'] = 'you'
 dict['vi'] = 'we'
 						</code>
@@ -1116,7 +1213,7 @@ dict['vi'] = 'we'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4b" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1126,17 +1223,17 @@ dict['vi'] = 'we'
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 dict = {}
-<mark>dict['jag'] = 'I'</mark>
+<mark>dict['jeg'] = 'I'</mark>
 dict['du'] = 'you'
 dict['vi'] = 'we'
 						</code>
 					</pre>
 					<p>
-						Assign key 'jag' to value 'I'
+						Assign key 'jeg' to value 'I'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4c" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1146,7 +1243,7 @@ dict['vi'] = 'we'
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 dict = {}
-dict['jag'] = 'I'
+dict['jeg'] = 'I'
 dict['du'] = 'you'
 dict['vi'] = 'we'
 						</code>
@@ -1156,7 +1253,7 @@ dict['vi'] = 'we'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+				<section id="dictionary4d" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1166,11 +1263,11 @@ dict['vi'] = 'we'
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 dict = {}
-dict['jag'] = 'I'
+dict['jeg'] = 'I'
 dict['du'] = 'you'
 dict['vi'] = 'we'
-dict['svenska'] = 'Swedish'
-dict['engelska'] = 'English'
+dict['norsk'] = 'Norwegian'
+dict['engelsk'] = 'English'
 						</code>
 					</pre>
 					<p>
@@ -1178,7 +1275,7 @@ dict['engelska'] = 'English'
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left">
+				<section id="dictionary5" data-transition="slide-in slide-out" style="text-align: left">
 					<h4>
 						Dictionary in Python (cont.)
 					</h4>
@@ -1199,10 +1296,10 @@ dict['engelska'] = 'English'
 						<code>
 							for key in key_list:
 						</code>
-						</p>						
+						</p>
 				</section>
-								
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+
+				<section id="ex2" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Exercise #2
 					</h4>
@@ -1210,14 +1307,17 @@ dict['engelska'] = 'English'
 						Calorie conversion for 15 crops
 					</h3>
 					<p>
+						Start with <code>code/template4L8ex2.py</code>
+					</p>
+					<p>
 						1. Create a dictionary of calorie conversion factors
 					</p>
 					<p>
 						2. Loop over 15 crops
 					</p>
 				</section>
-								
-				<section id="" data-transition="fade-in fade-out" style="text-align: left">
+
+				<section id="ex2-1" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
 						Exercise #2 Step 1: Calorie conversion factors
 					</h4>
@@ -1243,7 +1343,10 @@ calorie['yams'] = 11.8
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-2a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 2
+					</h4>
 					<h3>
 						Loop over crop names
 					</h3>
@@ -1258,7 +1361,10 @@ for crop in crops:
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-2b" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 2 (cont.)
+					</h4>
 					<h3>
 						Loop over crop names
 					</h3>
@@ -1274,7 +1380,10 @@ crops = calorie.keys()
 				</section>
 
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-3a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3
+					</h4>
 					<h3>
 						Calorie conversion
 					</h3>
@@ -1285,16 +1394,16 @@ crops = calorie.keys()
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    <mark>crop_yield = Raster(crop+".tif")</mark>
 						</code>
-					</pre>							
+					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calorie conversion
-					</h3>
+				<section id="ex2-3b" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3: Calorie conversion (cont.)
+					</h4>
 					<p>
 						Retrieve conversion factor as dictionary value for key <code>crop</code>
 					</p>
@@ -1302,17 +1411,17 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * <mark>calorie[crop]</mark>
 						</code>
-					</pre>							
+					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calorie conversion
-					</h3>
+				<section id="ex2-3c" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3: Calorie conversion (cont.)
+					</h4>
 					<p>
 						Convert yield into calorie by Map Algebra
 					</p>
@@ -1320,36 +1429,36 @@ for crop in crops:
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    <mark>calorie_yield = crop_yield * calorie[crop]</mark>
 						</code>
-					</pre>							
+					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex2-4" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 4
+					</h4>
 					<h3>
-						Calorie conversion
+						Save the output raster file
 					</h3>
-					<p>
-						Save the output
-					</p>
 					<pre style="font-size:0.7em;">
 						<code data-trim data-noescape>
 crops = calorie.keys()
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * calorie[crop]
-   arcpy.env.workspace = ".../outputs"
+   arcpy.env.workspace = "../output"
    <mark>calorie_yield.save("calorie_"+crop+".tif")</mark>
 					</code>
-					</pre>							
+					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="output_file_name" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
-						Naming output files
+						Tips for output file names
 					</h3>
 					<p>
 						Use the same name as the script that creates the output
@@ -1367,15 +1476,18 @@ for crop in crops:
 					</p>
 					<ul>
 						<li>
-							calorie.py $\rightarrow$ calorie_maize.tif, calorie_cassava.tif, etc.
+							<code>calorie.py</code> $\rightarrow$ <code>calorie_maize.tif</code>, <code>calorie_cassava.tif</code>, etc.
 						</li>
 					</ul>
 					<p  class="fragment" data-fragment-index="1">
-						So save the script as calorie.py
+						So save the script as <code>calorie.py</code>
 					</p>
 				</section>
-				
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+
+				<section id="trouble-shooting" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Only if you are using IDLE to edit scripts
+					</h4>
 					<h3>
 						Trouble shooting
 					</h3>
@@ -1390,8 +1502,8 @@ for crop in crops:
 							It seems ArcGIS keeps the output files open until you close Python Shell
 						</li>
 					</ul>
-				</section>				
-				
+				</section>
+
 			</section>
 
 			<section>
@@ -1400,7 +1512,7 @@ for crop in crops:
 						3. Cell Statistics
 					</h1>
 				</section>
-				
+
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						Data we want to construct
@@ -1415,7 +1527,7 @@ for crop in crops:
 							Difference of these two (main regressor)
 						</p>
 						<p>
-							Maximum caloric yiled among all crops (control)
+							Maximum caloric yield among all crops (control)
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							$\Rightarrow$ Cell Statistics tool can handle these
@@ -1431,7 +1543,7 @@ for crop in crops:
 						</p>
 						<ul>
 							<li>
-								Same set of statistics as for Zonal Statistics (cf <a href="http://mkudamatsu.github.io/gis_lecture5.html#/what_is_zonal_stat1" target="_blank">Lec 5</a>)
+								Same set of statistics as for Zonal Statistics (cf <a href="../gis_lecture5.html#/what_is_zonal_stat1" target="_blank">Lec 5</a>)
 							</li>
 						</ul>
 						<p>
@@ -1442,15 +1554,18 @@ for crop in crops:
 						</p>
 						<ul class="fragment" data-fragment-index="1">
 							<li>
-								cf. Inputs to Intersect tool (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/ex2python2" target="_blank">Lec 4</a>) 
+								cf. Inputs to Intersect tool (<a href="../gis_lecture4.html#/ex2python2" target="_blank">Lec 4</a>)
 							</li>
 						</ul>
 				</section>
-				
+
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Cell Statistics (cont.)
 					</h4>
+					<p>
+						1st argument: input raster list
+					</p>
 					<p>
 						If <code>input_rasters</code> is a Python list of calorie rasters, we can write:
 					<pre style="font-size:0.65em;">
@@ -1458,30 +1573,29 @@ for crop in crops:
 max_calorie = CellStatistics(<mark>input_rasters</mark>,"MAXIMUM","DATA")
 						</code>
 					</pre>
-					<p>
-						1st argument: input raster list
-					</p>
-				</section>				
+				</p>
+
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Cell Statistics (cont.)
 					</h4>
-					<pre style="font-size:0.65em;">
-						<code data-trim data-noescape>
-max_calorie = CellStatistics(input_rasters,<mark>"MAXIMUM"</mark>,"DATA")
-						</code>
-					</pre>
 					<p>
 						2nd argument: statistics to be calculated
 					</p>
 					<p>
 						Don't forget to enclose it with " "
 					</p>
+					<pre style="font-size:0.65em;">
+						<code data-trim data-noescape>
+max_calorie = CellStatistics(input_rasters,<mark>"MAXIMUM"</mark>,"DATA")
+						</code>
+					</pre>
 					<p>
 					See <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/cell-statistics.htm#GUID-AD6F5E1C-5BEC-41E0-BC1B-ED1F882E6620" target="_blank">ArcGIS Help</a> for other statistics
 					</p>
-				</section>				
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
@@ -1499,9 +1613,9 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM",<mark>"DATA"</mark>)
 						If "NODATA", output cell value is missing wherever at least one input raster data has a missing value
 					</p>
 					<img src="gis_lecture8/cell_stats_nodata.png" style="border:none; background:none; box-shadow:none; width:600px;">
-				</section>				
+				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="list-rasters1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Input raster list
 					</h3>
@@ -1520,9 +1634,9 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					<p>
 						When file names are changed, this script will crash
 					</p>
-				</section>				
-				
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				</section>
+
+				<section id="list-rasters2a" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Input raster list (cont.)
 					</h4>
@@ -1531,7 +1645,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					</p>
 					<pre style="font-size:0.65em;">
 						<code data-trim data-noescape>
-arcpy.env.workspace = "C:/.../Lecture8/outputs"
+arcpy.env.workspace = "../output"
 input_rasters = <mark>arcpy.ListRasters("calorie_*", "TIF")</mark>
 max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 						</code>
@@ -1539,31 +1653,80 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					<p>
 						Collect all TIFF files with "calorie_" as prefix
 					</p>
-					<p>
-						cf. ListFeatureClasses method (<a href="http://mkudamatsu.github.io/gis_lecture3.html#/list_feature_classes" target="_blank">Lecture 3</a>) 
-					</p>
-				</section>		
+				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="list-rasters2b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Input raster list (cont.)
 					</h4>
+					<p>
+						ListRasters method helps
+					</p>
 					<pre style="font-size:0.65em;">
 						<code data-trim data-noescape>
-arcpy.env.workspace = "C:/.../Lecture8/outputs"
+<mark>arcpy.env.workspace = "../output"</mark>
 input_rasters = arcpy.ListRasters("calorie_*", "TIF")
 max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 						</code>
 					</pre>
 					<p>
-						Would be fine if we only needed maximum among all crops
+						Raster data folder is specified by <code>arcpy.env.workspace</code>
+					</p>
+				</section>
+
+				<section id="list-methods" data-transition="slide-in fade-out" style="text-align: left;">
+					<h3>
+						Digression: Other list methods
+					</h3>
+					<p>
+						For other file types
+					</p>
+					<ul>
+						<li>
+							<strong><a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-functions/listfeatureclasses.htm" target="_blank">ListFeatureClasses</a></strong>: for vector data
+						</li>
+						<li>
+							<strong><a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-functions/listdatasets.htm" target="_blank">ListDatasets</a></strong>: for any datasets
+						</li>
+						<li>
+							<strong><a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-functions/listtables.htm" target="_blank">ListTables</a></strong>: for attribute tables
+						</li>
+						<li>
+							<strong><a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-functions/listfiles.htm" target="_blank">ListFiles</a></strong>: for any file type
+						</li>
+					</ul>
+				<p>
+					Fields (i.e. columns in attribute table)
+				</p>
+					<ul>
+						<li>
+							<strong><a href="http://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-functions/listfields.htm" target="_blank">ListFields</a></strong>
+						</li>
+					</ul>
+
+				</section>
+
+
+				<section id="list-rasters3" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Input raster list (cont.)
+					</h4>
+					<pre style="font-size:0.65em;">
+						<code data-trim data-noescape>
+arcpy.env.workspace = "../output"
+input_rasters = arcpy.ListRasters("calorie_*", "TIF")
+max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
+						</code>
+					</pre>
+					<p>
+						This code is fine if we need maximum among all crops
 					</p>
 					<p>
 						To obtain maximum for cereals and for tubers separately...
 					</p>
-				</section>	
-				
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				</section>
+
+				<section id="list-rasters4" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Input raster list (cont.)
 					</h4>
@@ -1572,7 +1735,7 @@ max_calorie = CellStatistics(input_rasters,"MAXIMUM","DATA")
 					</p>
 					<pre style="font-size: 0.6em;">
 						<code data-trim data-noescape>
-arcpy.env.workspace = "C:/.../Lecture8/outputs"
+arcpy.env.workspace = "../output"
 
 input_cereals = arcpy.ListRasters("calorie_<mark>cereal_</mark>*", "TIF")
 max_cereal = CellStatistics(input_cereals, "MAXIMUM", "DATA")
@@ -1585,13 +1748,13 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 						Maximum will be calculated for each type of crops
 					</p>
 					<p>
-						$\Rightarrow$ Revise calorie.py
+						$\Rightarrow$ Revise <code>calorie.py</code>
 					</p>
-				</section>		
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
-						Branching by crop type 
+						Branching by crop type
 					</h3>
 					<p>
 						Use if/else statement to branch by crop type
@@ -1599,18 +1762,18 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 					<pre style="font-size: 0.45em;">
 						<code data-trim data-noescape>
 for crop in crops:
-   arcpy.env.workspace = ".../inputs/GAEZ"
+   arcpy.env.workspace = "../input/GAEZ"
    crop_yield = Raster(crop+".tif")
    calorie_yield = crop_yield * calorie[crop]
-   arcpy.env.workspace = ".../outputs"
+   arcpy.env.workspace = "../output"
    <mark>if crop == "cassava" or crop == "sweetpotato" or crop == "whitepotato" or crop == "yams":</mark>
       calorie_yield.save("calorie_<mark>tuber_</mark>"+crop+".tif")
    <mark>else:</mark>
       calorie_yield.save("calorie_<mark>cereal_</mark>"+crop+".tif")
-      
+
 						</code>
 					</pre>
-				</section>		
+				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
@@ -1620,20 +1783,23 @@ for crop in crops:
 						Practice with Map Algebra and Cell Statistics
 					</h3>
 					<p>
-						Start with /Lecture8/code/lec8ex3.py
+						Start with <code>code/template4L8ex3.py</code>
 					</p>
 					<p>
-						1. Calculate caloric difference between cereal and tuber
+						1. Create the list of caloric yield rasters for cereal and tuber
 					</p>
 					<p>
-						2. Obtain maximum caloric yield for all crops
+						2. Calculate caloric difference between cereal and tuber
 					</p>
 					<p>
-						3. Save the outputs
+						3. Obtain maximum caloric yield for all crops
 					</p>
-				</section>	
+					<p>
+						4. Save the outputs
+					</p>
+				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Caloric differences between cereal and tuber
 					</h4>
@@ -1647,9 +1813,9 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 <mark>caloric_diff = max_cereal - max_tuber</mark>
 						</code>
 					</pre>
-				</section>					
+				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Maximum caloric yield for all crops
 					</h4>
@@ -1664,7 +1830,7 @@ caloric_diff = max_cereal - max_tuber
 max_calorie = CellStatistics(<mark>[max_cereal, max_tuber]</mark>, "MAXIMUM", "DATA")
 						</code>
 					</pre>
-				</section>		
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
@@ -1678,29 +1844,29 @@ max_calorie = CellStatistics(<mark>[max_cereal, max_tuber]</mark>, "MAXIMUM", "D
 max_cereal = CellStatistics(input_cereals, "MAXIMUM", "DATA")
 max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 caloric_diff = max_cereal - max_tuber
-max_all = CellStatistics([max_cereal, max_tuber], "MAXIMUM", "DATA")
+max_calorie = CellStatistics([max_cereal, max_tuber], "MAXIMUM", "DATA")
 
-arcpy.env.workspace = ".../outputs"
+arcpy.env.workspace = "../output"
 max_cereal<mark>.save("max_calorie_cereal.tif")</mark>
 max_tuber<mark>.save("max_calorie_tuber.tif")</mark>
 caloric_diff<mark>.save("max_calorie_diff.tif")</mark>
-max_all<mark>.save("max_calorie_all.tif")</mark>
+max_calorie<mark>.save("max_calorie_all.tif")</mark>
 						</code>
 					</pre>
 					<p>
 						And save the script as max_calorie.py
 					</p>
-				</section>										
-				
+				</section>
+
 				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
-					Model Python Script for Lecture 8
+					Model Python Scripts for Lecture 8
 					</h3>
 					<p>
-						Look at "/Lecture8/code/solutions" folder
+						Look at <code>solutions4exercises/</code> folder
 					</p>
 				</section>
-				
+
 				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h4>
 					Assignment 1
@@ -1712,13 +1878,13 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 						Obtain average caloric difference within 20-mile radius of each society
 					</p>
 					<p>
-						INPUTS: /Lecture8/inputs/ethnographic_atlas.shp
+						INPUT: <code>input/ethnographic_atlas.shp</code>
 					</p>
 					<p>
 						Which geo-processing tools should we use?
 					</p>
 					<p>
-						Solution: see tribes20m.py
+						Solution: <code>solutions4exercises/tribes20m.py</code>
 					</p>
 				</section>
 
@@ -1760,7 +1926,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 						</li>
 					</ul>
 				</section>
-					
+
 			</section>
 
 
@@ -1781,7 +1947,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 					<p>
 						e.g. Sum of immediate neighbors
 					<img src="gis_lecture8/focal_statistics_sum.png" style="border:none; background:none; box-shadow:none; width:600px;">
-					</p>					
+					</p>
 				</section>
 
 				<section id="" data-transition="fade-in fade-out">
@@ -1804,7 +1970,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 					<p style="text-align: left">
 						You can define the neighborhood very flexibly (<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/how-focal-statistics-works.htm" target="_blank">more detail</a>)
 					</p>
-					<img src="gis_lecture8/circle.png" style="border:none; background:none; box-shadow:none; width:600px;">						
+					<img src="gis_lecture8/circle.png" style="border:none; background:none; box-shadow:none; width:600px;">
 					<p>
 						Circle
 					</p>
@@ -1835,7 +2001,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 						Wedge
 					</p>
 				</section>
-				
+
 				<section id="" data-transition="fade-in fade-out">
 					<h4 style="text-align: left">
 						Focal Statistics (cont.)
@@ -1861,7 +2027,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 						Weight
 					</p>
 				</section>
-												
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left">
 					<h4>
 						Application of Focal Statistics
@@ -1915,7 +2081,7 @@ max_all<mark>.save("max_calorie_all.tif")</mark>
 					<p class="fragment" data-fragment-index="1">
 						<small>Raster cell (30x30 arc-sec) level data is downloadable from <a href="http://diegopuga.org/data/rugged/#grid" target="_blank">Diego Puga's website</a></small>
 					</p>
-				</section>				
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
@@ -1938,7 +2104,7 @@ elev = Raster("srtm30.tif")
 elev_sq = elev**2
 						</code>
 					</pre>
-				</section>	
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left">
 					<h4>
@@ -1961,7 +2127,7 @@ sum_elev_sq = FocalStatistics(elev_sq, "", "SUM", "")
 sum_elev = FocalStatistics(elev, "", "SUM", "")
 						</code>
 					</pre>
-				</section>	
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left">
 					<h4>
@@ -1986,8 +2152,8 @@ TRI.save("ruggedness.tif")
 						</code>
 					</pre>
 				</section>
-				
-			</section>		
+
+			</section>
 
 			<section>
 				<section id="section5">
@@ -1995,10 +2161,10 @@ TRI.save("ruggedness.tif")
 						5. Other geo-processing tools used by economists
 					</h1>
 				</section>
-					
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						<a href="http://economics.mit.edu/files/10362" target="_blank">Hariri (2015)</a>
+						<a href="http://real.wharton.upenn.edu/~harari/Harari_Papers/CityShapeOct2017.pdf" target="_blank">Hariri (2017)</a>
 					</h3>
 					<p>
 						How city shapes affect population, wages, and housing rents
@@ -2015,7 +2181,7 @@ TRI.save("ruggedness.tif")
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						Hariri (2015) (cont.)
+						Hariri (2017) (cont.)
 					</h4>
 					<img src="gis_lecture8/city_shape.png" style="border:none; background:none; box-shadow:none; width:500px; float: right;">
 					<p>
@@ -2025,13 +2191,13 @@ TRI.save("ruggedness.tif")
 						Luminosity over 40 is defined as urban area
 					</p>
 					<p>
-						$\Rightarrow$ Reclassify tool (cf. <a href="http://mkudamatsu.github.io/gis_lecture6.html#/reclassify1" target="_blank">Lec 6</a>)
+						$\Rightarrow$ Reclassify tool (cf. <a href="../gis_lecture6.html#/reclassify1" target="_blank">Lec 6</a>)
 					</p>
 				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Hariri (2015) (cont.)
+						Hariri (2017) (cont.)
 					</h4>
 					<p>
 						Then use the <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/region-group.htm" target="_blank">Region Group</a> tool, to assign unique ID to each urban area
@@ -2042,13 +2208,13 @@ TRI.save("ruggedness.tif")
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
-						<a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10348" target="_blank">Konig et al. (2015)</a>
+						<a href="http://doi.org/10.3982/ECTA13117" target="_blank">Konig et al. (2017)</a>
 					</h3>
 					<img src="gis_lecture8/MRTZ2015F5a.png" style="border:none; background:none; box-shadow:none; width:500px; float:right;">
 					<p>
-						Estimate the externality of military efforts on allied partners' effort in DR Congo civil wars 
+						Estimate the externality of military efforts on allied partners' effort in DR Congo civil wars
 					</p>
 					<p>
 						Use rainfall shock as instruments
@@ -2060,7 +2226,7 @@ TRI.save("ruggedness.tif")
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Konig et al. (2015) (cont.)
+						Konig et al. (2017) (cont.)
 					</h4>
 					<p>
 						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/minimum-bounding-geometry.htm" target="_blank">Minimum Bounding Geometry</a> tool with Convex Hull option
@@ -2070,7 +2236,7 @@ TRI.save("ruggedness.tif")
 						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/directional-distribution.htm" target="_blank">Directional Distribution (Standard Deviation Ellipse)</a> tool
 					</p>
 					<img src="gis_lecture8/directional-distribution.gif" style="border:none; background:none; box-shadow:none; width:400px;">
-					
+
 				</section>
 
 				<section id="what_we_learn" data-transition="slide-in slide-out" style="text-align: left;">
@@ -2087,7 +2253,7 @@ TRI.save("ruggedness.tif")
 						<a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. (2016)</a> use it as a robustness check to Murdock's ethnic homeland boundaries
 					</p>
 					<p class="fragment" data-fragment-index="2">
-						Alsan (2015) (cf. <a href="http://mkudamatsu.github.io/gis_lecture2.html#/section2" target="_blank">Lec 2</a>) uses it as an alternative to the 20-miles radius of Ethnographic Atlas society location
+						Alsan (2015) (cf. <a href="../gis_lecture2.html#/section2" target="_blank">Lec 2</a>) uses it as an alternative to the 20-miles radius of Ethnographic Atlas society location
 					</p>
 				</section>
 
@@ -2116,7 +2282,7 @@ TRI.save("ruggedness.tif")
 						<li>
 							Example: remove lakes from country polygons
 						</li>
-					</ul> 
+					</ul>
 				</section>
 
 
@@ -2125,7 +2291,7 @@ TRI.save("ruggedness.tif")
 					<h3>
 						What we've learned on ArcGIS
 					</h3>
-					<ol>	
+					<ol>
 						<li>
 							Cell-by-cell calculations on multiple raster datasets
 						</li>
@@ -2142,17 +2308,17 @@ TRI.save("ruggedness.tif")
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
 		</div>
-		<!-- To end the activation of the CSS framework of Reveal.js -->		
+		<!-- To end the activation of the CSS framework of Reveal.js -->
 
-		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
-		
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->
+
 		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
 		<script src="lib/js/head.min.js"></script>
 		<!-- Load reveal.js -->
 		<script src="js/reveal.js"></script>
 
 		<!-- Import MathJax, to use TeX for mathematic expressions -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 		<!-- Allow inline math expressions by using $ -->
 		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
 		<script type="text/x-mathjax-config">

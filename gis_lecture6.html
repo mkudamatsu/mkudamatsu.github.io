@@ -16,7 +16,7 @@
 
 		<!-- Activate Reveal.js -->
 		<link rel="stylesheet" href="css/reveal.css">
-		
+
 		<!-- Define the theme -->
 		<link rel="stylesheet" href="css/theme/white4me.css" id="theme">
 
@@ -45,14 +45,17 @@
 
 			<!-- To reconfigure an HTML5 <section> element as a slide using CSS. -->
 			<div class="slides">
-				
+
 				<!-- Slide contents start here -->
-				
+
 				<!-- My own slide templates -->
 				<section id="title">
 					<h3 style="color:slategrey">
-						ArcGIS 10 for Economics Research
+						Causal Inference with Spatial Data
 					</h3>
+					<p style="color:slategrey">
+ 						(ArcGIS 10 for Economics Research)
+					</p>
 					<h3>
 						Lecture 6
 					</h3>
@@ -61,7 +64,7 @@
 					</h2>
 					<br>
 					<p>Masayuki Kudamatsu</p>
-					<p>25 May, 2016</p>
+					<p>30 August, 2018</p>
 					<br>
 					<p>
 						<small>Press <span style="color:red;">SPACE</span> to proceed. </small>
@@ -90,7 +93,7 @@
 						<p>
 							5. Loop over values in Python
 						</p>
-				</section>			
+				</section>
 
 			<section>
 				<section id="section1">
@@ -101,13 +104,13 @@
 						It's a great source of exogenous variation!
 					</p>
 				</section>
-			
+
 			<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 				<h3>
 					<a href="http://dx.doi.org/10.1257/aer.101.7.3078" target="_blank">Dinkelman (2011)</a>
 				</h3>
 					<p>
-						Electrification in South Africa (1996-2001) 
+						Electrification in South Africa (1996-2001)
 					</p>
 					<p>
 						$\Rightarrow$ Female labor supply $\uparrow$
@@ -142,7 +145,7 @@
 					</ul>
 			</section>
 
-			<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+			<!-- <section id="" data-transition="slide-in slide-out" style="text-align: left;">
 				<h3>
 					<a href="http://dx.doi.org/10.1257/app.1.4.1" target="_blank">Olken (2009)</a>
 				</h3>
@@ -153,7 +156,7 @@
 						TV: instrumented by <strong>signal strength</strong>
 					</p>
 				<img src="gis_lecture6/olken.png" style="border:none; background:none; box-shadow:none; width:800px;">
-			</section>
+			</section> -->
 
 			<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 				<h3>
@@ -163,14 +166,15 @@
 						Anti-Hutu radio station in Rwanda
 					</p>
 					<p>
-						$\Rightarrow$ Genocide incidents $\uparrow$						
+						$\Rightarrow$ Genocide incidents $\uparrow$
 					</p>
 					<p>
 						Radio: instrumented by <strong>signal strength</strong>
 					</p>
+					<img src="gis_lecture6/olken.png" style="border:none; background:none; box-shadow:none; width:800px;">
 			</section>
 
-			<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+			<!-- <section id="" data-transition="slide-in fade-out" style="text-align: left;">
 				<h3>
 					<a href="http://dx.doi.org/10.1257/app.5.2.200" target="_blank">Lipscomb et al. (2013)</a>
 				</h3>
@@ -191,14 +195,14 @@
 							Obtain total # of hydropower plants constructed nationwide in each period
 						</li>
 					</ol>
-			</section>			
+			</section>
 			<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 				<h4>
 					Lipscomb et al. (2013) (cont.)
 				</h4>
 					<ol>
 						<li value="4">
-							If $n$ plants were constructed in period 1, turn on the instrument for the $n$ most suitable locations 							
+							If $n$ plants were constructed in period 1, turn on the instrument for the $n$ most suitable locations
 						</li>
 						<li>
 							If $m$ plants were additionally constructed in period 2, turn on the instrument for the next $m$ most suitable locations
@@ -210,22 +214,22 @@
 					<p>
 						$\Rightarrow$ 1st-stage F-stat: over 20
 					</p>
-			</section>			
-										
+			</section> -->
+
 		</section>
-														
+
 			<section>
 				<section id="section2">
 					<h1>
 						2. <a href="http://dx.doi.org/10.1162/qjec.122.2.601" target="_blank">Duflo & Pande (2007)</a>
 					</h1>
 				</section>
-				
+
 				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>Research Question</h3>
 					<p>
 						Do irrigation dams improve agricultural production and reduce rural poverty in India?
-					</p>					
+					</p>
 					<p>
 						Important?
 					</p>
@@ -244,7 +248,7 @@
 						<li>
 							Use geography to obtain credible impact estimates
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						Feasible?
 					</p>
@@ -254,7 +258,7 @@
 					<h3>Data</h3>
 					<p>
 						Unit of analysis: districts
-					</p>					
+					</p>
 					<p>
 						Agricultural production data: annual 1971-99
 					</p>
@@ -270,14 +274,14 @@
 						</li>
 					</ul>
 				</section>
-				
+
 				<section id="empirical_strategy1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>Identification strategy</h3>
 					<p>
 						Dam constriction: instrumented by river gradient
-					</p>					
+					</p>
 							<p>
-								$\Leftarrow$ Dams: easier to build if river gradient is 
+								$\Leftarrow$ Dams: easier to build if river gradient is
 							<ul style="margin-left: 85px;">
 								<li>
 									Moderate for irrigation dams
@@ -298,8 +302,8 @@
 					</h3>
 					<p>
 						\begin{align*}
-			D_{ist} 
-			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st}) 
+			D_{ist}
+			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st})
 			+ (\mathbf{M}'_i \ast \bar{D}_{st})\boldsymbol{\beta} \\
 			 & + \sum_{k=2}^4 \gamma_k (RGr_{ki} \ast l_{t}) + \nu_i + \mu_{st} + \omega_{ist}
 						\end{align*}
@@ -318,6 +322,9 @@
 							<td>(2 for 1.5-3%; 3 for 3-6%, 4 for over 6%)</td>
 						</tr>
 					</table>
+					<p class="fragment"  data-fragment-index="1">
+						We will learn how to calculate $RGr_{ki}$ in ArcGIS
+					</p>
 				</section>
 
 				<section id="empirical_strategy3" data-transition="fade-in fade-out" style="text-align: left;">
@@ -326,8 +333,8 @@
 					</h4>
 					<p>
 						\begin{align*}
-			D_{ist} 
-			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st}) 
+			D_{ist}
+			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st})
 			+ (\mathbf{M}'_i \ast \bar{D}_{st})\boldsymbol{\beta} \\
 			 & + \sum_{k=2}^4 \gamma_k (RGr_{ki} \ast l_{t}) + \nu_i + \mu_{st} + \omega_{ist}
 						\end{align*}
@@ -354,8 +361,8 @@
 					</h4>
 					<p>
 						\begin{align*}
-			D_{ist} 
-			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st}) 
+			D_{ist}
+			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st})
 			+ (\mathbf{M}'_i \ast \bar{D}_{st})\boldsymbol{\beta} \\
 			 & + \sum_{k=2}^4 \gamma_k (RGr_{ki} \ast l_{t}) + \nu_i + \mu_{st} + \omega_{ist}
 						\end{align*}
@@ -379,20 +386,34 @@
 					</p>
 				</section>
 
-				<section id="empirical_strategy4" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="empirical_strategy5" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						1st stage (cont.)
 					</h4>
 					<p>
 						\begin{align*}
-			D_{ist} 
-			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st}) 
-			+ \beta (\mathbf{M}_i \ast \bar{D}_{st}) \\
+			D_{ist}
+			=& \ \sum_{k=2}^4 \alpha_k (RGr_{ki} \ast \bar{D}_{st})
+			+ (\mathbf{M}'_i \ast \bar{D}_{st})\boldsymbol{\beta} \\
 			 & + \sum_{k=2}^4 \gamma_k (RGr_{ki} \ast l_{t}) + \nu_i + \mu_{st} + \omega_{ist}
 						\end{align*}
 					</p>
+					<table border="0" width="100%">
+						<tr>
+							<td style="text-align: center">$\mathbf{M}_i$</td>
+							<td>Controls: river length, fraction of district areas with each gradient cateogry, etc.</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$l_{t}$</td>
+							<td>Year dummies</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">$\nu_i,\mu_{st}$</td>
+							<td>District and state-year FEs</td>
+						</tr>
+					</table>
 					<p>
-						We will replicate $RGr_{ki}$ and river length in $\mathbf{M}_i$
+						We will learn how to obtain river length in $\mathbf{M}_i$
 					</p>
 				</section>
 
@@ -403,7 +424,7 @@
 					<p>
 						\begin{align*}
 			y_{ist} =& \ \gamma_i + \eta_{st} + \delta D_{ist} + \delta^U D_{ist}^U \\
-			         & + \mathbf{Z}_{ist}\mathbf{\delta_Z} + \mathbf{Z^U}_{ist}\mathbf{\delta_Z^U} + \varepsilon_{ist}					
+			         & + \mathbf{Z}_{ist}\mathbf{\delta_Z} + \mathbf{Z^U}_{ist}\mathbf{\delta_Z^U} + \varepsilon_{ist}
 						\end{align*}
 					</p>
 					<table border="0" width="100%">
@@ -445,7 +466,7 @@
 					<p>
 						\begin{align*}
 			y_{ist} =& \ \gamma_i + \eta_{st} + \delta D_{ist} + \delta^U D_{ist}^U \\
-			         & + \mathbf{Z}_{ist}\mathbf{\delta_Z} + \mathbf{Z^U}_{ist}\mathbf{\delta_Z^U} + \varepsilon_{ist}					
+			         & + \mathbf{Z}_{ist}\mathbf{\delta_Z} + \mathbf{Z^U}_{ist}\mathbf{\delta_Z^U} + \varepsilon_{ist}
 						\end{align*}
 					</p>
 					<p>
@@ -454,23 +475,23 @@
 					<p>
 					 	$D_{ist}^U$: instrumented by sum of fitted values from 1st stage for upstream districts
 					</p>
-				</section>				
+				</section>
 
 				<section id="result1"  data-transition="slide-in slide-out">
 					<h4>
 						1st stage results
 					</h4>
-					<img src="gis_lecture6/damsT2.png" style="border: none; background: none; box-shadow:none; width: 600px;">					
+					<img src="gis_lecture6/damsT2.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 					<p>
 						<small>(Table II of Duflo and Pande 2007)</small>
 					</p>
 				</section>
-				
+
 				<section id="result2a"  data-transition="slide-in fade-out">
 					<h4>
 						2nd stage results (on agriculture)
 					</h4>
-					<img src="gis_lecture6/damsT3a.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<img src="gis_lecture6/damsT3a.png" style="border: none; background: none; box-shadow:none; width: 700px;">
 					<p>
 						<small>(Table III of Duflo and Pande 2007)</small>
 					</p>
@@ -479,7 +500,7 @@
 					<h4>
 						2nd stage results (on agriculture)
 					</h4>
-					<img src="gis_lecture6/damsT3b.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<img src="gis_lecture6/damsT3b.png" style="border: none; background: none; box-shadow:none; width: 700px;">
 					<p>
 						<small>(Table III of Duflo and Pande 2007)</small>
 					</p>
@@ -488,14 +509,14 @@
 					<h4>
 						2nd stage results (on poverty)
 					</h4>
-					<img src="gis_lecture6/damsT8.png" style="border: none; background: none; box-shadow:none; width: 700px;">					
+					<img src="gis_lecture6/damsT8.png" style="border: none; background: none; box-shadow:none; width: 700px;">
 					<p>
 						<small>(Table VIII of Duflo and Pande 2007)</small>
 					</p>
 				</section>
-				
 
-												
+
+
 			</section>
 
 
@@ -509,27 +530,25 @@
 						1. Launch ArcMap 10 (it takes time)
 					</p>
 					<p>
-						2. <a href="https://www.dropbox.com/s/57mz98l0jpd36gi/Lecture6.zip?dl=0" target="_blank">Download the zipped dataset for Lecture 6</a> 
+						2. <a href="https://www.dropbox.com/s/3didb10i3opzlbn/Lecture6.zip?dl=1" target="_blank">Download the zipped dataset for Lecture 6</a>
 					</p>
 					<p>
-						3. Save it to <strong>Downloads</strong> (<code>C:\\Users\\<em>yourname</em>\\Downloads</code>)
+						3. Save it to <strong>Desktop</strong> (<code>C:\\Users\\<em>yourname</em>\\Desktop</code>)
+					</p>
+					<p>
+						4. Right-click it and choose <span style="background-color: Gainsboro">7-Zip > Extract to "Lecture6\"</span>
 					</p>
 					<ul style="margin-left: 72px;">
 						<li>
-							 Don't save in the remote server, which slows down ArcGIS
-						</li>
-					</ul>															
-					<p>
-						4. Right-click it and choose "<strong>7-Zip > Extract Here</strong>"
-					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Downloads\\Lecture6</code>
+							 So the directory path will be: <code>C:\\Users\\<em>yourname</em>\\Desktop\\Lecture6</code>
 						</li>
 					</ul>
 					<p>
-						5. Unzip <strong>10m-rivers-lake-centerlines.zip</strong> in the same way
-					</p>															
+						In the <code>input</code> folder:
+					</p>
+					<p>
+						5. Right-click <code>10m-rivers-lake-centerlines.zip</code> and select <span style="background-color: Gainsboro">7-Zip > Extract to Here</span>
+					</p>
 				</section>
 
 				<section id="preparation2" data-transition="slide-out fade-in" style="text-align: left;">
@@ -543,38 +562,30 @@
 						6. Establish connection to data folder
 					</p>
 					<ul style="margin-left: 72px;">
-						<li>
-							Right-click "<strong>Folder Connections</strong>"
+						<li style="margin-bottom: 5px;">
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							Select <span style="background-color: Gainsboro">Connect to Folder</span>
 						</li>
 						<li>
-							Select "<strong>Connect to Folder</strong>"
-						</li>
-						<li>
-							Choose "<strong>Downloads > Lecture6</strong>"
+							Choose <span style="background-color: Gainsboro">Desktop > Lecture6</span>
 						</li>
 					</ul>
 					<p>
-						7. Create a new folder <strong>outputs</strong> inside <strong>Lecture6</strong>
-					</p>
-					<ul style="margin-left: 72px;">
-						<li>
-							 We will create all new files in this folder
-						</li>
-					</ul>															
-					<p>
-						8. Prepare the Model Builder
+						7. Create two empty models in the <code>code/models.tbx</code>
 					</p>
 					<ul style="margin-left: 72px;">
 							<li>
-								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a> 				
+								<code>exercises1-3</code>
 							</li>
 							<li>
-								<a href="http://mkudamatsu.github.io/gis_lecture1.html#/modelbuilder3" target="_blank">Save it</a> as "<strong>models.tbx/exercises1-3</strong>" inside <strong>Lecture6</strong>
+								<code>exercise4</code>
 							</li>
 					</ul>
 				</section>
-			
-			<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+
+			<section id="elevation-data1" data-transition="slide-in fade-out" style="text-align: left;">
 				<h4>
 					Elevation data
 				</h4>
@@ -598,12 +609,12 @@
 				<img src="gis_lecture6/srtm30tiles.png" style="border:none; background:none; box-shadow:none; width:400px;">
 			</section>
 
-			<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+			<section id="elevation-data2" data-transition="fade-in fade-out" style="text-align: left;">
 				<h4>
 					How to use SRTM30 in ArcGIS 10
 				</h4>
 				<p>
-					1. Log on to: <a href="http://www.webgis.com/srtm30.html" target="_blank">webgis.com/srtm30.html</a> 	 
+					1. Log on to: <a href="http://www.webgis.com/srtm30.html" target="_blank">webgis.com/srtm30.html</a>
 				</p>
 				<p>
 					2. Click the tile covering your study area
@@ -613,45 +624,68 @@
 				</p>
 				<ul>
 					<li>
-						***.dem.zip (data file)
+						<code>***.dem.zip</code> (data file)
 					</li>
 					<li>
-						***.hdr.zip (header file)
+						<code>***.hdr.zip</code> (header file)
 					</li>
 					<li>
-						***.prj.zip (projection file)
+						<code>***.prj.zip</code> (projection file)
 					</li>
 					<li>
-						***.stx.zip (statistics file)
+						<code>***.stx.zip</code> (statistics file)
 					</li>
 				</ul>
+				<p>
+					For this lecture, these four files for India (<code>060n40.***.zip</code>) are already downloaded <br>in the <code>input/</code> folder.
+				</p>
+			</section>
+
+			<section id="elevation-data3" data-transition="fade-in fade-out" style="text-align: left;">
+				<h4>
+					How to use SRTM30 in ArcGIS 10 (cont.)
+				</h4>
 				<p>
 					4. Unzip them so the four files (.DEM, .HDR, .PRJ, .STX) are all saved in the same directory
 				</p>
 				<ul>
 					<li>
-						Right-click the .zip file and choose "<strong>7-Zip > Extract Here</strong>"
+						Right-click each .zip file and choose <span style="background-color: Gainsboro">7-Zip > Extract Here</span>
+					</li>
+				</ul>
+				<p>
+					5. Drag the .DEM file from ArcMap's Calatogue window
+				</p>
+				<p>
+					6. For geo-processing, use the .DEM file as the input file
+				</p>
+				<p>
+					7. If you use multiple tiles, <strong><a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/mosaic-to-new-raster.htm" target="_blank">Mosaic to New Raster</a></strong> appends them all
+				</p>
+			</section>
+
+			<section id="mosaic-to-new-raster" data-transition="fade-in slide-out" style="text-align: left;">
+				<h4>
+					<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/mosaic-to-new-raster.htm" target="_blank">Mosaic to New Raster</a>
+				</h4>
+				<p>
+					Make sure to set the appropriate <strong>pixel type</strong>
+				</p>
+				<ul>
+					<li>
+						By default, it sets <code>8_BIT_UNSIGNED</code> (i.e. 0 to 255)
+					</li>
+					<li>
+						If your raster data is in decimals, negative values, or larger than 255, it gets distorted
+					</li>
+					<li>
+						For elevation data, choose <code>16_BIT_SIGNED</code> (i.e. -32,768 to 32,767)
 					</li>
 				</ul>
 			</section>
-			
-			<section id="" data-transition="fade-in slide-out" style="text-align: left;">
-				<h4>
-					How to use SRTM30 in ArcGIS 10 (cont.)
-				</h4>
-				<p>
-					5. Drag ***.DEM from ArcMap's Calatogue window to browse
-				</p>
-				<p>
-					6. For geo-processing, use ***.dem as the input file 	 
-				</p>
-				<p>
-					7. If you use multiple tiles, <strong><a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/mosaic-to-new-raster.htm" target="_blank">Mosaic to New Raster</a></strong> appends them all 
-				</p>
-			</section>
-						
+
 		</section>
-		
+
 			<!-- SECTION for ArcMap -->
 			<section>
 				<section id="section3">
@@ -659,8 +693,8 @@
 						3. Replicate Instruments in Duflo & Pande (2007)
 					</h1>
 				</section>
-				
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+
+				<section id="data2construct1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
 						Data we want to construct
 					</h3>
@@ -690,58 +724,72 @@
 							</li>
 						</ul>
 						<img src="gis_lecture6/river_on_grid.jpg" style="border: none; background: none; box-shadow:none; width: 400px; float: right;">
-						
-				</section>				
 
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h4>
-						Data we want to construct (cont.)
-					</h4>
-						<p>
-							Each river segment is of equal size if:
-						</p>
-						<p>
-							1. Raster resolution is very fine
-						</p>
-						<ul>
-							<li>
-								SRTM30: 30x30 arc-second (roughly 1km x 1km)
-							</li>
-						</ul>
-						<p>
-							2. Raster cells are of equal size
-						</p>
-						<ul>
-							<li>
-								Districts in India are at most 3&deg wide in latitude
-							</li>
-							<li>
-								30 seconds in longitude can differ up to <strong>only 18m</strong>
-							</li>
-							<ul>
-							<li>
-								India is located from 8&deg to 37&deg North
-							</li>
-							<li>
-								1&deg in longitude at 15&deg = 107.551km
-							</li>							
-							<li>
-								1&deg in longitude at 30&deg = 96.486km
-							</li>								
-							</ul>
-						</ul>
-				</section>				
+				</section>
 
-				<!-- Standard text slide -->
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="data2construct2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
 					<p>
-						Each river segment is of equal size
+						In this lecture, we assume:
 					</p>
 					<p>
-						$\Rightarrow$ Use Zonal Statitics with two inputs:
+						Each river segment is <strong>of equal size</strong> within the same district
+					</p>
+					<ul>
+						<li>
+							Districts in India are at most 3&deg wide in latitude
+						</li>
+						<li>
+							30 seconds in longitude can differ up to <strong>only 18m</strong>
+						</li>
+						<ul>
+						<li>
+							India is located from 8&deg to 37&deg North
+						</li>
+						<li>
+							1&deg in longitude at 15&deg = 107.551km
+						</li>
+						<li>
+							1&deg in longitude at 30&deg = 96.486km
+						</li>
+					</ul>
+					<p style="text-align: center;">
+					$\frac{107551-96486}{120}*\frac{3}{30-15} \approx 18$
+					<p>
+				</section>
+
+				<section id="data2construct3" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<p>
+						If each raster cell is not of equal size within a district
+					</p>
+					<ul>
+						<li>
+							Each cell is large
+						</li>
+						<li>
+							The district stretches a lot along the north-south direction
+						</li>
+					</ul>
+					<p>
+					  $\Rightarrow$ Need to project the raster data (cf. Lecture 7)
+					<p>
+				</section>
+
+				<!-- Standard text slide -->
+				<section id="data2construct4" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<p>
+						If each river segment is of equal size,
+					</p>
+					<p>
+						$\Rightarrow$ We can use Zonal Statitics to calculate % of each type of segments, with two inputs:
 					</p>
 					<ol style="margin-left: 85px;">
 						<li>
@@ -756,15 +804,15 @@
 						</li>
 						<li>
 							0 otherwise
-						</li>							
+						</li>
 						</ul>
 					</ol>
 					<br>
-					<table>
+					<table style="margin-top: 50px;">
 						<tr class="fragment" data-fragment-index="1">
 							<td style="text-align: center; border: 1px solid black;">Mean cell value among river cells</td>
 							<td style="text-align: center;">=</td>
-							<td style="text-align: center; border: 1px solid black;">Fraction of river areas with gradient 3-6%</td>							
+							<td style="text-align: center; border: 1px solid black;">Fraction of river areas with gradient 3-6%</td>
 						</tr>
 						<tr class="fragment" data-fragment-index="2">
 							<td style="text-align: center">
@@ -784,7 +832,7 @@
 				</section>
 
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="data2construct5" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
@@ -806,23 +854,28 @@
 							2. River polylines intersected & dissolved by district
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							$\Rightarrow$ Use Zonal Statistics with 1 and 2 as inputs
+							3. % of river segments in each gradient category
 						</p>
-				</section>		
+						<ul class="fragment" data-fragment-index="1">
+						  <li>
+								Use Zonal Statistics with 1 and 2 as inputs
+							</li>
+						</ul>
+				</section>
 
 				<section id="ex1a" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #1
+					Exercise #1: Overview
 					</h4>
 					<h3>
 						Indicator raster for each gradient category
 					</h3>
 					<p>
-						Input: elevation data (E060N40.DEM)
+						Input: elevation data (<code>E060N40.DEM</code>)
 					</p>
 					<p>
 						Geo-processing tools:
-					</p>					
+					</p>
 					<p>
 						1. Slope
 					</p>
@@ -876,7 +929,7 @@
 						\begin{align*}
 						\frac{dz}{dx} = & \ \Big[\frac{c + 2f + i}{4} - \frac{a+2d+g}{4}\Big] / 2 \\
 						\frac{dz}{dy} = & \ \Big[\frac{a+2b+c}{4} - \frac{g + 2h + i}{4}\Big] / 2
-						\end{align*}						
+						\end{align*}
 					</p>
 				</section>
 
@@ -886,24 +939,24 @@
 					</h4>
 					<h3>
 						SLOPE
-					</h3>					
+					</h3>
 					<p>
-						<strong>Input raster</strong>: E060N40.DEM
+						<strong>Input raster</strong>: <code>...\Lecture6\input\E060N40.DEM</code>
 					</p>
 					<p>
-						<strong>Output raster</strong>: ...\Lecture6\outputs\slope.tif
+						<strong>Output raster</strong>: <code>...\Lecture6\temporary\slope.tif</code>
 					</p>
 					<p>
 						<strong>Output Measurement</strong>: PERCENT_RISE
 					</p>
 					<ul>
 						<li>
-							Duflo & Pande (2007) use gradient in percentage
+							Duflo & Pande (2007) use gradient in % (i.e. $\tan\theta\times 100$)
 						</li>
 						<li>
-							Choose DEGREE for $\theta$ instead of $\tan\theta$
+							If you need $\theta$, choose DEGREE instead
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Z factor</strong>: 0.000009
 					</p>
@@ -920,7 +973,7 @@
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Z-factor
-					</h3>					
+					</h3>
 					<p>
 						<strong>1</strong> if raster data is in projected coordinate system
 					</p>
@@ -944,16 +997,16 @@
 						<li>
 							1&deg in longitude < 1&deg in latitude
 						</li>
-					</ul>						
+					</ul>
 				</section>
-				
+
 				<section id="reclassify1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #1: Step 2
 					</h4>
 					<h3>
 						RECLASSIFY
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input raster</strong>: slope.tif
 					</p>
@@ -961,15 +1014,15 @@
 						<li>
 							Output from Slope tool
 						</li>
-					</ul>	
+					</ul>
 					<p>
-						<strong>Reclass field</strong>: Value
-					</p>					
+						<strong>Reclass field</strong>: VALUE
+					</p>
 					<p>
 						<strong>Reclassification</strong>: see next slide
 					</p>
 					<p>
-						<strong>Output raster</strong>: ...\Lecture6\outputs\gradient1530.tif
+						<strong>Output raster</strong>: <code>...\Lecture6\temporary\gradient3060.tif</code>
 					</p>
 					<p>
 						Uncheck "<strong>Change missing values to NoData</strong>"
@@ -979,7 +1032,7 @@
 				<section id="reclassify2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						RECLASSIFY (cont.)
-					</h4>					
+					</h4>
 					<p>
 						For gradient 3-6%:
 					</p>
@@ -1017,16 +1070,16 @@
 
 				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2
+					Exercise #2: Overview
 					</h4>
 					<h3>
 						River polylines by district
 					</h3>
 					<p>
-						Inputs: 
+						Inputs:
 					</p>
 					<p>
-						Natural Earth 1:10m river + lake centerlines (ne_10m_river_lake_centerlines.shp)
+						Natural Earth 1:10m river + lake centerlines (<code>ne_10m_river_lake_centerlines.shp</code>)
 					</p>
 					<ul>
 						<li>
@@ -1037,7 +1090,7 @@
 						</li>
 					</ul>
 					<p>
-						Indian district polygons (IND_adm2.shp)
+						Indian district polygons (<code>gadm36_IND_2.shp</code>)
 					</p>
 					<ul>
 						<li>
@@ -1045,45 +1098,14 @@
 						</li>
 					</ul>
 				</section>
-				
-				<section id="gadm" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>
-						Subnational administrative boundary datasets
-					</h3>
-					<p>
-						<a href="http://www.gadm.org/" target="_blank">GADM</a>
-					</p>
-					<ul>
-						<li>
-							Popularly used by economists
-						</li>
-						<li>
-							Available for the most recent year only
-						</li>
-					</ul>
-					<p>
-						<a href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" target="_blank">GAUL</a> (cf. <a href="http://mkudamatsu.github.io/gis_lecture1.html#/ex1a" target="_blank">Lec 1 Ex 1</a>)
-					</p>
-					<ul>
-						<li>
-							Annual data since 1990
-						</li>
-						<li>
-							Data cleaning needed (Define Projection / Dissolve to turn each unit into one polygon)
-						</li>
-						<li>
-							Register with FAO Geonetwork, to download
-						</li>
-					</ul>
-				</section>
-				
+
 				<section id="ex2b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2: Overview (cont.)
 					</h4>
 					<p>
 						Geo-processing tools:
-					</p>					
+					</p>
 					<p>
 						1. Intersect
 					</p>
@@ -1097,38 +1119,39 @@
 					</p>
 						<ul style="margin-left: 72px;">
 							<li>
-								Turn all river polylines within a district into one 							</li>
+								Turn all river polylines within a district into one feature
+							</li>
 						</ul>
 				</section>
-										
+
 				<section id="ex2intersect" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #2: Step 1
 					</h4>
 					<h3>
 						Intersect (Analysis)
-					</h3>					
+					</h3>
 					<p>
-						<strong>Input Features</strong>: 
+						<strong>Input Features</strong> (both in <code>...\Lecture6\input\</code>):
 					</p>
 					<p>
-						IND_adm2.shp
+						<code>gadm36_IND_2.shp</code>
 					</p>
 					<p>
-						ne_10m_rivers_lake_centerlines.shp
+						<code>ne_10m_rivers_lake_centerlines.shp</code>
 					</p>
 					<ul>
 						<li>
-							Click the <span style="color:red;">directory icon</span> to choose data outside the Model 
+							Click the <span style="color:red;">directory icon</span> to choose input data
 						</li>
 						<li>
-							If using the drop-down menu, data file name won't properly be exported in a Python script.
+							If the data is shown in ArcMap, it appears in the drop-down menu. But then the data file name won't properly be exported in a Python script.
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\intersect.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\intersect.shp</code>
 					</p>
-				</section>								
+				</section>
 
 				<section id="ex2dissolve" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
@@ -1136,7 +1159,7 @@
 					</h4>
 					<h3>
 						Dissolve (Data Management)
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input Features</strong>: intersect.shp
 					</p>
@@ -1146,16 +1169,16 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\river_by_district.shp
+						<strong>Output Feature Class</strong>: <code>...\temporary\river_by_district.shp</code>
 					</p>
 					<p>
-						<strong>Dissolve_Field(s)</strong>: ID_2
+						<strong>Dissolve_Field(s)</strong>: GID_2
 					</p>
 					<ul>
 						<li>
 							Unique district ID
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						Check "<strong>Create multipart features</strong>"
 					</p>
@@ -1164,7 +1187,7 @@
 				<section id="ex2dissolve2" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Dissolve (Data Management) (cont.)
-					</h4>					
+					</h4>
 					<p>
 						<strong>Statistics Field(s)</strong>
 					</p>
@@ -1183,8 +1206,8 @@
 						</li>
 					</ul>
 				</section>
-				
-				
+
+
 				<section id="validate1" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Exercise #2 (cont.)
@@ -1193,27 +1216,27 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse river_by_district.shp
+						Browse <code>river_by_district.shp</code>
 					</p>
 					<p>
 						To check if multipart features are properly created:
 					</p>
 					<ul>
 						<li>
-							Browse river_by_disrict.shp and india_districts.shp
+							Browse <code>river_by_disrict.shp</code> and <code>gadm36_IND_2.shp</code>
 						</li>
 						<li>
 							Select a district with multiple rivers by cursor
 						</li>
 						<li>
-							See attribute table of india_districts.shp for ID_2 of the selected district
+							See attribute table of <code>gadm36_IND_2.shp</code> for GID_2 of the selected district
 						</li>
 						<li>
-							See attribute table of river_by_district.shp and select the row for this ID_2
+							See attribute table of <code>river_by_disrict.shp</code> and select the row for this GID_2
 						</li>
 					</ul>
 				</section>
-				
+
 				<section id="ex3" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 					Exercise #3
@@ -1222,7 +1245,7 @@
 						Fraction of river areas with each gradient category
 					</h3>
 					<p>
-						Geo-processing tools: 
+						Geo-processing tools:
 					</p>
 					<p>
 						1. Zonal Statistics as Table
@@ -1230,7 +1253,7 @@
 					<p>
 						2. Table To Excel
 					</p>
-				</section>				
+				</section>
 
 				<section id="zonal_stat1" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
@@ -1238,7 +1261,7 @@
 					</h4>
 					<h3>
 						Zonal Statistics as Table
-					</h3>					
+					</h3>
 					<p>
 						<strong>Input raster or feature zone data</strong>: river_by_district.shp
 					</p>
@@ -1246,9 +1269,9 @@
 						<li>
 							Output from Dissolve
 						</li>
-					</ul>						
+					</ul>
 					<p>
-						<strong>Zone field</strong>: ID_2
+						<strong>Zone field</strong>: GID_2
 					</p>
 					<p>
 						<strong>Input value raster</strong>: gradient3060.tif
@@ -1259,7 +1282,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Table</strong>: river_gradient3060.dbf
+						<strong>Output Table</strong>: <code>...\temporary\river_gradient3060.dbf</code>
 					</p>
 					<p>
 						Check "<strong>Ignore NoData in calculation</strong>"
@@ -1275,14 +1298,14 @@
 				</h4>
 				<h3>
 					Table To Excel
-				</h3>					
+				</h3>
 						<p>
 							<strong>Input Table</strong>: river_gradient3060.dbf
 						</p>
 						<p>
-							<strong>Output Excel File</strong>: ...\Lecture6\outputs\river_gradient3060.xls
+							<strong>Output Excel File</strong>: <code>...\Lecture6\output\river_gradient3060.xls</code>
 						</p>
-				</section>	
+				</section>
 
 				<!-- Standard text slide -->
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1294,18 +1317,22 @@
 						</p>
 				</section>
 
-								
+
 				<section id="model_script1" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
 					Solutions for Exercises 1-3
 					</h3>
 					<p>
-						Look at "models.tbx\exercises1-3" and "lec6ex1-3.py" in the "solutions4exercises" folder
+						Look at
 					</p>
+					<ul>
+						<li><code>models.tbx\exercises1-3</code></li>
+						<li><code>exercises1-3.py</code></li>
+					</ul>
 					<p>
-						In lec6ex1-3.py, ListRasters and ListTables methods (cf.  <a href="http://mkudamatsu.github.io/gis_lecture3.html#/enumeration_methods" target="_blank">Lecture 3</a>) are used to delete all the intermediate raster files and tables
+						in the <code>solutions4exercises/</code> folder
 					</p>
-				</section>	
+				</section>
 
 				<!-- Standard text slide -->
 				<section id="saiz2010" data-transition="slide-in slide-out" style="text-align: left;">
@@ -1326,7 +1353,7 @@
 						</p>
 						<ul>
 							<li>
-								<a href="http://dx.doi.org/10.1257/aer.20131706" target="_blank">Diamond (2016)</a>, <a href="http://economics.mit.edu/files/10362" target="_blank">Hariri (2015)</a>, <a href="http://dx.doi.org/10.2139/ssrn.2291081" target="_blank">Chen & Kung (2013)</a>
+								<a href="http://dx.doi.org/10.1257/aer.20131706" target="_blank">Diamond (2016)</a>, <a href="http://real.wharton.upenn.edu/~harari/Harari_Papers/CityShapeOct2017.pdf" target="_blank">Hariri (2017)</a>, <a href="http://dx.doi.org/10.1016/j.jdeveco.2016.08.005" target="_blank">Chen & Kung (2016)</a>
 							</li>
 						</ul>
 				</section>
@@ -1350,10 +1377,10 @@
 					</p>
 					<p>
 						Elevation 250-500m
-					</p>		
+					</p>
 					<p>
 						Elevation 500-1000m
-					</p>			
+					</p>
 					<p>
 						Elevation over 1000m
 					</p>
@@ -1380,14 +1407,14 @@
 						Cannot use geographic coordinate systems
 					</p>
 					<p>
-						For small areas, use UTM (<a href="http://mkudamatsu.github.io/gis_lecture3.html#/section4" target="_blank">Lecture 3</a>)
+						For small areas, use UTM (<a href="../gis_lecture3.html#/section4" target="_blank">Lecture 3</a>)
 					</p>
 					<p>
 						For large areas such as India:
 					</p>
 					<p style="margin-left: 20px;">
-						No single map projection preserves distance in every direction	
-					</p>						
+						No single map projection preserves distance in every direction
+					</p>
 					<p style="margin-left: 20px;" class="fragment" data-fragment-index="1">
 							$\Rightarrow$ Project each district to appropriate UTM projection
 						</p>
@@ -1426,42 +1453,48 @@
 					<p class="fragment" data-fragment-index="1">
 						$\Rightarrow$ Use Model Builder first, then edit the exported Python script to create a loop.
 					</p>
-				</section>				
+				</section>
 
 				<section id="ex4step1" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1
+					Exercise #4.1: Overview
 					</h4>
 					<h3>
 						Assign UTM zone number
 					</h3>
 					<p>
 						Inputs:
-					</p>	
+					</p>
 					<p>
-						river_by_district.shp
-					</p>		
+						<code>river_by_district.shp</code> (created in Exercise #2)
+					</p>
 					<p>
-						utm.shp: UTM zone polygons, provided by ArcGIS
+						<code>utm.shp</code>: UTM zone polygons, provided by ArcGIS
 					</p>
 					<ul>
+						<li style="margin-bottom: 5px;">
+							The file is located in <span style="background-color: Gainsboro">C:\Program Files (x86)\ArcGIS\Desktop10.5\Reference Systems</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							The version number may differ from <span style="background-color: Gainsboro">10.5</span>
+						</li>
 						<li>
-							Create Folder Connection to: C:\Program Files (x86)\ArcGIS\Desktop10.3\Reference Systems
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span> to access to this directory
 						</li>
 					</ul>
-				</section>				
-	
-				
+				</section>
+
+
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1: Overview (cont.)
 					</h4>
 					<p>
 						Geo-processing tools:
-					</p>	
+					</p>
 					<p>
-						1. Feature To Point
-					</p>		
+						1. Feature To Point (cf. <a href="../gis_lecture4.html#ex1centroids" target="_blank">Lecture 4</a>)
+					</p>
 					<ul>
 						<li>
 							Some rivers may cross UTM zone boundaries
@@ -1492,15 +1525,15 @@
 							So copy river features first
 						</li>
 					</ul>
-				</section>		
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1: Overview (cont.)
 					</h4>
 					<p>
-						There is a tool called "Calculate UTM Zone"
-					</p>	
+						There is a tool called "<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/cartography-toolbox/calculate-utm-zone.htm" target="_blank">Calculate UTM Zone</a>"
+					</p>
 					<p>
 						But it's not useful at all.
 					</p>
@@ -1511,22 +1544,38 @@
 						<li>
 							Why doesn't it just give the UTM zone number???
 						</li>
-					</ul>		
-				</section>		
+					</ul>
+				</section>
 
-								
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<p>
+						Now open the empty model <code>exercise4</code>
+					</p>
+					<p>
+						It's best to separate a model from the one for Exercises 1-3
+					</p>
+					<ul>
+						<li>
+							Each model (and Python script) should deal with one single purpose
+						</li>
+						<li>
+							Otherwise your coauthors and your future self will get confused
+						</li>
+					</ul>
+				</section>
+
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1
+					Exercise #4.1
 					</h4>
 					<h3>
 						Feature To Point
-					</h3>					
+					</h3>
 					<p>
-						<strong>Input Features</strong>: river_by_district.shp
+						<strong>Input Features</strong>: <code>...\temporary\river_by_district.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\rivercentroids.shp
+						<strong>Output Feature Class</strong>: <code>...\temporary\river_centroids.shp</code>
 					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
@@ -1535,32 +1584,32 @@
 						<li>
 							We need the average location for each river, not the point on river
 						</li>
-					</ul>						
-				</section>				
+					</ul>
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1 (cont.)
 					</h4>
 					<h3>
 						Spatial Join
-					</h3>					
+					</h3>
 					<p>
-						<strong>Target Features</strong>: rivercentroids.shp
+						<strong>Target Features</strong>: river_centroids.shp
 					</p>
 					<ul>
 						<li>
 							Output from Feature To Point
 						</li>
-					</ul>						
+					</ul>
 					<p>
-						<strong>Join Features</strong>: utm.shp
+						<strong>Join Features</strong>: <code>C:\Program Files (x86)\ArcGIS\Desktop10.5\Reference Systems\utm.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\utmzones.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\utm_zones.shp</code>
 					</p>
 				</section>
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 					Spatial Join (cont.)
 					</h4>
@@ -1577,15 +1626,15 @@
 						<li>
 							We handle this in Python later
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Match Option</strong>: Intersect
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1 (cont.)
 					</h4>
 					<h3>
 						Copy Features
@@ -1594,16 +1643,16 @@
 						<li>
 							To prepare for using Join Field
 						</li>
-					</ul>					
+					</ul>
 					<p>
 						<strong>Input Features</strong>: river_by_district.shp
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\rivers_utm.shp
+						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\river_utm.shp</code>
 					</p>
 				</section>
-								
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Join Field
 					</h3>
@@ -1619,16 +1668,16 @@
 							Overwrites the input. So use Copy Features first.
 						</p>
 				</section>
-				
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 1 (cont.)
+					Exercise #4.1 (cont.)
 					</h4>
 					<h3>
 						Join Field
-					</h3>					
+					</h3>
 					<p>
-						<strong>Input Table</strong>: rivers_utm.shp
+						<strong>Input Table</strong>: river_utm.shp
 					</p>
 					<ul>
 						<li>
@@ -1636,13 +1685,13 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Input Join Field</strong>: ID_2
+						<strong>Input Join Field</strong>: GID_2
 					</p>
 						<li>
 							Name of field in Input Table, to be used for joining
 						</li>
 				</section>
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Join Field (cont.)
 					</h4>
@@ -1655,13 +1704,13 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Join Field</strong>: ID_2
+						<strong>Output Join Field</strong>: GID_2
 					</p>
 					<ul>
 						<li>
 							Name of field in <span style="color:red;">Join Table</span>, to be used for joining
 						</li>
-					</ul>						
+					</ul>
 					<p>
 						<strong>Join Field(s)</strong>: check ZONE
 					</p>
@@ -1669,64 +1718,31 @@
 						<li>
 							Field for UTM zone number
 						</li>
-					</ul>					
+					</ul>
 					<p>
-						NOTE: This tool overwrites the input data. 
+						NOTE: This tool overwrites the input data.
 					</p>
-				</section>
-
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
-					<h3>
-						Quirk of Join Field
-					</h3>
-						<p>
-							This tool very often misbehaves...
-						</p>
-						<ul>
-							<li>
-								Especially when Join Table is created by yourself
-							</li>
-						</ul>
-						<p>
-							If this happens to you, use Spatial Join instead
-						</p>
-						<ul>
-							<li>
-								Choose the match option appropriately
-							</li>
-							<li>
-								In our case, use CLOSEST_GEODESIC because River centroids are not necessarily on river
-							</li>
-						</ul>
 				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
-						Add variables to district polygons
+						Join Field to add your own data
 					</h3>
 						<p>
-							Usually Join Field does not work. So do the following:
+							Create your data as a csv file
 						</p>
 						<p>
-							1. Read polygon data in Stata by <code>shp2dta</code> ado 
-						</p>
-						<ul>
-							<li>
-								This creates centroid coordinate variables
-							</li>
-						</ul>
-						<p>
-							2. Merge with your variables and export as text file
+							Then use <strong>Table to Table</strong>, to convert it into dBASE format.
 						</p>
 						<p>
-							3. Make XY Event Layer + Copy Features, to create centroid points
+							Finally, use Join Field
 						</p>
 						<p>
-							4. Spatial Join, to merge with the original polygons
+							We will learn this in Lecture 7
 						</p>
 				</section>
 
-				<section id="assignment2" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="assignment2" data-transition="fade-in slide-out" style="text-align: left;">
 					<img src="gis_lecture6/damsF4.png" style="border:none; background:none; box-shadow:none; width:600px; float:right;">
 					<h4>
 					Assignment #2
@@ -1741,14 +1757,14 @@
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 2
+					Exercise #4.2: Overview
 					</h4>
 					<h3>
 						Extract rivers by UTM zone
 					</h3>
 					<p>
-						Geo-processing tool: Select
-					</p>	
+						Geo-processing tool: Select (Analysis)
+					</p>
 					<p>
 						This tool keeps features whose field values satisfy the conditions you specify
 					</p>
@@ -1757,23 +1773,23 @@
 					</p>
 					<ul>
 						<li>
-							Keep unmatched areas from Union (cf <a href="http://mkudamatsu.github.io/gis_lecture5.html#/table3b" target="_blank">Lec 5</a>)
+							Keep unmatched areas from Union (cf <a href="../gis_lecture5.html#/table3b" target="_blank">Lec 5</a>)
 						</li>
 						<li>
 							Sample selection (e.g. select India from global data)
 						</li>
 					</ul>
-				</section>				
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 2 (cont.)
+					Exercise #4.2
 					</h4>
 					<h3>
-						Select
-					</h3>					
+						Select (Analysis)
+					</h3>
 					<p>
-						<strong>Input Features</strong>: rivers_utm.shp (2)
+						<strong>Input Features</strong>: river_utm.shp (2)
 					</p>
 					<ul>
 						<li>
@@ -1781,7 +1797,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\outputs\rivers43.shp
+						<strong>Output Feature Class</strong>: ...\Lecture6\temporary\river43.shp
 					</p>
 					<p>
 						<strong>Expression</strong>: <span style="font-size: 1.5em">"ZONE" = 43</span>
@@ -1793,187 +1809,153 @@
 						<li>
 							See <a href="http://desktop.arcgis.com/en/arcmap/latest/map/working-with-layers/sql-reference-for-query-expressions-used-in-arcgis.htm" target="_blank">ArcGIS Help on SQL reference</a> to learn other syntax rules
 						</li>
-					</ul>					
+					</ul>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 3
+					Exercise #4.3
 					</h4>
 					<h3>
 						Project to UTM
 					</h3>
 					<p>
 						Which geo-processing tool(s) should we use?
-					</p>	
-				</section>														
+					</p>
+				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 3 (cont.)
+					Exercise #4.3 (cont.)
 					</h4>
 					<h3>
 						Project
-					</h3>					
+					</h3>
 					<p>
-						<strong>Input Dataset or Feature Class</strong>: rivers43.shp
+						<strong>Input Dataset or Feature Class</strong>: river43.shp
 					</p>
 					<ul>
 						<li>
 							Output from Select
 						</li>
-					</ul>						
+					</ul>
 					<p>
-						<strong>Output Dataset or Feature Class</strong>: ...\Lecture6\outputs\rivers43_pj.shp
+						<strong>Output Dataset or Feature Class</strong>: <code>...\temporary\river43_projected.shp</code>
 					</p>
 					<p>
 						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_43N
 					</p>
-					<ul>
-						<li>
-							We will change this in Python later
-						</li>
-					</ul>					
 				</section>
-				
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 4
+					Exercise #4.4
 					</h4>
 					<h3>
 						Calculate river length
 					</h3>
 					<p>
-						Geo-processing tools: Add Field + Calculate Field + Table To Excel
-					</p>	
-					<p>
-						cf. Surface area calculation (<a href="http://mkudamatsu.github.io/gis_lecture4.html#/area_calculation2" target="_blank">Lecture 4</a>) 
+						Geo-processing tools: Add Geometry Attributes
 					</p>
-				</section>														
+					<p>
+						cf. Surface area calculation (<a href="../gis_lecture4.html#/ex2addgeo1" target="_blank">Lecture 4</a>)
+					</p>
+				</section>
 
-				<section id="ex4add_field" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex4add_geo" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 4 (cont.)
+					Exercise #4.4 (cont.)
 					</h4>
 					<h3>
-						Add Field
-					</h3>					
+						Add Geometry Attributes
+					</h3>
 					<p>
-						<strong>Input Table</strong>: river43_pj.shp
+						<strong>Input Features</strong>: river43_projected.shp
 					</p>
 					<ul>
 						<li>
 							Output from Project
 						</li>
-					</ul>						
+					</ul>
 					<p>
-						<strong>Field Name</strong>: length
-					</p>
-					<ul>
-						<li>
-							Or whatever you prefer (not exceeding 10 characters)
-						</li>
-					</ul>						
-					<p>
-						<strong>Field Type</strong>: FLOAT
+						<strong>Geometry Property</strong>: LENGTH
 					</p>
 					<p>
-						NOTE: This tool overwrites the input data. 
+						<strong>Length Unit</strong>: METERS
+					</p>
+					<p>
+						NOTE: This tool overwrites the input data.
 					</p>
 				</section>
 
-				<section id="ex4calculate_field1" data-transition="fade-in fade-out" style="text-align: left;">
+				<section id="ex4table2excel" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #4: Step 4 (cont.)
-					</h4>
-					<h3>
-						Calculate Field
-					</h3>					
-					<p>
-						<strong>Input Table</strong>: river43_pj.shp (2)
-					</p>
-					<ul>
-						<li>
-							Output from Add Field
-						</li>
-					</ul>						
-					<p>
-						<strong>Field Name</strong>: length
-					</p>
-					<ul>
-						<li>
-							Or the same as what you specified in Add Field
-						</li>
-					</ul>						
-				</section>
-				<section id="ex4calculate_field2" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Calculate Field (cont.)
-					</h3>					
-					<p>
-						<strong>Expression</strong>: <span style="font-size: 2em">float(!shape.length@kilometers!)</span>
-					</p>
-					<ul>
-						<li>
-							float() ensures decimals won't be rounded up
-						</li>
-						<li>
-							! ! tells Python what's enclosed is a field name
-						</li>
-						<li>
-								@ specifies the output unit 
-								<ul>
-									<li>
-										(see  <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/calculate-field-examples.htm#ESRI_SECTION1_F885F6AD331240ACB2DBDDA70151146D" target="_blank">ArcGIS Help</a> for more detail)
-									</li>
-								</ul>
-						</li>
-					</ul>	
-					<p>
-						<strong>Expression Type</strong>: PYTHON_9.3
-					</p>
-					<p>
-						NOTE: This tool overwrites the input data. 
-					</p>
-				</section>
-				<section id="ex4table2excel" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-					Exercise #4: Step 4 (cont.)
+					Exercise #4.5
 					</h4>
 					<h3>
 						Table To Excel
-					</h3>					
+					</h3>
 					<p>
-						<strong>Input Table</strong>: river43_pj.shp (3)
+						<strong>Input Table</strong>: river43_projected.shp (2)
 					</p>
 					<ul>
 						<li>
-							Output from Calculate Field
+							Output from Add Geometry Attributes
 						</li>
-					</ul>						
+					</ul>
 					<p>
-						<strong>Output Excel File</strong>: ...\Lecture6\outputs\river_length43.xls
+						<strong>Output Excel File</strong>: <code>...\Lecture6\output\river_length43.xls</code>
 					</p>
 				</section>
-				
+
+				<section id="ex4addgeo2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+					An alternative to Exercise #4.3 and #4.4
+					</h4>
+					<p>
+						You can directly use Add Geometry Attributes (cf. <a href="../gis_lecture4.html#/ex2addgeo3" target="_blank">Lecture 4</a>)
+					</p>
+					<p>
+						<strong>Input Features</strong>: river43.shp
+					</p>
+					<ul>
+						<li>
+							Output from Select
+						</li>
+					</ul>
+					<p>
+						<strong>Geometry Properties</strong>: LENGTH_GEODESIC
+					</p>
+					<p>
+						<strong>Area Unit</strong>: METERS
+					</p>
+					<p>
+						<strong>Coordinate System</strong>: WGS_1984_UTM_Zone_43N
+					</p>
+					<ul>
+						<li>
+							If unspecified, the area is calculated based on WGS 1984 (i.e. rubbish)
+						</li>
+					</ul>
+				</section>
 
 				<section id="ex4model_model" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
-					"Model" model for Exercise #4
+						Get ready for Python coding
 					</h3>
 					<p>
-						See "solutions4exercises\models.tbx\exercise4"
+						Now export the model <code>exercise4</code> as a Python script
 					</p>
 					<p>
-						Now we export a Python script and construct the loop over UTM zones
+						Open both the exported script and the template script (<code>code/template4L6.py</code>) with Atom
 					</p>
 					<p>
-						Open both the exported script and the template script (template4L6.py) with IDLE
+						We first review what we have learned (cf <a href=" ../gis_lecture2.html#/section6" target="_blank">Lecture 2</a>)
 					</p>
 					<p>
-						We first review what we have learned (cf <a href=" http://mkudamatsu.github.io/gis_lecture2.html#/section6" target="_blank">Lecture 2</a>)
+						Then we create a loop over UTM zones
 					</p>
-				</section>					
+				</section>
 
 				<section id="ex4python1" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
@@ -1994,9 +1976,9 @@
 						3. Select them all
 					</p>
 					<p>
-						4. Indent them by Format > Indent Region in the menu bar
+						4. Indent them by pressing the tab key
 					</p>
-				</section>					
+				</section>
 
 				<section id="ex4python2a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h3>
@@ -2018,39 +2000,39 @@
 					</p>
 					<ul>
 						<li>
-							Inputs: river_by_district_shp, utm_shp
+							Inputs: <code>temporary\\river_by_district.shp</code>, <code>...\\utm.shp</code>
 						</li>
 						<li>
-							Outputs: river_length43_xls
+							Outputs: <code>output\\river_length43.xls</code>
 						</li>
 					</ul>
-				</section>	
+				</section>
 
 				<section id="ex4python2b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Assign variables to file names (cont.)
 					</h4>
 					<p>
-						4. Specify output directory
+						4. Specify the working directory (see <a href="../gis_lecture3.html#/relative-file-path" target="_blank">Lecture 3</a>)
 					</p>
 					<p style="text-align: center;">
-						<code>arcpy.env.workspace = "C:\\Users\\..."</code>
+						<code>arcpy.env.workspace = "../"</code>
 					</p>
 					<p>
-						5. Remove directory path from intermediate/output file names
+						5. Remove directory path from file names
 					</p>
 					<p style="text-align: center;">
-						<code>utmzones_shp = "C:\\...\\utmzones.shp"</code>
+						<code>utm_zones_shp = "C:\\...\\utm_zones.shp"</code>
 					</p>
 					<p style="text-align: center;">
 						$\Downarrow$
 					</p>
 					<p style="text-align: center;">
-						<code>utmzones_shp = "utmzones.shp"</code>
+						<code>utm_zones_shp = "temporary\\utm_zones.shp"</code>
 					</p>
-					
-				</section>	
-				
+
+				</section>
+
 				<section id="ex4python2c" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Assign variables to file names (cont.)
@@ -2060,33 +2042,36 @@
 					</p>
 					<ul>
 						<li>
-							Model Builder duplicates variables for outputs from overwriting tools (Join Field, Add Field, Calculate Field)
+							Model Builder duplicates variables for outputs from overwriting tools (Join Field, Add Geometry Attributes)
 						</li>
 						<li>
-							Use Edit > Replace, to avoid mistakes
+							Press ctrl + f (for IDLE, Edit > Replace), to avoid mistakes
 						</li>
 					</ul>
 						<p>
-							<code>rivers_utm_shp___2_</code> $\rightarrow$ <code>rivers_utm_shp</code>
+							<code>rivers_utm_shp___2_</code>
 						</p>
 						<p>
-							<code>rivers43_pj_shp___2_ </code> $\rightarrow$ <code>rivers43_pj_shp</code>
+							$\rightarrow$ <code>rivers_utm_shp</code>
 						</p>
 						<p>
-							<code>rivers43_pj_shp___3_</code> $\rightarrow$ <code>rivers43_pj_shp</code>
+							<code>river43_projected_shp___2_ </code>
 						</p>
-				</section>	
+						<p>
+							$\rightarrow$ <code>river43_projected_shp</code>
+						</p>
+				</section>
 
 				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
 					<h3>
 						Spatial Join in Python
 					</h3>
 						<p>
-							Replace the lengthy 6th argument with ""
+							Replace the lengthy 6th argument with <code>""</code>
 						</p>
 						<ul>
 							<li>
-								Otherwise, field ID_2 becomes all 0 for some reason...
+								Otherwise, field GID_2 may become all 0 for some reason...
 							</li>
 						</ul>
 						<p>
@@ -2102,9 +2087,9 @@
 					</h1>
 				</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5
+						Exercise #4.6: Overview
 					</h4>
 					<h3>
 						Loop over UTM zones
@@ -2114,7 +2099,7 @@
 					</p>
 					<ul>
 						<li>
-							Select, Project, Add Field, Calculate Field, Table To Excel
+							Select, Project, Add Geometry Attributes, Table To Excel
 						</li>
 					</ul>
 					<p>
@@ -2124,7 +2109,7 @@
 						1. UTM zone number for Select
 					</p>
 					<p style="text-align: center;">
-					<code>"\"ZONE\" = 43</code>
+					<code>"\"ZONE\" = 43"</code>
 					</p>
 					<p>
 						2. UTM coordinate system for Project
@@ -2134,9 +2119,9 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (cont.)
+						Exercise #4.6: Overview (cont.)
 					</h4>
 					<p>
 						Create a loop over values from 43 to 47
@@ -2184,12 +2169,12 @@
 						</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="other_types_of_loop" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
 						Loop over numbers in Python (cont.)
 					</h4>
 					<p>
-						Same can be done by
+						Same can be done by the <strong>while</strong> loop
 						<pre style="font-size: 0.7em;">
 						<code data-trim>
 zone = 43
@@ -2198,7 +2183,7 @@ while zone < 48:
     zone = zone + 1
 						</code>
 						</pre>
-							or
+							or the <strong>list</strong> loop (to be used in Lecture 7)
 							<pre style="font-size: 0.7em;">
 						<code data-trim>
 zoneList = [43,44,45,46,47]
@@ -2212,7 +2197,7 @@ for zone in zoneList:
 
 				<section id="ex4python3" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (1)
+						Exercise #4.6 (1)
 					</h4>
 					<h3>
 						Create a loop structure in script
@@ -2225,47 +2210,48 @@ for zone in zoneList:
 							 above <code>arcpy.Select_analysis...</code>
 						</p>
 						<p>
-							2. Indent the following five geo-processing commands
+							2. Indent the four geo-processing commands
+						</p>
+						<p>
+							Now the code should look like this:
 						</p>
 					<pre>
 						<code data-trim>
 for zone in range(43,48):
-    # Process: Select
-    arcpy.Select_analysis(...)
-    # Process: Project
-    arcpy.Project_management(...)
-    # Process: Add Field
-    arcpy.AddField_management(...)
-    # Process: Calculate Field
-    arcpy.CalculateField_management(...)
-    # Process: Table To Excel
-    arcpy.TableToExcel_conversion(...)
+  # Process: Select
+  arcpy.Select_analysis(...)
+  # Process: Project
+  arcpy.Project_management(...)
+  # Process: Add Geometry Attributes
+  arcpy.AddGeometryAttributes_management(...)
+  # Process: Table To Excel
+  arcpy.TableToExcel_conversion(...)
 						</code>
 					</pre>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (2)
+						Exercise #4.6 (2)
 					</h4>
 					<h3>
-						UTM zone number to be selected
+						Select a UTM zone number
 					</h3>
 						<p>
 							Let's first understand the syntax for Select tool
 						</p>
 						<p>
-							cf. <a href="https://pro.arcgis.com/en/pro-app/tool-reference/analysis/select.htm#GUID-7A36E319-BD9F-4A66-94BC-67297E2D6165" target="_blank">ArcGIS Help on Select</a>
+							cf. <a href="http://desktop.arcgis.com/en/arcmap/latest/tools/analysis-toolbox/select.htm" target="_blank">ArcGIS Help on Select</a>
 						</p>
 				</section>
-				
+
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Syntax for Select tool
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Select_analysis(<mark>rivers_utm_shp</mark>, rivers43_shp, "\"ZONE\"=43")
+arcpy.Select_analysis(<mark>river_utm_shp</mark>, river43_shp, "\"ZONE\"=43")
 						</code>
 					</p>
 					<br>
@@ -2280,7 +2266,7 @@ arcpy.Select_analysis(<mark>rivers_utm_shp</mark>, rivers43_shp, "\"ZONE\"=43")
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Select_analysis(rivers_utm_shp, <mark>rivers43_shp</mark>, "\"ZONE\"=43")
+arcpy.Select_analysis(river_utm_shp, <mark>river43_shp</mark>, "\"ZONE\"=43")
 						</code>
 					</p>
 					<br>
@@ -2295,14 +2281,14 @@ arcpy.Select_analysis(rivers_utm_shp, <mark>rivers43_shp</mark>, "\"ZONE\"=43")
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
+arcpy.Select_analysis(river_utm_shp, river43_shp, <mark>"\"ZONE\"=43"</mark>)
 						</code>
 					</p>
 					<br>
 					<p style="text-align: center;">
 						3rd argument: selection rule
 					</p>
-				</section>																
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2317,7 +2303,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						Must be string, thus enclosed by " "
 					</p>
-				</section>																
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2340,7 +2326,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 							For Python to read " as field name enclosure, add backslash \
 						</li>
 					</ul>
-				</section>																
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2363,7 +2349,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 							"\"ZONE\"="+str(zone)
 						</code>
 					</p>
-				</section>	
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2381,7 +2367,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						But selection rule expression has to be string
 					</p>
-				</section>	
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2396,7 +2382,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						So transform number into string by str( )
 					</p>
-				</section>	
+				</section>
 
 				<section id="concatenate" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2411,7 +2397,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						To "concatenate" (i.e. connect) two strings, use +
 					</p>
-				</section>	
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2426,7 +2412,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						Don't forget to enclose a string with " "
 					</p>
-				</section>									
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2441,7 +2427,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						We have two strings
 					</p>
-				</section>									
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2456,7 +2442,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						We have two strings concatenated by +
 					</p>
-				</section>									
+				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
@@ -2471,9 +2457,9 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						Number must be converted into string by str()
 					</p>
-				</section>									
+				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						Summary (4/4)
 					</h3>
@@ -2486,11 +2472,33 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					<p>
 						Field name must be enclosed by \" \"
 					</p>
-				</section>	
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Exercise #4.6 (2)
+					</h4>
+					<p>
+						Replace the 3rd argument for the Select tool
+					</p>
+					<p style="text-align: center; font-size:1.5em;">
+						<code data-trim>
+							"\"ZONE\"= 43"
+						</code>
+					</p>
+					<p>
+						with
+					</p>
+					<p style="text-align: center; font-size:1.5em;">
+						<code data-trim>
+							"\"ZONE\"="+str(zone)
+						</code>
+					</p>
+				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #4 Step 5 (3)
+						Exercise #4.6 (3)
 					</h4>
 					<h3>
 						Specify UTM projection
@@ -2509,7 +2517,7 @@ arcpy.Select_analysis(rivers_utm_shp, rivers43_shp, <mark>"\"ZONE\"=43"</mark>)
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Project_management(<mark>rivers43_shp</mark>, rivers43_pj_shp, "PROJCS[...
+arcpy.Project_management(<mark>river43_shp</mark>, river43_projected_shp, "PROJCS[...
 						</code>
 					</p>
 					<br>
@@ -2524,7 +2532,7 @@ arcpy.Project_management(<mark>rivers43_shp</mark>, rivers43_pj_shp, "PROJCS[...
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Project_management(rivers43_shp, <mark>rivers43_pj_shp</mark>, "PROJCS[...
+arcpy.Project_management(river43_shp, <mark>river43_projected_shp</mark>, "PROJCS[...
 						</code>
 					</p>
 					<br>
@@ -2539,7 +2547,7 @@ arcpy.Project_management(rivers43_shp, <mark>rivers43_pj_shp</mark>, "PROJCS[...
 					</h3>
 					<p style="text-align: center; font-size:0.6em;">
 						<code data-trim>
-arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
+arcpy.Project_management(river43_shp, river43_projected_shp, <mark>"PROJCS[...</mark>
 						</code>
 					</p>
 					<br>
@@ -2567,15 +2575,15 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						</li>
 					</ul>
 					<p>
-						UTM projections for zones 43-47: 
+						UTM projections for zones 43-47:
 					</p>
 					<p style="margin-left: 40px;">
-						32643, 32644, 32645, 32646, 32647 
+						32643, 32644, 32645, 32646, 32647
 					</p>
 					<p>
 						Then use <strong>SpatialReference</strong> method
 					</p>
-					
+
 				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
@@ -2589,11 +2597,11 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
-						Create a variable for factory code						
+						Create a variable for factory code
 					</p>
 				</section>
 
@@ -2608,11 +2616,11 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = arcpy.SpatialReference<mark>(factorycode)</mark></code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
-						SpatialReference method takes factory code as input			
+						SpatialReference method takes factory code as input
 					</p>
 				</section>
 
@@ -2627,14 +2635,14 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = <mark>arcpy.SpatialReference(factorycode)</mark></code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
-					<p>			
-						Then returns that long string name for coordinate system			
+					<p>
+						Then returns that long string name for coordinate system
 					</p>
 				</section>
-				
+
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						SpatialReference method
@@ -2646,11 +2654,11 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code><mark>cs = </mark>arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
-						We assign variable <code>cs</code> to coordinate system name					
+						We assign variable <code>cs</code> to coordinate system name
 					</p>
 				</section>
 
@@ -2665,7 +2673,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>cs = arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="font-size:0.6em;">
-						<code>arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>cs</mark>)</code>
+						<code>arcpy.Project_management(river43_shp, river43_projected_shp, <mark>cs</mark>)</code>
 					</p>
 					<br>
 					<p>
@@ -2673,7 +2681,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						SpatialReference method in loop
 					</h3>
@@ -2687,7 +2695,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>    cs = arcpy.SpatialReference(factorycode)</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    arcpy.Project_management(rivers43_shp, rivers43_pj_shp, cs)</code>
+						<code>    arcpy.Project_management(river43_shp, river43_projected_shp, cs)</code>
 					</p>
 					<br>
 					<p>
@@ -2698,9 +2706,34 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 							Factory code must be number, not string
 						</li>
 						<li>
-							Don't use <code>str(zone)</code>
+							So don't use <code>str(zone)</code>
 						</li>
 					</ul>
+				</section>
+
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Exercise #4.6 (3)
+					</h4>
+					<p>
+						Modify the script as follows (marked in yellow)
+					</p>
+					<p style="font-size:0.6em;">
+						<code>for zone in range(43,48):</code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    arcpy.Select_analysis(river_utm_shp, river43_shp, "\"ZONE\" = " + str(zone))
+</code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    <mark>factorycode = 32600 + zone</mark></code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    <mark>cs = arcpy.SpatialReference(factorycode)</mark></code>
+					</p>
+					<p style="margin-left: 55px; font-size:0.6em;">
+						<code>    arcpy.Project_management(river43_shp, river43_projected_shp, <mark>cs</mark>)</code>
+					</p>
 				</section>
 
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
@@ -2720,10 +2753,10 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>for zone in range(43,48):</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    <mark>rivers43_shp = "rivers43.shp"</mark></code>
+						<code>    <mark>river43_shp = "river43.shp"</mark></code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    <mark>rivers43_pj_shp = "rivers43_pj.shp"</mark></code>
+						<code>    <mark>river43_projected_shp = "river43_projected.shp"</mark></code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
 						<code>    <mark>river_length43_xls =  "river_length43.xls"</mark></code>
@@ -2732,7 +2765,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 							Don't forget indenting them
 						</p>
 				</section>
-				
+
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
 						Output file names
@@ -2749,10 +2782,10 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						<code>for zone in range(43,48):</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    rivers43_shp = "rivers<mark>"+str(zone)+"</mark>.shp"</code>
+						<code>    river43_shp = "rivers<mark>"+str(zone)+"</mark>.shp"</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
-						<code>    rivers43_pj_shp = "rivers_pj<mark>"+str(zone)+"</mark>.shp"</code>
+						<code>    river43_projected_shp = "rivers_pj<mark>"+str(zone)+"</mark>.shp"</code>
 					</p>
 					<p style="margin-left: 55px; font-size:0.6em;">
 						<code>    river_length43_xls = "river_length<mark>"+str(zone)+"</mark>.xls"</code>
@@ -2761,7 +2794,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 							This way, each turn of the loop will create different files
 						</p>
 				</section>
-				
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Exercise #4 Step 5 (5)
@@ -2770,7 +2803,7 @@ arcpy.Project_management(rivers43_shp, rivers43_pj_shp, <mark>"PROJCS[...</mark>
 						Print commands
 					</h3>
 						<p>
-							To explain what each command line does, add: 
+							To explain what each command line does, add:
 						</p>
 						<p style="text-align: center;">
 							<code>print "..."</code>
@@ -2806,21 +2839,27 @@ for zone in range(43,48):
 				</section>
 
 				<section id="ex4model_script" data-transition="slide-out slide-in" style="text-align: left;">
+					<p>
+						Now run the script by pressing ctrl + shift + b in Atom
+					</p>
+				</section>
+
+				<section id="ex4model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
 					Model Python Script for Exercise 4
 					</h3>
 					<p>
-						Look at "solutions4exercises/lec6ex4.py"
+						Look at <code>solutions4exercises/exercise4.py</code>
 					</p>
-				</section>	
+				</section>
 
-			</section>				
-		
+			</section>
+
 				<section id="lessons" style="text-align: left;">
 					<h3>
 						What we've learned on ArcGIS
 					</h3>
-					<ol>	
+					<ol>
 						<li>
 							Covert elevation raster into gradient raster
 						</li>
@@ -2843,17 +2882,17 @@ for zone in range(43,48):
 			<!-- To end the reconfiguration of an HTML5 <section> element as a slide using CSS. -->
 
 		</div>
-		<!-- To end the activation of the CSS framework of Reveal.js -->		
+		<!-- To end the activation of the CSS framework of Reveal.js -->
 
-		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->		
-		
+		<!-- Java script commands should be placed at the bottom of an HTML file, to reduce the perceived loading time  -->
+
 		<!-- Load head.js, providing a number of utility classses. http://headjs.com/ -->
 		<script src="lib/js/head.min.js"></script>
 		<!-- Load reveal.js -->
 		<script src="js/reveal.js"></script>
 
 		<!-- Import MathJax, to use TeX for mathematic expressions -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>		
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 		<!-- Allow inline math expressions by using $ -->
 		<!-- http://tex.stackexchange.com/questions/27633/mathjax-inline-mode-not-rendering -->
 		<script type="text/x-mathjax-config">
