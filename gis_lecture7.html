@@ -1275,6 +1275,23 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 					<p>
 						Look at "Lecture7\lec7models.tbx\exercises1-3"
 					</p>
+					<p>
+						For the Python script, you have to edit arguments for:
+					</p>
+					<ul>
+						<li>
+							Table To Table
+						</li>
+						<li>
+							Join Field
+						</li>
+						<li>
+							Near
+						</li>
+					</ul>
+					<p>
+						so that all the file paths are relative.
+					</p>
 				</section>
 
 				<!-- <section id="visualization1" data-transition="slide-in fade-out" >
@@ -1842,12 +1859,15 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<code data-trim>
 road_types = ["paved","regional","local"]
 for road_type in road_types:
-  ...
-  ...
+
+  print "...Intermediate files being set"
+  roads_shp = "temporary\\roads_"+road_type+".shp"
+  intersect_shp = "temporary\\intersect_"+road_type+".shp"
   district_road_shp = "temporary\\district_road_" +road_type+ ".shp"
-  arcpy.Dissolve_management(intersect_shp, district_road_shp, ...)
-  ...
-  ...
+
+  print "...Output files being set"
+  district_road_xls = "output\\district_road_"+road_type+".xls"
+
 						</code>
 					</pre>
 				</section>
@@ -1870,7 +1890,6 @@ for road_type in road_types:
 <mark>else</mark>:
   selection_criteria = "\"RUTA\" = 'Vecinal' AND ( \"SUPERFICIE\" >= 1 OR \"SUPERFICIE\" <= 4 )"
 
-roads_by_type_shp = "temporary\\roads_" +road_type+ ".shp"
 arcpy.Select_analysis(roads_prj_shp, roads_by_type_shp, selection_criteria)
 						</code>
 					</pre>
