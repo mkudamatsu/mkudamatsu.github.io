@@ -579,7 +579,7 @@
 						<strong>Input Rows</strong>: <code>...\Lecture7\input\districts.txt</code>
 					</p>
 					<p>
-						<strong>Output Location</strong>: <code>...\Lecture7\temp</code>
+						<strong>Output Location</strong>: <code>...\Lecture7\temporary</code>
 					</p>
 					<ul>
 						<li>
@@ -613,7 +613,7 @@
 						<strong>Input Features</strong>: <code>...\Lecture7\input\StudyDistricts.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\mita_districts.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\mita_districts.shp</code>
 					</p>
 					<p>
 						Do not name the output as <code>districts.shp</code>
@@ -738,7 +738,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\mita_area.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\mita_area.shp</code>
 					</p>
 					<p>
 						<strong>Dissolve_Field(s)</strong>: mita
@@ -767,7 +767,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\polygon2line.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\polygon2line.shp</code>
 					</p>
 					<p>
 						<span style="color:red;">Check</span> "<strong>Identify and store polygon neighboring information</strong>"
@@ -798,7 +798,7 @@ ArcGIS Help on Polygon To Line</a>) </small>
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\boundary.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\boundary.shp</code>
 					</p>
 					<p>
 						<strong>Expression</strong>: <span style="font-size:1.5em;">"LEFT_FID" <> -1</span>
@@ -953,7 +953,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\boundary_unsplit.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\boundary_unsplit.shp</code>
 					</p>
 					<p>
 						Now run the model and see how the output looks like
@@ -1150,7 +1150,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<strong>Input Features</strong>: output from Make XY Event Layer
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\midpoints.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\midpoints.shp</code>
 					</p>
 					<p>
 						Now run the model and see how the output looks like
@@ -1207,7 +1207,7 @@ which of <span style="color:red;">four equal length segments of the boundary</sp
 						<strong>Input Features</strong>: <code>...\Lecture7\input\district_capitals.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\distance2border.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\distance2border.shp</code>
 					</p>
 				</section>
 
@@ -1562,7 +1562,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<strong>Input Features</strong>: <code>...\Lecture7\input\roads_prj.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\roads_paved.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\roads_paved.shp</code>
 					</p>
 					<p>
 						<strong>Expression</strong>:
@@ -1641,7 +1641,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<strong>Input Features</strong>: intersect_paved.shp
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\district_road_paved.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\district_road_paved.shp</code>
 					</p>
 					<p>
 						<strong>Dissolve_Field(s)</strong>: dist_id
@@ -1706,7 +1706,7 @@ gen double lat = `yllcorner' + (ycoord - 1)/`inv_cellsize';
 						<strong>Input Raster</strong>: <code>...\Lecture7\input\W100S10.DEM</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture7\temp\elevation_prj.tif</code>
+						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\elevation_prj.tif</code>
 					</p>
 					<p>
 						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_18S
@@ -1841,7 +1841,7 @@ road_types = ["paved","regional","local"]
 for road_type in road_types:
   ...
   ...
-  district_road_shp = "temp\\district_road_" +road_type+ ".shp"
+  district_road_shp = "temporary\\district_road_" +road_type+ ".shp"
   arcpy.Dissolve_management(intersect_shp, district_road_shp, ...)
   ...
   ...
@@ -1867,7 +1867,7 @@ for road_type in road_types:
 <mark>else</mark>:
   selection_criteria = "\"RUTA\" = 'Vecinal' AND ( \"SUPERFICIE\" >= 1 OR \"SUPERFICIE\" <= 4 )"
 
-roads_by_type_shp = "temp\\roads_" +road_type+ ".shp"
+roads_by_type_shp = "temporary\\roads_" +road_type+ ".shp"
 arcpy.Select_analysis(roads_prj_shp, roads_by_type_shp, selection_criteria)
 						</code>
 					</pre>
