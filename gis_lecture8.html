@@ -821,6 +821,52 @@ maize_calorie.save(<mark>"maize_calorie.tif"</mark>)
 					</p>
 				</section>
 
+				<section id="file_path1" data-transition="slide-in fade-out" style="text-align: left;">
+					<h4>
+						Map Algebra basics #4
+					</h4>
+					<h3>
+						File path
+					</h3>
+					<p>
+						For some reason, the following way of specifying relative file paths (cf. <a href="../gis_lecture3.html#relative-file-path" target="_blank">Lecture 3</a>) does not work with Map Algebra
+					</p>
+					<pre>
+						<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+arcpy.env.workspace = "../"
+input_raster = "input/GAEZ/maize.tif"
+output_raster = "output/maize_calorie.tif"
+						</code>
+					</pre>
+				</section>
+
+				<section id="file_path2" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						File path (cont.)
+					</h4>
+					<p>
+						The problem seems to be <code>arcpy.env.workspace</code>
+					</p>
+					<p>
+						So we directly specify the file paths:
+					</p>
+					<pre>
+						<code style="font-size: 1.4rem; line-height: 1.4;" data-trim data-noescape>
+import os
+work_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(work_dir)
+input_raster = "<mark>../</mark>input/GAEZ/maize.tif"
+output_raster = "<mark>../</mark>output/maize_calorie.tif"
+						</code>
+					</pre>
+					<p>
+						We will later use <code>arcpy.env.workspace</code> <br>for another purpose
+					</p>
+				</section>
+
 				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Exercise #1
