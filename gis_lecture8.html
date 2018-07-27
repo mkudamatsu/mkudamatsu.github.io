@@ -148,6 +148,9 @@
 					<h1>
 						1. <a href="http://cepr.org/active/publications/discussion_papers/dp.php?dpno=10742" target="_blank">Mayshar, Moav, Neeman, & Pascali (2015)</a>
 					</h1>
+					<p>
+						This study was featured in <a href="https://www.washingtonpost.com/news/wonk/wp/2016/04/25/the-secret-ancient-history-of-the-potato-that-could-change-the-story-of-civilization/">Washington Post</a>
+					</p>
 				</section>
 
 				<section id="rq1" data-transition="slide-in slide-out" style="text-align: left;">
@@ -491,14 +494,14 @@
 						5. Establish connection to data folder
 					</p>
 					<ul style="margin-left: 72px;">
-						<li>
-							Right-click "<strong>Folder Connections</strong>"
+						<li style="margin-bottom: 5px;">
+							Right-click <span style="background-color: Gainsboro">Folder Connections</span>
+						</li>
+						<li style="margin-bottom: 5px;">
+							Select <span style="background-color: Gainsboro">Connect to Folder</span>
 						</li>
 						<li>
-							Select "<strong>Connect to Folder</strong>"
-						</li>
-						<li>
-							Choose "<strong>Desktop > Lecture8</strong>"
+							Choose <span style="background-color: Gainsboro">Desktop > Lecture8</span>
 						</li>
 					</ul>
 				</section>
@@ -541,7 +544,7 @@
 						Caloric yields by crop at each 5-minute cell across the world
 					</p>
 					<ul>
-						<li>GAEZ provides each crop's potential yield <strong>in tons per hectare</strong></li>
+						<li>GAEZ provides each crop's potential yield <br> <strong>in tons per hectare</strong></li>
 					</ul>
 					<p>
 
@@ -874,6 +877,9 @@ output_raster = "<mark>../</mark>output/maize_calorie.tif"
 					<h3>
 						Calorie conversion for maize
 					</h3>
+					<p>
+						Start with <code>code/template4L8ex1.py</code>
+					</p>
 					<p>
 						Inputs
 					</p>
@@ -1301,6 +1307,9 @@ dict['engelsk'] = 'English'
 						Calorie conversion for 15 crops
 					</h3>
 					<p>
+						Start with <code>code/template4L8ex2.py</code>
+					</p>
+					<p>
 						1. Create a dictionary of calorie conversion factors
 					</p>
 					<p>
@@ -1706,7 +1715,7 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 						Maximum will be calculated for each type of crops
 					</p>
 					<p>
-						$\Rightarrow$ Revise calorie.py
+						$\Rightarrow$ Revise <code>calorie.py</code>
 					</p>
 				</section>
 
@@ -1741,20 +1750,23 @@ for crop in crops:
 						Practice with Map Algebra and Cell Statistics
 					</h3>
 					<p>
-						Start with /Lecture8/code/lec8ex3.py
+						Start with <code>code/template4L8ex3.py</code>
 					</p>
 					<p>
-						1. Calculate caloric difference between cereal and tuber
+						1. Create the list of caloric yield rasters for cereal and tuber
 					</p>
 					<p>
-						2. Obtain maximum caloric yield for all crops
+						2. Calculate caloric difference between cereal and tuber
 					</p>
 					<p>
-						3. Save the outputs
+						3. Obtain maximum caloric yield for all crops
+					</p>
+					<p>
+						4. Save the outputs
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Caloric differences between cereal and tuber
 					</h4>
@@ -1770,7 +1782,7 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 					</pre>
 				</section>
 
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Maximum caloric yield for all crops
 					</h4>
@@ -1815,10 +1827,10 @@ max_calorie<mark>.save("max_calorie_all.tif")</mark>
 
 				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
 					<h3>
-					Model Python Script for Lecture 8
+					Model Python Scripts for Lecture 8
 					</h3>
 					<p>
-						Look at "/Lecture8/code/solutions" folder
+						Look at <code>solutions4exercises/</code> folder
 					</p>
 				</section>
 
@@ -1833,13 +1845,13 @@ max_calorie<mark>.save("max_calorie_all.tif")</mark>
 						Obtain average caloric difference within 20-mile radius of each society
 					</p>
 					<p>
-						INPUTS: /Lecture8/input/ethnographic_atlas.shp
+						INPUT: <code>input/ethnographic_atlas.shp</code>
 					</p>
 					<p>
 						Which geo-processing tools should we use?
 					</p>
 					<p>
-						Solution: see tribes20m.py
+						Solution: <code>solutions4exercises/tribes20m.py</code>
 					</p>
 				</section>
 
@@ -2181,7 +2193,7 @@ TRI.save("ruggedness.tif")
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Konig et al. (2015) (cont.)
+						Konig et al. (2017) (cont.)
 					</h4>
 					<p>
 						<a href="http://desktop.arcgis.com/en/arcmap/latest/tools/data-management-toolbox/minimum-bounding-geometry.htm" target="_blank">Minimum Bounding Geometry</a> tool with Convex Hull option
