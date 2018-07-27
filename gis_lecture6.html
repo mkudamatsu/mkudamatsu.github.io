@@ -1719,54 +1719,21 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
 					<h3>
-						Quirk of Join Field
+						Join Field to add your own data
 					</h3>
 						<p>
-							This tool very often misbehaves...
-						</p>
-						<ul>
-							<li>
-								Especially when Join Table is created by yourself
-							</li>
-						</ul>
-						<p>
-							If this happens to you, use Spatial Join instead
-						</p>
-						<ul>
-							<li>
-								Choose the match option appropriately
-							</li>
-							<li>
-								In our case, use CLOSEST_GEODESIC because River centroids are not necessarily on river
-							</li>
-						</ul>
-				</section>
-
-				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>
-						Add variables to district polygons
-					</h3>
-						<p>
-							Usually Join Field does not work. So do the following:
+							Create your data as a csv file
 						</p>
 						<p>
-							1. Read polygon data in Stata by <code>shp2dta</code> ado
-						</p>
-						<ul>
-							<li>
-								This creates centroid coordinate variables
-							</li>
-						</ul>
-						<p>
-							2. Merge with your variables and export as text file
+							Then use <strong>Table to Table</strong>, to convert it into dBASE format.
 						</p>
 						<p>
-							3. Make XY Event Layer + Copy Features, to create centroid points
+							Finally, use Join Field
 						</p>
 						<p>
-							4. Spatial Join, to merge with the original polygons
+							We will learn this in Lecture 7
 						</p>
 				</section>
 
@@ -1780,9 +1747,6 @@
 					</h3>
 					<p>
 						Replicate Figure IV of Duflo & Pande (2007)
-					</p>
-					<p>
-						Try both Join Field and Spatial Join approaches
 					</p>
 				</section>
 
