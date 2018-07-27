@@ -865,7 +865,7 @@
 
 				<section id="ex1a" data-transition="slide-in slide-out" style="text-align: left;">
 					<h4>
-					Exercise #1
+					Exercise #1: Overview
 					</h4>
 					<h3>
 						Indicator raster for each gradient category
@@ -951,10 +951,10 @@
 					</p>
 					<ul>
 						<li>
-							Duflo & Pande (2007) use gradient in percentage
+							Duflo & Pande (2007) use gradient in % (i.e. $\tan\theta\times 100$)
 						</li>
 						<li>
-							Choose DEGREE for $\theta$ instead of $\tan\theta$
+							If you need $\theta$, choose DEGREE instead
 						</li>
 					</ul>
 					<p>
@@ -1070,7 +1070,7 @@
 
 				<section id="ex2a" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2
+					Exercise #2: Overview
 					</h4>
 					<h3>
 						River polylines by district
@@ -1079,7 +1079,7 @@
 						Inputs:
 					</p>
 					<p>
-						Natural Earth 1:10m river + lake centerlines (ne_10m_river_lake_centerlines.shp)
+						Natural Earth 1:10m river + lake centerlines (<code>ne_10m_river_lake_centerlines.shp</code>)
 					</p>
 					<ul>
 						<li>
@@ -1101,7 +1101,7 @@
 
 				<section id="ex2b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-					Exercise #2 (cont.)
+					Exercise #2: Overview (cont.)
 					</h4>
 					<p>
 						Geo-processing tools:
@@ -1169,7 +1169,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\river_by_district.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\temporary\river_by_district.shp</code>
 					</p>
 					<p>
 						<strong>Dissolve_Field(s)</strong>: GID_2
@@ -1216,7 +1216,7 @@
 						Now <em>save and</em> run the Model.
 					</p>
 					<p>
-						Browse river_by_district.shp
+						Browse <code>river_by_district.shp</code>
 					</p>
 					<p>
 						To check if multipart features are properly created:
@@ -1232,7 +1232,7 @@
 							See attribute table of <code>gadm36_IND_2.shp</code> for GID_2 of the selected district
 						</li>
 						<li>
-							See attribute table of river_by_district.shp and select the row for this GID_2
+							See attribute table of <code>river_by_disrict.shp</code> and select the row for this GID_2
 						</li>
 					</ul>
 				</section>
@@ -1282,7 +1282,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Table</strong>: <code>...\Lecture6\temporary\river_gradient3060.dbf</code>
+						<strong>Output Table</strong>: <code>...\temporary\river_gradient3060.dbf</code>
 					</p>
 					<p>
 						Check "<strong>Ignore NoData in calculation</strong>"
@@ -1323,9 +1323,14 @@
 					Solutions for Exercises 1-3
 					</h3>
 					<p>
-						Look at "models.tbx\exercises1-3" and "lec6ex1-3.py" in the "solutions4exercises" folder
+						Look at
 					</p>
+					<ul>
+						<li><code>models.tbx\exercises1-3</code></li>
+						<li><code>exercises1-3.py</code></li>
+					</ul>
 					<p>
+						in the <code>solutions4exercises/</code> folder
 					</p>
 				</section>
 
@@ -1461,16 +1466,16 @@
 						Inputs:
 					</p>
 					<p>
-						<code>river_by_district.shp</code>
+						<code>river_by_district.shp</code> (created in Exercise #2)
 					</p>
 					<p>
 						<code>utm.shp</code>: UTM zone polygons, provided by ArcGIS
 					</p>
 					<ul>
-						<li>
+						<li style="margin-bottom: 5px;">
 							The file is located in <span style="background-color: Gainsboro">C:\Program Files (x86)\ArcGIS\Desktop10.5\Reference Systems</span>
 						</li>
-						<li>
+						<li style="margin-bottom: 5px;">
 							The version number may differ from <span style="background-color: Gainsboro">10.5</span>
 						</li>
 						<li>
@@ -1567,10 +1572,10 @@
 						Feature To Point
 					</h3>
 					<p>
-						<strong>Input Features</strong>: river_by_district.shp
+						<strong>Input Features</strong>: <code>...\temporary\river_by_district.shp</code>
 					</p>
 					<p>
-						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\river_centroids.shp</code>
+						<strong>Output Feature Class</strong>: <code>...\temporary\river_centroids.shp</code>
 					</p>
 					<p>
 						Uncheck "<strong>Inside</strong>"
@@ -1598,7 +1603,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Join Features</strong>: <code>utm.shp</code>
+						<strong>Join Features</strong>: <code>C:\Program Files (x86)\ArcGIS\Desktop10.5\Reference Systems\utm.shp</code>
 					</p>
 					<p>
 						<strong>Output Feature Class</strong>: <code>...\Lecture6\temporary\utm_zones.shp</code>
@@ -1686,7 +1691,7 @@
 							Name of field in Input Table, to be used for joining
 						</li>
 				</section>
-				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 					Join Field (cont.)
 					</h4>
@@ -1792,7 +1797,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Feature Class</strong>: ...\Lecture6\output\river43.shp
+						<strong>Output Feature Class</strong>: ...\Lecture6\temporary\river43.shp
 					</p>
 					<p>
 						<strong>Expression</strong>: <span style="font-size: 1.5em">"ZONE" = 43</span>
@@ -1835,7 +1840,7 @@
 						</li>
 					</ul>
 					<p>
-						<strong>Output Dataset or Feature Class</strong>: <code>...\Lecture6\temporary\rivers43_projected.shp</code>
+						<strong>Output Dataset or Feature Class</strong>: <code>...\temporary\river43_projected.shp</code>
 					</p>
 					<p>
 						<strong>Output Coordinate System</strong>: WGS_1984_UTM_Zone_43N
@@ -2008,13 +2013,13 @@
 						Assign variables to file names (cont.)
 					</h4>
 					<p>
-						4. Specify output directory
+						4. Specify the working directory (see <a href="../gis_lecture3.html#/relative-file-path" target="_blank">Lecture 3</a>)
 					</p>
-					<p style="text-align: left;">
-						<code>arcpy.env.workspace = "C:\\Users\\<em>yourname</em>\\Desktop\\Lecture6"</code>
+					<p style="text-align: center;">
+						<code>arcpy.env.workspace = "../"</code>
 					</p>
 					<p>
-						5. Remove directory path from intermediate/output file names
+						5. Remove directory path from file names
 					</p>
 					<p style="text-align: center;">
 						<code>utm_zones_shp = "C:\\...\\utm_zones.shp"</code>
@@ -2037,7 +2042,7 @@
 					</p>
 					<ul>
 						<li>
-							Model Builder duplicates variables for outputs from overwriting tools (Join Field, Add Field, Calculate Field)
+							Model Builder duplicates variables for outputs from overwriting tools (Join Field, Add Geometry Attributes)
 						</li>
 						<li>
 							Press ctrl + f (for IDLE, Edit > Replace), to avoid mistakes
@@ -2062,11 +2067,11 @@
 						Spatial Join in Python
 					</h3>
 						<p>
-							Replace the lengthy 6th argument with ""
+							Replace the lengthy 6th argument with <code>""</code>
 						</p>
 						<ul>
 							<li>
-								Otherwise, field GID_2 becomes all 0 for some reason...
+								Otherwise, field GID_2 may become all 0 for some reason...
 							</li>
 						</ul>
 						<p>
@@ -2205,7 +2210,10 @@ for zone in zoneList:
 							 above <code>arcpy.Select_analysis...</code>
 						</p>
 						<p>
-							2. Indent the following geo-processing commands
+							2. Indent the four geo-processing commands
+						</p>
+						<p>
+							Now the code should look like this:
 						</p>
 					<pre>
 						<code data-trim>
@@ -2841,7 +2849,7 @@ for zone in range(43,48):
 					Model Python Script for Exercise 4
 					</h3>
 					<p>
-						Look at "solutions4exercises/lec6ex4.py"
+						Look at <code>solutions4exercises/exercise4.py</code>
 					</p>
 				</section>
 
