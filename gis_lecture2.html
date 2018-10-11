@@ -63,6 +63,8 @@
 						Spatial Join
 					</h2>
 					<br>
+					<code><a href="http://mkudamatsu.github.io/gis_lecture2.html">mkudamatsu.github.io/gis_lecture2.html</a></code>
+					<br>
 					<p>Masayuki Kudamatsu</p>
 					<p>12 October, 2018</p>
 					<br>
@@ -84,7 +86,7 @@
 							<li>
 								No need of common keys (e.g. district code) to match data
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Allow you to match administrative data with <strong>natural environment data</strong>
 							</li>
 						</ul>
@@ -98,7 +100,7 @@
 						<p>
 							<a href="http://doi.org/10.1093/qje/qjx030">Henderson et al. (2018)</a> find these ecoregions predict where economic activities take place
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							But we cannot easily match this data to administrative areas without spatial join
 						</p>
 				</section>
@@ -118,15 +120,21 @@
 							Since weather is exogenous, causality can be established
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						But <strong>grid cells</strong> are the units of observation in weather data
 					</p>
-					<p>
-						How can we match weather with socio-economic units?
-					</p>
-					<p>
-						$\Rightarrow$ Spatial Join helps
-					</p>
+					<div  class="fragment" data-fragment-index="3" style="display: flex; align-items: flex-start; justify-content: space-between;">
+						<img src="gis_lecture2/gridcells.png" style="border: none; background: none; box-shadow:none; width: 300px;">
+						<div style="margin-left: 10px;">
+							<p>
+								Evenly spaced meridians and parallels divide the earth into <strong>grid cells</strong>
+							</p>
+							<p><small>(Image source: ArcGIS Help "<a href="http://desktop.arcgis.com/en/arcmap/latest/map/page-layouts/what-are-grids-and-graticules-.htm" target="_blank">What are grids and graticules?</a>")</small></p>
+							<p class="fragment" data-fragment-index="4">
+								$\Rightarrow$ Spatial Join matches grid cells with socio-economic units
+							</p>
+						</div>
+					</div>
 				</section>
 
 				<section id="road_map" style="text-align: left;">
@@ -156,34 +164,34 @@
 				<section id="rq2" style="text-align: left;">
 					<h3>Research Question</h3>
 					<p>
-						Did Tsetse flies cause Africa's underdevelopment?
+						Did Tsetse flies cause Africa's poverty?
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Important?
 					</p>
 					<ul>
-						<li>
+						<li class="fragment" data-fragment-index="3">
 							Tsetse flies, found only in Africa, kill livestock
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="4">
 							Believed to be a historical cause of Africa's low agricultural productivity & high transportation cost
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="5">
 							Path dependence may explain Africa's poverty today
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Original?
 					</p>
 					<ul>
-						<li>
+						<li class="fragment" data-fragment-index="6">
 							No systematic evidence on the impact of Tsetse flies
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="7">
 							Find Tsetse flies prevented political centralization
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Feasible?
 					</p>
 				</section>
@@ -198,10 +206,10 @@
 							Pre-colonial data on use of domesticated animals, presence of intensive agriculture, political centralization
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Weather at 2&degx2&deg grid cells in 1871 from <a href="https://www.esrl.noaa.gov/psd/data/20thC_Rean/" target="_blank">20th Century Reanalysis Project</a>
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
 							Mean temperature
 						</li>
@@ -212,13 +220,14 @@
 				</section>
 
 				<section id="data2b" data-transition="fade-in fade-out" style="text-align: left;">
-					<h3>Construct Tsetse Suitability Index</h3>
-					<p>
-						Feed temperature and humidity into the following curves (Figure 2 of Alsan 2015)
-					</p>
+					<h3>Climate factors of Tsetse Survival</h3>
+					<p style="text-align: right;">(Figure 2 of Alsan 2015)</p>
 					<img src="gis_lecture2/alsan2015figure2a.png"  style="border: none; background: none; box-shadow:none; width: 400px;">
 					<img src="gis_lecture2/alsan2015figure2b.png"  style="border: none; background: none; box-shadow:none; width: 400px;">
-					<p>
+					<p class="fragment" data-fragment-index="2">
+						Feed temperature and humidity into the these curves
+					</p>
+					<p class="fragment" data-fragment-index="2">
 						$\Rightarrow$ Tsetse Suitability Index (steady-state population)
 					</p>
 				</section>
@@ -237,7 +246,7 @@
 							<img src="gis_lecture2/alsan2015figure5a.png"  style="border: none; background: none; box-shadow:none; width: 420px;">
 						</div>
 					</div>
-					<p class="fragment" data-fragment-index="2">
+					<p style="color:slategrey" class="fragment" data-fragment-index="2">
 						We will learn how to match these two data
 					</p>
 				</section>
@@ -312,19 +321,9 @@
 					<h3>
 						we will learn how to:
 					</h3>
-					<p>1. Use the Spatial Join tool (Exercise 2)</p>
-					<p>2. Export attribute tables to Stata (Exercise 3)</p>
-					<p>3. Create <strong>grid cell polygons</strong> (Exercise 1)</p>
-					<div style="display: flex; align-items: flex-start; justify-content: space-between;">
-						<img src="gis_lecture2/gridcells.png" style="border: none; background: none; box-shadow:none; width: 300px;">
-						<div style="margin-left: 10px;">
-							<p>
-								Evenly spaced meridians and parallels divide the earth into <strong>grid cells</strong>
-							</p>
-							<p><small>(Image source: ArcGIS Help "<a href="http://desktop.arcgis.com/en/arcmap/latest/map/page-layouts/what-are-grids-and-graticules-.htm" target="_blank">What are grids and graticules?</a>")</small></p>
-
-						</div>
-					</div>
+					<p>1. Use the Spatial Join tool <span style="color:slategrey" >(Exercise 2)</span></p>
+					<p>2. Export attribute tables to Stata <span style="color:slategrey" >(Exercise 3)</span></p>
+					<p>3. Create <strong>grid cell polygons</strong> <span style="color:slategrey" >(Exercise 1)</span></p>
 				</section>
 
 				<section id="graticule" data-transition="fade-out fade-in" style="text-align: left;">
@@ -339,10 +338,10 @@
 							</li>
 						</ul>
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Examples:
 					</p>
-						<ul style="margin-left: 60px;">
+						<ul class="fragment" data-fragment-index="2" style="margin-left: 60px;">
 							<li>
 								<a href="https://www.esrl.noaa.gov/psd/data/gridded/data.gpcp.html" target="_blank">GCPC</a>: time-series of precipitation (2.5-deg)
 								<ul>
@@ -363,7 +362,7 @@
 							</li>
 
 						</ul>
-					<p>
+					<p class="fragment" data-fragment-index="3">
 						Grid cell polygons help merge these data with other data
 					</p>
 				</section>
@@ -389,10 +388,10 @@
 								Add Geometry Attributes
 							</li>
 						</ol>
-					<p>
+					<p class="fragment" data-fragment-index="2" >
 						As in Lecture 1, we use these tools in Model Builder.
 					</p>
-						<ol>
+						<ol class="fragment" data-fragment-index="2" >
 							<li>
 								<a href="../gis_lecture1.html#/modelbuilder1" target="_blank">Create a Model</a>
 							</li>
@@ -419,7 +418,7 @@
 						<li>40&deg S to 40&deg N</li>
 						<li>20&deg W to 60&deg E</li>
 					</ul>
-					<p>
+					<p  class="fragment" data-fragment-index="2" >
 						$\Rightarrow$ Create square polygons whose centroid is from (-20&deg, -40&deg) to (60&deg, 40&deg) at the interval of 2&deg
 					</p>
 				</section>
@@ -517,13 +516,13 @@
 					<p>
 						The Create Fishnet tool doesn't assign any coordination system to the output file
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2" >
 						Ethnographic Atlas data uses geographic coordinate system
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="3" >
 						$\Rightarrow$ Assign WGS 1984
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="4" >
 						How? We already learned this in <a href="../gis_lecture1.html#/ex6a" target="_blank">Lecture 1 Exercise 6</a>.
 					</p>
 				</section>
@@ -587,9 +586,9 @@
 						Browse the attribute table of the output (cf. <a href="../gis_lecture1.html#/attribute_table" target="_blank">Lecture 1</a>)
 					</p>
 					<p>
-						We don't see centroid coordinates...
+						We don't see centroid coordinates to match with weather data...
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						$\Rightarrow$ Use the Add Geometry Attributes tool
 					</p>
 				</section>
@@ -656,7 +655,7 @@
 					<p>
 						How to match polygons with polygons?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="2" >
 						<li>
 							One polygon can overlap with several polygons
 						</li>
@@ -664,7 +663,7 @@
 							Which one to pick? How to aggregate them?
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="3" >
 						One way to go: match <strong>polygon centroids</strong> with polygons
 					</p>
 				</section>
@@ -695,24 +694,22 @@
 					<p>
 						1. Create ethnic homeland centroid point features
 					</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="2">
 							<li>
 								We have XY data in the attribute table of the ethnic homeland polygon (<code>.../input/tribalmap.shp</code>)
 							</li>
-						</ul>
-						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Which geo-processing tools should we use?
 							</li>
-							<ul>
+							<ul class="fragment" data-fragment-index="3">
 								<li>hint: <a href="../gis_lecture1.html#/ex3a" target="_blank">Lecture 1 Exercise 3</a></li>
 							</ul>
 						</ul>
 					<p>
 						2. Use Spatial Join to match ethnic homeland centroids with 20th Century Reanalysis grid cells
 					</p>
-					<p>
-						We add these processes to the Model for Excercise 1
+					<p class="fragment" data-fragment-index="4">
+						We now add these processes to the Model for Excercise 1
 					</p>
 				</section>
 
@@ -1082,14 +1079,14 @@
 					<p>Essential for replication</p>
 					<p>Convenient to repeat the same geo-processing</p>
 					<ul>
-						<li>
+						<li class="fragment" data-fragment-index="2">
 							When you obtain the updated version of input datasets
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="3">
 							When you change a process in the upstream
 						</li>
-						<li>
-							Within a script by using a loop (L3, L6, L8)
+						<li class="fragment" data-fragment-index="4">
+							Within a script by using a loop (Lectures 6 and 8)
 						</li>
 					</ul>
 				</section>
@@ -1100,7 +1097,7 @@
 					</h3>
 					<p>Use Model Builder to write a draft script</p>
 					<p>Then edit the draft script</p>
-					<p>Throughout the course, we will learn various scripting tips</p>
+					<p class="fragment" data-fragment-index="2">Throughout the course, we will learn various scripting tips</p>
 				</section>
 
 				<section id="ex4" data-transition="slide-out fade-in" style="text-align: left;">
@@ -1206,7 +1203,7 @@
 							Also avoid error making
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						For this lecture, I've prepared the template script (<code>.../Lecture2/code/template4L2.py</code>)
 					</p>
 				</section>
@@ -1219,16 +1216,8 @@
 						Using this template script, we now learn the basics of Python scripting for ArcGIS
 					</p>
 					<p>
-						cf. Interactive online tutorials for Python (for free):
+						cf. To learn Python, visit <a href="http://www.codecademy.com/learn/python" target="_blank">Codecademy</a> (free of charge)
 					</p>
-					<ul>
-						<li>
-							<a href="http://www.codecademy.com/learn/python" target="_blank">Codecademy</a>
-						</li>
-						<li>
-							<a href="https://www.datacamp.com/courses/intro-to-python-for-data-science" target="_blank">Data Camp</a>
-						</li>
-					</ul>
 				</section>
 
 				<section id="python_essentials_1" data-transition="fade-out slide-in" style="text-align: left;">
@@ -1266,7 +1255,7 @@
 							<code>arcpy</code> is an object containing all the ArcGIS geoprocessing tools
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						The <code>import</code> command reads this object (i.e. launch ArcGIS)
 					</p>
 				</section>
@@ -1284,12 +1273,12 @@
 							<code>arcpy.env</code> is an object contained in <code>arcpy</code>
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Two types of commands in an object: <strong>property</strong> and <strong>method</strong>
 					</p>
 				</section>
 
-				<section id="property" data-transition="fade" style="text-align: left;">
+				<section id="property" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>Python Essentials for ArcGIS #1.2</h4>
 					<h3>
 						Property
@@ -1297,14 +1286,14 @@
 					<p>
 						Contains a value (numbers, strings, True/False)
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						To assign a new value of the property, type:
 					</p>
-					<p style="text-align: center;">
+					<p class="fragment" data-fragment-index="2" style="text-align: center;">
 						<code>object.property = value</code>
 					</p>
-					<img src="gis_lecture2/properties.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">
-					<ul>
+					<img class="fragment" data-fragment-index="3" src="gis_lecture2/properties.png" style="border:none; background:none; box-shadow:none; width:900px; vertical-align:middle;">
+					<ul class="fragment" data-fragment-index="3">
 						<li>
 							<code>overwriteOutput</code>: whether the overwriting of output files is allowed
 						</li>
@@ -1327,16 +1316,16 @@
 							You'll then get an error.
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						The following command line (case-sensitive!)
 					</p>
-					<p style="text-align: center;">
+					<p class="fragment" data-fragment-index="2" style="text-align: center;">
 						<code>arcpy.env.overwriteOutput = True</code>
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						allows you to overwrite output files.
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="3">
 						<li>
 							Note: Python is case-sensitive
 						</li>
@@ -1359,10 +1348,10 @@
 							In Windows, <code>\</code> is used for directory path
 						</li>
 					</ul>
-					<p>
+					<p  class="fragment" data-fragment-index="2">
 						Use <code>/</code> or <code>\\</code>
 					</p>
-					<ul>
+					<ul  class="fragment" data-fragment-index="2">
 						<li>
 							The script exported from Model Builder uses <code>\\</code>
 						</li>
@@ -1378,13 +1367,13 @@
 						is a function (i.e. transform inputs into outputs)
 					</p>
 					<p>
+						e.g. Geo-processing tool in ArcGIS: methods of the <code>arcpy</code> object
+					</p>
+					<p class="fragment" data-fragment-index="2">
 						To use a method, type:
 					</p>
-					<p style="text-align: center;">
+					<p class="fragment" data-fragment-index="2" style="text-align: center;">
 						<code>object.method(arg1, arg2, ...)</code>
-					</p>
-					<p>
-						Each geo-processing tool in ArcGIS is a method of the <code>arcpy</code> object
 					</p>
 				</section>
 
@@ -1400,10 +1389,10 @@
 					<p>
 						The <code>arcpy</code> method names mix uppercase and lowercase letters as well as underscores
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Arguments for these methods are often very long with lots of <code>[ ] " ' ; ,</code> etc.
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="3">
 						$\Rightarrow$ Better to first use Model Builder to export the draft script (until you get used to Python programming)
 
 					</p>
@@ -1421,7 +1410,7 @@
 							There's a built-in help, too, but the web version is more often updated
 						</li>
 					</ul>
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
 							Once we're used to Python, we will learn how to read this help document
 						</li>
@@ -1457,7 +1446,7 @@
 					<p>
 						If you simply run commands and get an error, you won't get a message on what went wrong
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						Try-except statement is essential to know what the error is about
 					</p>
 				</section>
@@ -1468,19 +1457,19 @@
 					</h3>
 					<p>
 						Python first attempts to execute <em>indented</em> commands below <code>try:</code>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						If there is no error:
 					</p>
-					<p style="margin-left: 30px;">
+					<p class="fragment" data-fragment-index="2" style="margin-left: 30px;">
 						Python skips all the indented commands after <code>except:</code>
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="3">
 						If there is an error:
 					</p>
-					<p style="margin-left: 30px;">
+					<p class="fragment" data-fragment-index="3" style="margin-left: 30px;">
 						Python executes the indented commands below <code>except:</code>
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="4">
 						$\Rightarrow$ Write commands for error messages after <code>except:</code>
 					</p>
 				</section>
@@ -1575,16 +1564,17 @@ except arcpy.ExecuteError:
 						It's similar to local macro in Stata
 					</p>
 					<p>
-						Recommended to assign a string variable to each data file name in the Python script
+						To create a variable called <code>file1</code> which contains a string <code>data.shp</code>, type
 					</p>
-					<ul>
+					<p style="text-align: center;">
+						<code>file1 = "data.shp"</code>
+					</p>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
-							You may later want to use a different input file for the same data processing
-						</li>
-						<li>
-							Then you just need to change one line in the script where the input file name is defined
+							Don't forget to enclose the file name with double quotation marks
 						</li>
 					</ul>
+
 				</section>
 
 				<section id="strings2" data-transition="fade" style="text-align: left;">
@@ -1592,17 +1582,16 @@ except arcpy.ExecuteError:
 						String variables (cont.)
 					</h3>
 					<p>
-						To create a variable called <code>file1</code> which contains a string <code>data.shp</code>, type
+						Recommended to assign a string variable to each data file name in the Python script
 					</p>
-					<p style="text-align: center;">
-						<code>file1 = "data.shp"</code>
-					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
-							Don't forget to enclose the file name with double quotation marks
+							You may later want to use a different input file for the same data processing
+						</li>
+						<li>
+							Then you just need to change one line in the script where the input file name is defined
 						</li>
 					</ul>
-
 				</section>
 
 				<section id="ex7a" data-transition="fade" style="text-align: left;">
@@ -1730,17 +1719,17 @@ try:
 					<p style="text-align: center;">
 						<code>print "message"</code>
 					</p>
-					<ul>
-						<li>
+					<ul >
+						<li class="fragment" data-fragment-index="2">
 							Tells which part of the script is currently run
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="3">
 							Lets you know where the script caused an error
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="4">
 							Can be used to display a value that a method returns
 						</li>
-					<p style="text-align: center;">
+					<p class="fragment" data-fragment-index="4" style="text-align: center;">
 						<code>print arcpy.GetMessages()</code>
 					</p>
 					</ul>
@@ -1988,8 +1977,16 @@ except arcpy.ExecuteError:
 						</li>
 					</ul>
 					<p>
-						7. <em>Save and</em> run the entire script (ctrl+shift+b )
+						7. <em>Save and</em> run the entire script
 					</p>
+					<ul>
+						<li>
+							The Script package of Atom lets you run the script by pressing ctrl + shift + b
+						</li>
+						<li>
+							For IDLE, press F5
+						</li>
+					</ul>
 					<p>
 						8. Cross your fingers :-)
 					</p>
@@ -2008,11 +2005,11 @@ except arcpy.ExecuteError:
 					<p>
 						<code>ERROR 000464: Cannot get exclusive schema lock. Either being edited or in use by another application.</code>
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="2">
 						This error occurs when the script is trying to overwrite the output that's been shown in ArcMap
 					</p>
-					<p>
-						Before you run the Python script, close all the output files in ArcMap
+					<p class="fragment" data-fragment-index="3">
+						Before you run the Python script, always close all the output files in ArcMap
 					</p>
 				</section>
 
@@ -2026,16 +2023,16 @@ except arcpy.ExecuteError:
 					<p style="margin-left: 60px;">
 						e.g., New fields in the attribute table are all zero
 					</p>
-					<p>
+					<p  class="fragment" data-fragment-index="2">
 						Revising the script may not solve the issue / You cannot find anything wrong with the script
 					</p>
-					<p>
-						If so, reboot Windows. This often solves the issue.
+					<p  class="fragment" data-fragment-index="3">
+						If so, reboot ArcMap/IDLE and even Windows. This often solves the issue.
 					</p>
-					<p>
+					<p  class="fragment" data-fragment-index="4">
 						Still unsolved, ask Google.
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="4">
 						<li>
 							Someone else may have had the same problem and posted the question on the web
 						</li>
@@ -2043,7 +2040,7 @@ except arcpy.ExecuteError:
 							And ArcGIS experts may have answered the question
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="5">
 						Last resort: ask at <a href="http://stackexchange.com/" target="_blank">Stack Exchange</a> or <a href="http://forums.arcgis.com" target="_blank">ArcGIS Forum</a>.
 					</p>
 				</section>
