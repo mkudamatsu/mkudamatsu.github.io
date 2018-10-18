@@ -980,13 +980,17 @@
 							All values become zero, for example
 						</li>
 					</ul>
-					<p>
-						Best solution: <em>delete everything</em>
+					<p class="fragment" data-fragment-index="1">
+						Best solution:
 					</p>
-					<ul>
-						<li>
-							If Field Map is unspecified, it will (paradoxically) keep all the fields					</li>
-					</ul>
+					<ol class="fragment" data-fragment-index="1">
+						<li>Include every field when running the model</li>
+						<li class="fragment" data-fragment-index="2">Delete every field just before exporting the model as a Python script</li>
+						<ul class="fragment" data-fragment-index="3">
+							<li>
+								If Field Map is unspecified, it will (paradoxically) keep all the fields</li>
+						</ul>
+					</ol>
 				</section>
 
 				<section id="fieldmap2" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1126,6 +1130,9 @@
 					<h3>
 						Write a Python script
 					</h3>
+					<p>
+					  <a href="#fieldmap1" target="_blank">Delete every field in Spatial Join's Field Map</a>
+				  </p>
 					<p>
 						Export the model as a Python script (cf. <a href="../gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
 					</p>
