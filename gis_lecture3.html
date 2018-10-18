@@ -278,6 +278,7 @@
 
 				<section id="data3b" data-transition="slide-out fade-in">
 					<h4>
+						Data on social networks and plot locations
 					</h4>
 					<img src="gis_lecture3/CU2010F4.png" style="border: none; background: none; box-shadow:none; width: 600px;">
 					<p>
@@ -289,7 +290,9 @@
 						Empirical specification
 					</h3>
 					<p>
-						Define:
+						Define the treatment variable for farmer $i$ in period $t$ as:
+					</p>
+					<p>
 						<!-- Case by Case -->
 						\begin{align*}
 						M_{i,t} \equiv \frac{GoodNews(x_{j,s-5}) \times (x_{j,s-5} - x_{i,t_p})}{Experience_{it}}
@@ -297,15 +300,19 @@
 					</p>
 					<br>
 					<table border="0" width="100%">
-						<tr>
-							<td style="text-align: center">$GoodNews(x_{j,s-5})$</td>
-							<td>Higher-than-expected profit for farmer $j$ ($i$'s friend) from using $x_{j,s-5}$ units of fertilizer, observed by $i$ in period $s \in [t_p,t]$</td>
-						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="1">
 							<td style="text-align: center">$x_{i,t_p}$</td>
 							<td>$i$'s use of fertilizer at period $t_p$ (i.e. previous planting)</td>
 						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="text-align: center">$x_{j,s-5}$</td>
+							<td>farmer $j$ ($i$'s friend)'s use of fertilizer at period $s-5$, where $s \in [t_p,t]$</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="text-align: center">$GoodNews(x_{j,s-5})$</td>
+							<td>Indicator of higher-than-expected profit (fn.22) from using $x_{j,s-5}$</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="4">
 							<td style="text-align: center">$Experience_{it}$</td>
 							<td>$i$'s experience of planting pineapple</td>
 						</tr>
@@ -327,23 +334,25 @@
 							<td style="text-align: center">$\Delta x_{i,t}$</td>
 							<td>Changes in fertilizer use since $t_p$</td>
 						</tr>
-						<tr>
-							<td style="text-align: center">$\Gamma_{i,t}$</td>
-							<td>Growing condition for $i$'s plot at period $t$</td>
-						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="1">
 							<td style="text-align: center">$\boldsymbol{z}'_{i,t}$</td>
 							<td>Other controls</td>
 						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="text-align: center">$\Gamma_{i,t}$</td>
+							<td>Growing condition for $i$'s plot at period $t$</td>
+						</tr>
 					</table>
-					<p>
-						$\Gamma_{i,t}$ controls for common shocks to $i$ and $i$'s friends
+					<p class="fragment" data-fragment-index="3">
 						\begin{align*}
 						\Gamma_{i,t} \equiv x_{i,t}^{close} - x_{i,t_p}
 						\end{align*}
 						where $x_{i,t}^{close}$ averages fertilizer use over <strong>plots within 1km from $i$</strong> during previous 3 periods
 					</p>
-					<p class="fragment"  data-fragment-index="1">
+					<p class="fragment"  data-fragment-index="4">
+						$\Rightarrow$ $\Gamma_{i,t}$ controls for common shocks to $i$ and $i$'s friends
+					</p>
+					<p class="fragment"  data-fragment-index="5" style="color:slategrey">
 						We will learn how to identify <strong>plots within 1km from $i$</strong>
 					</p>
 				</section>
@@ -481,13 +490,23 @@
 					</ul>
 				</section>
 
-				<section id="result3"  data-transition="slide-in slide-out">
+				<section id="result3"  data-transition="slide-in fade-out">
 					<h3>
 						Main results
 					</h3>
 					<img src="gis_lecture3/CU2010T5.png" style="border: none; background: none; box-shadow:none; width: 800px;">
 					<p>
 						<small>(Table 5 of Conley & Udry 2010)</small>
+					</p>
+				</section>
+
+				<section id="result4"  data-transition="fade-in slide-out">
+					<h3>
+						Placebo tests with labor use
+					</h3>
+					<img src="gis_lecture3/CU2010T7.png" style="border: none; background: none; box-shadow:none; width: 800px;">
+					<p>
+						<small>(Table 7 of Conley & Udry 2010)</small>
 					</p>
 				</section>
 
