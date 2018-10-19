@@ -995,22 +995,20 @@
 					<p>
 						When exported as a Python script, it tends to misbehave...
 					</p>
-					<ul>
-						<li>
-							All values become zero, for example
-						</li>
-					</ul>
 					<p class="fragment" data-fragment-index="1">
 						Best solution:
 					</p>
 					<ol class="fragment" data-fragment-index="1">
 						<li>Include every field when running the model</li>
-						<li class="fragment" data-fragment-index="2">Delete every field just before exporting the model as a Python script</li>
+						<li class="fragment" data-fragment-index="2">Delete every field before exporting a Python script</li>
 						<ul class="fragment" data-fragment-index="3">
 							<li>
 								If Field Map is unspecified, it will (paradoxically) keep all the fields</li>
 						</ul>
 					</ol>
+					<p class="fragment" data-fragment-index="4">
+						$\Rightarrow$ For now, keep every field
+					</p>
 				</section>
 
 				<section id="fieldmap2" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1043,7 +1041,7 @@
 							This seems to be a Model Builder's bug
 						</li>
 						<li>
-							We will fix this when we use Python
+							You can fix this in Python later
 						</li>
 					</ul>
 				</section>
@@ -1119,19 +1117,14 @@
 					Value Fields
 				</h3>
 					<p>
-						From target features: village, hhn, plot, startrnd
-					</p>
-					<p>
-						From join features: village_1, hhn_1, plot_1, startrnd_1
+						From target features: village, hhn, plot, xcoord, ycoord
 					</p>
 					<ul>
-						<li>
-							These are not shown if Spatial Join fails to include them.
-						</li>
-						<li>
-							We will fix this when we use Python
-						</li>
+						<li>We need xcoord and ycoord for <a href="#conley_se4" target="_blank">calculating Conley (1999) standard errors</a></li>
 					</ul>
+					<p>
+						From join features: village_1, hhn_1, plot_1
+					</p>
 					</section>
 
 				<section id="model_model" data-transition="slide-in slide-out" style="text-align: left;">
@@ -1151,27 +1144,11 @@
 						Write a Python script
 					</h3>
 					<p>
-					  <a href="#fieldmap1" target="_blank">Delete every field in Spatial Join's Field Map</a>
+					  Delete every field in Spatial Join's Field Map (<a href="#fieldmap1" target="_blank">Why</a>)
 				  </p>
 					<p>
 						Export the model as a Python script (cf. <a href="../gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
 					</p>
-
-					<p>
-						The last three commands should look like this:
-					</p>
-					<pre>
-						<code data-trim>
-# Process: Spatial Join
-arcpy.SpatialJoin_analysis(buffer1km_shp, plots_shp, plot_neighbors_shp, "JOIN_ONE_TO_MANY", "KEEP_ALL", "", "INTERSECT", "", "")
-
-# Process: Table To Excel
-arcpy.TableToExcel_conversion(plot_neighbors_shp, plot_neighbors_xls, "NAME", "CODE")
-
-# Process: Export Feature Attribute to ASCII
-arcpy.ExportXYv_stats(plot_neighbors_shp, "village;hhn;plot", "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
-						</code>
-					</pre>
 				</section>
 
 				<section id="ex4b" data-transition="fade-in slide-out" style="text-align: left;">
@@ -1179,12 +1156,8 @@ arcpy.ExportXYv_stats(plot_neighbors_shp, "village;hhn;plot", "SPACE", plot_neig
 					Exercise #4
 					</h4>
 					<h3>
-						Write a Python script
+						Write a Python script (cont.)
 					</h3>
-					<p>
-						Export the model as a Python script (cf. <a href="../gis_lecture2.html#/ex4" target="_blank">Lec 2 Ex 4</a>)
-					</p>
-
 					<p>
 						The last three commands should look like this:
 					</p>
@@ -1197,20 +1170,17 @@ arcpy.SpatialJoin_analysis(buffer1km_shp, plots_shp, plot_neighbors_shp, "JOIN_O
 arcpy.TableToExcel_conversion(plot_neighbors_shp, plot_neighbors_xls, "NAME", "CODE")
 
 # Process: Export Feature Attribute to ASCII
-arcpy.ExportXYv_stats(plot_neighbors_shp, <mark>"village;hhn;plot"</mark>, "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
+arcpy.ExportXYv_stats(plot_neighbors_shp, <mark>"village;hhn;plot;village_1;hhn_1;plot_1"</mark>, "SPACE", plot_neighbors_txt, "ADD_FIELD_NAMES")
 						</code>
 					</pre>
 					<p>
-						This is where you specify fields to keep
+						The highlighted in yellow is where you specify fields to keep
 					</p>
 					<ul>
 						<li>
 							Each field name is delimited with semi-colon (;)
 						</li>
 					</ul>
-					<p>
-						Change this to <code>"village;hhn;plot;village_1;hhn_1;plot_1"</code>
-					</p>
 				</section>
 
 
