@@ -796,24 +796,21 @@
 						    Examples: distance to roads, railway lines, rivers...
 						</p>
 						<p>
-							Need the coordinate of nearest point on the polyline
+							Need the coordinate of <span style="color:red;">nearest point on the polyline</span>
 						</p>
-						<p>
+						<p class="fragment"  data-fragment-index="1">
 							Use ArcGIS's Near tool
 						</p>
-						<ul>
+						<ul class="fragment"  data-fragment-index="1">
 							<li>
 								It also calculates the distance to nearest point
 							</li>
 						</ul>
-						<p>
-							Application: Redding & Sturm (2008)
-						</p>
 				</section>
 
 				<section id="redding-sturm" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Detour: <a href="http://dx.doi.org/10.1257/aer.98.5.1766" target="_blank">Redding & Sturm (2008)</a>
+						Application: <a href="http://dx.doi.org/10.1257/aer.98.5.1766" target="_blank">Redding & Sturm (2008)</a>
 					</h4>
 					<img src="gis_lecture4/RS2008map.png" style="border: none; background: none; box-shadow:none; width: 600px; float: right;">
 					<p>
@@ -822,7 +819,7 @@
 					<p>
 						Population growth $\downarrow$ after 1945
 					</p>
-					<p>
+					<p class="fragment"  data-fragment-index="1">
 						Distance to border: can be obtained by Near tool
 					</p>
 				</section>
@@ -871,14 +868,14 @@
 						<p>
 							More appropriate when mean distance from any point within a polygon matters
 						</p>
-						<p>
+						<p class="fragment"  data-fragment-index="1">
 							To calculate the distance <span style="color:red;">to a point</span>:
 						</p>
 						<ul>
-							<li>
+							<li class="fragment"  data-fragment-index="2">
 								Obtain the coordinate of a polygon centroid by:
 							</li>
-							<ul>
+							<ul class="fragment"  data-fragment-index="3">
 								<li>
 									Stata ado <a href="http://www.haghish.com/statistics/stata-blog/stata-programming/download/shp2dta.html" target="_blank"><code>shp2dta</code></a> (cf. <a href="../gis_lecture2.html#/export3" target="_blank">Lec 2</a>)
 								</li>
@@ -886,30 +883,27 @@
 									Add Geometry Attributes in ArcGIS (cf. <a href="../gis_lecture2.html#/f2p" target="_blank">Lec 2 Ex 1 Step 3</a>)
 								</li>
 							</ul>
-							<li>
+							<li class="fragment"  data-fragment-index="2">
 								Then use the Great Circle Distance formula
 							</li>
-							<ul>
+							<ul class="fragment"  data-fragment-index="4">
 								<li>Stata ado <code>globdist</code></li>
 							</ul>
 						</ul>
-						<p>
-							Application: Campante & Do (2014)
-						</p>
 				</section>
 
 				<section id="campante-do" data-transition="fade" style="text-align: left;">
 					<h4>
-						Detour: <a href="http://dx.doi.org/10.1257/aer.104.8.2456" target="_blank">Campante & Do (2014)</a>
+						Application: <a href="http://dx.doi.org/10.1257/aer.104.8.2456" target="_blank">Campante & Do (2014)</a>
 					</h4>
 					<p>
 						Population concentration around US state capital city
 					</p>
-					<ul>
+					<ul class="fragment"  data-fragment-index="1">
 						<li>
 						Measured by the <em>distance</em>-weighted sum of county population
 						</li>
-						<li>
+						<li class="fragment"  data-fragment-index="2">
 						Distance: btw capital and county <em>centroids</em>
 						</li>
 					</ul>
@@ -939,7 +933,7 @@
 						<p>
 							To calculate the distance <span style="color:red;">to a polyline/polygon</span>:
 						</p>
-						<ol>
+						<ol class="fragment"  data-fragment-index="1">
 							<li>
 								Create centroid point features in ArcGIS
 							</li>
@@ -951,11 +945,11 @@
 									Add XY Coordinates
 								</li>
 							</ul>
-							<li>
+							<li class="fragment"  data-fragment-index="2">
 								Use the Near tool
 							</li>
 						</ol>
-						<p>
+						<p class="fragment"  data-fragment-index="3">
 							Application: Nunn (2008)
 						</p>
 				</section>
@@ -987,13 +981,13 @@
 								Used as control variables as well
 							</li>
 						</ul>
-					<p>
+					<p class="fragment"  data-fragment-index="1">
 						2. Identify <strong>closest point on the coast</strong> from country centroid
 					</p>
-					<p>
+					<p class="fragment"  data-fragment-index="2">
 						3. Calculate distance to <strong>closest slave trade centers</strong>
 					</p>
-						<ul style="margin-left: 72px;">
+						<ul style="margin-left: 72px;"  class="fragment"  data-fragment-index="2">
 							<li>
 								Trade center coordinates: use online gazetteer (cf. <a href="../gis_lecture1.html#/xydata2b" target="_blank">Lecture 1</a>)
 							</li>
@@ -1227,6 +1221,9 @@
 						<li>
 							<strong>NEAR_FID</strong>: FID of coastline segment
 						</li>
+						<ul>
+							<li>Useful for spatial RD (Lecture 7)</li>
+						</ul>
 						<li>
 							<strong>NEAR_DIST</strong>: Distance to coast in meters
 						</li>
@@ -1309,10 +1306,10 @@
 						<p>
 							Nunn (2008, p. 170): "For five countries where the centroid falls outside the land borders of the country (Gambia, Somalia, Cape Verde, Mauritius, and Seychelles) the point within the country closest to the centroid is used."
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							This can be done by the Near tool
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="1">
 							<li>
 								Near features: country polygons
 							</li>
@@ -1617,14 +1614,11 @@
 				</section>
 
 				<section id="intersect2" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						Application of Intersect tool:
-					</h4>
 					<h3>
-						Detour: <a href="http://dx.doi.org/10.1093/qje/qjs011" target="_blank">Bleakey & Lin (2012)</a>
+						Application: <a href="http://dx.doi.org/10.1093/qje/qjs011" target="_blank">Bleakey & Lin (2012)</a>
 					</h3>
 					<p>
-						<strong>Intersect</strong> <a href="http://global.britannica.com/science/fall-line" target="_blank">fall lines</a> + rivers to identify potential portage sites
+						<strong>Intersect</strong> <a href="http://global.britannica.com/science/fall-line" target="_blank">fall lines</a> + rivers to identify potential <a href="https://en.wikipedia.org/wiki/Portage" target="_blank">portage</a> sites
 					</p>
 					<img src="gis_lecture4/BL2012F4.png" style="border: none; background: none; box-shadow:none; width: 500px; float: center">
 				</section>
@@ -1912,17 +1906,17 @@
 						<strong>Expression</strong>: <span style="font-size: 2em">float(!SHAPE.AREA!)</span>
 					</p>
 					<ul>
-						<li>
+						<li class="fragment" data-fragment-index="1">
 							SHAPE.AREA: (hidden) field name for surface area
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="2">
 							! ! tells Python what's enclosed is a field name
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="3">
 							float(): avoid rounding-off to integer
 						</li>
 					</ul>
-					<p style="margin-left: 40px;">
+					<p style="margin-left: 40px;"  class="fragment" data-fragment-index="4">
 						cf. ArcGIS Help on <a href="http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/calculate-field-examples.htm" target="_blank">Calculate Field examples</a>
 					</p>
 					<p>
@@ -2012,10 +2006,10 @@
 						</li>
 					</ul>
 				<br>
-				<p>
+				<p class="fragment" data-fragment-index="1">
 					This time we go with Excel only.
 				</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
 							Advantage of Export Feature Attribute to ASCII: choose which fields to keep
 						</li>
