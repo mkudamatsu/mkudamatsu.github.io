@@ -146,7 +146,7 @@
 
 
 
-				<section id="" data-transition="slide-in slide-out" style="text-align: left;">
+				<section id="" data-transition="slide-in fade-out" style="text-align: left;">
 					<h4>
 						Issues on distance as instruments #1
 					</h4>
@@ -160,7 +160,7 @@
 							Selection in space
 						</p>
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								More affluent can live close to cities, etc.
 							</li>
 						</ul>
@@ -168,19 +168,56 @@
 							Distance to other things in the same place
 						</p>
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								e.g. Distance to cities: access to markets, schools, clinics...
 							</li>
-							<li>
-								Closer to DR Congo <br>$\Rightarrow$ Higher mortality due to proximity to conflict?
-							</li>
-							<li>
-								Closer to historical railway stations <br> $\Rightarrow$ More prosperous due to path dependence?
-							</li>
 						</ul>
-
 				</section>
 
+				<section id="oster2012_iv" data-transition="fade-in fade-out" style="text-align: left;">
+					<h3>
+					<a href="http://dx.doi.org/10.1016/j.jhealeco.2011.12.006" target="_blank">Oster (2012)</a>
+					</h3>
+						<p>
+							HIV prevalence $\uparrow$ $\Rightarrow$ Risky sexual behaviour $\downarrow$
+						</p>
+						<p>
+							Instrument: Distance to DR Congo
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Closer to DR Congo
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							$\Rightarrow$ Higher mortality due to proximity to conflict?
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\Rightarrow$ People don't mind risking their survival (<a href="10.1257/aer.103.5.1977" target="_blank">Oster et al. 2013</a>)
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							i.e. Distance to other things in the same place
+						</p>
+				</section>
+
+				<section id="wz2007_iv" data-transition="fade-in slide-out" style="text-align: left;">
+					<h3>
+						<a href="http://dx.doi.org/10.1016/j.jdeveco.2006.03.006" target="_blank">Woodruff & Zenteno (2007)</a>
+					</h3>
+						<p>
+							Migration rate to rich country (Mexico $\rightarrow$ USA) $\uparrow$ $\Rightarrow$ Investment in home country $\uparrow$
+						</p>
+						<p>
+							Instrument: Distance to early 20c railway stations
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Closer to historical railway stations
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							$\Rightarrow$ More prosperous due to path dependence? (<a href="10.1093/qje/qjs011" target="_blank">Bleakey and Lin 2012</a>)
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							i.e. Selection in space
+						</p>
+				</section>
 				<!-- <section id="rogall_iv" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
 						<a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx0aG9yc3RlbnJvZ2FsbHxneDoyYTkzZjNkODVjMTcxYzA5" target="_blank">Rogall (2014)</a>
@@ -278,23 +315,23 @@
 					<p>
 						Did slave trades cause African underdevelopment?
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Important?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
 							Many conjecture slave trades adversely affected Africa's living standards
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Original?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="3">
 						<li>
 							First systematic and convincing evidence of causality
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Feasible?
 					</p>
 				</section>
@@ -303,18 +340,18 @@
 					<h4>Data</h4>
 					<h3>Treatment variable</h3>
 					<p>
-						# of slaves exported from each country: constructed from
+						# of slaves exported from each country<span class="fragment" data-fragment-index="1">: constructed from</span>
 					</p>
-					<p style="margin-left: 27px;">
+					<p style="margin-left: 27px;"  class="fragment" data-fragment-index="1">
 						(1) # of slaves exported from each port of Africa
 					</p>
-					<p style="margin-left: 27px;">
-						(2) Ethnicity of a sample of 100,000+ slaves shipped from Africa
+					<p style="margin-left: 27px;"  class="fragment" data-fragment-index="2">
+						(2) Ethnicity of 100,000+ slaves shipped from Africa
 					</p>
-					<p style="margin-left: 27px;">
+					<p style="margin-left: 27px;"  class="fragment" data-fragment-index="3">
 					  (3) Murdock's (1959) map of ethnic homelands in Africa
 					</p>
-					<p class="fragment"  data-fragment-index="1">
+					<p class="fragment"  data-fragment-index="4" style="color:slategrey">
 						We will learn how to allocate (1) across countries <br> by intersecting (3) with country polygons
 					</p>
 				</section>
@@ -350,7 +387,7 @@
 						Distance to nearest slave trade centers
 					</p>
 					<ul>
-						<li style="color: red; ">
+						<li style="color:red;">
 							Trans-Atlantic
 						</li>
 						<li>
@@ -363,7 +400,7 @@
 							Red Sea
 						</li>
 					</ul>
-					<p>
+					<p style="color:slategrey">
 						We will learn how to obtain distance to Trans-Atlantic trade centers
 					</p>
 				</section>
@@ -375,7 +412,7 @@
 					<p>
 						Selection in space?
 					</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="1">
 							<li>
 								Location of slave trade centers:
 							</li>
@@ -383,7 +420,7 @@
 									<li>
 										Determined by climate suitability of plantation crops / location of mines (p. 160)
 									</li>
-									<li>
+									<li class="fragment" data-fragment-index="2">
 										Not affected by distance to slave export locations in Africa
 									</li>
 								</ul>
@@ -391,11 +428,11 @@
 						<p>
 							Distance to other things in the same place?
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="3">
 							<li>
 								Slave markets $\neq$ 	other economic opportunities
 							</li>
-							<li>
+							<li  class="fragment" data-fragment-index="4">
 								Reduced-form correlation is absent outside Africa (p. 163)
 							</li>
 						</ul>
