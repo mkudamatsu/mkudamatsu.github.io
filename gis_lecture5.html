@@ -225,23 +225,23 @@
 					<p>
 						Did geographic diversity cause ethnic diversity?
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Important?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
 							Ethnic diversity: known to "cause" low growth (<a href="http://dx.doi.org/10.1162/003355300555466" target="_blank">Easterly & Levine 1997</a>) and conflict (<a href="http://dx.doi.org/10.1257/0002828054201468" target="_blank">Montalvo & Reynal-Querol 2005</a>)
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Original?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="3">
 						<li>
 							Cross-"virtual country" regression
 						</li>
 					</ul>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Feasible?
 					</p>
 				</section>
@@ -259,24 +259,24 @@
 								Polygons of linguistic groups' homelands, 1990-95
 							</li>
 						</ul>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Suitability for agriculture (<a href="http://dx.doi.org/10.1046/j.1466-822x.2002.00294.x" target="_blank">Ramankutty et al. 2002</a>)
 					</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="1">
 							<li>
 								Raster at 0.5&deg x 0.5&deg resolution
 							</li>
 							<li>
 								Fraction of a cell cultivable around 1990
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Obtained by "regressing" observed cultivated areas (satellite images) on climate and soil
 							</li>
 						</ul>
-					<p>
+					<p class="fragment" data-fragment-index="3">
 						Elevation and other geography variables
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="3">
 						<li>
 							<a href="http://gecon.yale.edu/" target="_blank">G-Econ database</a>
 						</li>
@@ -290,15 +290,15 @@
 						<p>
 							Omitted variable bias in cross-country regression
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="1">
 							<li>
 								Countries with centralized modern state may have both homogenized languages & conquered homogenous areas
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							Panel data analysis: infeasible
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="3">
 							<li>
 								Geography: time-invariant
 							</li>
@@ -317,11 +317,11 @@
 								Can control for country FE
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							But... sub-national district boundaries: endogenous
 						</p>
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Maybe difficult to split districts by ethnicity if geography is diverse
 							</li>
 						</ul>
@@ -338,36 +338,36 @@
 							<li>
 								Divide the earth into 2.5&deg x 2.5&deg grid cells
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Boundary thus exogeneous
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							Solution 2: Dyadic regression
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="2">
 							<li>
 								Pair each raster cell with one of its 8 adjacent cells
 							</li>
 							<li>
 								Measure differences within each pair
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Can control for raster cell FE
 							</li>
 						</ul>
-						<p>
+						<p class="fragment" data-fragment-index="4">
 							Neither is feasible w/o GIS
 						</p>
 				</section>
-
 
 				<section id="image" data-transition="fade-in slide-out">
 					<h4>
 						Virtual country example
 					</h4>
 					<img src="gis_lecture5/michalopoulos2012f7.png" style="border: none; background: none; box-shadow:none; width: 600px;">
-					<p>
+					<p style="font-size: 50%;">
+						Figure 7 of <a href="http://dx.doi.org/10.1257/aer.102.4.1508" target="_blank">Michalopoulos (2012)</a>
 					</p>
 				</section>
 
@@ -393,10 +393,10 @@
 						</tr>
 						<tr>
 							<td style="text-align: center">$\boldsymbol{x}_i$</td>
-							<td>Can include country FE</td>
+							<td>Vector of controls (country FE, etc.)</td>
 						</tr>
 					</table>
-					<p class="fragment"  data-fragment-index="1">
+					<p class="fragment"  data-fragment-index="1" style="color:slategrey">
 						We will learn how to calculate $SD(LandQuality)_i$
 					</p>
 				</section>
