@@ -82,85 +82,36 @@
 						<p>
 							Summary statistics of raster data value within each polygon
 						</p>
-						<ul>
-							<li>
-								Mean / Standard deviation
-							</li>
-							<li>
-								Min / Max / Range
-							</li>
-							<li>
-								Sum
-							</li>
-							<li>
-								Count
-							</li>
-						</ul>
-						<p>
-							For integer raster:
+							<p class="fragment" data-fragment-index="1">
+								i.e. Merge polygons with raster data
+							</p>
+						<p class="fragment" data-fragment-index="2">
+							Examples:
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="2">
 							<li>
-								Median
+								Indonesian districts + Forest coverage (<a href="http://mkudamatsu.github.io/gis_lecture1.html#/satellite1c" target="_blank">Lecture 1</a>)
 							</li>
-							<li>
-								Variety (# of unique values)
+							<li class="fragment" data-fragment-index="3">
+								Grid cells + Population counts
 							</li>
-							<li>
-								Majority (most frequent value)
-							</li>
-							<li>
-								Minority (least frequent value)
-							</li>
+							<ul class="fragment" data-fragment-index="4">
+								<li>
+									Population weights for averaging grid-cell temperature to country (<a href="http://dx.doi.org/10.1257/mac.4.3.66" target="_blank">Dell et al. 2012</a>)
+								</li>
+							</ul>
 						</ul>
 				</section>
 
-				<section id="what_is_zonal_stat2" data-transition="fade-in slide-out" style="text-align: left;">
-					<h4>
-						What is Zonal Statistics? (cont.)
-					</h4>
-						<p>
-							Merge polygons with raster data, in other words
-						</p>
-						<p>
-							Polygon examples:
-						</p>
-						<ul>
-							<li>
-								Countries
-							</li>
-							<li>
-								Sub-national districts
-							</li>
-							<li>
-								Grid cells (this lecture)
-							</li>
-						</ul>
-						<p>
-							Raster data examples:
-						</p>
-						<ul>
-							<li>
-								Population
-							</li>
-							<li>
-								Elevation (cf. Lecture 6)
-							</li>
-							<li>
-								Land use
-							</li>
-							<li>
-								Nighttime light
-							</li>
-						</ul>
-				</section>
-
-				<section id="zonal_stat_in_econ" data-transition="slide-in fade-out" style="text-align: left;">
+				<section id="zonal_stat_in_econ" data-transition="fade-in fade-out" style="text-align: left;">
 					<h3>
-						Applications of Zonal Statistics
+						What is Zonal Statistics? (cont.)
 					</h3>
+					<p>
+						More examples:
+					</p>
 						<p>
-							Mean nighttime luminosity within:
+							Mean <a href="http://mkudamatsu.github.io/gis_lecture1.html#/satellite2a" target="_blank">nighttime luminosity</a> within:
 						</p>
 						<ul>
 							<li>
@@ -176,22 +127,56 @@
 								Ethnic homelands (Michalopoulos & Papaioannou <a href="http://dx.doi.org/10.3982/ECTA9613" target="_blank">2013</a> / <a href="http://dx.doi.org/10.1093/qje/qjt029" target="_blank">2014</a>, <a href="http://dx.doi.org/10.1086/685300" target="_blank">Alesina et al. 2016</a>)
 							</li>
 						</ul>
-						<p>
-							Population weights for averaging grid-cell data to country
-						</p>
-						<ul>
-							<li>
-								Temperature (<a href="http://dx.doi.org/10.1257/mac.4.3.66" target="_blank">Dell et al. 2012</a>)
-							</li>
-						</ul>
 				</section>
 
-				<section id="michalopoulos2012" data-transition="fade-in slide-out" style="text-align: left;">
+				<section id="what_is_zonal_stat2" data-transition="fade-in slide-out" style="text-align: left;">
 					<h4>
-						Applications of Zonal Statistics (cont.)
+						What is Zonal Statistics? (cont.)
 					</h4>
-						<p>
-							<a href="http://dx.doi.org/10.1257/aer.102.4.1508" target="_blank">Michalopoulos (2012)</a>: probably the most ingenious research design that exploits zonal statsitics (and ArcGIS in general)
+					<p>
+						The following summary statistics can be obtained:
+					</p>
+					<ul>
+						<li>
+							Mean / Standard deviation
+						</li>
+						<li>
+							Min / Max / Range
+						</li>
+						<li>
+							Sum
+						</li>
+						<li>
+							Count
+						</li>
+					</ul>
+					<p class="fragment" data-fragment-index="1">
+						For integer rasters only:
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Median
+						</li>
+						<li>
+							Variety (# of unique values)
+						</li>
+						<li>
+							Majority (most frequent value)
+						</li>
+						<li>
+							Minority (least frequent value)
+						</li>
+					</ul>
+				</section>
+
+
+
+				<section id="michalopoulos2012" data-transition="slide-in slide-out" style="text-align: left;">
+					<h3>
+						An application of Zonal Statistics for research design
+					</h3>
+						<p class="fragment" data-fragment-index="1">
+							<a href="http://dx.doi.org/10.1257/aer.102.4.1508" target="_blank">Michalopoulos (2012)</a>: probably the most ingenious application of zonal statsitics (and ArcGIS in general)
 						</p>
 
 				</section>
