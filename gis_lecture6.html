@@ -709,55 +709,17 @@
 								6% or steeper
 							</li>
 						</ul>
-						<p>
-							$\Rightarrow$ Obtain gradient of each segment of river by matching:
-						</p>
-						<ul>
-							<li>
-								River polylines
-							</li>
-							<li>
-								Gradient raster
-							</li>
-						</ul>
-						<img src="gis_lecture6/river_on_grid.jpg" style="border: none; background: none; box-shadow:none; width: 400px; float: right;">
+						<div class="fragment" data-fragment-index="1">
+							<p>
+								$\Rightarrow$ Obtain gradient of each segment of river by matching river polylines with gradient raster:
+							</p>
+							<img src="gis_lecture6/river_on_grid.jpg"　style="border: none; background: none; box-shadow:none; width: 400px; float: left ;">
+ 						</div>
 
 				</section>
+
 
 				<section id="data2construct2" data-transition="fade-in fade-out" style="text-align: left;">
-					<h4>
-						Data we want to construct (cont.)
-					</h4>
-					<p>
-						In this lecture, we assume:
-					</p>
-					<p>
-						Each river segment is <strong>of equal size</strong> within the same district
-					</p>
-					<ul>
-						<li>
-							Districts in India are at most 3&deg wide in latitude
-						</li>
-						<li>
-							30 seconds in longitude can differ up to <strong>only 18m</strong>
-						</li>
-						<ul>
-						<li>
-							India is located from 8&deg to 37&deg North
-						</li>
-						<li>
-							1&deg in longitude at 15&deg = 107.551km
-						</li>
-						<li>
-							1&deg in longitude at 30&deg = 96.486km
-						</li>
-					</ul>
-					<p style="text-align: center;">
-					$\frac{107551-96486}{120}*\frac{3}{30-15} \approx 18$
-					<p>
-				</section>
-
-				<section id="data2construct3" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
 						Data we want to construct (cont.)
 					</h4>
@@ -772,8 +734,42 @@
 							The district stretches a lot along the north-south direction
 						</li>
 					</ul>
+					<p class="fragment" data-fragment-index="1">
+					  $\Rightarrow$ Need to project the raster data <span style="color:slategrey">(cf. Lecture 7)</span>
 					<p>
-					  $\Rightarrow$ Need to project the raster data (cf. Lecture 7)
+				</section>
+
+				<section id="data2construct3" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Data we want to construct (cont.)
+					</h4>
+					<p>
+						But this lecture assumes:
+					</p>
+					<p>
+						Each river segment is <strong>of equal size</strong> within the same district
+					</p>
+					<ul class="fragment" data-fragment-index="1">
+						<li>
+							Districts in India are at most 3&deg wide in latitude
+						</li>
+						<ul class="fragment" data-fragment-index="2">
+							<li>
+								India is located from 8&deg to 37&deg North
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								1&deg in longitude at 15&deg = 107.551km
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								1&deg in longitude at 30&deg = 96.486km
+							</li>
+						</ul>
+					<li class="fragment" data-fragment-index="5">
+						30 seconds in longitude can differ up to <strong>only 18m</strong>
+					</li>
+					</ul>
+					<p  class="fragment" data-fragment-index="6" style="text-align: center;">
+					$\frac{107551-96486}{120}*\frac{3}{30-15} \approx 18$
 					<p>
 				</section>
 
@@ -786,7 +782,7 @@
 						If each river segment is of equal size,
 					</p>
 					<p>
-						$\Rightarrow$ We can use Zonal Statitics to calculate % of each type of segments, with two inputs:
+						$\Rightarrow$ We can use Zonal Statitics <span style="color:slategrey">(cf. Lecture 5)</span> with two inputs:
 					</p>
 					<ol style="margin-left: 85px;">
 						<li>
@@ -988,7 +984,7 @@
 						</li>
 					</ul>
 					<p>
-						For middle- to high-latitude areas, use Project Raster first to use UTM projections (cf. Lecture 7)
+						For middle- to high-latitude areas, use Project Raster first to use UTM projections <span style="color:slategrey">(cf. Lecture 7)</span>
 					</p>
 					<ul>
 						<li>
@@ -1119,6 +1115,9 @@
 								Turn all river polylines within a district into one feature
 							</li>
 						</ul>
+					<p>
+						cf. <a href="./gis_lecture5.html#intersect_dissolve1" target="_blank">Lecture 5</a>
+					</p>
 				</section>
 
 				<section id="ex2intersect" data-transition="fade-in fade-out" style="text-align: left;">
@@ -1340,15 +1339,15 @@
 						<a href="http://dx.doi.org/10.1162/qjec.2010.125.3.1253" target="_blank">Saiz (2010)</a>
 					</h3>
 						<p>
-							Measures % of areas with slope > 15% as unsuitability for urban development
+							Use % of areas with slope > 15% as a measure of unsuitability for urban development
 						</p>
 						<p>
 							Finds housing supply inelastic in such areas
 						</p>
-						<p>
-							Slope of over 15%: now often used as geographic constraints to housing supply / urban development
+						<p class="fragment" data-fragment-index="1">
+							Slope of over 15%: now often used as IV for housing supply or urban development
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="2">
 							<li>
 								<a href="http://dx.doi.org/10.1257/aer.20131706" target="_blank">Diamond (2016)</a>, <a href="http://real.wharton.upenn.edu/~harari/Harari_Papers/CityShapeOct2017.pdf" target="_blank">Hariri (2017)</a>, <a href="http://dx.doi.org/10.1016/j.jdeveco.2016.08.005" target="_blank">Chen & Kung (2016)</a>
 							</li>
