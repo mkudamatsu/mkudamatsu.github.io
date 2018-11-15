@@ -115,10 +115,10 @@
 					<p>
 						$\Rightarrow$ Female labor supply $\uparrow$
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Electrification: instrumented by <strong>mean land gradient</strong>
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
 							Flat terrain: cheap to lay power lines
 						</li>
@@ -135,10 +135,10 @@
 					<p>
 						$\Rightarrow$ Male-to-female ratio $\downarrow$
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Tea production: instrumented by <strong>mean land gradient</strong>
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
 							Tea grows in hilly terrain
 						</li>
@@ -168,10 +168,10 @@
 					<p>
 						$\Rightarrow$ Genocide incidents $\uparrow$
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Radio: instrumented by <strong>signal strength</strong>
 					</p>
-					<img src="gis_lecture6/olken.png" style="border:none; background:none; box-shadow:none; width:800px;">
+					<img src="gis_lecture6/olken.png" style="border:none; background:none; box-shadow:none; width:800px;"  class="fragment" data-fragment-index="1">
 			</section>
 
 			<!-- <section id="" data-transition="slide-in fade-out" style="text-align: left;">
@@ -233,7 +233,7 @@
 					<p>
 						Important?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
 							Dams: built on nearly 1/2 of rivers worldwide
 						</li>
@@ -244,7 +244,7 @@
 					<p>
 						Original?
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="2">
 						<li>
 							Use geography to obtain credible impact estimates
 						</li>
@@ -265,10 +265,10 @@
 					<p>
 						Poverty data: 1973, 83, 87, 93, 99
 					</p>
-					<p>
+					<p class="fragment" data-fragment-index="1">
 						Dams: location (nearest city), data of completion
 					</p>
-					<ul>
+					<ul class="fragment" data-fragment-index="1">
 						<li>
 							Source: World Registry of Large Dams
 						</li>
@@ -322,7 +322,7 @@
 							<td>(2 for 1.5-3%; 3 for 3-6%, 4 for over 6%)</td>
 						</tr>
 					</table>
-					<p class="fragment"  data-fragment-index="1">
+					<p class="fragment"  data-fragment-index="1" style="color:slategrey">
 						We will learn how to calculate $RGr_{ki}$ in ArcGIS
 					</p>
 				</section>
@@ -342,15 +342,12 @@
 					<table border="0" width="100%">
 						<tr>
 							<td style="text-align: center">$\bar{D}_{st}$</td>
-							<td># dams in whole India in year $t$ x Fraction of dams in state $s$ in 1970 (before sample period)</td>
+							<td>Predicted # of dams in state $s$ in year $t$<br>
+								$=\frac{D_{s,1970}}{\sum_s D_{s,1970}}*\sum_s D_{st}$ <br><span style="color:slategrey">($D_{st}$: # dams in state $s$ in year $t$)</span></td>
 						</tr>
-						<tr>
+						<tr class="fragment"  data-fragment-index="2">
 							<td style="text-align: center"></td>
-							<td>$\Leftarrow$ Predicted state budget for dam constructions</td>
-						</tr>
-						<tr>
-							<td style="text-align: center"></td>
-							<td>$\Leftarrow$ Actual # of dams in $st$: endogenous</td>
+							<td>$\Leftarrow$ $D_{st}$ is endogenous to poverty</td>
 						</tr>
 					</table>
 				</section>
@@ -401,7 +398,7 @@
 					<table border="0" width="100%">
 						<tr>
 							<td style="text-align: center">$\mathbf{M}_i$</td>
-							<td>Controls: river length, fraction of district areas with each gradient cateogry, etc.</td>
+							<td>Controls: <span style="color:firebrick">river length</span>, fraction of district areas with each gradient cateogry, etc.</td>
 						</tr>
 						<tr>
 							<td style="text-align: center">$l_{t}$</td>
@@ -412,7 +409,7 @@
 							<td>District and state-year FEs</td>
 						</tr>
 					</table>
-					<p>
+					<p style="color:firebrick">
 						We will learn how to obtain river length in $\mathbf{M}_i$
 					</p>
 				</section>
@@ -432,27 +429,27 @@
 							<td style="text-align: center">$y_{ist}$</td>
 							<td>Agricultural outcomes / poverty measures</td>
 						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="1">
 							<td style="text-align: center">$D_{ist}$</td>
-							<td># of dams in own district <span class="fragment" data-fragment-index="2">(harmful)</span></td>
+							<td># of dams in own district <span class="fragment" data-fragment-index="4">(harmful)</span></td>
 						</tr>
 						<tr>
 							<td style="text-align: center"></td>
-							<td  class="fragment" data-fragment-index="2">$\Leftarrow$ Displacement, soil degradation, restricted water use</td>
+							<td  class="fragment" data-fragment-index="4">$\Leftarrow$ Displacement, soil degradation, restricted water use</td>
 						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="2">
 							<td style="text-align: center">$D_{ist}^U$</td>
-							<td># of dams in upstream districts <span class="fragment" data-fragment-index="1">(beneficial)</span></td>
+							<td># of dams in upstream districts <span class="fragment" data-fragment-index="3">(beneficial)</span></td>
 						</tr>
 						<tr>
 							<td style="text-align: center"></td>
-							<td class="fragment" data-fragment-index="1">$\Leftarrow$ Irrigation</td>
+							<td class="fragment" data-fragment-index="3">$\Leftarrow$ Irrigation</td>
 						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="5">
 							<td style="text-align: center">$\mathbf{Z}_{ist}$</td>
 							<td>All the controls for own district</td>
 						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="5">
 							<td style="text-align: center">$\mathbf{Z^U}_{ist}$</td>
 							<td>All the controls for upstream districts</td>
 						</tr>
