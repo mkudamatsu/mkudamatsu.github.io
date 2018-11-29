@@ -496,18 +496,26 @@
 					<h3>
 						Spatial RD Design Data Generation
 					</h3>
+					<p style="text-align: left;">
+						\begin{align*}
+						y_{i} = \beta T_{i} + \gamma Dist_i + \delta T_{i} Dist_i + \mu_s + \varepsilon_{i}
+						\end{align*}
+					</p>
 					<p>
-						1. Attach treatment indicator to district polygons
+						1. Treatment indicator ($T_i$)
 					</p>
 					<p>
 						2. Treatment boundary polylines
 					</p>
 					<p>
-						3. Boundary segment indicator & Distance to boundary
+						3. Boundary segment indicator ($\mu_s$)
 					</p>
 					<p>
-						4. Visualize spatial RD plots
+						4. Distance to boundary ($Dist_i$)
 					</p>
+					<!-- <p>
+						4. Visualize spatial RD plots
+					</p> -->
 				</section>
 
 				<section id="ex1inputs" data-transition="slide-in fade-out" style="text-align: left;">
@@ -567,7 +575,7 @@
 								Attach mita indicator to district polygons
 							</li>
 							<li>
-								cf. <a href="../gis_lecture6.html#/ex4step1" target="_blank">Lecture 6 Exercise 4 Step 1</a>
+								cf. <a href="../gis_lecture6.html#/ex4step1b" target="_blank">Lecture 6 Exercise 4 Step 1</a>
 							</li>
 						</ul>
 				</section>
@@ -619,12 +627,12 @@
 					<p>
 						<strong>Output Feature Class</strong>: <code>...\Lecture7\temporary\mita_districts.shp</code>
 					</p>
-					<p>
-						Do not name the output as <code>districts.shp</code>
-					</p>
 					<ul>
 						<li>
-							Its attribute table will have the same file name as the output from Table to Table
+							Do not name the output as <code>districts.shp</code>
+						</li>
+						<li>
+							Its attribute table will then have the same file name as the output from Table to Table
 						</li>
 					</ul>
 				</section>
