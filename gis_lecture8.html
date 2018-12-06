@@ -554,7 +554,7 @@
 					</p>
 				</section>
 
-				<section id="" data-transition="fade-in fade-out">
+				<section id="calorie_conversion_factors" data-transition="fade-in fade-out">
 					<h4>
 						Calorie conversion factors
 					</h4>
@@ -702,6 +702,14 @@ maize_yield = Raster("maize.tif")
 maize_calorie <mark>= maize_yield * 36.5</mark>
 						</code>
 					</pre>
+					<ul>
+						<li>
+							<a href="#calorie_conversion_factors" target="_blank">Calorie from Maize: 3.65 kilo per 100g</a>
+						</li>
+						<li>
+							Unit in GAEZ data: kg
+						</li>
+					</ul>
 				</section>
 
 				<section id="" data-transition="fade-out fade-in">
@@ -1385,8 +1393,25 @@ crops = calorie.keys()
 						Exercise #2 Step 3
 					</h4>
 					<h3>
-						Calorie conversion
+						Specify input raster data
 					</h3>
+					<p>
+						Specify the directory in which the input raster is saved
+					</p>
+					<pre style="font-size:0.7em;">
+						<code data-trim data-noescape>
+crops = calorie.keys()
+for crop in crops:
+   <mark>arcpy.env.workspace = "../input/GAEZ"</mark>
+   crop_yield = Raster(crop+".tif")
+						</code>
+					</pre>
+				</section>
+
+				<section id="ex2-3a" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #2 Step 3: Specify input raster data (cont.)
+					</h4>
 					<p>
 						Create a Raster object
 					</p>
@@ -1398,12 +1423,21 @@ for crop in crops:
    <mark>crop_yield = Raster(crop+".tif")</mark>
 						</code>
 					</pre>
+					<ul>
+						<li>
+							For this to work, name data files with keys
+						</li>
+					</ul>
 				</section>
+
 
 				<section id="ex2-3b" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #2 Step 3: Calorie conversion (cont.)
+						Exercise #2 Step 4
 					</h4>
+					<h3>
+						Calorie conversion
+					</h3>
 					<p>
 						Retrieve conversion factor as dictionary value for key <code>crop</code>
 					</p>
@@ -1420,7 +1454,7 @@ for crop in crops:
 
 				<section id="ex2-3c" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #2 Step 3: Calorie conversion (cont.)
+						Exercise #2 Step 4: Calorie conversion (cont.)
 					</h4>
 					<p>
 						Convert yield into calorie by Map Algebra
@@ -1438,7 +1472,7 @@ for crop in crops:
 
 				<section id="ex2-4" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
-						Exercise #2 Step 4
+						Exercise #2 Step 5
 					</h4>
 					<h3>
 						Save the output raster file
@@ -1748,7 +1782,7 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 						Maximum will be calculated for each type of crops
 					</p>
 					<p>
-						$\Rightarrow$ Revise <code>calorie.py</code>
+						$\Rightarrow$ Revise <code>calorie.py</code> as in next slide:
 					</p>
 				</section>
 
@@ -1786,7 +1820,7 @@ for crop in crops:
 						Start with <code>code/template4L8ex3.py</code>
 					</p>
 					<p>
-						1. Create the list of caloric yield rasters for cereal and tuber
+						1. <a href="#list-rasters4" target="_blank">Create the list of caloric yield rasters for cereal and tuber</a>
 					</p>
 					<p>
 						2. Calculate caloric difference between cereal and tuber
@@ -1800,6 +1834,9 @@ for crop in crops:
 				</section>
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
+					<h4>
+						Exercise #3: Step 2
+					</h4>
 					<h4>
 						Caloric differences between cereal and tuber
 					</h4>
@@ -1817,6 +1854,9 @@ max_tuber = CellStatistics(input_tubers, "MAXIMUM", "DATA")
 
 				<section id="" data-transition="fade-in fade-out" style="text-align: left;">
 					<h4>
+						Exercise #3: Step 3
+					</h4>
+					<h4>
 						Maximum caloric yield for all crops
 					</h4>
 					<p>
@@ -1833,6 +1873,9 @@ max_calorie = CellStatistics(<mark>[max_cereal, max_tuber]</mark>, "MAXIMUM", "D
 				</section>
 
 				<section id="" data-transition="fade-in slide-out" style="text-align: left;">
+					<h4>
+						Exercise #3: Step 4
+					</h4>
 					<h4>
 						Save outputs
 					</h4>
@@ -1867,7 +1910,7 @@ max_calorie<mark>.save("max_calorie_all.tif")</mark>
 					</p>
 				</section>
 
-				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
+				<section id="assignment1" data-transition="slide-out slide-in" style="text-align: left;">
 					<h4>
 					Assignment 1
 					</h4>
@@ -1888,7 +1931,7 @@ max_calorie<mark>.save("max_calorie_all.tif")</mark>
 					</p>
 				</section>
 
-				<section id="model_script" data-transition="slide-out slide-in" style="text-align: left;">
+				<section id="assignment2" data-transition="slide-out slide-in" style="text-align: left;">
 					<h4>
 					Assignment 2 (advanced)
 					</h4>
