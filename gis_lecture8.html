@@ -1031,11 +1031,11 @@ except arcpy.ExecuteError:
 						It's a set of pairs
 					</p>
 					<p>
-						Just like a Norwegian-English dictionary
+						Just like a Japanese-English dictionary
 					</p>
 					<ul>
 						<li>
-							Each pair: Norwegian word and its translation in English
+							Each pair: Japanese word and its translation in English
 						</li>
 					</ul>
 				</section>
@@ -1049,7 +1049,7 @@ except arcpy.ExecuteError:
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = <mark>{</mark>'jeg':'I', 'du':'you', 'vi':'we'<mark>}</mark>
+dict = <mark>{</mark>'watashi':'I', 'anata':'you', 'kare':'he'<mark>}</mark>
 						</code>
 					</pre>
 					<p>
@@ -1066,7 +1066,7 @@ dict = <mark>{</mark>'jeg':'I', 'du':'you', 'vi':'we'<mark>}</mark>
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {'jeg':'I'<mark>,</mark> 'du':'you'<mark>,</mark> 'vi':'we'}
+dict = {'watashi':'I'<mark>,</mark> 'anata':'you'<mark>,</mark> 'kare':'he'}
 						</code>
 					</pre>
 					<p>
@@ -1083,7 +1083,7 @@ dict = {'jeg':'I'<mark>,</mark> 'du':'you'<mark>,</mark> 'vi':'we'}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {'jeg'<mark>:</mark>'I', 'du'<mark>:</mark>'you', 'vi'<mark>:</mark>'we'}
+dict = {'watashi'<mark>:</mark>'I', 'anata'<mark>:</mark>'you', 'kare'<mark>:</mark>'he'}
 						</code>
 					</pre>
 					<p>
@@ -1100,7 +1100,7 @@ dict = {'jeg'<mark>:</mark>'I', 'du'<mark>:</mark>'you', 'vi'<mark>:</mark>'we'}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-<mark>dict</mark> = {'jeg':'I', 'du':'you', 'vi':'we'}
+<mark>dict</mark> = {'watashi':'I', 'anata':'you', 'kare':'he'}
 						</code>
 					</pre>
 					<p>
@@ -1117,7 +1117,7 @@ dict = {'jeg'<mark>:</mark>'I', 'du'<mark>:</mark>'you', 'vi'<mark>:</mark>'we'}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {<mark>'jeg'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
+dict = {<mark>'watashi'</mark>:'I', <mark>'anata'</mark>:'you', <mark>'kare'</mark>:'he'}
 						</code>
 					</pre>
 					<p>
@@ -1134,7 +1134,7 @@ dict = {<mark>'jeg'</mark>:'I', <mark>'du'</mark>:'you', <mark>'vi'</mark>:'we'}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {'jeg':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
+dict = {'watashi':<mark>'I'</mark>, 'anata':<mark>'you'</mark>, 'kare':<mark>'he'</mark>}
 						</code>
 					</pre>
 					<p>
@@ -1151,7 +1151,7 @@ dict = {'jeg':<mark>'I'</mark>, 'du':<mark>'you'</mark>, 'vi':<mark>'we'</mark>}
 					</h3>
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
-dict = {'jeg':'I', 'du':'you', 'vi':'we'}
+dict = {'watashi':'I', 'anata':'you', 'kare':'he'}
 						</code>
 					</pre>
 					<p>
@@ -1160,7 +1160,7 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 					<table>
 					<tr>
 						<td>
-						<code>dict['jeg']</code>
+						<code>dict['watashi']</code>
 						</td>
 						<td>
 							returns
@@ -1170,7 +1170,7 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 					</tr>
 					<tr>
 						<td>
-						<code>dict['du']</code>
+						<code>dict['anata']</code>
 						</td>
 						<td>
 							returns
@@ -1181,13 +1181,13 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 					</tr>
 					<tr>
 						<td>
-						<code>dict['vi']</code>
+						<code>dict['kare']</code>
 						</td>
 						<td>
 							returns
 						</td>
 						<td>
-							<code>'we'</code>
+							<code>'he'</code>
 						</td>
 					</tr>
 					</table>
@@ -1203,9 +1203,9 @@ dict = {'jeg':'I', 'du':'you', 'vi':'we'}
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 <mark>dict = {}</mark>
-dict['jeg'] = 'I'
-dict['du'] = 'you'
-dict['vi'] = 'we'
+dict['watashi'] = 'I'
+dict['anata'] = 'you'
+dict['kare'] = 'he'
 						</code>
 					</pre>
 					<p>
@@ -1223,13 +1223,13 @@ dict['vi'] = 'we'
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 dict = {}
-<mark>dict['jeg'] = 'I'</mark>
-dict['du'] = 'you'
-dict['vi'] = 'we'
+<mark>dict['watashi'] = 'I'</mark>
+dict['anata'] = 'you'
+dict['kare'] = 'he'
 						</code>
 					</pre>
 					<p>
-						Assign key 'jeg' to value 'I'
+						Assign key 'watashi' to value 'I'
 					</p>
 				</section>
 
@@ -1243,9 +1243,9 @@ dict['vi'] = 'we'
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 dict = {}
-dict['jeg'] = 'I'
-dict['du'] = 'you'
-dict['vi'] = 'we'
+dict['watashi'] = 'I'
+dict['anata'] = 'you'
+dict['kare'] = 'he'
 						</code>
 					</pre>
 					<p>
@@ -1263,11 +1263,11 @@ dict['vi'] = 'we'
 					<pre style="font-size:1em;">
 						<code data-trim data-noescape>
 dict = {}
-dict['jeg'] = 'I'
-dict['du'] = 'you'
-dict['vi'] = 'we'
-dict['norsk'] = 'Norwegian'
-dict['engelsk'] = 'English'
+dict['watashi'] = 'I'
+dict['anata'] = 'you'
+dict['kare'] = 'he'
+dict['nihongo'] = 'Japanese'
+dict['eigo'] = 'English'
 						</code>
 					</pre>
 					<p>
